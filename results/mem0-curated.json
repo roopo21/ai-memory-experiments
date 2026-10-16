@@ -1,0 +1,189 @@
+{
+  "summary": {
+    "arm": "mem0 curated (infer=False + expiry + explicit supersede)",
+    "recall": "8/9",
+    "poisoned": 2,
+    "poisonable": 6,
+    "stale_outranks": 0,
+    "stored": 14,
+    "search_p50_ms": 518.4
+  },
+  "probes": [
+    {
+      "probe": "P1",
+      "kind": "supersession",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Orca uses AssemblyAI for speech-to-text.",
+        "Orca's ASR falls back to Whisper for offline mode.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca uses LiveKit for transport.",
+        "Orca uses Cartesia for text-to-speech.",
+        "Orca uses LiveKit only as the WebRTC transport layer."
+      ]
+    },
+    {
+      "probe": "P2",
+      "kind": "role-change",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Shreya leads backend engineering on Orca.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca is a voice AI agent for field sales teams.",
+        "Orca uses Claude Opus for codegen and agent work.",
+        "Orca uses Pipecat for agent orchestration.",
+        "Orca uses LiveKit for transport."
+      ]
+    },
+    {
+      "probe": "P3",
+      "kind": "partial-update",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Orca uses LiveKit for transport.",
+        "Orca uses LiveKit only as the WebRTC transport layer.",
+        "Orca is a voice AI agent for field sales teams.",
+        "Orca uses Pipecat for agent orchestration.",
+        "Orca uses AssemblyAI for speech-to-text.",
+        "Shreya built Orca's offline Whisper ASR fallback."
+      ]
+    },
+    {
+      "probe": "P4",
+      "kind": "multi-hop",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca's ASR falls back to Whisper for offline mode.",
+        "Orca uses AssemblyAI for speech-to-text.",
+        "Shreya leads backend engineering on Orca.",
+        "Orca uses Claude Opus for codegen and agent work.",
+        "Orca uses Pipecat for agent orchestration."
+      ]
+    },
+    {
+      "probe": "P5",
+      "kind": "entity-chain",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": null,
+      "outranked": false,
+      "hits": [
+        "Roopo is training for Ironman 70.3 Goa in November 2026.",
+        "Roopo's triathlon coach is Nikhil.",
+        "Roopo trains 12 hours a week.",
+        "Shreya leads backend engineering on Orca.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca is a voice AI agent for field sales teams."
+      ]
+    },
+    {
+      "probe": "P6",
+      "kind": "point-in-time",
+      "recall": false,
+      "n_hits": 10,
+      "stale_ranks": [
+        1
+      ],
+      "answer_rank": null,
+      "outranked": false,
+      "hits": [
+        "Roopo trains 12 hours a week.",
+        "Roopo is training for Ironman 70.3 Goa in November 2026.",
+        "Roopo's triathlon coach is Nikhil.",
+        "Shreya leads backend engineering on Orca.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca is a voice AI agent for field sales teams."
+      ]
+    },
+    {
+      "probe": "P7",
+      "kind": "current-after-revert",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Roopo trains 12 hours a week.",
+        "Roopo is training for Ironman 70.3 Goa in November 2026.",
+        "Roopo's triathlon coach is Nikhil.",
+        "Shreya leads backend engineering on Orca.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca is a voice AI agent for field sales teams."
+      ]
+    },
+    {
+      "probe": "P8",
+      "kind": "preference",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Orca uses Claude Opus for codegen and agent work.",
+        "Shreya leads backend engineering on Orca.",
+        "Orca uses Pipecat for agent orchestration.",
+        "Orca uses LiveKit for transport.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca uses LiveKit only as the WebRTC transport layer."
+      ]
+    },
+    {
+      "probe": "P9",
+      "kind": "cold-negative",
+      "recall": null,
+      "n_hits": 10,
+      "stale_ranks": [],
+      "answer_rank": null,
+      "outranked": false,
+      "hits": [
+        "Orca stores all data in Supabase Postgres.",
+        "Orca uses LiveKit for transport.",
+        "Orca uses LiveKit only as the WebRTC transport layer.",
+        "Orca uses Cartesia for text-to-speech.",
+        "Orca uses Claude Opus for codegen and agent work.",
+        "Orca uses Pipecat for agent orchestration."
+      ]
+    },
+    {
+      "probe": "P10",
+      "kind": "cross-domain-precision",
+      "recall": true,
+      "n_hits": 10,
+      "stale_ranks": [
+        7,
+        8,
+        10
+      ],
+      "answer_rank": 1,
+      "outranked": false,
+      "hits": [
+        "Roopo trains 12 hours a week.",
+        "Roopo is training for Ironman 70.3 Goa in November 2026.",
+        "Roopo's triathlon coach is Nikhil.",
+        "Shreya leads backend engineering on Orca.",
+        "Shreya built Orca's offline Whisper ASR fallback.",
+        "Orca is a voice AI agent for field sales teams."
+      ]
+    }
+  ]
+}

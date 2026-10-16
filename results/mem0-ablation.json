@@ -1,0 +1,560 @@
+{
+  "baseline": {
+    "recall": "9/9",
+    "poisoned": 6,
+    "stale_outranks": 4,
+    "detail": [
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          2
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P1",
+        "kind": "supersession"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          10
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P2",
+        "kind": "role-change"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P3",
+        "kind": "partial-update"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P4",
+        "kind": "multi-hop"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 3,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P5",
+        "kind": "entity-chain"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2,
+          4
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P6",
+        "kind": "point-in-time"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P7",
+        "kind": "current-after-revert"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 3,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P8",
+        "kind": "preference"
+      },
+      {
+        "recall": null,
+        "stale_ranks": [],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P9",
+        "kind": "cold-negative"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          7,
+          10
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P10",
+        "kind": "cross-domain-precision"
+      }
+    ]
+  },
+  "latest_only": {
+    "recall": "8/9",
+    "poisoned": 5,
+    "stale_outranks": 2,
+    "detail": [
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          2
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P1",
+        "kind": "supersession"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          9
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P2",
+        "kind": "role-change"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P3",
+        "kind": "partial-update"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P4",
+        "kind": "multi-hop"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 2,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P5",
+        "kind": "entity-chain"
+      },
+      {
+        "recall": false,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P6",
+        "kind": "point-in-time"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P7",
+        "kind": "current-after-revert"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 3,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P8",
+        "kind": "preference"
+      },
+      {
+        "recall": null,
+        "stale_ranks": [],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P9",
+        "kind": "cold-negative"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          5,
+          8,
+          9
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P10",
+        "kind": "cross-domain-precision"
+      }
+    ]
+  },
+  "rerank": {
+    "recall": "9/9",
+    "poisoned": 6,
+    "stale_outranks": 1,
+    "detail": [
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          2
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P1",
+        "kind": "supersession"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2,
+          6
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P2",
+        "kind": "role-change"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P3",
+        "kind": "partial-update"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P4",
+        "kind": "multi-hop"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 2,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P5",
+        "kind": "entity-chain"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2,
+          3
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P6",
+        "kind": "point-in-time"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P7",
+        "kind": "current-after-revert"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P8",
+        "kind": "preference"
+      },
+      {
+        "recall": null,
+        "stale_ranks": [],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P9",
+        "kind": "cold-negative"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          6,
+          9
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P10",
+        "kind": "cross-domain-precision"
+      }
+    ]
+  },
+  "latest_only+rerank": {
+    "recall": "8/9",
+    "poisoned": 5,
+    "stale_outranks": 0,
+    "detail": [
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          2
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P1",
+        "kind": "supersession"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          5
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P2",
+        "kind": "role-change"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P3",
+        "kind": "partial-update"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P4",
+        "kind": "multi-hop"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 2,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P5",
+        "kind": "entity-chain"
+      },
+      {
+        "recall": false,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P6",
+        "kind": "point-in-time"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P7",
+        "kind": "current-after-revert"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P8",
+        "kind": "preference"
+      },
+      {
+        "recall": null,
+        "stale_ranks": [],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P9",
+        "kind": "cold-negative"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          4,
+          7
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P10",
+        "kind": "cross-domain-precision"
+      }
+    ]
+  },
+  "keyword_search": {
+    "recall": "9/9",
+    "poisoned": 6,
+    "stale_outranks": 4,
+    "detail": [
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          2
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P1",
+        "kind": "supersession"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1,
+          10
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P2",
+        "kind": "role-change"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P3",
+        "kind": "partial-update"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P4",
+        "kind": "multi-hop"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [],
+        "answer_rank": 3,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P5",
+        "kind": "entity-chain"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          2,
+          4
+        ],
+        "answer_rank": 1,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P6",
+        "kind": "point-in-time"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P7",
+        "kind": "current-after-revert"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          1
+        ],
+        "answer_rank": 3,
+        "stale_outranks_answer": true,
+        "n": 10,
+        "probe": "P8",
+        "kind": "preference"
+      },
+      {
+        "recall": null,
+        "stale_ranks": [],
+        "answer_rank": null,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P9",
+        "kind": "cold-negative"
+      },
+      {
+        "recall": true,
+        "stale_ranks": [
+          7,
+          10
+        ],
+        "answer_rank": 2,
+        "stale_outranks_answer": false,
+        "n": 10,
+        "probe": "P10",
+        "kind": "cross-domain-precision"
+      }
+    ]
+  }
+}

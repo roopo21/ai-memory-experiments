@@ -1,0 +1,111 @@
+[
+  {
+    "provider": "mem0",
+    "label": "memlab_run2",
+    "capabilities": {
+      "backdated_writes": true,
+      "explicit_expiry": true,
+      "point_in_time_search": true,
+      "latest_only": true,
+      "graph_edges_readable": false,
+      "per_memory_history": true
+    },
+    "mean_recall": 1.0,
+    "perfect_probes": 9,
+    "measured_probes": 9,
+    "poisoned_probes": 6,
+    "poisonable_probes": 6,
+    "search_p50_ms": 512.8,
+    "search_max_ms": 527.1,
+    "write_p50_ms": 408.1,
+    "settle": {
+      "waited_s": 107.8,
+      "stored": 18,
+      "canary_retrievable": true,
+      "count_trace": [
+        0,
+        2,
+        4,
+        4,
+        5,
+        8,
+        9,
+        9,
+        11,
+        11,
+        13,
+        15,
+        17,
+        18,
+        18,
+        18,
+        18
+      ]
+    }
+  },
+  {
+    "provider": "supermemory-dynamic",
+    "label": "memlab_sm_dynamic",
+    "capabilities": {
+      "backdated_writes": true,
+      "explicit_expiry": false,
+      "point_in_time_search": false,
+      "latest_only": true,
+      "graph_edges_readable": true,
+      "per_memory_history": true
+    },
+    "mean_recall": 0.889,
+    "perfect_probes": 8,
+    "measured_probes": 9,
+    "poisoned_probes": 3,
+    "poisonable_probes": 6,
+    "stale_outranks_answer": 0,
+    "search_p50_ms": 596.5,
+    "search_max_ms": 2878.9,
+    "write_p50_ms": null,
+    "settle": {
+      "waited_s": 732,
+      "note": "measured separately by watch_dynamic"
+    }
+  },
+  {
+    "provider": "supermemory-instant",
+    "label": "memlab_sm_instant",
+    "capabilities": {
+      "backdated_writes": true,
+      "explicit_expiry": false,
+      "point_in_time_search": false,
+      "latest_only": true,
+      "graph_edges_readable": true,
+      "per_memory_history": true
+    },
+    "mean_recall": 1.0,
+    "perfect_probes": 9,
+    "measured_probes": 9,
+    "poisoned_probes": 6,
+    "poisonable_probes": 6,
+    "search_p50_ms": 572.8,
+    "search_max_ms": 3093.4,
+    "write_p50_ms": 836.5,
+    "settle": {
+      "waited_s": 115.9,
+      "stored": 22,
+      "canary_retrievable": true,
+      "count_trace": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        9,
+        15,
+        20,
+        20,
+        22,
+        22,
+        22,
+        22
+      ]
+    }
+  }
+]

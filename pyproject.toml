@@ -1,0 +1,13 @@
+[project]
+name = "memlab"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mem0ai>=2.2.1",
+    "python-dotenv>=1.2.4",
+    "rich>=15.0.0",
+    "supermemory>=5.0.0",
+]

@@ -1,0 +1,136 @@
+{
+  "namespace": "memlab_sm_dynamic",
+  "first_memory_s": 732,
+  "first_edge_s": 732,
+  "trace": [
+    {
+      "t_s": 0,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 61,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 122,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 183,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 244,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 305,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 365,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 426,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 487,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 548,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 610,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 671,
+      "memories": 0,
+      "edges": 0,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": []
+    },
+    {
+      "t_s": 732,
+      "memories": 18,
+      "edges": 7,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": [
+        "extends",
+        "updates"
+      ]
+    },
+    {
+      "t_s": 793,
+      "memories": 18,
+      "edges": 7,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": [
+        "extends",
+        "updates"
+      ]
+    },
+    {
+      "t_s": 854,
+      "memories": 18,
+      "edges": 7,
+      "is_latest_false": 0,
+      "inferences": 0,
+      "relations": [
+        "extends",
+        "updates"
+      ]
+    }
+  ]
+}

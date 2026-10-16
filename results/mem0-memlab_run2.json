@@ -1,0 +1,2577 @@
+{
+  "run_at": "2026-10-16T06:52:17.512404+00:00",
+  "summary": {
+    "provider": "mem0",
+    "label": "memlab_run2",
+    "capabilities": {
+      "backdated_writes": true,
+      "explicit_expiry": true,
+      "point_in_time_search": true,
+      "latest_only": true,
+      "graph_edges_readable": false,
+      "per_memory_history": true
+    },
+    "mean_recall": 1.0,
+    "perfect_probes": 9,
+    "measured_probes": 9,
+    "poisoned_probes": 6,
+    "poisonable_probes": 6,
+    "search_p50_ms": 512.8,
+    "search_max_ms": 527.1,
+    "write_p50_ms": 408.1,
+    "settle": {
+      "waited_s": 107.8,
+      "stored": 18,
+      "canary_retrievable": true,
+      "count_trace": [
+        0,
+        2,
+        4,
+        4,
+        5,
+        8,
+        9,
+        9,
+        11,
+        11,
+        13,
+        15,
+        17,
+        18,
+        18,
+        18,
+        18
+      ]
+    }
+  },
+  "writes": [
+    {
+      "event": "E01",
+      "latency_ms": 515.1586659485474
+    },
+    {
+      "event": "E02",
+      "latency_ms": 409.9927500355989
+    },
+    {
+      "event": "E03",
+      "latency_ms": 396.65925002191216
+    },
+    {
+      "event": "E04",
+      "latency_ms": 434.4039170537144
+    },
+    {
+      "event": "E05",
+      "latency_ms": 391.690207994543
+    },
+    {
+      "event": "E06",
+      "latency_ms": 466.8062499258667
+    },
+    {
+      "event": "E07",
+      "latency_ms": 406.17137495428324
+    },
+    {
+      "event": "E08",
+      "latency_ms": 400.8754170499742
+    },
+    {
+      "event": "E09",
+      "latency_ms": 437.48179194517434
+    },
+    {
+      "event": "E10",
+      "latency_ms": 399.2467919597402
+    }
+  ],
+  "probes": [
+    {
+      "probe": "P1",
+      "kind": "supersession",
+      "query": "What speech-to-text provider does Orca use?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 2,
+      "poisoned": true,
+      "stale_terms": [
+        "deepgram"
+      ],
+      "stale_ranks": [
+        1,
+        2
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.5267,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.8005,
+              "bm25": 0.5161,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.4171,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.8098,
+              "bm25": 0.233,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.3247,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.7661,
+              "bm25": 0.0455,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2894,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.704,
+              "bm25": 0.0196,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.2845,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.6921,
+              "bm25": 0.0192,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User is dropping GPT-4 class models from the Orca technology stack",
+          "score": 0.277,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.6722,
+              "bm25": 0.0203,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.2653,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.6418,
+              "bm25": 0.0214,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.2536,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.5866,
+              "bm25": 0.0475,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.2509,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.606,
+              "bm25": 0.0214,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.228,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.5493,
+              "bm25": 0.0206,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 436.9
+    },
+    {
+      "probe": "P2",
+      "kind": "role-change",
+      "query": "Who leads backend engineering on Orca?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 2,
+      "poisoned": true,
+      "stale_terms": [
+        "pavan"
+      ],
+      "stale_ranks": [
+        1,
+        10
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.56,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.7522,
+              "bm25": 0.6478,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.4294,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.7607,
+              "bm25": 0.3129,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.241,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.5812,
+              "bm25": 0.0214,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2345,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5666,
+              "bm25": 0.0196,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.2218,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.536,
+              "bm25": 0.0184,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.2199,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.5307,
+              "bm25": 0.0192,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.2106,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.5079,
+              "bm25": 0.0187,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.202,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.4859,
+              "bm25": 0.0192,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.2006,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.4821,
+              "bm25": 0.0194,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "Pavan has left Orca",
+          "score": 0.198,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.4726,
+              "bm25": 0.0223,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 527.1
+    },
+    {
+      "probe": "P3",
+      "kind": "partial-update",
+      "query": "What do we use LiveKit for on Orca?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 1,
+      "poisoned": false,
+      "stale_terms": [],
+      "stale_ranks": [],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.4393,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.7081,
+              "bm25": 0.3901,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.4307,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.7198,
+              "bm25": 0.357,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.2393,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.5535,
+              "bm25": 0.0447,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.2315,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.5411,
+              "bm25": 0.0377,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.2238,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.5148,
+              "bm25": 0.0447,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.2222,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.5159,
+              "bm25": 0.0395,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2161,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.4997,
+              "bm25": 0.0404,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.2153,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.4987,
+              "bm25": 0.0395,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "User is dropping GPT-4 class models from the Orca technology stack",
+          "score": 0.2103,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.4835,
+              "bm25": 0.0422,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.1948,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.4441,
+              "bm25": 0.043,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 413.8
+    },
+    {
+      "probe": "P4",
+      "kind": "multi-hop",
+      "query": "Who built Orca's offline ASR fallback, and what does it use?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true,
+        true
+      ],
+      "rank_of_answer": 1,
+      "poisoned": false,
+      "stale_terms": [],
+      "stale_ranks": [],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.6883,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.8404,
+              "bm25": 0.8802,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.2976,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.7257,
+              "bm25": 0.0184,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.278,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.6385,
+              "bm25": 0.0565,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is dropping GPT-4 class models from the Orca technology stack",
+          "score": 0.2476,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5986,
+              "bm25": 0.0203,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2433,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5886,
+              "bm25": 0.0196,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.2348,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.5679,
+              "bm25": 0.0192,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.2321,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.5327,
+              "bm25": 0.0475,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.2274,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.5471,
+              "bm25": 0.0214,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.2267,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.5454,
+              "bm25": 0.0214,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.2138,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.5137,
+              "bm25": 0.0206,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 469.5
+    },
+    {
+      "probe": "P5",
+      "kind": "entity-chain",
+      "query": "Who is my triathlon coach and what race am I training for?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true,
+        true
+      ],
+      "rank_of_answer": 3,
+      "poisoned": false,
+      "stale_terms": [],
+      "stale_ranks": [],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User will resume 12 hours per week of triathlon training starting September 2026",
+          "score": 0.2895,
+          "created_at": "2026-08-25T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:41.592660+00:00",
+            "score_breakdown": {
+              "semantic": 0.6263,
+              "bm25": 0.0975,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User reduced triathlon training to 6 hours per week, effective until the end of August 2026",
+          "score": 0.2822,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:36.603288+00:00",
+            "score_breakdown": {
+              "semantic": 0.6079,
+              "bm25": 0.0975,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User's Ironman coach is named Nikhil",
+          "score": 0.2936,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.6427,
+              "bm25": 0.0912,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is training for the Ironman 70.3 Goa event scheduled for November 2026",
+          "score": 0.3035,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.6092,
+              "bm25": 0.1496,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User is currently in the base phase of Ironman training, completing about 12 hours of workouts per week",
+          "score": 0.1948,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:25.683717+00:00",
+            "score_breakdown": {
+              "semantic": 0.4552,
+              "bm25": 0.0319,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.125,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.3125,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.1147,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.2868,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.1201,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3003,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.0979,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.2447,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.1019,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.2548,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 421.8
+    },
+    {
+      "probe": "P6",
+      "kind": "point-in-time",
+      "query": "How many hours a week was I training in July 2026?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 1,
+      "poisoned": true,
+      "stale_terms": [
+        "\\b12\\b|twelve"
+      ],
+      "stale_ranks": [
+        2,
+        4
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User reduced triathlon training to 6 hours per week, effective until the end of August 2026",
+          "score": 0.4302,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:36.603288+00:00",
+            "score_breakdown": {
+              "semantic": 0.6612,
+              "bm25": 0.3468,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User will resume 12 hours per week of triathlon training starting September 2026",
+          "score": 0.4274,
+          "created_at": "2026-08-25T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:41.592660+00:00",
+            "score_breakdown": {
+              "semantic": 0.6557,
+              "bm25": 0.3468,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User is training for the Ironman 70.3 Goa event scheduled for November 2026",
+          "score": 0.3577,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.5766,
+              "bm25": 0.3002,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is currently in the base phase of Ironman training, completing about 12 hours of workouts per week",
+          "score": 0.3214,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:25.683717+00:00",
+            "score_breakdown": {
+              "semantic": 0.5993,
+              "bm25": 0.1738,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User's Ironman coach is named Nikhil",
+          "score": 0.1827,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.4568,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.1647,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.377,
+              "bm25": 0.0311,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.1315,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.3287,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User says the fundraise is eating everything, indicating it is consuming all of their resources and time",
+          "score": 0.13,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "misc"
+            ],
+            "updated_at": "2026-10-16T06:51:30.889116+00:00",
+            "score_breakdown": {
+              "semantic": 0.3249,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.1074,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.2684,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.107,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.2676,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 503.2
+    },
+    {
+      "probe": "P7",
+      "kind": "current-after-revert",
+      "query": "How many hours a week am I training now?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 2,
+      "poisoned": true,
+      "stale_terms": [
+        "\\b6\\b|six"
+      ],
+      "stale_ranks": [
+        1
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User reduced triathlon training to 6 hours per week, effective until the end of August 2026",
+          "score": 0.3826,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:36.603288+00:00",
+            "score_breakdown": {
+              "semantic": 0.6849,
+              "bm25": 0.1895,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User is currently in the base phase of Ironman training, completing about 12 hours of workouts per week",
+          "score": 0.3671,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:25.683717+00:00",
+            "score_breakdown": {
+              "semantic": 0.7147,
+              "bm25": 0.1738,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User will resume 12 hours per week of triathlon training starting September 2026",
+          "score": 0.3453,
+          "created_at": "2026-08-25T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:41.592660+00:00",
+            "score_breakdown": {
+              "semantic": 0.6739,
+              "bm25": 0.1895,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is training for the Ironman 70.3 Goa event scheduled for November 2026",
+          "score": 0.2857,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.5646,
+              "bm25": 0.1496,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User's Ironman coach is named Nikhil",
+          "score": 0.2029,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.5072,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User says the fundraise is eating everything, indicating it is consuming all of their resources and time",
+          "score": 0.1508,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "misc"
+            ],
+            "updated_at": "2026-10-16T06:51:30.889116+00:00",
+            "score_breakdown": {
+              "semantic": 0.3771,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.1414,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3353,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.1409,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.3522,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.1297,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.3243,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.1245,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3113,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 522.9
+    },
+    {
+      "probe": "P8",
+      "kind": "preference",
+      "query": "Which LLM should I use for codegen?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 3,
+      "poisoned": true,
+      "stale_terms": [
+        "gpt"
+      ],
+      "stale_ranks": [
+        1
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User is dropping GPT-4 class models from the Orca technology stack",
+          "score": 0.2185,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5462,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.2241,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.461,
+              "bm25": 0.0994,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2314,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5785,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.1942,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.4855,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.1845,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.4613,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.1456,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3641,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.1544,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.3012,
+              "bm25": 0.0849,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.1418,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.3545,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.1291,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.3228,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.1388,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.347,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 525.5
+    },
+    {
+      "probe": "P9",
+      "kind": "cold-negative",
+      "query": "Which CRM does Orca integrate with?",
+      "n_hits": 10,
+      "recall": null,
+      "groups_hit": [],
+      "rank_of_answer": null,
+      "poisoned": false,
+      "stale_terms": [],
+      "stale_ranks": [],
+      "cold_noise": 10,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "All Orca data lives in Supabase Postgres",
+          "score": 0.284,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:38.796886+00:00",
+            "score_breakdown": {
+              "semantic": 0.6654,
+              "bm25": 0.0447,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+          "score": 0.2631,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.6173,
+              "bm25": 0.0404,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.2558,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.5947,
+              "bm25": 0.0447,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is dropping GPT-4 class models from the Orca technology stack",
+          "score": 0.2527,
+          "created_at": "2026-09-12T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:47.753904+00:00",
+            "score_breakdown": {
+              "semantic": 0.5896,
+              "bm25": 0.0422,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.2464,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.5783,
+              "bm25": 0.0377,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.2393,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.5582,
+              "bm25": 0.04,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+          "score": 0.2391,
+          "created_at": "2026-05-30T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:06.293410+00:00",
+            "score_breakdown": {
+              "semantic": 0.5594,
+              "bm25": 0.0383,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "Pavan is leading backend engineering for the Orca project",
+          "score": 0.2374,
+          "created_at": "2026-02-02T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:14.602377+00:00",
+            "score_breakdown": {
+              "semantic": 0.5505,
+              "bm25": 0.043,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.2343,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.5461,
+              "bm25": 0.0395,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+          "score": 0.2297,
+          "created_at": "2026-10-05T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:55.061036+00:00",
+            "score_breakdown": {
+              "semantic": 0.5348,
+              "bm25": 0.0395,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 526.7
+    },
+    {
+      "probe": "P10",
+      "kind": "cross-domain-precision",
+      "query": "What is my current training volume?",
+      "n_hits": 10,
+      "recall": 1.0,
+      "groups_hit": [
+        true
+      ],
+      "rank_of_answer": 2,
+      "poisoned": true,
+      "stale_terms": [
+        "deepgram|assembly|pipecat|supabase|livekit"
+      ],
+      "stale_ranks": [
+        7,
+        10
+      ],
+      "cold_noise": null,
+      "hits": [
+        {
+          "rank": 1,
+          "text": "User reduced triathlon training to 6 hours per week, effective until the end of August 2026",
+          "score": 0.3023,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:36.603288+00:00",
+            "score_breakdown": {
+              "semantic": 0.5901,
+              "bm25": 0.0729,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 2,
+          "text": "User is currently in the base phase of Ironman training, completing about 12 hours of workouts per week",
+          "score": 0.2857,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:25.683717+00:00",
+            "score_breakdown": {
+              "semantic": 0.6108,
+              "bm25": 0.0704,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 3,
+          "text": "User will resume 12 hours per week of triathlon training starting September 2026",
+          "score": 0.2631,
+          "created_at": "2026-08-25T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:51:41.592660+00:00",
+            "score_breakdown": {
+              "semantic": 0.5848,
+              "bm25": 0.0729,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 4,
+          "text": "User is training for the Ironman 70.3 Goa event scheduled for November 2026",
+          "score": 0.2371,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "health",
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.514,
+              "bm25": 0.0787,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 5,
+          "text": "User's Ironman coach is named Nikhil",
+          "score": 0.179,
+          "created_at": "2026-04-20T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "sports"
+            ],
+            "updated_at": "2026-10-16T06:50:59.043381+00:00",
+            "score_breakdown": {
+              "semantic": 0.4475,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 6,
+          "text": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+          "score": 0.1598,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3817,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 7,
+          "text": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+          "score": 0.1526,
+          "created_at": "2026-03-15T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:49.683856+00:00",
+            "score_breakdown": {
+              "semantic": 0.3815,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 8,
+          "text": "User says the fundraise is eating everything, indicating it is consuming all of their resources and time",
+          "score": 0.1507,
+          "created_at": "2026-07-07T12:00:00+00:00",
+          "extras": {
+            "expiration_date": "2026-08-31",
+            "categories": [
+              "misc"
+            ],
+            "updated_at": "2026-10-16T06:51:30.889116+00:00",
+            "score_breakdown": {
+              "semantic": 0.3767,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 9,
+          "text": "Shreya has taken over as backend lead for Orca",
+          "score": 0.141,
+          "created_at": "2026-06-18T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "milestones",
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:51:17.293777+00:00",
+            "score_breakdown": {
+              "semantic": 0.3526,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        },
+        {
+          "rank": 10,
+          "text": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+          "score": 0.1356,
+          "created_at": "2026-01-10T12:00:00+00:00",
+          "extras": {
+            "categories": [
+              "professional_details",
+              "technology"
+            ],
+            "updated_at": "2026-10-16T06:50:33.257186+00:00",
+            "score_breakdown": {
+              "semantic": 0.3391,
+              "bm25": 0.0,
+              "entity": 0.0
+            }
+          }
+        }
+      ],
+      "latency_ms": 522.5
+    }
+  ],
+  "stored_memories": [
+    {
+      "id": "7bcc24f9-0b08-4c9a-8a16-a9544019d2ee",
+      "memory": "Orca's automatic speech recognition (ASR) is now AssemblyAI with a Whisper fallback for offline mode, and Shreya built the fallback",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-10-05T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:52-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 10,
+        "day": 5,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 41,
+        "day_of_year": 278,
+        "quarter": 4,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "9f1224be-9a56-4199-b885-d3da66d56cf9",
+      "memory": "User is dropping GPT-4 class models from the Orca technology stack",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-09-12T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:44-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 9,
+        "day": 12,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "saturday",
+        "week_of_year": 37,
+        "day_of_year": 255,
+        "quarter": 3,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "f38621aa-cbdf-4b78-887c-ce9e1d7502a3",
+      "memory": "User is standardising on Claude Opus for all code generation and agent work in the Orca project",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-09-12T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:43-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 9,
+        "day": 12,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "saturday",
+        "week_of_year": 37,
+        "day_of_year": 255,
+        "quarter": 3,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "2417a71b-b5ac-4fa2-a1e5-27ebb5def63d",
+      "memory": "User's seed round fundraising has closed",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "milestones",
+        "professional_details"
+      ],
+      "created_at": "2026-08-25T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:36-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 8,
+        "day": 25,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "tuesday",
+        "week_of_year": 35,
+        "day_of_year": 237,
+        "quarter": 3,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "d70ad0b4-ea4d-4c0f-b0f8-599f287b2f9a",
+      "memory": "User will resume 12 hours per week of triathlon training starting September 2026",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "health",
+        "sports"
+      ],
+      "created_at": "2026-08-25T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:36-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 8,
+        "day": 25,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "tuesday",
+        "week_of_year": 35,
+        "day_of_year": 237,
+        "quarter": 3,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "6fe8f6d1-7aca-4126-9e74-edba0118aa97",
+      "memory": "User says the fundraise is eating everything, indicating it is consuming all of their resources and time",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "misc"
+      ],
+      "created_at": "2026-07-07T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:25-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 7,
+        "day": 7,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "tuesday",
+        "week_of_year": 28,
+        "day_of_year": 188,
+        "quarter": 3,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "77d8a37f-fa5e-413a-bf24-a1eb1924a981",
+      "memory": "User reduced triathlon training to 6 hours per week, effective until the end of August 2026",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "health",
+        "sports"
+      ],
+      "created_at": "2026-07-07T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:25-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 7,
+        "day": 7,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "tuesday",
+        "week_of_year": 28,
+        "day_of_year": 188,
+        "quarter": 3,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "0612d654-95ad-49d5-a2ff-b98558f12dfa",
+      "memory": "Pavan has left Orca",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details"
+      ],
+      "created_at": "2026-06-18T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:14-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 6,
+        "day": 18,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "thursday",
+        "week_of_year": 25,
+        "day_of_year": 169,
+        "quarter": 2,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "9e63256b-69b2-41bc-9f11-fac6b34d89fa",
+      "memory": "Shreya has taken over as backend lead for Orca",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "milestones",
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-06-18T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:14-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 6,
+        "day": 18,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "thursday",
+        "week_of_year": 25,
+        "day_of_year": 169,
+        "quarter": 2,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "e085eb63-1544-432a-8271-9408c3e58ca4",
+      "memory": "User moved Orca's agent orchestration from LiveKit Agents to Pipecat, while continuing to use LiveKit solely as the WebRTC transport layer",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-05-30T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:51:03-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 5,
+        "day": 30,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "saturday",
+        "week_of_year": 22,
+        "day_of_year": 150,
+        "quarter": 2,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "a05e6c06-9411-4bb1-bf60-c081330a3247",
+      "memory": "User is training for the Ironman 70.3 Goa event scheduled for November 2026",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "health",
+        "sports"
+      ],
+      "created_at": "2026-04-20T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:50:53-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 4,
+        "day": 20,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 17,
+        "day_of_year": 110,
+        "quarter": 2,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "ca1a77a0-1aa8-4b1f-9869-2149e33b74ac",
+      "memory": "User is currently in the base phase of Ironman training, completing about 12 hours of workouts per week",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "health",
+        "sports"
+      ],
+      "created_at": "2026-04-20T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:50:54-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 4,
+        "day": 20,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 17,
+        "day_of_year": 110,
+        "quarter": 2,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "ceb2c066-802a-4f25-ad93-dd503759f23a",
+      "memory": "User's Ironman coach is named Nikhil",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "sports"
+      ],
+      "created_at": "2026-04-20T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:50:54-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 4,
+        "day": 20,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 17,
+        "day_of_year": 110,
+        "quarter": 2,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "aff5d6cc-2d88-4e80-a246-3568c4c3510e",
+      "memory": "User swapped Orca's speech-to-text provider from Deepgram to AssemblyAI because Deepgram's word error rate on Indian English accents was unacceptable for field reps",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "technology"
+      ],
+      "created_at": "2026-03-15T05:00:00-07:00",
+      "updated_at": "2026-10-15T23:50:47-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 3,
+        "day": 15,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "sunday",
+        "week_of_year": 11,
+        "day_of_year": 74,
+        "quarter": 1,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "df459738-9c8d-4a2f-993a-810fdfa342b9",
+      "memory": "All Orca data lives in Supabase Postgres",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "technology"
+      ],
+      "created_at": "2026-02-02T04:00:00-08:00",
+      "updated_at": "2026-10-15T23:50:37-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 2,
+        "day": 2,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 6,
+        "day_of_year": 33,
+        "quarter": 1,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "f5708bdd-e5ec-48b8-b417-443b0ceddcad",
+      "memory": "Pavan is leading backend engineering for the Orca project",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-02-02T04:00:00-08:00",
+      "updated_at": "2026-10-15T23:50:37-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 2,
+        "day": 2,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "monday",
+        "week_of_year": 6,
+        "day_of_year": 33,
+        "quarter": 1,
+        "is_weekend": false
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "befe6314-691c-4dbe-8649-f04f494464f1",
+      "memory": "User started the Orca voice AI agent project for field sales teams around January 10, 2026",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-01-10T04:00:00-08:00",
+      "updated_at": "2026-10-15T23:50:30-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 1,
+        "day": 10,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "saturday",
+        "week_of_year": 2,
+        "day_of_year": 10,
+        "quarter": 1,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    },
+    {
+      "id": "d81f3175-86e9-48d0-804e-7b55151822fb",
+      "memory": "User's Orca project uses LiveKit for transport, Deepgram for speech-to-text, and Cartesia for text-to-speech",
+      "user_id": "memlab_run2",
+      "metadata": null,
+      "categories": [
+        "professional_details",
+        "technology"
+      ],
+      "created_at": "2026-01-10T04:00:00-08:00",
+      "updated_at": "2026-10-15T23:50:30-07:00",
+      "expiration_date": null,
+      "structured_attributes": {
+        "year": 2026,
+        "month": 1,
+        "day": 10,
+        "hour": 12,
+        "minute": 0,
+        "day_of_week": "saturday",
+        "week_of_year": 2,
+        "day_of_year": 10,
+        "quarter": 1,
+        "is_weekend": true
+      },
+      "replaced_by": null,
+      "synthesized": false
+    }
+  ]
+}
