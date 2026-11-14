@@ -1,0 +1,1157 @@
+[
+  {
+    "id": "FMA10014",
+    "name": "ninth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA10037",
+    "name": "tenth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA10059",
+    "name": "eleventh thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA10081",
+    "name": "twelfth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12519",
+    "name": "atlas",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12520",
+    "name": "axis",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12521",
+    "name": "third cervical vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12522",
+    "name": "fourth cervical vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12523",
+    "name": "fifth cervical vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12524",
+    "name": "sixth cervical vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA12525",
+    "name": "seventh cervical vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13072",
+    "name": "first lumbar vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13073",
+    "name": "second lumbar vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13074",
+    "name": "third lumbar vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13075",
+    "name": "fourth lumbar vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13076",
+    "name": "fifth lumbar vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13322",
+    "name": "right clavicle",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13323",
+    "name": "left clavicle",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13395",
+    "name": "right scapula",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA13396",
+    "name": "left scapula",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA16202",
+    "name": "sacrum",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA16586",
+    "name": "right hip bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA16587",
+    "name": "left hip bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA230986",
+    "name": "middle phalanx of right little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA230988",
+    "name": "middle phalanx of left little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23130",
+    "name": "right humerus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23131",
+    "name": "left humerus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23464",
+    "name": "right radius",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23465",
+    "name": "left radius",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23467",
+    "name": "right ulna",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23468",
+    "name": "left ulna",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23725",
+    "name": "right trapezoid",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23938",
+    "name": "middle phalanx of left index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23940",
+    "name": "middle phalanx of left middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23942",
+    "name": "middle phalanx of left ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23944",
+    "name": "middle phalanx of left little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23951",
+    "name": "distal phalanx of left thumb",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23953",
+    "name": "distal phalanx of left index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23955",
+    "name": "distal phalanx of left middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23957",
+    "name": "distal phalanx of left ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA23959",
+    "name": "distal phalanx of left little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24435",
+    "name": "right scaphoid",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24436",
+    "name": "left scaphoid",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24437",
+    "name": "right lunate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24438",
+    "name": "left lunate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24439",
+    "name": "right triquetral",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24440",
+    "name": "left triquetral",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24441",
+    "name": "right pisiform",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24442",
+    "name": "left pisiform",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24443",
+    "name": "right trapezium",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24444",
+    "name": "left trapezium",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24445",
+    "name": "left trapezoid",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24446",
+    "name": "right capitate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24447",
+    "name": "left capitate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24448",
+    "name": "right hamate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24449",
+    "name": "left hamate",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24450",
+    "name": "proximal phalanx of right thumb",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24451",
+    "name": "proximal phalanx of right index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24452",
+    "name": "proximal phalanx of right middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24453",
+    "name": "proximal phalanx of right ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24454",
+    "name": "proximal phalanx of right little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24455",
+    "name": "middle phalanx of right index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24456",
+    "name": "middle phalanx of right middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24457",
+    "name": "middle phalanx of right ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24458",
+    "name": "middle phalanx of right little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24459",
+    "name": "distal phalanx of right thumb",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24460",
+    "name": "distal phalanx of right index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24461",
+    "name": "distal phalanx of right middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24462",
+    "name": "distal phalanx of right ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24463",
+    "name": "distal phalanx of right little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24464",
+    "name": "right first metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24465",
+    "name": "left first metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24466",
+    "name": "right second metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24467",
+    "name": "left second metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24468",
+    "name": "right third metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24469",
+    "name": "left third metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24470",
+    "name": "right fourth metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24471",
+    "name": "left fourth metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24472",
+    "name": "right fifth metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24473",
+    "name": "left fifth metacarpal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24474",
+    "name": "right femur",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24475",
+    "name": "left femur",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24477",
+    "name": "right tibia",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24478",
+    "name": "left tibia",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24480",
+    "name": "right fibula",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24481",
+    "name": "left fibula",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24482",
+    "name": "right talus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24483",
+    "name": "left talus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24486",
+    "name": "right patella",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24487",
+    "name": "left patella",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24497",
+    "name": "right calcaneus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24498",
+    "name": "left calcaneus",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24500",
+    "name": "navicular bone of right foot",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24501",
+    "name": "navicular bone of left foot",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24507",
+    "name": "right first metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24508",
+    "name": "left first metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24509",
+    "name": "right second metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24510",
+    "name": "left second metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24511",
+    "name": "right third metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24512",
+    "name": "left third metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24513",
+    "name": "right fourth metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24514",
+    "name": "left fourth metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24515",
+    "name": "right fifth metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24516",
+    "name": "left fifth metatarsal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24521",
+    "name": "right medial cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24522",
+    "name": "left medial cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24523",
+    "name": "right intermediate cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24524",
+    "name": "left intermediate cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24525",
+    "name": "right lateral cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24526",
+    "name": "left lateral cuneiform bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24528",
+    "name": "right cuboid bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA24529",
+    "name": "left cuboid bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32634",
+    "name": "proximal phalanx of right second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32635",
+    "name": "proximal phalanx of left second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32636",
+    "name": "proximal phalanx of right third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32637",
+    "name": "proximal phalanx of left third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32638",
+    "name": "proximal phalanx of right fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32639",
+    "name": "proximal phalanx of left fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32640",
+    "name": "proximal phalanx of right little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32641",
+    "name": "proximal phalanx of left little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32642",
+    "name": "middle phalanx of right second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32643",
+    "name": "middle phalanx of left second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32644",
+    "name": "middle phalanx of right third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32645",
+    "name": "middle phalanx of left third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32646",
+    "name": "middle phalanx of right fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32647",
+    "name": "middle phalanx of left fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32650",
+    "name": "distal phalanx of right big toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32651",
+    "name": "distal phalanx of left big toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32652",
+    "name": "distal phalanx of right second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32653",
+    "name": "distal phalanx of left second toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32654",
+    "name": "distal phalanx of right third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32655",
+    "name": "distal phalanx of left third toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32656",
+    "name": "distal phalanx of right fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32657",
+    "name": "distal phalanx of left fourth toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32658",
+    "name": "distal phalanx of right little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA32659",
+    "name": "distal phalanx of left little toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA43253",
+    "name": "proximal phalanx of right big toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA43254",
+    "name": "proximal phalanx of left big toe",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA45097",
+    "name": "sesamoid bone of right foot",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA45098",
+    "name": "sesamoid bone of left foot",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52734",
+    "name": "frontal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52735",
+    "name": "occipital bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52736",
+    "name": "sphenoid bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52738",
+    "name": "right temporal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52739",
+    "name": "left temporal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52740",
+    "name": "ethmoid",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52748",
+    "name": "mandible",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52749",
+    "name": "hyoid bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52788",
+    "name": "right parietal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52789",
+    "name": "left parietal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52892",
+    "name": "right zygomatic bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA52893",
+    "name": "left zygomatic bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53645",
+    "name": "right lacrimal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53646",
+    "name": "left lacrimal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53647",
+    "name": "right nasal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53648",
+    "name": "left nasal bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53649",
+    "name": "right maxilla",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53650",
+    "name": "left maxilla",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53655",
+    "name": "right palatine bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA53656",
+    "name": "left palatine bone",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA54737",
+    "name": "right inferior nasal concha",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA54738",
+    "name": "left inferior nasal concha",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA55680",
+    "name": "right upper lateral secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55681",
+    "name": "right upper central secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55682",
+    "name": "left upper central secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55683",
+    "name": "left upper lateral secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55686",
+    "name": "right lower secondary canine tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55687",
+    "name": "left lower secondary canine tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55688",
+    "name": "right upper second secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55689",
+    "name": "right upper first secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55690",
+    "name": "left upper first secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55691",
+    "name": "left upper second secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55692",
+    "name": "left lower second secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55693",
+    "name": "left lower first secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55694",
+    "name": "right lower first secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55695",
+    "name": "right lower second secondary premolar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55697",
+    "name": "right upper second secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55698",
+    "name": "right upper first secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55699",
+    "name": "left upper first secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55700",
+    "name": "left upper second secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55703",
+    "name": "left lower second secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55704",
+    "name": "left lower first secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55705",
+    "name": "right lower first secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55706",
+    "name": "right lower second secondary molar tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55798",
+    "name": "right upper secondary canine tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA55799",
+    "name": "left upper secondary canine tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA57140",
+    "name": "right lower lateral secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA57141",
+    "name": "left lower lateral secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA57142",
+    "name": "right lower central secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA57143",
+    "name": "left lower central secondary incisor tooth",
+    "kind": "tooth"
+  },
+  {
+    "id": "FMA65470",
+    "name": "proximal phalanx of left thumb",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA66791",
+    "name": "proximal phalanx of left little finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA71908",
+    "name": "proximal phalanx of left middle finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA71915",
+    "name": "proximal phalanx of left index finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA71916",
+    "name": "proximal phalanx of left ring finger",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7857",
+    "name": "right first rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7882",
+    "name": "right second rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7909",
+    "name": "right third rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7957",
+    "name": "right fourth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7987",
+    "name": "left first rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8012",
+    "name": "left second rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8039",
+    "name": "left third rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8066",
+    "name": "right fifth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8093",
+    "name": "left fifth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8148",
+    "name": "left fourth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8175",
+    "name": "right sixth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8202",
+    "name": "left sixth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8229",
+    "name": "right seventh rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8256",
+    "name": "left seventh rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8283",
+    "name": "right eighth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8310",
+    "name": "left eighth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8364",
+    "name": "right ninth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8391",
+    "name": "left ninth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8445",
+    "name": "right tenth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8472",
+    "name": "left tenth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8531",
+    "name": "right eleventh rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8532",
+    "name": "left eleventh rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8533",
+    "name": "right twelfth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA8534",
+    "name": "left twelfth rib",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9165",
+    "name": "first thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9187",
+    "name": "second thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9209",
+    "name": "third thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9248",
+    "name": "fourth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9710",
+    "name": "vomer",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9922",
+    "name": "fifth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9945",
+    "name": "sixth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9968",
+    "name": "seventh thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA9991",
+    "name": "eighth thoracic vertebra",
+    "kind": "bone"
+  },
+  {
+    "id": "FMA7486",
+    "name": "manubrium",
+    "kind": "bone-part"
+  },
+  {
+    "id": "FMA7487",
+    "name": "body of sternum",
+    "kind": "bone-part"
+  },
+  {
+    "id": "FMA7488",
+    "name": "xiphoid process",
+    "kind": "bone-part"
+  }
+]
