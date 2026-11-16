@@ -1,0 +1,3568 @@
+{
+  "detailTriangles": 3522980,
+  "detailBytes": 11487644,
+  "overviewTriangles": 928384,
+  "compression": "Draco 16-bit position / 12-bit normal quantization",
+  "overview": "12% target triangle ratio, error limit 0.001; source-resolution detail loaded separately on selection",
+  "source": "BodyParts3D 3.0, 95% reduction",
+  "commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
+  "structures": 193,
+  "triangles": 3522988,
+  "bytes": 3790368,
+  "transform": {
+    "source": "BodyParts3D 3.0",
+    "scale": 0.001,
+    "rotationX": -1.5707963267948966,
+    "groundOffsetMetres": 0.004171000003814697
+  },
+  "coverage": "Available terminal source structures across five system selections. Supporting bones and skeletal muscles remain in their existing layers.",
+  "limitations": [
+    "No independent review of organ relationships or anatomical accuracy.",
+    "Source groups may contain more than one structure; no synthetic splitting.",
+    "Coverage is limited to available source surfaces; peripheral nerves and complete vessel trees are not included."
+  ],
+  "chunks": [
+    {
+      "region": "Cardiovascular",
+      "url": "/models/organs/cardiovascular.glb",
+      "systems": [
+        "cardiovascular"
+      ],
+      "meshes": [
+        "FMA10951",
+        "FMA14331",
+        "FMA14332",
+        "FMA14335",
+        "FMA14336",
+        "FMA14749",
+        "FMA14750",
+        "FMA14752",
+        "FMA14753",
+        "FMA14765",
+        "FMA14766",
+        "FMA14768",
+        "FMA14771",
+        "FMA14773",
+        "FMA18806",
+        "FMA18807",
+        "FMA18809",
+        "FMA18810",
+        "FMA18885",
+        "FMA18886",
+        "FMA18887",
+        "FMA18888",
+        "FMA21387",
+        "FMA21388",
+        "FMA3736",
+        "FMA3768",
+        "FMA3784",
+        "FMA3802",
+        "FMA3818",
+        "FMA3840nsn",
+        "FMA3862nsn",
+        "FMA3895",
+        "FMA3932nsn",
+        "FMA3941",
+        "FMA3953",
+        "FMA4058",
+        "FMA4685",
+        "FMA4694",
+        "FMA4706",
+        "FMA4707",
+        "FMA4713",
+        "FMA4720",
+        "FMA4751",
+        "FMA4754",
+        "FMA4755",
+        "FMA4761",
+        "FMA4762",
+        "FMA4763",
+        "FMA50737",
+        "FMA66326",
+        "FMA66643",
+        "FMA71567",
+        "FMA71669",
+        "FMA71670",
+        "FMA7234",
+        "FMA7235",
+        "FMA7246",
+        "FMA7260",
+        "FMA7261",
+        "FMA7262",
+        "FMA7266",
+        "FMA7274",
+        "FMA76751",
+        "FMA76994",
+        "FMA9352nsn"
+      ],
+      "triangles": 756682,
+      "overviewTriangles": 174010,
+      "bytes": 754096
+    },
+    {
+      "region": "Respiratory",
+      "url": "/models/organs/respiratory.glb",
+      "systems": [
+        "respiratory",
+        "digestive"
+      ],
+      "meshes": [
+        "FMA55099",
+        "FMA59763",
+        "FMA59764",
+        "FMA59815nsn",
+        "FMA71704",
+        "FMA7333",
+        "FMA7337",
+        "FMA7370",
+        "FMA7371",
+        "FMA7383",
+        "FMA7394",
+        "FMA7409"
+      ],
+      "triangles": 389108,
+      "overviewTriangles": 101606,
+      "bytes": 410136
+    },
+    {
+      "region": "Digestive",
+      "url": "/models/organs/digestive.glb",
+      "systems": [
+        "digestive"
+      ],
+      "meshes": [
+        "FMA14543nsn",
+        "FMA7131",
+        "FMA7148",
+        "FMA7197",
+        "FMA7198nsn",
+        "FMA7202",
+        "FMA7206",
+        "FMA7207",
+        "FMA7208",
+        "FMA76891",
+        "FMA76892",
+        "FMA76893"
+      ],
+      "triangles": 318556,
+      "overviewTriangles": 98640,
+      "bytes": 384756
+    },
+    {
+      "region": "Urinary",
+      "url": "/models/organs/urinary.glb",
+      "systems": [
+        "urinary"
+      ],
+      "meshes": [
+        "FMA15571",
+        "FMA15572",
+        "FMA15900",
+        "FMA19667",
+        "FMA7204",
+        "FMA7205"
+      ],
+      "triangles": 37390,
+      "overviewTriangles": 12968,
+      "bytes": 56984
+    },
+    {
+      "region": "Nervous",
+      "url": "/models/organs/nervous.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "BP49",
+        "BP50",
+        "FMA258714",
+        "FMA258716",
+        "FMA274027",
+        "FMA274029",
+        "FMA50875",
+        "FMA50878",
+        "FMA61822",
+        "FMA61844",
+        "FMA61961",
+        "FMA61970",
+        "FMA61975",
+        "FMA61993nsn",
+        "FMA62004",
+        "FMA62008nsn",
+        "FMA62032",
+        "FMA62033",
+        "FMA62045",
+        "FMA62072",
+        "FMA62327",
+        "FMA62382",
+        "FMA62394",
+        "FMA67936",
+        "FMA67943",
+        "FMA67944",
+        "FMA72653",
+        "FMA72654",
+        "FMA72655",
+        "FMA72656",
+        "FMA72661",
+        "FMA72662",
+        "FMA72665",
+        "FMA72666",
+        "FMA72667",
+        "FMA72668",
+        "FMA72669",
+        "FMA72670",
+        "FMA72685",
+        "FMA72686",
+        "FMA72687",
+        "FMA72688",
+        "FMA72689",
+        "FMA72690",
+        "FMA72701",
+        "FMA72702",
+        "FMA72705",
+        "FMA72706",
+        "FMA72713",
+        "FMA72714",
+        "FMA72717",
+        "FMA72718",
+        "FMA72800",
+        "FMA72801",
+        "FMA72804",
+        "FMA72805",
+        "FMA72826",
+        "FMA72827",
+        "FMA72828",
+        "FMA72829",
+        "FMA72830",
+        "FMA72831",
+        "FMA72832",
+        "FMA72833",
+        "FMA72908",
+        "FMA72909",
+        "FMA72924",
+        "FMA72925",
+        "FMA72939",
+        "FMA72940",
+        "FMA72975",
+        "FMA72976",
+        "FMA72977",
+        "FMA72978",
+        "FMA73303",
+        "FMA73304",
+        "FMA73309",
+        "FMA73310",
+        "FMA73413",
+        "FMA73414",
+        "FMA73422",
+        "FMA73423",
+        "FMA73434",
+        "FMA73435",
+        "FMA73461",
+        "FMA73462",
+        "FMA73463",
+        "FMA73464",
+        "FMA74877",
+        "FMA75351",
+        "FMA78449",
+        "FMA78450",
+        "FMA78454",
+        "FMA78467",
+        "FMA78469",
+        "FMA78497",
+        "FMA83740",
+        "FMA86464"
+      ],
+      "triangles": 2021252,
+      "overviewTriangles": 541160,
+      "bytes": 2184396
+    }
+  ],
+  "files": [
+    {
+      "id": "FMA10951",
+      "name": "inferior vena cava",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10951.stl",
+      "sha256": "627622da12b0716e3b564c2f4812c6a5b0fbec0d49e0cbdc018c70247b66b609",
+      "triangles": 7686
+    },
+    {
+      "id": "FMA14331",
+      "name": "splenic vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14331.stl",
+      "sha256": "101efccfdb587cf27fb4e721e44ea5af182dd0ad012750266a74044aca018e6a",
+      "triangles": 1352
+    },
+    {
+      "id": "FMA14332",
+      "name": "superior mesenteric vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14332.stl",
+      "sha256": "695e872141ce8fd560246ef8c351268d4987cda2ac46df4a6d37b38183936e94",
+      "triangles": 202
+    },
+    {
+      "id": "FMA14335",
+      "name": "right renal vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14335.stl",
+      "sha256": "6106193924e9c0d023afe40223989277a376136f67b7a4e0d6efee84329a8d6c",
+      "triangles": 1538
+    },
+    {
+      "id": "FMA14336",
+      "name": "left renal vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14336.stl",
+      "sha256": "3e85bd8e85582cefa93ae832093b5d85b39b12a3bd0f7995a440be441fcc9623",
+      "triangles": 574
+    },
+    {
+      "id": "FMA14749",
+      "name": "superior mesenteric artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14749.stl",
+      "sha256": "e993a5d845c42d5fc83e1480f738d806485105ebd4a21eadf995e85b00c942e2",
+      "triangles": 350
+    },
+    {
+      "id": "FMA14750",
+      "name": "inferior mesenteric artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14750.stl",
+      "sha256": "d8e0731c0720f2352088e78611d28d179e93b7c599bba7f652e9b0f753026411",
+      "triangles": 602
+    },
+    {
+      "id": "FMA14752",
+      "name": "right renal artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14752.stl",
+      "sha256": "56d9672033c906919fcc1cb82d733da1c07e05880b660ea63bc422db82778c95",
+      "triangles": 1754
+    },
+    {
+      "id": "FMA14753",
+      "name": "left renal artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14753.stl",
+      "sha256": "54c815676f34fa78d0f73d46b7da342014325fe95e4dafd975fd64e42f2df381",
+      "triangles": 1308
+    },
+    {
+      "id": "FMA14765",
+      "name": "right common iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14765.stl",
+      "sha256": "b825b791576946a3f834d575e0d83915b22f4f1e2b33c2972c0386843bab1978",
+      "triangles": 896
+    },
+    {
+      "id": "FMA14766",
+      "name": "left common iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14766.stl",
+      "sha256": "20614208eefa8cadb2339b90cfe5825ddab72f8dd9eccf23cf661deea4d777fa",
+      "triangles": 806
+    },
+    {
+      "id": "FMA14768",
+      "name": "left gastric artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14768.stl",
+      "sha256": "b0a9b8fdaccbf2894ec02853447c1491c5c586b0dc8efae0a0865cd43d96fac4",
+      "triangles": 232
+    },
+    {
+      "id": "FMA14771",
+      "name": "common hepatic artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14771.stl",
+      "sha256": "0fbfe6e8e44230e531e282bba3ea97d4dcaa7aeff29064559a4de22862e603af",
+      "triangles": 808
+    },
+    {
+      "id": "FMA14773",
+      "name": "splenic artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14773.stl",
+      "sha256": "dff6e8f727071fbb75e2faa6d738f67c1b95117a5c7fb1ad3deb65eaa681ea14",
+      "triangles": 3326
+    },
+    {
+      "id": "FMA18806",
+      "name": "right external iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18806.stl",
+      "sha256": "c66c1bfa717ce58a76003bb1ced5fc671d265cc7a86a87d97b053c767cce47d1",
+      "triangles": 1344
+    },
+    {
+      "id": "FMA18807",
+      "name": "left external iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18807.stl",
+      "sha256": "84f7b5a0f667d74c1e75fddab02d2fabee7ff2cacff6fb0479bf59d7ff2b1c57",
+      "triangles": 1288
+    },
+    {
+      "id": "FMA18809",
+      "name": "right internal iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18809.stl",
+      "sha256": "bf9b1181ffef5a2b2bbc249b1622d68120b48df96165e3bb2128563f9febd74b",
+      "triangles": 458
+    },
+    {
+      "id": "FMA18810",
+      "name": "left internal iliac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18810.stl",
+      "sha256": "99a6c81e367414f0380e82879787763ef6c9dc6c039c1113856018071c3c3dda",
+      "triangles": 500
+    },
+    {
+      "id": "FMA18885",
+      "name": "right external iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18885.stl",
+      "sha256": "ea737a84477bca371b36452e186d9257dc71cd936ce87d1b786e8107d298c04a",
+      "triangles": 1326
+    },
+    {
+      "id": "FMA18886",
+      "name": "left external iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18886.stl",
+      "sha256": "1ddcf33100abdd7878f34f12a069b6031f8c0ec36fa777e0867778ea4e8d6067",
+      "triangles": 1448
+    },
+    {
+      "id": "FMA18887",
+      "name": "right internal iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18887.stl",
+      "sha256": "5ade79ecd3d0b54d64185ddce7265d0a87b583fecdaeab9b9e3e078ce4ce594b",
+      "triangles": 530
+    },
+    {
+      "id": "FMA18888",
+      "name": "left internal iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18888.stl",
+      "sha256": "f162cf8a175a1ac3e4628ce14a1f3a804fcfe4eeb0d4ac6443a7ae2bdd5fa6f0",
+      "triangles": 478
+    },
+    {
+      "id": "FMA21387",
+      "name": "right common iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA21387.stl",
+      "sha256": "e885a78370671957123951223f7d6b53c6593f94e015aaa73dafa2be751d75bb",
+      "triangles": 886
+    },
+    {
+      "id": "FMA21388",
+      "name": "left common iliac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA21388.stl",
+      "sha256": "63e57478cb96b2de215c69ebb46ce53b220164ce2d82e99ceb5465d7ab42e250",
+      "triangles": 992
+    },
+    {
+      "id": "FMA3736",
+      "name": "ascending aorta",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3736.stl",
+      "sha256": "c99fcd415e7d7df717446f32601324b53656a96c41ff9190c766e39381e108e3",
+      "triangles": 2156
+    },
+    {
+      "id": "FMA3768",
+      "name": "arch of aorta",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3768.stl",
+      "sha256": "d45fa63a0dda6f6cea8e5db8bdd3fba851fe8e4dd5c679afe68ae47eb6ad56eb",
+      "triangles": 3282
+    },
+    {
+      "id": "FMA3784",
+      "name": "descending aorta",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3784.stl",
+      "sha256": "b6bf061b1b50163b91ac0b11c3fb8dd0b5a28a18a3ee4d95d395a622448e4c16",
+      "triangles": 23808
+    },
+    {
+      "id": "FMA3802",
+      "name": "trunk of right coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3802.stl",
+      "sha256": "a0327d37afecd97067bd8b95396622175e028a863debd418c6ab47e42dd89d03",
+      "triangles": 5154
+    },
+    {
+      "id": "FMA3818",
+      "name": "marginal branch of right coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3818.stl",
+      "sha256": "8051eabb657122c11672c033e97e27a42c9e05213654dcdba5fada5c36fe9591",
+      "triangles": 4908
+    },
+    {
+      "id": "FMA3840nsn",
+      "name": "posterior interventricular branch of right coronary artery, nsn",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3840nsn.stl",
+      "sha256": "4ed012404d7796f4245991dbeafcef7704c051b969e8cee8c6f32d352063eb0b",
+      "triangles": 3086
+    },
+    {
+      "id": "FMA3862nsn",
+      "name": "anterior interventricular branch of left coronary artery, nsn",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3862nsn.stl",
+      "sha256": "831c5417e07392b91a6eba2f9584ae96912cfb21b75db192dd543500a8cfbc6a",
+      "triangles": 9220
+    },
+    {
+      "id": "FMA3895",
+      "name": "circumflex branch of left coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3895.stl",
+      "sha256": "bdccf8e75e76ef53555f2a667e135b7670f9f97d87dd10972b651b793a536763",
+      "triangles": 3542
+    },
+    {
+      "id": "FMA3932nsn",
+      "name": "brachiocephalic artery, nsn",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3932nsn.stl",
+      "sha256": "4d0ef7d674f6c4788a5ff6099fe2f3b6387c554cf23e23733ddbf97a0b9b19a1",
+      "triangles": 1210
+    },
+    {
+      "id": "FMA3941",
+      "name": "right common carotid artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3941.stl",
+      "sha256": "96f222b2fdb5cff8e1e018fc6b54ce35765b0823d73f496385766d798917b3c0",
+      "triangles": 4424
+    },
+    {
+      "id": "FMA3953",
+      "name": "right subclavian artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3953.stl",
+      "sha256": "cdc259455af237044c11af557a9a9f0dd99accb463472b97b162d4e936f484f0",
+      "triangles": 2260
+    },
+    {
+      "id": "FMA4058",
+      "name": "left common carotid artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4058.stl",
+      "sha256": "81d0a45cb5ce9947ddebaf9e35c7324b2e2d5195885e85487937b1e83962a036",
+      "triangles": 698
+    },
+    {
+      "id": "FMA4685",
+      "name": "stem of left coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4685.stl",
+      "sha256": "1f255ab043b03785f60b080af66ec385c660797ff8796491880d4eed4ca54aad",
+      "triangles": 252
+    },
+    {
+      "id": "FMA4694",
+      "name": "left subclavian artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4694.stl",
+      "sha256": "d4fc1c72acb2df558ced1ba9e0f18e29a0b9448ab38552295a69919e535c494e",
+      "triangles": 3234
+    },
+    {
+      "id": "FMA4706",
+      "name": "coronary sinus",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4706.stl",
+      "sha256": "03542a2590c4fa570efccc5e81c9b7936b0968cbad5b4c6d435e1e788481acf3",
+      "triangles": 1922
+    },
+    {
+      "id": "FMA4707",
+      "name": "great cardiac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4707.stl",
+      "sha256": "52b0738f4c0f57ea75314c2b548af1853dc7cd818e7c5e8972a0d8516202ea2b",
+      "triangles": 7476
+    },
+    {
+      "id": "FMA4713",
+      "name": "middle cardiac vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4713.stl",
+      "sha256": "fdbc7add270558e42f20604c651e5f8aa17d3c9024bebb8d85aabce5e4cd3509",
+      "triangles": 4326
+    },
+    {
+      "id": "FMA4720",
+      "name": "superior vena cava",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4720.stl",
+      "sha256": "5be118bf9a3112718d16876762df66eb6d8998e433dd417f3ff0042057a08e10",
+      "triangles": 1532
+    },
+    {
+      "id": "FMA4751",
+      "name": "right brachiocephalic vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4751.stl",
+      "sha256": "109f8f13294643633dd6aa43c4ad6095001fe62d735c44b398f7dec1a09e4618",
+      "triangles": 1400
+    },
+    {
+      "id": "FMA4754",
+      "name": "right internal jugular vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4754.stl",
+      "sha256": "00e5838b6bdeddee3a0ccc6d7d0c59fcc0ebbc3e8d886ceddc27462b9023f606",
+      "triangles": 580
+    },
+    {
+      "id": "FMA4755",
+      "name": "right subclavian vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4755.stl",
+      "sha256": "d2210a4d159b9d3e333cb1ebebb81e21dfddbb31bde9d6a797452e54552cedb3",
+      "triangles": 946
+    },
+    {
+      "id": "FMA4761",
+      "name": "left brachiocephalic vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4761.stl",
+      "sha256": "f5b05af3b7c8f34ae753f37c2e01fa7055f0331eaf2ba2bcc7fb074dc98b35a6",
+      "triangles": 1918
+    },
+    {
+      "id": "FMA4762",
+      "name": "left internal jugular vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4762.stl",
+      "sha256": "c1a9c3825ed0b84d8e927b6d464355cd2967b95c0b10f46c0767fbc5bb1dd5c7",
+      "triangles": 720
+    },
+    {
+      "id": "FMA4763",
+      "name": "left subclavian vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4763.stl",
+      "sha256": "5d71a01ee55bc89adc3eedc4adce77c6098c0ae5910a1a77a72649b6d4f7697a",
+      "triangles": 1112
+    },
+    {
+      "id": "FMA50737",
+      "name": "celiac artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50737.stl",
+      "sha256": "d48e9dea1d611eef116062144e4078c274909695e90c0619262fbc83e9ab162c",
+      "triangles": 454
+    },
+    {
+      "id": "FMA66326",
+      "name": "pulmonary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA66326.stl",
+      "sha256": "3067ec3d6f6c9a98ac2797d6de36f3eb39c7e2569edc6da7f44b6e545dde8af3",
+      "triangles": 116948
+    },
+    {
+      "id": "FMA66643",
+      "name": "pulmonary vein",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA66643.stl",
+      "sha256": "01f8c137a94b67eadee60ca6eb1de16565a420c81f8d08fce64951f7c5ad0d6c",
+      "triangles": 72548
+    },
+    {
+      "id": "FMA71567",
+      "name": "set of anterior cardiac veins",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71567.stl",
+      "sha256": "514806aee1f1ccb70037913eae0d54d3d00b17b97bda5fbc88690f6bb0942e6c",
+      "triangles": 5712
+    },
+    {
+      "id": "FMA71669",
+      "name": "set of interventricular septal branches of right coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71669.stl",
+      "sha256": "19e35b9fb9a3ead9f7cd895a17bb09a21a558f921c0cd60361971aad12eae617",
+      "triangles": 754
+    },
+    {
+      "id": "FMA71670",
+      "name": "set of interventricular septal branches of left coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71670.stl",
+      "sha256": "6122beeab521d053887797e909caa3d3b062b3fd6b5cb36992df6f15877e9544",
+      "triangles": 1214
+    },
+    {
+      "id": "FMA7234",
+      "name": "tricuspid valve",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7234.stl",
+      "sha256": "96e2470c9ddd5fa0970014235abe2686d4c6084b1ed514edfec37677a7ae377e",
+      "triangles": 47268
+    },
+    {
+      "id": "FMA7235",
+      "name": "mitral valve",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7235.stl",
+      "sha256": "e434d63f98d789acff6943ae244713d524d2abf6aa6020445a46bd24bc03d70c",
+      "triangles": 19102
+    },
+    {
+      "id": "FMA7246",
+      "name": "pulmonary valve",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7246.stl",
+      "sha256": "b1436a72cf5727be01c02fe08bda7eaefd667af6cfbbcd6261f915a61e7f48dc",
+      "triangles": 18202
+    },
+    {
+      "id": "FMA7260",
+      "name": "anterior papillary muscle of right ventricle",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7260.stl",
+      "sha256": "e6fe30295f9d229c227411f001c1616bb763520ca28d0006e51db89137561fa4",
+      "triangles": 3860
+    },
+    {
+      "id": "FMA7261",
+      "name": "posterior papillary muscle of right ventricle",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7261.stl",
+      "sha256": "4ebf10dbcb09df59008bc24ea456c1cdc29e1a41bf567e12f03eca0440450853",
+      "triangles": 2730
+    },
+    {
+      "id": "FMA7262",
+      "name": "septal papillary muscle of right ventricle",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7262.stl",
+      "sha256": "1026d3e20fc4b58313f8dffb8f874e871916446091b0adcf4649e32409d0ae0a",
+      "triangles": 1898
+    },
+    {
+      "id": "FMA7266",
+      "name": "posterior papillary muscle of left ventricle",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7266.stl",
+      "sha256": "def197ade00b5fca69d916f1329377e51cc589856f96fc6358ede93bbfbe60aa",
+      "triangles": 3902
+    },
+    {
+      "id": "FMA7274",
+      "name": "wall of heart",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7274.stl",
+      "sha256": "ed570773264c7abf73db5f5da20e5e4f69943315e8c5995da850a2821988b0a2",
+      "triangles": 331592
+    },
+    {
+      "id": "FMA76751",
+      "name": "set of posterior veins of left ventricle",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76751.stl",
+      "sha256": "1c29635b820858b0a792f3c74d140b0a900fadd0dc47470c2c074ee974a71a1e",
+      "triangles": 4318
+    },
+    {
+      "id": "FMA76994",
+      "name": "right posterolateral branch of right coronary artery",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76994.stl",
+      "sha256": "aaa23cf3637eda7d08bd5102cf1324050806c658a7c1862de299294f533403d4",
+      "triangles": 2246
+    },
+    {
+      "id": "FMA9352nsn",
+      "name": "papillary muscle of left ventricle, nsn",
+      "kind": "source structure",
+      "region": "Cardiovascular",
+      "systems": [
+        "cardiovascular"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9352nsn.stl",
+      "sha256": "9c881e0cc650b690288d7d5814c324bd1f888c61d0c48ebb7ac767e08d665618",
+      "triangles": 4084
+    },
+    {
+      "id": "FMA55099",
+      "name": "thyroid cartilage",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55099.stl",
+      "sha256": "cd0d5e4c13a2a67eee6e55361b2927ea0c22204c1d24d4065fe67f96ac6d7a18",
+      "triangles": 23146
+    },
+    {
+      "id": "FMA59763",
+      "name": "gingiva of upper jaw",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory",
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59763.stl",
+      "sha256": "d0d9fef9c991b33c65110398276dadc514fc7eef68b7b6038d70e5e730b32e6e",
+      "triangles": 9192
+    },
+    {
+      "id": "FMA59764",
+      "name": "gingiva of lower jaw",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory",
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59764.stl",
+      "sha256": "9605f2dc8058cabf24ba3b46f690cb81a7c6e73899c89a7bcd6cbe91a8c1b703",
+      "triangles": 9596
+    },
+    {
+      "id": "FMA59815nsn",
+      "name": "labial part of mouth, nsn",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory",
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59815nsn.stl",
+      "sha256": "e786a18cb67e9f179e06f306061decbe189f85cf2a38e1d77c62aa497866365c",
+      "triangles": 6440
+    },
+    {
+      "id": "FMA71704",
+      "name": "set of nasal cartilages",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71704.stl",
+      "sha256": "d4267f61fb7d5cca52c547f2eb7a1f28e7aadc21fcf276873c1cc1e502b438c2",
+      "triangles": 6826
+    },
+    {
+      "id": "FMA7333",
+      "name": "upper lobe of right lung",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7333.stl",
+      "sha256": "cd168d6c22d10dcb5e8be3ec88e9a97b33a261fc3e8195001daaac32d964a177",
+      "triangles": 30398
+    },
+    {
+      "id": "FMA7337",
+      "name": "lower lobe of right lung",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7337.stl",
+      "sha256": "cfb1641ad8443abd6da3919d3f7565f7d119dc740b7cf91d51d17ae9f2f67eda",
+      "triangles": 65592
+    },
+    {
+      "id": "FMA7370",
+      "name": "upper lobe of left lung",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7370.stl",
+      "sha256": "d5e0401182d8af9e9b05f4cac7eb4f728598650645370a15eec83ea1598b7e24",
+      "triangles": 40652
+    },
+    {
+      "id": "FMA7371",
+      "name": "lower lobe of left lung",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7371.stl",
+      "sha256": "17419dd2f9d837e162286b8545308893a9377e1f410c6e3c6385b45f1a6e90a3",
+      "triangles": 44288
+    },
+    {
+      "id": "FMA7383",
+      "name": "middle lobe of lung",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7383.stl",
+      "sha256": "a12839911dd06f97d21f716d717a207ad0237dc602ce2ad2ad53fbcd402d4673",
+      "triangles": 23478
+    },
+    {
+      "id": "FMA7394",
+      "name": "trachea",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7394.stl",
+      "sha256": "6cc38ce5ad2602ba214ef47e9bc94f7f44ef650772258caeee7060e20f6deda0",
+      "triangles": 13870
+    },
+    {
+      "id": "FMA7409",
+      "name": "bronchus",
+      "kind": "source structure",
+      "region": "Respiratory",
+      "systems": [
+        "respiratory"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7409.stl",
+      "sha256": "05f5c75914a9aaba435d7f28e5de60ba9853665db5b02dcd309cf6fbbea132ac",
+      "triangles": 115630
+    },
+    {
+      "id": "FMA14543nsn",
+      "name": "colon, nsn",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14543nsn.stl",
+      "sha256": "ab970c4d688cf48b30d1c4f88634a0fca9233fc8e0cf3e7570edf0403448377f",
+      "triangles": 69516
+    },
+    {
+      "id": "FMA7131",
+      "name": "esophagus",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7131.stl",
+      "sha256": "7783e109c2f4c81936632e1662686c9081460f4be2b5f1f51f8ebd439d0e464f",
+      "triangles": 2642
+    },
+    {
+      "id": "FMA7148",
+      "name": "stomach",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7148.stl",
+      "sha256": "a6764d20879cf7ba1acd8284c1b0255b20111d8bd3b92838cf97600e6f3d9065",
+      "triangles": 9384
+    },
+    {
+      "id": "FMA7197",
+      "name": "liver",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7197.stl",
+      "sha256": "cbd634ccfbb532b33c01b6a1361dd706e95955de67aa729169d7d68752b6a98d",
+      "triangles": 19416
+    },
+    {
+      "id": "FMA7198nsn",
+      "name": "pancreas, nsn",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7198nsn.stl",
+      "sha256": "884948a0b7f2b274dd67ede43fd1d0aaacc6657451ff0de7eeb0063d261fa4ca",
+      "triangles": 11414
+    },
+    {
+      "id": "FMA7202",
+      "name": "gallbladder",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7202.stl",
+      "sha256": "10576dcce2d437622b5d951a0edaae53648d80814706b5b2fac1044627ce8d95",
+      "triangles": 13846
+    },
+    {
+      "id": "FMA7206",
+      "name": "duodenum",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7206.stl",
+      "sha256": "d0917ad9499253cbc836ab418d63c12e6b785b24dd55127ce4d98fe0469e6732",
+      "triangles": 11950
+    },
+    {
+      "id": "FMA7207",
+      "name": "jejunum",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7207.stl",
+      "sha256": "e75d35ad175976104bc7757605930c0e7715c72830dd86a482950dd9e516e2c8",
+      "triangles": 31468
+    },
+    {
+      "id": "FMA7208",
+      "name": "ileum",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7208.stl",
+      "sha256": "47d26fb1bbc906d1b0743255cc049ef8bec28f17b6e00f47976e059c46f2f457",
+      "triangles": 31250
+    },
+    {
+      "id": "FMA76891",
+      "name": "mesocolic taenia",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76891.stl",
+      "sha256": "c718790156be3014d186dc939d455746d446b797f743f2cc06a89e848c820d8c",
+      "triangles": 31524
+    },
+    {
+      "id": "FMA76892",
+      "name": "omental taenia",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76892.stl",
+      "sha256": "00b134060366eb0d918814d8e0d886aab2576967d078f60ffaf4a635554acdb6",
+      "triangles": 37118
+    },
+    {
+      "id": "FMA76893",
+      "name": "free taenia",
+      "kind": "source structure",
+      "region": "Digestive",
+      "systems": [
+        "digestive"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76893.stl",
+      "sha256": "002ea21ed3d983e3f074791c21be4dfabfa405a787451fc0c9075db981729f84",
+      "triangles": 49028
+    },
+    {
+      "id": "FMA15571",
+      "name": "right ureter",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15571.stl",
+      "sha256": "819a96000cb2bf07215a9b47df34524c93a4892b050985cb5b89dac965fc57d8",
+      "triangles": 2210
+    },
+    {
+      "id": "FMA15572",
+      "name": "left ureter",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15572.stl",
+      "sha256": "9c8468f13f0873ed8c28b693f4cb731adf35a8a3e8482fd0a92c59dcb365942d",
+      "triangles": 2226
+    },
+    {
+      "id": "FMA15900",
+      "name": "urinary bladder",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15900.stl",
+      "sha256": "7a6badc84de63ac6c62acc8c2de1084c19885df1cbceb17ae02354c000a45b68",
+      "triangles": 4016
+    },
+    {
+      "id": "FMA19667",
+      "name": "urethra",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA19667.stl",
+      "sha256": "d92aaac6e29d06e0044c817fdc487b339fcbe371f93517fd33f5131542f45330",
+      "triangles": 1186
+    },
+    {
+      "id": "FMA7204",
+      "name": "right kidney",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7204.stl",
+      "sha256": "c69330266787669e89ef343ea294ca3fdcf0205382079c4b38e1b7252863d6f3",
+      "triangles": 12394
+    },
+    {
+      "id": "FMA7205",
+      "name": "left kidney",
+      "kind": "source structure",
+      "region": "Urinary",
+      "systems": [
+        "urinary"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7205.stl",
+      "sha256": "b93be6a9ef9fa237bb1231b5c895cd938b25920266bb1400537b4319f4a35cdb",
+      "triangles": 15358
+    },
+    {
+      "id": "BP49",
+      "name": "left superior parietal lobule precuneus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/BP49.stl",
+      "sha256": "a8e62da081dcb54e84d49f481d56ac243b97c8f62aa93455b2ce7281f137037f",
+      "triangles": 19906
+    },
+    {
+      "id": "BP50",
+      "name": "right superior parietal lobule precuneus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/BP50.stl",
+      "sha256": "f8335ade3ebc35876ae50a39201232f7fff023f25fc57f9e24e3c4953ce62a63",
+      "triangles": 19926
+    },
+    {
+      "id": "FMA258714",
+      "name": "right thalamus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA258714.stl",
+      "sha256": "3cc9822dcd85957d59e1f7693261e5439a82cb18fe1eb73d212149d6f20b5125",
+      "triangles": 3298
+    },
+    {
+      "id": "FMA258716",
+      "name": "left thalamus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA258716.stl",
+      "sha256": "0d8e8d8ee7ead40b24827006db87c84fa5f63797339f551db9ebebd3c41dfee0",
+      "triangles": 7396
+    },
+    {
+      "id": "FMA274027",
+      "name": "choroid plexus of right cerebral hemisphere",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA274027.stl",
+      "sha256": "b95c98a8fd511c812023e8a4e4bcef44a5c98c9fb9606144e5791fa716d08aef",
+      "triangles": 21558
+    },
+    {
+      "id": "FMA274029",
+      "name": "choroid plexus of left cerebral hemisphere",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA274029.stl",
+      "sha256": "6da7b5185eb43f999bd338b67647d6ce5ebfd85e539e18f0955fdddd1ccb2a10",
+      "triangles": 21508
+    },
+    {
+      "id": "FMA50875",
+      "name": "right optic nerve",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50875.stl",
+      "sha256": "e9f65589fc60b5193e4cf381742e790abcde510b691463ddacf3f6e522e163b7",
+      "triangles": 10310
+    },
+    {
+      "id": "FMA50878",
+      "name": "left optic nerve",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50878.stl",
+      "sha256": "6b8e244b2a7280ece5df8d4194b6a4dd2cf66dedd90371922f24ac4b0d114006",
+      "triangles": 10302
+    },
+    {
+      "id": "FMA61822",
+      "name": "white matter structure of cerebral hemisphere",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61822.stl",
+      "sha256": "709107c09a8df8f820e332462490ee209bcdfd4921236ff69f6fa01c989f98d3",
+      "triangles": 176564
+    },
+    {
+      "id": "FMA61844",
+      "name": "septum pellucidum",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61844.stl",
+      "sha256": "fad509b6f3202fd4ef548ff72562c35f235815e4f9e37600b3e3d56da188ba7d",
+      "triangles": 25012
+    },
+    {
+      "id": "FMA61961",
+      "name": "anterior commissure",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61961.stl",
+      "sha256": "ceb8a676040b644e93681209f0b24a2581dff73a65527222adc80073f38a3dc4",
+      "triangles": 3690
+    },
+    {
+      "id": "FMA61970",
+      "name": "commissure of fornix of forebrain",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61970.stl",
+      "sha256": "94502280939abfa245d9a5bbd1a7c62b54bfd2a5213ea516816417705abf2467",
+      "triangles": 46164
+    },
+    {
+      "id": "FMA61975",
+      "name": "lamina terminalis",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61975.stl",
+      "sha256": "0ffe0c96a9645238b4666c1fe5ba4776c92293d8124737abcfd29facd94ec071",
+      "triangles": 2448
+    },
+    {
+      "id": "FMA61993nsn",
+      "name": "midbrain, nsn",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61993nsn.stl",
+      "sha256": "bc4a8dada1834e72bfda67b43d427325e289791fd3e52eb9572d829702e2f335",
+      "triangles": 56314
+    },
+    {
+      "id": "FMA62004",
+      "name": "medulla oblongata",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62004.stl",
+      "sha256": "9c3b3ed2c81667526e14ba3cd5f427c4611f596eb38df6939d2154324dd6bb07",
+      "triangles": 52760
+    },
+    {
+      "id": "FMA62008nsn",
+      "name": "hypothalamus, nsn",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62008nsn.stl",
+      "sha256": "5598ae52eb0580509835f0ff3c9882aa8308b396209d6b4a51498297955c5788",
+      "triangles": 17690
+    },
+    {
+      "id": "FMA62032",
+      "name": "habenula",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62032.stl",
+      "sha256": "86ffce4bfcb67cc457f00a1ac5771f0c093f1a4f35054d551f2418d32e489723",
+      "triangles": 384
+    },
+    {
+      "id": "FMA62033",
+      "name": "pineal body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62033.stl",
+      "sha256": "0197845b598e4f51525bc339bbe06263a4a1fe2567be9b5ce2fd1c15721e5a11",
+      "triangles": 2536
+    },
+    {
+      "id": "FMA62045",
+      "name": "optic chiasm",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62045.stl",
+      "sha256": "aa1949a04dbbd42e15cc5b63a2849ba8120c8819be1f15f766d53f86e09ad67b",
+      "triangles": 7752
+    },
+    {
+      "id": "FMA62072",
+      "name": "posterior commissure",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62072.stl",
+      "sha256": "6bb179395b1b4222796c2b52b6c9763cf28facf96edbee9553eec17d88f92dc5",
+      "triangles": 3786
+    },
+    {
+      "id": "FMA62327",
+      "name": "tuber cinereum",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62327.stl",
+      "sha256": "ddd934e94001468c70b96b8b32ab771110ebe44d2705f8e6febf621dea598fdc",
+      "triangles": 6974
+    },
+    {
+      "id": "FMA62382",
+      "name": "right optic tract",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62382.stl",
+      "sha256": "d0e96f05fdcba0d06e7ef4a690ed62a720efa1157fc471213b483e135027a164",
+      "triangles": 10110
+    },
+    {
+      "id": "FMA62394",
+      "name": "peduncle of midbrain",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62394.stl",
+      "sha256": "8378143d06714d5222981f31b982eb0d4dbf6fde04ddd740b7f510d68335334b",
+      "triangles": 46834
+    },
+    {
+      "id": "FMA67936",
+      "name": "left optic tract",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67936.stl",
+      "sha256": "acee34ecaed0aae14807950b0072c860cce7975ab4bdc5953b628db5c18c77cb",
+      "triangles": 10122
+    },
+    {
+      "id": "FMA67943",
+      "name": "pons",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67943.stl",
+      "sha256": "464721a0893b05d7e830b327725cbd71c92d5fba6016c218bdbc4057f519e867",
+      "triangles": 90072
+    },
+    {
+      "id": "FMA67944",
+      "name": "cerebellum",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67944.stl",
+      "sha256": "a023ac8cad7440cbb16814782f0d78643c9e81cdf04272971afa11a0100bd6fe",
+      "triangles": 238506
+    },
+    {
+      "id": "FMA72653",
+      "name": "right superior frontal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72653.stl",
+      "sha256": "bfdfb291520f28f3243e5b6969449e9d0ce70fcbe7f2e1862629cea21110eb94",
+      "triangles": 30448
+    },
+    {
+      "id": "FMA72654",
+      "name": "left superior frontal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72654.stl",
+      "sha256": "54aa6966cf6dee412cd16f2fc9ba4222a47910c59cc7a147dbac87d62689a13d",
+      "triangles": 30450
+    },
+    {
+      "id": "FMA72655",
+      "name": "right middle frontal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72655.stl",
+      "sha256": "3996b19ea6ddce123eb1c41798cfff26f8af125fa63492a98454c6ea994bf26e",
+      "triangles": 15558
+    },
+    {
+      "id": "FMA72656",
+      "name": "left middle frontal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72656.stl",
+      "sha256": "e97ef0b0a99f9d5b76d96363555cc27dca101c0f39ec340f38517e106a68d05b",
+      "triangles": 15544
+    },
+    {
+      "id": "FMA72661",
+      "name": "right precentral gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72661.stl",
+      "sha256": "136dc5cab4297753d7d26af60990c9e94b78997d6bf6a61d2beea08c726fd497",
+      "triangles": 18838
+    },
+    {
+      "id": "FMA72662",
+      "name": "left precentral gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72662.stl",
+      "sha256": "533692c92294c4f5ad4158a51ab681cfefb4bd0f729a70df2e983693a1b51b2b",
+      "triangles": 18836
+    },
+    {
+      "id": "FMA72665",
+      "name": "right postcentral gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72665.stl",
+      "sha256": "26aa859a22bed7bb4165f41b456f532ace9de8e7583754f894ec239615558829",
+      "triangles": 16862
+    },
+    {
+      "id": "FMA72666",
+      "name": "left postcentral gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72666.stl",
+      "sha256": "30fd9c050762f100770d42a71c64976cce10c49440f03e991702fe8514ebceb3",
+      "triangles": 16858
+    },
+    {
+      "id": "FMA72667",
+      "name": "right supramarginal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72667.stl",
+      "sha256": "babd989df0c238866ab1ae6c9e94d1fb3ec5b7d457ee25576a31a120831e9f97",
+      "triangles": 9782
+    },
+    {
+      "id": "FMA72668",
+      "name": "left supramarginal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72668.stl",
+      "sha256": "ac0d7b383407477f53f13304de628ec848e8273f41b9ca5895a34697834e6f1b",
+      "triangles": 9778
+    },
+    {
+      "id": "FMA72669",
+      "name": "right angular gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72669.stl",
+      "sha256": "8d269ad9da1d34453e23ac41ce4cf1e94734f48023373b7f2502beaed17cfeb1",
+      "triangles": 13172
+    },
+    {
+      "id": "FMA72670",
+      "name": "left angular gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72670.stl",
+      "sha256": "206507829901707be007389c3ebdbae07ebb942ec983d4582c3c2b76fef6ae34",
+      "triangles": 13164
+    },
+    {
+      "id": "FMA72685",
+      "name": "right middle temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72685.stl",
+      "sha256": "a39ee61dc99086d7d1be44c42157de54e04f9defa85074c63dc43b0bd1ef028f",
+      "triangles": 12926
+    },
+    {
+      "id": "FMA72686",
+      "name": "left middle temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72686.stl",
+      "sha256": "b7e58d0f86e4dd335eabf01b5459526f6a7fe66821b03ccb43d879ba70d56332",
+      "triangles": 12918
+    },
+    {
+      "id": "FMA72687",
+      "name": "right inferior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72687.stl",
+      "sha256": "ec04eabe123163d811f4eb4cbca8baf6cfc018ee5994bfe48b04a6b1991ad479",
+      "triangles": 13056
+    },
+    {
+      "id": "FMA72688",
+      "name": "left inferior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72688.stl",
+      "sha256": "fe75592f16a8c604c07f17e788e22f34801467f14f4a1e9d1066da3759a7616f",
+      "triangles": 13040
+    },
+    {
+      "id": "FMA72689",
+      "name": "right fusiform gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72689.stl",
+      "sha256": "5f7263b7768b54a4ef8b8e31a1d0ef7a7d8f72ccce5011fcbfce66b36a27ad58",
+      "triangles": 6150
+    },
+    {
+      "id": "FMA72690",
+      "name": "left fusiform gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72690.stl",
+      "sha256": "f7573954276f752193fe5b80b2ebab8e717d0e6c2b11f8ccea12c632c8abea3a",
+      "triangles": 6148
+    },
+    {
+      "id": "FMA72701",
+      "name": "right accessory short gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72701.stl",
+      "sha256": "dae4a0cd8dbeeb27170af29c1f03a7626fa5fbb3c21748c71f07ab67177dafc3",
+      "triangles": 15346
+    },
+    {
+      "id": "FMA72702",
+      "name": "left accessory short gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72702.stl",
+      "sha256": "68aec4cd4cb4a7c28c9f28e2056b64fd202237281012faba38736b03ab951d7a",
+      "triangles": 15330
+    },
+    {
+      "id": "FMA72705",
+      "name": "right parahippocampal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72705.stl",
+      "sha256": "fd317edc429ea14f0cc4398198bfb5a6f3a06d1ab9b2b24e5d41a63756899e0a",
+      "triangles": 3454
+    },
+    {
+      "id": "FMA72706",
+      "name": "left parahippocampal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72706.stl",
+      "sha256": "fa2679accd8a5134422e3d06012d30ac7db37cac3dcccba5526b9c9c3c55438b",
+      "triangles": 3452
+    },
+    {
+      "id": "FMA72713",
+      "name": "right hippocampus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72713.stl",
+      "sha256": "bd5eac2f2fe55edc2b0f68524171ee38a775fd770dfeb7257c71fedc8b45e259",
+      "triangles": 4452
+    },
+    {
+      "id": "FMA72714",
+      "name": "left hippocampus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72714.stl",
+      "sha256": "8cdbbe55c32006656574f414c8a56265d5f5c73bf206699c67a4feea94a17a21",
+      "triangles": 4280
+    },
+    {
+      "id": "FMA72717",
+      "name": "right cingulate gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72717.stl",
+      "sha256": "052c22b760864144c50cc50077a3bdb111d7ed57e5f025ed9c061829b353b5dc",
+      "triangles": 11716
+    },
+    {
+      "id": "FMA72718",
+      "name": "left cingulate gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72718.stl",
+      "sha256": "e83fc7ef26bafad285d81a236a5651132bd7eb1232f488ebb01f14202bffd927",
+      "triangles": 11724
+    },
+    {
+      "id": "FMA72800",
+      "name": "anterior part of right superior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72800.stl",
+      "sha256": "19cde3a87977e5e3ba6c4a7f5570686108354193ce1e57c4b2607461ef6444cf",
+      "triangles": 8348
+    },
+    {
+      "id": "FMA72801",
+      "name": "anterior part of left superior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72801.stl",
+      "sha256": "72022c802774b46f1ed6b3ae4afc705649d0a0a55a4eb50eef01ba40cb1278cb",
+      "triangles": 8338
+    },
+    {
+      "id": "FMA72804",
+      "name": "posterior part of right superior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72804.stl",
+      "sha256": "812a311901ebf3947d8bf37341b91e9ce25560c14cb65834ea4a1e707310af51",
+      "triangles": 10472
+    },
+    {
+      "id": "FMA72805",
+      "name": "posterior part of left superior temporal gyrus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72805.stl",
+      "sha256": "8ee112c9d3387d6dcceacca5c13b27792466a55ecad95766c0cdee541a7e8210",
+      "triangles": 10472
+    },
+    {
+      "id": "FMA72826",
+      "name": "right caudate nucleus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72826.stl",
+      "sha256": "d8d364a08d7e98a5a57752b09be2540fbd75f6bd2ec5a20994490f6263991e8d",
+      "triangles": 11272
+    },
+    {
+      "id": "FMA72827",
+      "name": "left caudate nucleus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72827.stl",
+      "sha256": "8a307894f4f4a2cd557fdd9f41c14c581289082f80b35be1af19a34a48412d28",
+      "triangles": 11160
+    },
+    {
+      "id": "FMA72828",
+      "name": "right putamen",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72828.stl",
+      "sha256": "ee203a0755d3ccbcb6bb535a6109dae9584549aef263e1a46899ce176566e483",
+      "triangles": 30670
+    },
+    {
+      "id": "FMA72829",
+      "name": "left putamen",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72829.stl",
+      "sha256": "8b85165d23e1b12ea53e10f6b48939853058628cb32a4b1cf362ed58d6cbaef0",
+      "triangles": 30636
+    },
+    {
+      "id": "FMA72830",
+      "name": "right globus pallidus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72830.stl",
+      "sha256": "53088c84419a96800e728e7f0eab42333f09b1b610a0d8acaa485c0cd7787d1e",
+      "triangles": 23206
+    },
+    {
+      "id": "FMA72831",
+      "name": "left globus pallidus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72831.stl",
+      "sha256": "15bff551aaeaa83ba9411ce8d724e353a88a497491346c6450a9f40a0732b915",
+      "triangles": 30738
+    },
+    {
+      "id": "FMA72832",
+      "name": "right amygdala",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72832.stl",
+      "sha256": "f3ca51d983d4b02ebe81c9ea4efcf808e602466d1544cbd15d2007cff04802e4",
+      "triangles": 1744
+    },
+    {
+      "id": "FMA72833",
+      "name": "left amygdala",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72833.stl",
+      "sha256": "afc68bd353755bafcf95aa4cf19094df08c30de2e89bfec127314e9b0bf64835",
+      "triangles": 1736
+    },
+    {
+      "id": "FMA72908",
+      "name": "anterior limb of right internal capsule",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72908.stl",
+      "sha256": "5affafa6e817b3879f61aef14d23174e567b02f256c87eb6ea7c00b8c4b4904a",
+      "triangles": 48722
+    },
+    {
+      "id": "FMA72909",
+      "name": "anterior limb of left internal capsule",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72909.stl",
+      "sha256": "49c59151e342f7335274e65b9697200d96ebfbc431fcc2110a7435581acfcbe7",
+      "triangles": 48712
+    },
+    {
+      "id": "FMA72924",
+      "name": "right fornix of forebrain",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72924.stl",
+      "sha256": "a52c3b7a772e63baecfe1e9767518ea0b81335827c42b69e026dec9d489e8215",
+      "triangles": 29300
+    },
+    {
+      "id": "FMA72925",
+      "name": "left fornix of forebrain",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72925.stl",
+      "sha256": "80869ce2f13e426d38e732c6ebfd3c30e67143b3515c6420bb24d9b5e6c0f594",
+      "triangles": 29372
+    },
+    {
+      "id": "FMA72939",
+      "name": "right stria terminalis",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72939.stl",
+      "sha256": "647caf5b40b438b3344dc291b7de708fc63fa2d4ac6828570d47bb0fa6f0540c",
+      "triangles": 3078
+    },
+    {
+      "id": "FMA72940",
+      "name": "left stria terminalis",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72940.stl",
+      "sha256": "8c8108f2ba5b941ec94d6c0a6b8cb6ab4e268dc1b664a29f4613d9c373f7e164",
+      "triangles": 3026
+    },
+    {
+      "id": "FMA72975",
+      "name": "right occipital lobe",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72975.stl",
+      "sha256": "1ce0984b5f92adef2278d7adb2d6eada578f20da6d00ce642eb085af60711138",
+      "triangles": 18762
+    },
+    {
+      "id": "FMA72976",
+      "name": "left occipital lobe",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72976.stl",
+      "sha256": "8f718a0c60a316c7e6b60fa440909865927de819d2229c2c513f9dee97644a0a",
+      "triangles": 18746
+    },
+    {
+      "id": "FMA72977",
+      "name": "right insula",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72977.stl",
+      "sha256": "2586b9df7a37d40d5082b0fa212856e285c6cbebb0bac3c7cbf1af06678f949a",
+      "triangles": 12240
+    },
+    {
+      "id": "FMA72978",
+      "name": "left insula",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72978.stl",
+      "sha256": "8ab8b6fdee006cf8776db3b3c9857dd10aa9d60cd1851c2e7975eb7978c8d57b",
+      "triangles": 12242
+    },
+    {
+      "id": "FMA73303",
+      "name": "right lateral geniculate body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73303.stl",
+      "sha256": "3419dc93e9a5f33d2907ca774c192fb359006c71cbd44475f9e7f1f7ba922929",
+      "triangles": 2620
+    },
+    {
+      "id": "FMA73304",
+      "name": "left lateral geniculate body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73304.stl",
+      "sha256": "5bf59a6eaa4f900093dd6d5189c21186f6ec6e0a1a267025024d93d55de88bb9",
+      "triangles": 686
+    },
+    {
+      "id": "FMA73309",
+      "name": "right medial geniculate body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73309.stl",
+      "sha256": "85e7666c652cf06988ca9fee2514890db1ecc37408c5562ba9c57b27aa44de16",
+      "triangles": 208
+    },
+    {
+      "id": "FMA73310",
+      "name": "left medial geniculate body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73310.stl",
+      "sha256": "c69c45f8ad20285e3f438b52a4ca7ebb4bc0e5c21e6272d589e505bc482a00ce",
+      "triangles": 200
+    },
+    {
+      "id": "FMA73413",
+      "name": "right stria medullaris of thalamus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73413.stl",
+      "sha256": "afb5c04dc46762e998baa8c9940b762ccbbdb82852c280cc455566cc13d8be45",
+      "triangles": 3852
+    },
+    {
+      "id": "FMA73414",
+      "name": "left stria medullaris of thalamus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73414.stl",
+      "sha256": "681e78bb425245d32229a759af400c7bcdafbe6d35f51398feea364d24d3cc0b",
+      "triangles": 3870
+    },
+    {
+      "id": "FMA73422",
+      "name": "right superior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73422.stl",
+      "sha256": "0cbb1b8bf6038a3e7a6dc79599cec2eddd7e345abb64f863782c31ab28f79d1c",
+      "triangles": 204
+    },
+    {
+      "id": "FMA73423",
+      "name": "left superior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73423.stl",
+      "sha256": "fef46963f7fefc70763b36291f1eef25aa061c946cc30fce7c3ef4c727dec75b",
+      "triangles": 204
+    },
+    {
+      "id": "FMA73434",
+      "name": "right inferior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73434.stl",
+      "sha256": "08b813f96fc4350186cc011e0fa0883554321cfa87e1dd15c51263bdd20a8f40",
+      "triangles": 270
+    },
+    {
+      "id": "FMA73435",
+      "name": "left inferior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73435.stl",
+      "sha256": "0362deeae6c28d231604ac6a3d63ddc13f72d1faa799f9594bdff37ed736c197",
+      "triangles": 270
+    },
+    {
+      "id": "FMA73461",
+      "name": "brachium of right superior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73461.stl",
+      "sha256": "5101796b65462e3d3b1573802a2682cd08ae628ea3520762ec20c31e8be31fbb",
+      "triangles": 730
+    },
+    {
+      "id": "FMA73462",
+      "name": "brachium of left superior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73462.stl",
+      "sha256": "c7c9c2b0e9d126460910b8b34ae6698f13610dabdbd7b4efda43a092862704d6",
+      "triangles": 714
+    },
+    {
+      "id": "FMA73463",
+      "name": "brachium of right inferior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73463.stl",
+      "sha256": "07d1af9fb36f5bf4d4faf8b89fca9dc269483c742098f5150ee71816e93f8ca0",
+      "triangles": 686
+    },
+    {
+      "id": "FMA73464",
+      "name": "brachium of left inferior colliculus",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73464.stl",
+      "sha256": "d6bf68648f2a8b096bfab81c0868faac583f60940fd38e4e103bae248a1b86fa",
+      "triangles": 672
+    },
+    {
+      "id": "FMA74877",
+      "name": "mammillary body",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA74877.stl",
+      "sha256": "16bc2230ec63503d07ef30e472a871f658f4e88e133a9f3fb6576f0b010ea93d",
+      "triangles": 1666
+    },
+    {
+      "id": "FMA75351",
+      "name": "interventricular foramen",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA75351.stl",
+      "sha256": "cd5e002a238c7c04492777a25d486431a36fa2b41a0aae0a2e6a693f6a1a60d0",
+      "triangles": 4642
+    },
+    {
+      "id": "FMA78449",
+      "name": "right lateral ventricle",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78449.stl",
+      "sha256": "3f433927af3ddab9cf4fe0abc7ea0a4a6bf50313ea1697421aedf7bb7a8003eb",
+      "triangles": 78218
+    },
+    {
+      "id": "FMA78450",
+      "name": "left lateral ventricle",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78450.stl",
+      "sha256": "be9d1bb10ca6ff7636ca1e7ba5d2c93ca488b7e47724872d6b572f1ac60b80eb",
+      "triangles": 78010
+    },
+    {
+      "id": "FMA78454",
+      "name": "third ventricle",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78454.stl",
+      "sha256": "6bbf2d2d4552a08c20217326a1e978745d6425e75f9b92cf6f59826b4d30e53f",
+      "triangles": 16808
+    },
+    {
+      "id": "FMA78467",
+      "name": "cerebral aqueduct",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78467.stl",
+      "sha256": "b650c942910747d2720ad70fe3865442b52913e6db98f4f58a20dd885e52a762",
+      "triangles": 2252
+    },
+    {
+      "id": "FMA78469",
+      "name": "fourth ventricle",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78469.stl",
+      "sha256": "1fc1da3d6e360dcf88d93dbcdfe11507efa46a64a7d10a82a869d927178706e0",
+      "triangles": 30134
+    },
+    {
+      "id": "FMA78497",
+      "name": "central canal of spinal cord",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78497.stl",
+      "sha256": "3665ee3bef0d4514352ebecceacede566a5bc77209eaa5fd6402a947152ec1e2",
+      "triangles": 3162
+    },
+    {
+      "id": "FMA83740",
+      "name": "interpeduncular fossa",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA83740.stl",
+      "sha256": "e0a6d89e48bbf349eb7309a8e6bdb72a4d04bc7de4657afda7cb27b14e8a0917",
+      "triangles": 426
+    },
+    {
+      "id": "FMA86464",
+      "name": "corpus callosum",
+      "kind": "source structure",
+      "region": "Nervous",
+      "systems": [
+        "nervous"
+      ],
+      "url": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA86464.stl",
+      "sha256": "81abbbe732159738890a03907d28084d5facd9c132e09a473a4d9128ffa9e4c8",
+      "triangles": 132552
+    }
+  ],
+  "detailExports": [
+    {
+      "id": "FMA10951",
+      "triangles": 7686,
+      "bytes": 26596
+    },
+    {
+      "id": "FMA14331",
+      "triangles": 1352,
+      "bytes": 6412
+    },
+    {
+      "id": "FMA14332",
+      "triangles": 202,
+      "bytes": 2064
+    },
+    {
+      "id": "FMA14335",
+      "triangles": 1538,
+      "bytes": 7372
+    },
+    {
+      "id": "FMA14336",
+      "triangles": 574,
+      "bytes": 3592
+    },
+    {
+      "id": "FMA14749",
+      "triangles": 350,
+      "bytes": 2628
+    },
+    {
+      "id": "FMA14750",
+      "triangles": 602,
+      "bytes": 3648
+    },
+    {
+      "id": "FMA14752",
+      "triangles": 1754,
+      "bytes": 8064
+    },
+    {
+      "id": "FMA14753",
+      "triangles": 1308,
+      "bytes": 6500
+    },
+    {
+      "id": "FMA14765",
+      "triangles": 896,
+      "bytes": 4780
+    },
+    {
+      "id": "FMA14766",
+      "triangles": 806,
+      "bytes": 4416
+    },
+    {
+      "id": "FMA14768",
+      "triangles": 232,
+      "bytes": 2200
+    },
+    {
+      "id": "FMA14771",
+      "triangles": 808,
+      "bytes": 4516
+    },
+    {
+      "id": "FMA14773",
+      "triangles": 3326,
+      "bytes": 13644
+    },
+    {
+      "id": "FMA18806",
+      "triangles": 1344,
+      "bytes": 6504
+    },
+    {
+      "id": "FMA18807",
+      "triangles": 1288,
+      "bytes": 6324
+    },
+    {
+      "id": "FMA18809",
+      "triangles": 458,
+      "bytes": 3052
+    },
+    {
+      "id": "FMA18810",
+      "triangles": 500,
+      "bytes": 3204
+    },
+    {
+      "id": "FMA18885",
+      "triangles": 1326,
+      "bytes": 6420
+    },
+    {
+      "id": "FMA18886",
+      "triangles": 1448,
+      "bytes": 6936
+    },
+    {
+      "id": "FMA18887",
+      "triangles": 530,
+      "bytes": 3344
+    },
+    {
+      "id": "FMA18888",
+      "triangles": 478,
+      "bytes": 3140
+    },
+    {
+      "id": "FMA21387",
+      "triangles": 886,
+      "bytes": 4716
+    },
+    {
+      "id": "FMA21388",
+      "triangles": 992,
+      "bytes": 5140
+    },
+    {
+      "id": "FMA3736",
+      "triangles": 2156,
+      "bytes": 9904
+    },
+    {
+      "id": "FMA3768",
+      "triangles": 3282,
+      "bytes": 13660
+    },
+    {
+      "id": "FMA3784",
+      "triangles": 23808,
+      "bytes": 70640
+    },
+    {
+      "id": "FMA3802",
+      "triangles": 5154,
+      "bytes": 20232
+    },
+    {
+      "id": "FMA3818",
+      "triangles": 4908,
+      "bytes": 19852
+    },
+    {
+      "id": "FMA3840nsn",
+      "triangles": 3086,
+      "bytes": 13040
+    },
+    {
+      "id": "FMA3862nsn",
+      "triangles": 9220,
+      "bytes": 35840
+    },
+    {
+      "id": "FMA3895",
+      "triangles": 3542,
+      "bytes": 14624
+    },
+    {
+      "id": "FMA3932nsn",
+      "triangles": 1210,
+      "bytes": 6160
+    },
+    {
+      "id": "FMA3941",
+      "triangles": 4424,
+      "bytes": 16780
+    },
+    {
+      "id": "FMA3953",
+      "triangles": 2260,
+      "bytes": 9912
+    },
+    {
+      "id": "FMA4058",
+      "triangles": 698,
+      "bytes": 4024
+    },
+    {
+      "id": "FMA4685",
+      "triangles": 252,
+      "bytes": 2264
+    },
+    {
+      "id": "FMA4694",
+      "triangles": 3234,
+      "bytes": 13684
+    },
+    {
+      "id": "FMA4706",
+      "triangles": 1922,
+      "bytes": 8672
+    },
+    {
+      "id": "FMA4707",
+      "triangles": 7476,
+      "bytes": 28964
+    },
+    {
+      "id": "FMA4713",
+      "triangles": 4326,
+      "bytes": 17728
+    },
+    {
+      "id": "FMA4720",
+      "triangles": 1532,
+      "bytes": 7420
+    },
+    {
+      "id": "FMA4751",
+      "triangles": 1400,
+      "bytes": 6748
+    },
+    {
+      "id": "FMA4754",
+      "triangles": 580,
+      "bytes": 3536
+    },
+    {
+      "id": "FMA4755",
+      "triangles": 946,
+      "bytes": 4952
+    },
+    {
+      "id": "FMA4761",
+      "triangles": 1918,
+      "bytes": 8828
+    },
+    {
+      "id": "FMA4762",
+      "triangles": 720,
+      "bytes": 4108
+    },
+    {
+      "id": "FMA4763",
+      "triangles": 1112,
+      "bytes": 5560
+    },
+    {
+      "id": "FMA50737",
+      "triangles": 454,
+      "bytes": 3108
+    },
+    {
+      "id": "FMA66326",
+      "triangles": 116948,
+      "bytes": 359292
+    },
+    {
+      "id": "FMA66643",
+      "triangles": 72548,
+      "bytes": 244112
+    },
+    {
+      "id": "FMA71567",
+      "triangles": 5712,
+      "bytes": 22924
+    },
+    {
+      "id": "FMA71669",
+      "triangles": 754,
+      "bytes": 4308
+    },
+    {
+      "id": "FMA71670",
+      "triangles": 1214,
+      "bytes": 6044
+    },
+    {
+      "id": "FMA7234",
+      "triangles": 47268,
+      "bytes": 162480
+    },
+    {
+      "id": "FMA7235",
+      "triangles": 19102,
+      "bytes": 70160
+    },
+    {
+      "id": "FMA7246",
+      "triangles": 18202,
+      "bytes": 66012
+    },
+    {
+      "id": "FMA7260",
+      "triangles": 3860,
+      "bytes": 16760
+    },
+    {
+      "id": "FMA7261",
+      "triangles": 2730,
+      "bytes": 12332
+    },
+    {
+      "id": "FMA7262",
+      "triangles": 1898,
+      "bytes": 9012
+    },
+    {
+      "id": "FMA7266",
+      "triangles": 3902,
+      "bytes": 16528
+    },
+    {
+      "id": "FMA7274",
+      "triangles": 331592,
+      "bytes": 996328
+    },
+    {
+      "id": "FMA76751",
+      "triangles": 4318,
+      "bytes": 17792
+    },
+    {
+      "id": "FMA76994",
+      "triangles": 2246,
+      "bytes": 9884
+    },
+    {
+      "id": "FMA9352nsn",
+      "triangles": 4084,
+      "bytes": 17592
+    },
+    {
+      "id": "FMA55099",
+      "triangles": 23146,
+      "bytes": 79392
+    },
+    {
+      "id": "FMA59763",
+      "triangles": 9192,
+      "bytes": 36748
+    },
+    {
+      "id": "FMA59764",
+      "triangles": 9596,
+      "bytes": 36344
+    },
+    {
+      "id": "FMA59815nsn",
+      "triangles": 6440,
+      "bytes": 26660
+    },
+    {
+      "id": "FMA71704",
+      "triangles": 6826,
+      "bytes": 28452
+    },
+    {
+      "id": "FMA7333",
+      "triangles": 30398,
+      "bytes": 102036
+    },
+    {
+      "id": "FMA7337",
+      "triangles": 65592,
+      "bytes": 212848
+    },
+    {
+      "id": "FMA7370",
+      "triangles": 40652,
+      "bytes": 135452
+    },
+    {
+      "id": "FMA7371",
+      "triangles": 44288,
+      "bytes": 150188
+    },
+    {
+      "id": "FMA7383",
+      "triangles": 23478,
+      "bytes": 84576
+    },
+    {
+      "id": "FMA7394",
+      "triangles": 13870,
+      "bytes": 50452
+    },
+    {
+      "id": "FMA7409",
+      "triangles": 115630,
+      "bytes": 357004
+    },
+    {
+      "id": "FMA14543nsn",
+      "triangles": 69516,
+      "bytes": 222656
+    },
+    {
+      "id": "FMA7131",
+      "triangles": 2642,
+      "bytes": 11148
+    },
+    {
+      "id": "FMA7148",
+      "triangles": 9384,
+      "bytes": 33908
+    },
+    {
+      "id": "FMA7197",
+      "triangles": 19416,
+      "bytes": 62216
+    },
+    {
+      "id": "FMA7198nsn",
+      "triangles": 11414,
+      "bytes": 45220
+    },
+    {
+      "id": "FMA7202",
+      "triangles": 13846,
+      "bytes": 46440
+    },
+    {
+      "id": "FMA7206",
+      "triangles": 11950,
+      "bytes": 42068
+    },
+    {
+      "id": "FMA7207",
+      "triangles": 31468,
+      "bytes": 112544
+    },
+    {
+      "id": "FMA7208",
+      "triangles": 31250,
+      "bytes": 111412
+    },
+    {
+      "id": "FMA76891",
+      "triangles": 31524,
+      "bytes": 109300
+    },
+    {
+      "id": "FMA76892",
+      "triangles": 37118,
+      "bytes": 123324
+    },
+    {
+      "id": "FMA76893",
+      "triangles": 49028,
+      "bytes": 160704
+    },
+    {
+      "id": "FMA15571",
+      "triangles": 2210,
+      "bytes": 9464
+    },
+    {
+      "id": "FMA15572",
+      "triangles": 2226,
+      "bytes": 9524
+    },
+    {
+      "id": "FMA15900",
+      "triangles": 4016,
+      "bytes": 15772
+    },
+    {
+      "id": "FMA19667",
+      "triangles": 1186,
+      "bytes": 5856
+    },
+    {
+      "id": "FMA7204",
+      "triangles": 12394,
+      "bytes": 43080
+    },
+    {
+      "id": "FMA7205",
+      "triangles": 15358,
+      "bytes": 51596
+    },
+    {
+      "id": "BP49",
+      "triangles": 19906,
+      "bytes": 70348
+    },
+    {
+      "id": "BP50",
+      "triangles": 19926,
+      "bytes": 70764
+    },
+    {
+      "id": "FMA258714",
+      "triangles": 3298,
+      "bytes": 13484
+    },
+    {
+      "id": "FMA258716",
+      "triangles": 7396,
+      "bytes": 26408
+    },
+    {
+      "id": "FMA274027",
+      "triangles": 21558,
+      "bytes": 77516
+    },
+    {
+      "id": "FMA274029",
+      "triangles": 21508,
+      "bytes": 77160
+    },
+    {
+      "id": "FMA50875",
+      "triangles": 10310,
+      "bytes": 32616
+    },
+    {
+      "id": "FMA50878",
+      "triangles": 10302,
+      "bytes": 32512
+    },
+    {
+      "id": "FMA61822",
+      "triangles": 176564,
+      "bytes": 550600
+    },
+    {
+      "id": "FMA61844",
+      "triangles": 25010,
+      "bytes": 88248
+    },
+    {
+      "id": "FMA61961",
+      "triangles": 3690,
+      "bytes": 15072
+    },
+    {
+      "id": "FMA61970",
+      "triangles": 46164,
+      "bytes": 140864
+    },
+    {
+      "id": "FMA61975",
+      "triangles": 2448,
+      "bytes": 11120
+    },
+    {
+      "id": "FMA61993nsn",
+      "triangles": 56314,
+      "bytes": 161964
+    },
+    {
+      "id": "FMA62004",
+      "triangles": 52760,
+      "bytes": 154472
+    },
+    {
+      "id": "FMA62008nsn",
+      "triangles": 17690,
+      "bytes": 63440
+    },
+    {
+      "id": "FMA62032",
+      "triangles": 384,
+      "bytes": 2872
+    },
+    {
+      "id": "FMA62033",
+      "triangles": 2536,
+      "bytes": 11116
+    },
+    {
+      "id": "FMA62045",
+      "triangles": 7752,
+      "bytes": 28520
+    },
+    {
+      "id": "FMA62072",
+      "triangles": 3786,
+      "bytes": 15556
+    },
+    {
+      "id": "FMA62327",
+      "triangles": 6968,
+      "bytes": 27924
+    },
+    {
+      "id": "FMA62382",
+      "triangles": 10110,
+      "bytes": 35364
+    },
+    {
+      "id": "FMA62394",
+      "triangles": 46834,
+      "bytes": 141640
+    },
+    {
+      "id": "FMA67936",
+      "triangles": 10122,
+      "bytes": 35336
+    },
+    {
+      "id": "FMA67943",
+      "triangles": 90072,
+      "bytes": 279288
+    },
+    {
+      "id": "FMA67944",
+      "triangles": 238506,
+      "bytes": 663412
+    },
+    {
+      "id": "FMA72653",
+      "triangles": 30448,
+      "bytes": 99068
+    },
+    {
+      "id": "FMA72654",
+      "triangles": 30450,
+      "bytes": 99044
+    },
+    {
+      "id": "FMA72655",
+      "triangles": 15558,
+      "bytes": 55140
+    },
+    {
+      "id": "FMA72656",
+      "triangles": 15544,
+      "bytes": 55148
+    },
+    {
+      "id": "FMA72661",
+      "triangles": 18838,
+      "bytes": 65644
+    },
+    {
+      "id": "FMA72662",
+      "triangles": 18836,
+      "bytes": 65644
+    },
+    {
+      "id": "FMA72665",
+      "triangles": 16862,
+      "bytes": 58880
+    },
+    {
+      "id": "FMA72666",
+      "triangles": 16858,
+      "bytes": 59000
+    },
+    {
+      "id": "FMA72667",
+      "triangles": 9782,
+      "bytes": 38608
+    },
+    {
+      "id": "FMA72668",
+      "triangles": 9778,
+      "bytes": 38516
+    },
+    {
+      "id": "FMA72669",
+      "triangles": 13172,
+      "bytes": 50320
+    },
+    {
+      "id": "FMA72670",
+      "triangles": 13164,
+      "bytes": 50204
+    },
+    {
+      "id": "FMA72685",
+      "triangles": 12926,
+      "bytes": 43716
+    },
+    {
+      "id": "FMA72686",
+      "triangles": 12918,
+      "bytes": 44016
+    },
+    {
+      "id": "FMA72687",
+      "triangles": 13056,
+      "bytes": 45948
+    },
+    {
+      "id": "FMA72688",
+      "triangles": 13040,
+      "bytes": 46208
+    },
+    {
+      "id": "FMA72689",
+      "triangles": 6150,
+      "bytes": 25012
+    },
+    {
+      "id": "FMA72690",
+      "triangles": 6148,
+      "bytes": 25004
+    },
+    {
+      "id": "FMA72701",
+      "triangles": 15346,
+      "bytes": 55164
+    },
+    {
+      "id": "FMA72702",
+      "triangles": 15330,
+      "bytes": 55064
+    },
+    {
+      "id": "FMA72705",
+      "triangles": 3454,
+      "bytes": 14792
+    },
+    {
+      "id": "FMA72706",
+      "triangles": 3452,
+      "bytes": 14804
+    },
+    {
+      "id": "FMA72713",
+      "triangles": 4452,
+      "bytes": 17276
+    },
+    {
+      "id": "FMA72714",
+      "triangles": 4280,
+      "bytes": 16672
+    },
+    {
+      "id": "FMA72717",
+      "triangles": 11716,
+      "bytes": 41164
+    },
+    {
+      "id": "FMA72718",
+      "triangles": 11724,
+      "bytes": 40872
+    },
+    {
+      "id": "FMA72800",
+      "triangles": 8348,
+      "bytes": 32272
+    },
+    {
+      "id": "FMA72801",
+      "triangles": 8338,
+      "bytes": 32204
+    },
+    {
+      "id": "FMA72804",
+      "triangles": 10472,
+      "bytes": 38180
+    },
+    {
+      "id": "FMA72805",
+      "triangles": 10472,
+      "bytes": 38068
+    },
+    {
+      "id": "FMA72826",
+      "triangles": 11272,
+      "bytes": 39416
+    },
+    {
+      "id": "FMA72827",
+      "triangles": 11160,
+      "bytes": 38888
+    },
+    {
+      "id": "FMA72828",
+      "triangles": 30670,
+      "bytes": 93224
+    },
+    {
+      "id": "FMA72829",
+      "triangles": 30636,
+      "bytes": 94780
+    },
+    {
+      "id": "FMA72830",
+      "triangles": 23206,
+      "bytes": 71876
+    },
+    {
+      "id": "FMA72831",
+      "triangles": 30738,
+      "bytes": 93156
+    },
+    {
+      "id": "FMA72832",
+      "triangles": 1744,
+      "bytes": 8260
+    },
+    {
+      "id": "FMA72833",
+      "triangles": 1736,
+      "bytes": 8236
+    },
+    {
+      "id": "FMA72908",
+      "triangles": 48722,
+      "bytes": 141844
+    },
+    {
+      "id": "FMA72909",
+      "triangles": 48712,
+      "bytes": 141860
+    },
+    {
+      "id": "FMA72924",
+      "triangles": 29300,
+      "bytes": 84900
+    },
+    {
+      "id": "FMA72925",
+      "triangles": 29372,
+      "bytes": 84496
+    },
+    {
+      "id": "FMA72939",
+      "triangles": 3078,
+      "bytes": 13148
+    },
+    {
+      "id": "FMA72940",
+      "triangles": 3026,
+      "bytes": 13020
+    },
+    {
+      "id": "FMA72975",
+      "triangles": 18762,
+      "bytes": 66200
+    },
+    {
+      "id": "FMA72976",
+      "triangles": 18746,
+      "bytes": 66156
+    },
+    {
+      "id": "FMA72977",
+      "triangles": 12240,
+      "bytes": 41836
+    },
+    {
+      "id": "FMA72978",
+      "triangles": 12242,
+      "bytes": 42532
+    },
+    {
+      "id": "FMA73303",
+      "triangles": 2620,
+      "bytes": 11532
+    },
+    {
+      "id": "FMA73304",
+      "triangles": 686,
+      "bytes": 4040
+    },
+    {
+      "id": "FMA73309",
+      "triangles": 208,
+      "bytes": 2096
+    },
+    {
+      "id": "FMA73310",
+      "triangles": 200,
+      "bytes": 2044
+    },
+    {
+      "id": "FMA73413",
+      "triangles": 3852,
+      "bytes": 15516
+    },
+    {
+      "id": "FMA73414",
+      "triangles": 3870,
+      "bytes": 15572
+    },
+    {
+      "id": "FMA73422",
+      "triangles": 204,
+      "bytes": 2068
+    },
+    {
+      "id": "FMA73423",
+      "triangles": 204,
+      "bytes": 2064
+    },
+    {
+      "id": "FMA73434",
+      "triangles": 270,
+      "bytes": 2360
+    },
+    {
+      "id": "FMA73435",
+      "triangles": 270,
+      "bytes": 2356
+    },
+    {
+      "id": "FMA73461",
+      "triangles": 730,
+      "bytes": 4160
+    },
+    {
+      "id": "FMA73462",
+      "triangles": 714,
+      "bytes": 4096
+    },
+    {
+      "id": "FMA73463",
+      "triangles": 686,
+      "bytes": 4044
+    },
+    {
+      "id": "FMA73464",
+      "triangles": 672,
+      "bytes": 3956
+    },
+    {
+      "id": "FMA74877",
+      "triangles": 1666,
+      "bytes": 7900
+    },
+    {
+      "id": "FMA75351",
+      "triangles": 4642,
+      "bytes": 18336
+    },
+    {
+      "id": "FMA78449",
+      "triangles": 78218,
+      "bytes": 214492
+    },
+    {
+      "id": "FMA78450",
+      "triangles": 78010,
+      "bytes": 214020
+    },
+    {
+      "id": "FMA78454",
+      "triangles": 16808,
+      "bytes": 57208
+    },
+    {
+      "id": "FMA78467",
+      "triangles": 2252,
+      "bytes": 9940
+    },
+    {
+      "id": "FMA78469",
+      "triangles": 30134,
+      "bytes": 100052
+    },
+    {
+      "id": "FMA78497",
+      "triangles": 3162,
+      "bytes": 12660
+    },
+    {
+      "id": "FMA83740",
+      "triangles": 426,
+      "bytes": 3036
+    },
+    {
+      "id": "FMA86464",
+      "triangles": 132552,
+      "bytes": 397604
+    }
+  ]
+}

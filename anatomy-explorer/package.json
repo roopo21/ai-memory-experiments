@@ -15,9 +15,12 @@
     "fetch:muscles": "python3 scripts/fetch-models.py --system muscles",
     "build:muscles": "tsx scripts/build-muscles.ts",
     "check:viewer": "tsx scripts/check-viewer.ts",
-    "check": "npm run build && npm run audit:models && npm run check:skeleton && npm run check:viewer",
+    "check": "npm run build && npm run audit:models && npm run check:skeleton && npm run check:viewer && npm run check:organs",
     "format": "prettier --write src scripts/*.{ts,mjs} *.json *.md",
-    "format:check": "prettier --check src scripts/*.{ts,mjs} *.json *.md"
+    "format:check": "prettier --check src scripts/*.{ts,mjs} *.json *.md",
+    "fetch:organs": "python3 scripts/fetch-models.py --system organs",
+    "build:organs": "tsx scripts/build-organs.ts",
+    "check:organs": "tsx scripts/check-organs.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

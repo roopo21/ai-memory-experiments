@@ -3,6 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { damp3 } from 'maath/easing'
+import { structures } from '../data/anatomy'
 import { HOME } from '../lib/framing'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import { meshRegistry, subscribeRegistry, registrySnapshot } from './registry'
@@ -28,13 +29,19 @@ export default function CameraRig() {
       g.position.sub(g.target).multiplyScalar(back).add(g.target)
       goal.current = g
     } else {
-      const obj = meshRegistry.get(request.meshName)
-      if (!obj) return
-      const box = new THREE.Box3().setFromObject(obj)
+      const names =
+        request.kind === 'system'
+          ? structures.filter((s) => s.systems.includes(request.system)).map((s) => s.meshName)
+          : [request.meshName]
+      // Wait for every constituent layer before fitting a system, including shared surfaces.
+      if (names.some((name) => !meshRegistry.has(name))) return
+      const box = new THREE.Box3()
+      for (const name of names) box.expandByObject(meshRegistry.get(name)!)
       const sphere = box.getBoundingSphere(new THREE.Sphere())
       const dist = Math.max(
         0.12,
-        (sphere.radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2))) * 1.5,
+        ((sphere.radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2))) * 1.5) /
+          Math.min(1, camera.aspect),
       )
       // Keep roughly the current viewing angle, but bias toward the front so organs aren't viewed from behind.
       const dir = camera.position

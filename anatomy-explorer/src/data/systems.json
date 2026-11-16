@@ -13,6 +13,41 @@
       "color": "#d9534f",
       "icon": "Dumbbell",
       "description": "Skeletal, cardiac and smooth muscle that generate movement, maintain posture and produce heat. Skeletal muscles work in pairs, pulling on bones through tendons."
+    },
+    {
+      "id": "cardiovascular",
+      "name": "Cardiovascular",
+      "color": "#d95f70",
+      "icon": "cardiovascular",
+      "description": "Available BodyParts3D cardiovascular structures. Source coverage is partial."
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory",
+      "color": "#d8a3bf",
+      "icon": "respiratory",
+      "description": "Available BodyParts3D respiratory structures. Source coverage is partial."
+    },
+    {
+      "id": "digestive",
+      "name": "Digestive",
+      "color": "#c99962",
+      "icon": "digestive",
+      "description": "Available BodyParts3D digestive structures. Source coverage is partial."
+    },
+    {
+      "id": "urinary",
+      "name": "Urinary",
+      "color": "#e4b56d",
+      "icon": "urinary",
+      "description": "Available BodyParts3D urinary structures. Source coverage is partial."
+    },
+    {
+      "id": "nervous",
+      "name": "Nervous",
+      "color": "#e8cf72",
+      "icon": "nervous",
+      "description": "Available BodyParts3D nervous structures. Source coverage is partial."
     }
   ]
 }

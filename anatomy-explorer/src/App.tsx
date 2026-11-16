@@ -36,7 +36,7 @@ export default function App() {
       <div className="pointer-events-none absolute left-1/2 top-4 z-10 -translate-x-1/2 md:left-[calc(50%+10.75rem)]">
         <div className="pointer-events-auto">
           <span className="glass inline-block whitespace-nowrap rounded-full px-4 py-2 text-xs">
-            Male anatomy · bones + muscles
+            Male anatomy · 7 systems
           </span>
         </div>
       </div>

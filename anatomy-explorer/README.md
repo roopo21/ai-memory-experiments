@@ -1,6 +1,6 @@
 # Anatomy Explorer
 
-A local React, TypeScript and Three.js viewer for source-derived male skeletal and muscular anatomy. It contains 231 skeletal structures and 435 muscle/tendon structures from the same BodyParts3D release. Other systems and female anatomy are not implemented. Procedural demo bodies have been removed.
+A local React, TypeScript and Three.js viewer for source-derived male skeletal and muscular anatomy. It contains 231 skeletal structures and 435 muscle/tendon structures from the same BodyParts3D release. Five additional layers contain 193 cardiovascular, respiratory, digestive, urinary and nervous structures. Female anatomy is not implemented. Procedural demo bodies have been removed.
 
 ## Run and check
 
@@ -13,7 +13,7 @@ npm run check         # production build, all asset audits, skeleton and viewer 
 npm run format:check
 ```
 
-Select structures through search, the region browser or the viewport. Toggle system visibility, adjust opacity, isolate a selection, hide individual structures and restore them. Selecting a muscle requests its detailed surface; the regional overview remains available while it loads. Missing assets display a load error.
+Use the **View** button beside any system to reveal it alone, then toggle other layers to combine them. New layers load on demand. Select structures through search, the region browser or the viewport. Toggle system visibility, adjust opacity, isolate a selection, hide individual structures and restore them. Selecting a muscle requests its detailed surface; the regional overview remains available while it loads. Missing assets display a load error.
 
 ## Code map
 
@@ -38,6 +38,8 @@ npm run fetch:skeleton
 npm run build:skeleton
 npm run fetch:muscles
 npm run build:muscles
+npm run fetch:organs
+npm run build:organs
 npm run check
 ```
 
@@ -53,5 +55,17 @@ All systems share `scripts/source-transform.json`: source `(x, y, z)` millimetre
 - **Review:** source names, positions and surface geometry are preserved through a shared conversion, but attachments, landmarks and teaching content have not received independent anatomical review.
 
 Source and derived-geometry terms are retained in [ATTRIBUTION.md](public/models/ATTRIBUTION.md). This is an educational experiment, not a complete or clinically reviewed atlas.
+
+## Additional systems
+
+| Layer          | New selectable surfaces                           | Coverage                                                                                                                                       |
+| -------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cardiovascular | 65                                                | Heart wall, valves, papillary structures and available major vessels; not a complete peripheral network                                        |
+| Respiratory    | 12                                                | Five lung lobes, trachea, bronchus, selected laryngeal/nasal and oral surfaces                                                                 |
+| Digestive      | 12 additional, plus 3 shared respiratory surfaces | Liver, stomach, esophagus, pancreas, gallbladder, bowel and source subdivisions                                                                |
+| Urinary        | 6                                                 | Two kidneys, two ureters, bladder and urethra                                                                                                  |
+| Nervous        | 98                                                | Predominantly brain subdivisions, optic structures and source cavity/canal surfaces; no complete peripheral nerve or spinal-cord surface model |
+
+These use the same source transform as bones and muscles. Overview transfer totals 3.8 MB; selected detail files total 11.5 MB collectively. The detailed exports contain 3,522,980 triangles versus 3,522,988 source triangles. Supporting oral bones and skeletal muscles already imported stay in their existing layers. Source-defined groups and cavity surfaces retain their original names. These layers are imported source coverage, not complete or independently reviewed systems.
 
 The single forward plan is [ROADMAP.md](ROADMAP.md).

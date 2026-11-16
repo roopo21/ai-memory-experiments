@@ -43,7 +43,7 @@ def validate(data, identifier, expected):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--system", choices=["skeleton", "muscles"], required=True)
+    parser.add_argument("--system", choices=["skeleton", "muscles", "organs"], required=True)
     system = parser.parse_args().system
     destination = ROOT / "assets-src" / system
     destination.mkdir(parents=True, exist_ok=True)

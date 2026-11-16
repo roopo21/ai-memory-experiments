@@ -2,20 +2,26 @@
 
 Updated 2026-11-16. This is the single forward plan for the anatomy app. `README.md` covers operation; the manifests record what is actually shipped; `ATTRIBUTION.md` records source terms. Update this file as milestones are verified rather than creating parallel planning documents.
 
+## Latest implementation update
+
+Five additional system layers are now imported: 65 cardiovascular, 12 respiratory, 12 further digestive (plus three shared respiratory/oral surfaces), six urinary and 98 nervous structures. The viewer supports independent visibility and one-click solo views, search, streamed detail, hide/restore and isolation for all seven systems. The new import has a pinned selection, source checksums and output audit.
+
+Milestones 3 and 4 below now describe coverage expansion and review of this initial import. They are not complete: peripheral vessels, peripheral nerves, complete spinal cord geometry, anatomical review, registration landmarks and measured performance remain outstanding. Milestones 1 and 2 still apply. Female anatomy and other system layers remain unimplemented.
+
 ## Outcome
 
 Build a study atlas with real, individually selectable anatomy, coherent spatial relationships across systems, useful source-backed teaching content and a responsive browser viewer. Start with the male source body already imported. Add female anatomy as a separately sourced and reviewed body. No system is considered delivered because a toggle, label or approximate shape exists.
 
 ## Starting point
 
-| Area                        | Implemented                                                                                                  | Still unverified or missing                                                                              |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Male skeleton               | 231 selectable source structures; 199 standard bones represented; 28 teeth                                   | Separate coccyx, six ossicles, four third molars; cartilage, ligaments and landmarks; expert review      |
-| Male muscles                | 435 named source muscle/tendon structures; eight regional overviews; selected full-detail loading            | Full individual-muscle coverage, attachment review, anatomical corrections and detailed teaching content |
-| Shared body                 | Both imports use one pinned source revision and one rigid coordinate transform                               | Landmark-based registration checks and review of anatomical relationships                                |
-| Viewer                      | Search, browsing, visibility, opacity, focus, isolation, hide/restore and explicit load errors               | Bounded asset cache, skeleton LOD, retry controls, clipping, annotations and measured device performance |
-| Verification                | Production build, catalogue/mesh audit, geometry counts, basic bounds/laterality and state regression checks | Automated decoded-geometry registration tests, CI browser checks and anatomist sign-off                  |
-| Other systems / female body | Not implemented                                                                                              | Sourcing, coverage inventories, registration, imports and review                                         |
+| Area                             | Implemented                                                                                                  | Still unverified or missing                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Male skeleton                    | 231 selectable source structures; 199 standard bones represented; 28 teeth                                   | Separate coccyx, six ossicles, four third molars; cartilage, ligaments and landmarks; expert review      |
+| Male muscles                     | 435 named source muscle/tendon structures; eight regional overviews; selected full-detail loading            | Full individual-muscle coverage, attachment review, anatomical corrections and detailed teaching content |
+| Shared body                      | Both imports use one pinned source revision and one rigid coordinate transform                               | Landmark-based registration checks and review of anatomical relationships                                |
+| Viewer                           | Search, browsing, visibility, opacity, focus, isolation, hide/restore and explicit load errors               | Bounded asset cache, skeleton LOD, retry controls, clipping, annotations and measured device performance |
+| Verification                     | Production build, catalogue/mesh audit, geometry counts, basic bounds/laterality and state regression checks | Automated decoded-geometry registration tests, CI browser checks and anatomist sign-off                  |
+| Additional systems / female body | Five initial internal system layers imported; female body unavailable                                        | Coverage expansion, sourcing gaps, registration and review                                               |
 
 Muscle counts include source groups and tendons. A source triangle count is a fidelity measurement, not proof of anatomical accuracy. The current muscle detail compression removes 26 of 18,087,874 source triangles. The whole-body muscle overview still has about 3 million triangles, in addition to the 2 million triangle skeleton.
 

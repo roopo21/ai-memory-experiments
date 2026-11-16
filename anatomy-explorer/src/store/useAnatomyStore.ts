@@ -6,13 +6,14 @@ export interface LayerState {
   opacity: number
 }
 export type CameraRequest =
-  { kind: 'home'; nonce: number } | { kind: 'focus'; nonce: number; meshName: string }
+  | { kind: 'system'; nonce: number; system: SystemId }
+  | { kind: 'home'; nonce: number }
+  | { kind: 'focus'; nonce: number; meshName: string }
 
 const defaultLayers = () =>
-  Object.fromEntries(systems.map((s) => [s.id, { visible: true, opacity: 1 }])) as Record<
-    SystemId,
-    LayerState
-  >
+  Object.fromEntries(
+    systems.map((s) => [s.id, { visible: s.id === 'skeletal' || s.id === 'muscular', opacity: 1 }]),
+  ) as Record<SystemId, LayerState>
 
 interface State {
   hiddenMeshes: string[]
@@ -27,6 +28,7 @@ interface State {
   hideStructure: (name: string) => void
   restoreStructures: () => void
   setIsolated: (value: boolean) => void
+  showSystem: (id: SystemId) => void
   toggleSystem: (id: SystemId) => void
   setLayerVisible: (id: SystemId, visible: boolean) => void
   setLayerOpacity: (id: SystemId, opacity: number) => void
@@ -64,6 +66,18 @@ export const useAnatomyStore = create<State>((set, get) => ({
   },
   restoreStructures: () => set({ hiddenMeshes: [] }),
   setIsolated: (isolated) => set({ isolated }),
+  showSystem: (id) =>
+    set({
+      layers: Object.fromEntries(
+        systems.map((system) => [system.id, { visible: system.id === id, opacity: 1 }]),
+      ) as Record<SystemId, LayerState>,
+      selectedMesh: null,
+      hoveredMesh: null,
+      hiddenMeshes: [],
+      isolated: false,
+      muscleRegion: null,
+      cameraRequest: req({ kind: 'system', system: id }),
+    }),
   toggleSystem: (id) => get().setLayerVisible(id, !get().layers[id].visible),
   setLayerVisible: (id, visible) =>
     set((state) => ({

@@ -46,7 +46,7 @@ assert.deepEqual(
 const sourceTriangles = new Map(manifest.files.map((file) => [file.id, file.triangles]))
 const exported = new Map(manifest.detailExports.map((file) => [file.id, file]))
 let detailTriangles = 0
-for (const structure of structures.filter((s) => s.detailUrl)) {
+for (const structure of structures.filter((s) => s.detailUrl && s.systems.includes('muscular'))) {
   const document = check(structure.detailUrl!, [structure.meshName])
   const triangles = triangleCount(document)
   assert.equal(

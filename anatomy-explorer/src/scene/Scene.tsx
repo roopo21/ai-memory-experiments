@@ -1,7 +1,13 @@
 import { Component, Suspense, useMemo, type ReactNode } from 'react'
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { skeletonNames, muscleChunks, structureByMesh } from '../data/anatomy'
+import {
+  skeletonNames,
+  muscleChunks,
+  organChunks,
+  structureByMesh,
+  type SystemId,
+} from '../data/anatomy'
 import { HOME } from '../lib/framing'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import CameraRig from './CameraRig'
@@ -43,6 +49,7 @@ function Stage() {
 }
 
 export default function Scene() {
+  const layers = useAnatomyStore((s) => s.layers)
   const selected = useAnatomyStore((s) => s.selectedMesh)
   const detail = selected ? structureByMesh.get(selected) : null
   const detailNames = useMemo(() => (detail ? [detail.meshName] : []), [detail?.meshName])
@@ -94,7 +101,22 @@ export default function Scene() {
                 </ModelBoundary>
               </Suspense>
             ))}
-        {muscleVisible && detail?.detailUrl && (
+        {organChunks
+          .filter((chunk) => chunk.systems.some((id) => layers[id as SystemId].visible))
+          .map((chunk) => (
+            <Suspense key={chunk.url} fallback={null}>
+              <ModelBoundary
+                fallback={
+                  <Html center>
+                    <p role="alert">{chunk.region} failed to load. Reload to retry.</p>
+                  </Html>
+                }
+              >
+                <AnatomyLayer url={chunk.url} expected={chunk.meshes} />
+              </ModelBoundary>
+            </Suspense>
+          ))}
+        {detail?.detailUrl && detail.systems.some((id) => layers[id].visible) && (
           <Suspense fallback={null}>
             <ModelBoundary
               key={detail.meshName}

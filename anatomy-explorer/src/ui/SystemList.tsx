@@ -36,7 +36,7 @@ export default function SystemList() {
       {systems.map((s, i) => {
         const on = layers[s.id].visible
         return (
-          <li key={s.id}>
+          <li key={s.id} className="flex items-center gap-1">
             <button
               ref={(el) => {
                 refs.current[i] = el
@@ -68,6 +68,14 @@ export default function SystemList() {
               </span>
               <span className="flex-1 font-medium">{s.name}</span>
               {on && <Check className="h-4 w-4" style={{ color: s.color }} aria-hidden />}
+            </button>
+            <button
+              aria-label={`View ${s.name} alone`}
+              title={`Show only ${s.name}`}
+              onClick={() => useAnatomyStore.getState().showSystem(s.id)}
+              className="rounded-lg border border-white/10 p-2 text-xs hover:bg-white/10"
+            >
+              View
             </button>
           </li>
         )

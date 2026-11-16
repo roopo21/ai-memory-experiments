@@ -1,0 +1,1742 @@
+[
+  {
+    "id": "FMA10951",
+    "name": "inferior vena cava",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14331",
+    "name": "splenic vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14332",
+    "name": "superior mesenteric vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14335",
+    "name": "right renal vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14336",
+    "name": "left renal vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14749",
+    "name": "superior mesenteric artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14750",
+    "name": "inferior mesenteric artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14752",
+    "name": "right renal artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14753",
+    "name": "left renal artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14765",
+    "name": "right common iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14766",
+    "name": "left common iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14768",
+    "name": "left gastric artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14771",
+    "name": "common hepatic artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA14773",
+    "name": "splenic artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18806",
+    "name": "right external iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18807",
+    "name": "left external iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18809",
+    "name": "right internal iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18810",
+    "name": "left internal iliac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18885",
+    "name": "right external iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18886",
+    "name": "left external iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18887",
+    "name": "right internal iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA18888",
+    "name": "left internal iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA21387",
+    "name": "right common iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA21388",
+    "name": "left common iliac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3736",
+    "name": "ascending aorta",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3768",
+    "name": "arch of aorta",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3784",
+    "name": "descending aorta",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3802",
+    "name": "trunk of right coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3818",
+    "name": "marginal branch of right coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3840nsn",
+    "name": "posterior interventricular branch of right coronary artery, nsn",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3862nsn",
+    "name": "anterior interventricular branch of left coronary artery, nsn",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3895",
+    "name": "circumflex branch of left coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3932nsn",
+    "name": "brachiocephalic artery, nsn",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3941",
+    "name": "right common carotid artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA3953",
+    "name": "right subclavian artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4058",
+    "name": "left common carotid artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4685",
+    "name": "stem of left coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4694",
+    "name": "left subclavian artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4706",
+    "name": "coronary sinus",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4707",
+    "name": "great cardiac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4713",
+    "name": "middle cardiac vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4720",
+    "name": "superior vena cava",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4751",
+    "name": "right brachiocephalic vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4754",
+    "name": "right internal jugular vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4755",
+    "name": "right subclavian vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4761",
+    "name": "left brachiocephalic vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4762",
+    "name": "left internal jugular vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA4763",
+    "name": "left subclavian vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA50737",
+    "name": "celiac artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA66326",
+    "name": "pulmonary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA66643",
+    "name": "pulmonary vein",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA71567",
+    "name": "set of anterior cardiac veins",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA71669",
+    "name": "set of interventricular septal branches of right coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA71670",
+    "name": "set of interventricular septal branches of left coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7234",
+    "name": "tricuspid valve",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7235",
+    "name": "mitral valve",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7246",
+    "name": "pulmonary valve",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7260",
+    "name": "anterior papillary muscle of right ventricle",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7261",
+    "name": "posterior papillary muscle of right ventricle",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7262",
+    "name": "septal papillary muscle of right ventricle",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7266",
+    "name": "posterior papillary muscle of left ventricle",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA7274",
+    "name": "wall of heart",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA76751",
+    "name": "set of posterior veins of left ventricle",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA76994",
+    "name": "right posterolateral branch of right coronary artery",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA9352nsn",
+    "name": "papillary muscle of left ventricle, nsn",
+    "kind": "source structure",
+    "region": "Cardiovascular",
+    "systems": [
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "FMA55099",
+    "name": "thyroid cartilage",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA59763",
+    "name": "gingiva of upper jaw",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory",
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA59764",
+    "name": "gingiva of lower jaw",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory",
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA59815nsn",
+    "name": "labial part of mouth, nsn",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory",
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA71704",
+    "name": "set of nasal cartilages",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7333",
+    "name": "upper lobe of right lung",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7337",
+    "name": "lower lobe of right lung",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7370",
+    "name": "upper lobe of left lung",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7371",
+    "name": "lower lobe of left lung",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7383",
+    "name": "middle lobe of lung",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7394",
+    "name": "trachea",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA7409",
+    "name": "bronchus",
+    "kind": "source structure",
+    "region": "Respiratory",
+    "systems": [
+      "respiratory"
+    ]
+  },
+  {
+    "id": "FMA14543nsn",
+    "name": "colon, nsn",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7131",
+    "name": "esophagus",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7148",
+    "name": "stomach",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7197",
+    "name": "liver",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7198nsn",
+    "name": "pancreas, nsn",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7202",
+    "name": "gallbladder",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7206",
+    "name": "duodenum",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7207",
+    "name": "jejunum",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA7208",
+    "name": "ileum",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA76891",
+    "name": "mesocolic taenia",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA76892",
+    "name": "omental taenia",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA76893",
+    "name": "free taenia",
+    "kind": "source structure",
+    "region": "Digestive",
+    "systems": [
+      "digestive"
+    ]
+  },
+  {
+    "id": "FMA15571",
+    "name": "right ureter",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "FMA15572",
+    "name": "left ureter",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "FMA15900",
+    "name": "urinary bladder",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "FMA19667",
+    "name": "urethra",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "FMA7204",
+    "name": "right kidney",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "FMA7205",
+    "name": "left kidney",
+    "kind": "source structure",
+    "region": "Urinary",
+    "systems": [
+      "urinary"
+    ]
+  },
+  {
+    "id": "BP49",
+    "name": "left superior parietal lobule precuneus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "BP50",
+    "name": "right superior parietal lobule precuneus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA258714",
+    "name": "right thalamus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA258716",
+    "name": "left thalamus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA274027",
+    "name": "choroid plexus of right cerebral hemisphere",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA274029",
+    "name": "choroid plexus of left cerebral hemisphere",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA50875",
+    "name": "right optic nerve",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA50878",
+    "name": "left optic nerve",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61822",
+    "name": "white matter structure of cerebral hemisphere",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61844",
+    "name": "septum pellucidum",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61961",
+    "name": "anterior commissure",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61970",
+    "name": "commissure of fornix of forebrain",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61975",
+    "name": "lamina terminalis",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA61993nsn",
+    "name": "midbrain, nsn",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62004",
+    "name": "medulla oblongata",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62008nsn",
+    "name": "hypothalamus, nsn",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62032",
+    "name": "habenula",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62033",
+    "name": "pineal body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62045",
+    "name": "optic chiasm",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62072",
+    "name": "posterior commissure",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62327",
+    "name": "tuber cinereum",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62382",
+    "name": "right optic tract",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA62394",
+    "name": "peduncle of midbrain",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA67936",
+    "name": "left optic tract",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA67943",
+    "name": "pons",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA67944",
+    "name": "cerebellum",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72653",
+    "name": "right superior frontal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72654",
+    "name": "left superior frontal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72655",
+    "name": "right middle frontal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72656",
+    "name": "left middle frontal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72661",
+    "name": "right precentral gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72662",
+    "name": "left precentral gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72665",
+    "name": "right postcentral gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72666",
+    "name": "left postcentral gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72667",
+    "name": "right supramarginal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72668",
+    "name": "left supramarginal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72669",
+    "name": "right angular gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72670",
+    "name": "left angular gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72685",
+    "name": "right middle temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72686",
+    "name": "left middle temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72687",
+    "name": "right inferior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72688",
+    "name": "left inferior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72689",
+    "name": "right fusiform gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72690",
+    "name": "left fusiform gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72701",
+    "name": "right accessory short gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72702",
+    "name": "left accessory short gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72705",
+    "name": "right parahippocampal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72706",
+    "name": "left parahippocampal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72713",
+    "name": "right hippocampus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72714",
+    "name": "left hippocampus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72717",
+    "name": "right cingulate gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72718",
+    "name": "left cingulate gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72800",
+    "name": "anterior part of right superior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72801",
+    "name": "anterior part of left superior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72804",
+    "name": "posterior part of right superior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72805",
+    "name": "posterior part of left superior temporal gyrus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72826",
+    "name": "right caudate nucleus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72827",
+    "name": "left caudate nucleus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72828",
+    "name": "right putamen",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72829",
+    "name": "left putamen",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72830",
+    "name": "right globus pallidus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72831",
+    "name": "left globus pallidus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72832",
+    "name": "right amygdala",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72833",
+    "name": "left amygdala",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72908",
+    "name": "anterior limb of right internal capsule",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72909",
+    "name": "anterior limb of left internal capsule",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72924",
+    "name": "right fornix of forebrain",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72925",
+    "name": "left fornix of forebrain",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72939",
+    "name": "right stria terminalis",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72940",
+    "name": "left stria terminalis",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72975",
+    "name": "right occipital lobe",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72976",
+    "name": "left occipital lobe",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72977",
+    "name": "right insula",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA72978",
+    "name": "left insula",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73303",
+    "name": "right lateral geniculate body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73304",
+    "name": "left lateral geniculate body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73309",
+    "name": "right medial geniculate body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73310",
+    "name": "left medial geniculate body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73413",
+    "name": "right stria medullaris of thalamus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73414",
+    "name": "left stria medullaris of thalamus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73422",
+    "name": "right superior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73423",
+    "name": "left superior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73434",
+    "name": "right inferior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73435",
+    "name": "left inferior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73461",
+    "name": "brachium of right superior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73462",
+    "name": "brachium of left superior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73463",
+    "name": "brachium of right inferior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA73464",
+    "name": "brachium of left inferior colliculus",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA74877",
+    "name": "mammillary body",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA75351",
+    "name": "interventricular foramen",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78449",
+    "name": "right lateral ventricle",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78450",
+    "name": "left lateral ventricle",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78454",
+    "name": "third ventricle",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78467",
+    "name": "cerebral aqueduct",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78469",
+    "name": "fourth ventricle",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA78497",
+    "name": "central canal of spinal cord",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA83740",
+    "name": "interpeduncular fossa",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  },
+  {
+    "id": "FMA86464",
+    "name": "corpus callosum",
+    "kind": "source structure",
+    "region": "Nervous",
+    "systems": [
+      "nervous"
+    ]
+  }
+]

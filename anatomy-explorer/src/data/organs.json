@@ -1,0 +1,3547 @@
+{
+  "structures": [
+    {
+      "meshName": "FMA10951",
+      "displayName": "Inferior vena cava",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10951.stl",
+      "detailUrl": "/models/organs/detail/FMA10951.glb",
+      "kind": "source structure",
+      "description": "Inferior vena cava, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA10951",
+        "Region: Cardiovascular",
+        "Source surface: 7,686 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14331",
+      "displayName": "Splenic vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14331.stl",
+      "detailUrl": "/models/organs/detail/FMA14331.glb",
+      "kind": "source structure",
+      "description": "Splenic vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14331",
+        "Region: Cardiovascular",
+        "Source surface: 1,352 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14332",
+      "displayName": "Superior mesenteric vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14332.stl",
+      "detailUrl": "/models/organs/detail/FMA14332.glb",
+      "kind": "source structure",
+      "description": "Superior mesenteric vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14332",
+        "Region: Cardiovascular",
+        "Source surface: 202 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14335",
+      "displayName": "Right renal vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14335.stl",
+      "detailUrl": "/models/organs/detail/FMA14335.glb",
+      "kind": "source structure",
+      "description": "Right renal vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14335",
+        "Region: Cardiovascular",
+        "Source surface: 1,538 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14336",
+      "displayName": "Left renal vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14336.stl",
+      "detailUrl": "/models/organs/detail/FMA14336.glb",
+      "kind": "source structure",
+      "description": "Left renal vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14336",
+        "Region: Cardiovascular",
+        "Source surface: 574 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14749",
+      "displayName": "Superior mesenteric artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14749.stl",
+      "detailUrl": "/models/organs/detail/FMA14749.glb",
+      "kind": "source structure",
+      "description": "Superior mesenteric artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14749",
+        "Region: Cardiovascular",
+        "Source surface: 350 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14750",
+      "displayName": "Inferior mesenteric artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14750.stl",
+      "detailUrl": "/models/organs/detail/FMA14750.glb",
+      "kind": "source structure",
+      "description": "Inferior mesenteric artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14750",
+        "Region: Cardiovascular",
+        "Source surface: 602 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14752",
+      "displayName": "Right renal artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14752.stl",
+      "detailUrl": "/models/organs/detail/FMA14752.glb",
+      "kind": "source structure",
+      "description": "Right renal artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14752",
+        "Region: Cardiovascular",
+        "Source surface: 1,754 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14753",
+      "displayName": "Left renal artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14753.stl",
+      "detailUrl": "/models/organs/detail/FMA14753.glb",
+      "kind": "source structure",
+      "description": "Left renal artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14753",
+        "Region: Cardiovascular",
+        "Source surface: 1,308 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14765",
+      "displayName": "Right common iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14765.stl",
+      "detailUrl": "/models/organs/detail/FMA14765.glb",
+      "kind": "source structure",
+      "description": "Right common iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14765",
+        "Region: Cardiovascular",
+        "Source surface: 896 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14766",
+      "displayName": "Left common iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14766.stl",
+      "detailUrl": "/models/organs/detail/FMA14766.glb",
+      "kind": "source structure",
+      "description": "Left common iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14766",
+        "Region: Cardiovascular",
+        "Source surface: 806 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14768",
+      "displayName": "Left gastric artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14768.stl",
+      "detailUrl": "/models/organs/detail/FMA14768.glb",
+      "kind": "source structure",
+      "description": "Left gastric artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14768",
+        "Region: Cardiovascular",
+        "Source surface: 232 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14771",
+      "displayName": "Common hepatic artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14771.stl",
+      "detailUrl": "/models/organs/detail/FMA14771.glb",
+      "kind": "source structure",
+      "description": "Common hepatic artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14771",
+        "Region: Cardiovascular",
+        "Source surface: 808 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14773",
+      "displayName": "Splenic artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14773.stl",
+      "detailUrl": "/models/organs/detail/FMA14773.glb",
+      "kind": "source structure",
+      "description": "Splenic artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14773",
+        "Region: Cardiovascular",
+        "Source surface: 3,326 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18806",
+      "displayName": "Right external iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18806.stl",
+      "detailUrl": "/models/organs/detail/FMA18806.glb",
+      "kind": "source structure",
+      "description": "Right external iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18806",
+        "Region: Cardiovascular",
+        "Source surface: 1,344 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18807",
+      "displayName": "Left external iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18807.stl",
+      "detailUrl": "/models/organs/detail/FMA18807.glb",
+      "kind": "source structure",
+      "description": "Left external iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18807",
+        "Region: Cardiovascular",
+        "Source surface: 1,288 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18809",
+      "displayName": "Right internal iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18809.stl",
+      "detailUrl": "/models/organs/detail/FMA18809.glb",
+      "kind": "source structure",
+      "description": "Right internal iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18809",
+        "Region: Cardiovascular",
+        "Source surface: 458 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18810",
+      "displayName": "Left internal iliac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18810.stl",
+      "detailUrl": "/models/organs/detail/FMA18810.glb",
+      "kind": "source structure",
+      "description": "Left internal iliac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18810",
+        "Region: Cardiovascular",
+        "Source surface: 500 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18885",
+      "displayName": "Right external iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18885.stl",
+      "detailUrl": "/models/organs/detail/FMA18885.glb",
+      "kind": "source structure",
+      "description": "Right external iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18885",
+        "Region: Cardiovascular",
+        "Source surface: 1,326 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18886",
+      "displayName": "Left external iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18886.stl",
+      "detailUrl": "/models/organs/detail/FMA18886.glb",
+      "kind": "source structure",
+      "description": "Left external iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18886",
+        "Region: Cardiovascular",
+        "Source surface: 1,448 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18887",
+      "displayName": "Right internal iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18887.stl",
+      "detailUrl": "/models/organs/detail/FMA18887.glb",
+      "kind": "source structure",
+      "description": "Right internal iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18887",
+        "Region: Cardiovascular",
+        "Source surface: 530 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA18888",
+      "displayName": "Left internal iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA18888.stl",
+      "detailUrl": "/models/organs/detail/FMA18888.glb",
+      "kind": "source structure",
+      "description": "Left internal iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA18888",
+        "Region: Cardiovascular",
+        "Source surface: 478 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA21387",
+      "displayName": "Right common iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA21387.stl",
+      "detailUrl": "/models/organs/detail/FMA21387.glb",
+      "kind": "source structure",
+      "description": "Right common iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA21387",
+        "Region: Cardiovascular",
+        "Source surface: 886 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA21388",
+      "displayName": "Left common iliac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA21388.stl",
+      "detailUrl": "/models/organs/detail/FMA21388.glb",
+      "kind": "source structure",
+      "description": "Left common iliac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA21388",
+        "Region: Cardiovascular",
+        "Source surface: 992 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3736",
+      "displayName": "Ascending aorta",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3736.stl",
+      "detailUrl": "/models/organs/detail/FMA3736.glb",
+      "kind": "source structure",
+      "description": "Ascending aorta, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3736",
+        "Region: Cardiovascular",
+        "Source surface: 2,156 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3768",
+      "displayName": "Arch of aorta",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3768.stl",
+      "detailUrl": "/models/organs/detail/FMA3768.glb",
+      "kind": "source structure",
+      "description": "Arch of aorta, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3768",
+        "Region: Cardiovascular",
+        "Source surface: 3,282 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3784",
+      "displayName": "Descending aorta",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3784.stl",
+      "detailUrl": "/models/organs/detail/FMA3784.glb",
+      "kind": "source structure",
+      "description": "Descending aorta, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3784",
+        "Region: Cardiovascular",
+        "Source surface: 23,808 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3802",
+      "displayName": "Trunk of right coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3802.stl",
+      "detailUrl": "/models/organs/detail/FMA3802.glb",
+      "kind": "source structure",
+      "description": "Trunk of right coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3802",
+        "Region: Cardiovascular",
+        "Source surface: 5,154 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3818",
+      "displayName": "Marginal branch of right coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3818.stl",
+      "detailUrl": "/models/organs/detail/FMA3818.glb",
+      "kind": "source structure",
+      "description": "Marginal branch of right coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3818",
+        "Region: Cardiovascular",
+        "Source surface: 4,908 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3840nsn",
+      "displayName": "Posterior interventricular branch of right coronary artery, nsn",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3840nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA3840nsn.glb",
+      "kind": "source structure",
+      "description": "Posterior interventricular branch of right coronary artery, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3840nsn",
+        "Region: Cardiovascular",
+        "Source surface: 3,086 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3862nsn",
+      "displayName": "Anterior interventricular branch of left coronary artery, nsn",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3862nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA3862nsn.glb",
+      "kind": "source structure",
+      "description": "Anterior interventricular branch of left coronary artery, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3862nsn",
+        "Region: Cardiovascular",
+        "Source surface: 9,220 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3895",
+      "displayName": "Circumflex branch of left coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3895.stl",
+      "detailUrl": "/models/organs/detail/FMA3895.glb",
+      "kind": "source structure",
+      "description": "Circumflex branch of left coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3895",
+        "Region: Cardiovascular",
+        "Source surface: 3,542 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3932nsn",
+      "displayName": "Brachiocephalic artery, nsn",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3932nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA3932nsn.glb",
+      "kind": "source structure",
+      "description": "Brachiocephalic artery, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3932nsn",
+        "Region: Cardiovascular",
+        "Source surface: 1,210 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3941",
+      "displayName": "Right common carotid artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3941.stl",
+      "detailUrl": "/models/organs/detail/FMA3941.glb",
+      "kind": "source structure",
+      "description": "Right common carotid artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3941",
+        "Region: Cardiovascular",
+        "Source surface: 4,424 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA3953",
+      "displayName": "Right subclavian artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA3953.stl",
+      "detailUrl": "/models/organs/detail/FMA3953.glb",
+      "kind": "source structure",
+      "description": "Right subclavian artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA3953",
+        "Region: Cardiovascular",
+        "Source surface: 2,260 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4058",
+      "displayName": "Left common carotid artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4058.stl",
+      "detailUrl": "/models/organs/detail/FMA4058.glb",
+      "kind": "source structure",
+      "description": "Left common carotid artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4058",
+        "Region: Cardiovascular",
+        "Source surface: 698 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4685",
+      "displayName": "Stem of left coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4685.stl",
+      "detailUrl": "/models/organs/detail/FMA4685.glb",
+      "kind": "source structure",
+      "description": "Stem of left coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4685",
+        "Region: Cardiovascular",
+        "Source surface: 252 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4694",
+      "displayName": "Left subclavian artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4694.stl",
+      "detailUrl": "/models/organs/detail/FMA4694.glb",
+      "kind": "source structure",
+      "description": "Left subclavian artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4694",
+        "Region: Cardiovascular",
+        "Source surface: 3,234 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4706",
+      "displayName": "Coronary sinus",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4706.stl",
+      "detailUrl": "/models/organs/detail/FMA4706.glb",
+      "kind": "source structure",
+      "description": "Coronary sinus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4706",
+        "Region: Cardiovascular",
+        "Source surface: 1,922 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4707",
+      "displayName": "Great cardiac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4707.stl",
+      "detailUrl": "/models/organs/detail/FMA4707.glb",
+      "kind": "source structure",
+      "description": "Great cardiac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4707",
+        "Region: Cardiovascular",
+        "Source surface: 7,476 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4713",
+      "displayName": "Middle cardiac vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4713.stl",
+      "detailUrl": "/models/organs/detail/FMA4713.glb",
+      "kind": "source structure",
+      "description": "Middle cardiac vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4713",
+        "Region: Cardiovascular",
+        "Source surface: 4,326 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4720",
+      "displayName": "Superior vena cava",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4720.stl",
+      "detailUrl": "/models/organs/detail/FMA4720.glb",
+      "kind": "source structure",
+      "description": "Superior vena cava, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4720",
+        "Region: Cardiovascular",
+        "Source surface: 1,532 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4751",
+      "displayName": "Right brachiocephalic vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4751.stl",
+      "detailUrl": "/models/organs/detail/FMA4751.glb",
+      "kind": "source structure",
+      "description": "Right brachiocephalic vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4751",
+        "Region: Cardiovascular",
+        "Source surface: 1,400 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4754",
+      "displayName": "Right internal jugular vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4754.stl",
+      "detailUrl": "/models/organs/detail/FMA4754.glb",
+      "kind": "source structure",
+      "description": "Right internal jugular vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4754",
+        "Region: Cardiovascular",
+        "Source surface: 580 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4755",
+      "displayName": "Right subclavian vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4755.stl",
+      "detailUrl": "/models/organs/detail/FMA4755.glb",
+      "kind": "source structure",
+      "description": "Right subclavian vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4755",
+        "Region: Cardiovascular",
+        "Source surface: 946 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4761",
+      "displayName": "Left brachiocephalic vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4761.stl",
+      "detailUrl": "/models/organs/detail/FMA4761.glb",
+      "kind": "source structure",
+      "description": "Left brachiocephalic vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4761",
+        "Region: Cardiovascular",
+        "Source surface: 1,918 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4762",
+      "displayName": "Left internal jugular vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4762.stl",
+      "detailUrl": "/models/organs/detail/FMA4762.glb",
+      "kind": "source structure",
+      "description": "Left internal jugular vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4762",
+        "Region: Cardiovascular",
+        "Source surface: 720 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA4763",
+      "displayName": "Left subclavian vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA4763.stl",
+      "detailUrl": "/models/organs/detail/FMA4763.glb",
+      "kind": "source structure",
+      "description": "Left subclavian vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA4763",
+        "Region: Cardiovascular",
+        "Source surface: 1,112 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA50737",
+      "displayName": "Celiac artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50737.stl",
+      "detailUrl": "/models/organs/detail/FMA50737.glb",
+      "kind": "source structure",
+      "description": "Celiac artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA50737",
+        "Region: Cardiovascular",
+        "Source surface: 454 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA66326",
+      "displayName": "Pulmonary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA66326.stl",
+      "detailUrl": "/models/organs/detail/FMA66326.glb",
+      "kind": "source structure",
+      "description": "Pulmonary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA66326",
+        "Region: Cardiovascular",
+        "Source surface: 116,948 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA66643",
+      "displayName": "Pulmonary vein",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA66643.stl",
+      "detailUrl": "/models/organs/detail/FMA66643.glb",
+      "kind": "source structure",
+      "description": "Pulmonary vein, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA66643",
+        "Region: Cardiovascular",
+        "Source surface: 72,548 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA71567",
+      "displayName": "Set of anterior cardiac veins",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71567.stl",
+      "detailUrl": "/models/organs/detail/FMA71567.glb",
+      "kind": "source structure",
+      "description": "Set of anterior cardiac veins, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA71567",
+        "Region: Cardiovascular",
+        "Source surface: 5,712 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA71669",
+      "displayName": "Set of interventricular septal branches of right coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71669.stl",
+      "detailUrl": "/models/organs/detail/FMA71669.glb",
+      "kind": "source structure",
+      "description": "Set of interventricular septal branches of right coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA71669",
+        "Region: Cardiovascular",
+        "Source surface: 754 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA71670",
+      "displayName": "Set of interventricular septal branches of left coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71670.stl",
+      "detailUrl": "/models/organs/detail/FMA71670.glb",
+      "kind": "source structure",
+      "description": "Set of interventricular septal branches of left coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA71670",
+        "Region: Cardiovascular",
+        "Source surface: 1,214 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7234",
+      "displayName": "Tricuspid valve",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7234.stl",
+      "detailUrl": "/models/organs/detail/FMA7234.glb",
+      "kind": "source structure",
+      "description": "Tricuspid valve, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7234",
+        "Region: Cardiovascular",
+        "Source surface: 47,268 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7235",
+      "displayName": "Mitral valve",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7235.stl",
+      "detailUrl": "/models/organs/detail/FMA7235.glb",
+      "kind": "source structure",
+      "description": "Mitral valve, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7235",
+        "Region: Cardiovascular",
+        "Source surface: 19,102 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7246",
+      "displayName": "Pulmonary valve",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7246.stl",
+      "detailUrl": "/models/organs/detail/FMA7246.glb",
+      "kind": "source structure",
+      "description": "Pulmonary valve, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7246",
+        "Region: Cardiovascular",
+        "Source surface: 18,202 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7260",
+      "displayName": "Anterior papillary muscle of right ventricle",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7260.stl",
+      "detailUrl": "/models/organs/detail/FMA7260.glb",
+      "kind": "source structure",
+      "description": "Anterior papillary muscle of right ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7260",
+        "Region: Cardiovascular",
+        "Source surface: 3,860 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7261",
+      "displayName": "Posterior papillary muscle of right ventricle",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7261.stl",
+      "detailUrl": "/models/organs/detail/FMA7261.glb",
+      "kind": "source structure",
+      "description": "Posterior papillary muscle of right ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7261",
+        "Region: Cardiovascular",
+        "Source surface: 2,730 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7262",
+      "displayName": "Septal papillary muscle of right ventricle",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7262.stl",
+      "detailUrl": "/models/organs/detail/FMA7262.glb",
+      "kind": "source structure",
+      "description": "Septal papillary muscle of right ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7262",
+        "Region: Cardiovascular",
+        "Source surface: 1,898 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7266",
+      "displayName": "Posterior papillary muscle of left ventricle",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7266.stl",
+      "detailUrl": "/models/organs/detail/FMA7266.glb",
+      "kind": "source structure",
+      "description": "Posterior papillary muscle of left ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7266",
+        "Region: Cardiovascular",
+        "Source surface: 3,902 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7274",
+      "displayName": "Wall of heart",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7274.stl",
+      "detailUrl": "/models/organs/detail/FMA7274.glb",
+      "kind": "source structure",
+      "description": "Wall of heart, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7274",
+        "Region: Cardiovascular",
+        "Source surface: 331,592 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA76751",
+      "displayName": "Set of posterior veins of left ventricle",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76751.stl",
+      "detailUrl": "/models/organs/detail/FMA76751.glb",
+      "kind": "source structure",
+      "description": "Set of posterior veins of left ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA76751",
+        "Region: Cardiovascular",
+        "Source surface: 4,318 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA76994",
+      "displayName": "Right posterolateral branch of right coronary artery",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76994.stl",
+      "detailUrl": "/models/organs/detail/FMA76994.glb",
+      "kind": "source structure",
+      "description": "Right posterolateral branch of right coronary artery, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA76994",
+        "Region: Cardiovascular",
+        "Source surface: 2,246 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA9352nsn",
+      "displayName": "Papillary muscle of left ventricle, nsn",
+      "systems": ["cardiovascular"],
+      "sex": "male",
+      "region": "Cardiovascular",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9352nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA9352nsn.glb",
+      "kind": "source structure",
+      "description": "Papillary muscle of left ventricle, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA9352nsn",
+        "Region: Cardiovascular",
+        "Source surface: 4,084 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA55099",
+      "displayName": "Thyroid cartilage",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55099.stl",
+      "detailUrl": "/models/organs/detail/FMA55099.glb",
+      "kind": "source structure",
+      "description": "Thyroid cartilage, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA55099",
+        "Region: Respiratory",
+        "Source surface: 23,146 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA59763",
+      "displayName": "Gingiva of upper jaw",
+      "systems": ["respiratory", "digestive"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59763.stl",
+      "detailUrl": "/models/organs/detail/FMA59763.glb",
+      "kind": "source structure",
+      "description": "Gingiva of upper jaw, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA59763",
+        "Region: Respiratory",
+        "Source surface: 9,192 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA59764",
+      "displayName": "Gingiva of lower jaw",
+      "systems": ["respiratory", "digestive"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59764.stl",
+      "detailUrl": "/models/organs/detail/FMA59764.glb",
+      "kind": "source structure",
+      "description": "Gingiva of lower jaw, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA59764",
+        "Region: Respiratory",
+        "Source surface: 9,596 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA59815nsn",
+      "displayName": "Labial part of mouth, nsn",
+      "systems": ["respiratory", "digestive"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA59815nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA59815nsn.glb",
+      "kind": "source structure",
+      "description": "Labial part of mouth, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA59815nsn",
+        "Region: Respiratory",
+        "Source surface: 6,440 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA71704",
+      "displayName": "Set of nasal cartilages",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71704.stl",
+      "detailUrl": "/models/organs/detail/FMA71704.glb",
+      "kind": "source structure",
+      "description": "Set of nasal cartilages, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA71704",
+        "Region: Respiratory",
+        "Source surface: 6,826 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7333",
+      "displayName": "Upper lobe of right lung",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7333.stl",
+      "detailUrl": "/models/organs/detail/FMA7333.glb",
+      "kind": "source structure",
+      "description": "Upper lobe of right lung, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7333",
+        "Region: Respiratory",
+        "Source surface: 30,398 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7337",
+      "displayName": "Lower lobe of right lung",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7337.stl",
+      "detailUrl": "/models/organs/detail/FMA7337.glb",
+      "kind": "source structure",
+      "description": "Lower lobe of right lung, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7337",
+        "Region: Respiratory",
+        "Source surface: 65,592 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7370",
+      "displayName": "Upper lobe of left lung",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7370.stl",
+      "detailUrl": "/models/organs/detail/FMA7370.glb",
+      "kind": "source structure",
+      "description": "Upper lobe of left lung, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7370",
+        "Region: Respiratory",
+        "Source surface: 40,652 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7371",
+      "displayName": "Lower lobe of left lung",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7371.stl",
+      "detailUrl": "/models/organs/detail/FMA7371.glb",
+      "kind": "source structure",
+      "description": "Lower lobe of left lung, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7371",
+        "Region: Respiratory",
+        "Source surface: 44,288 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7383",
+      "displayName": "Middle lobe of lung",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7383.stl",
+      "detailUrl": "/models/organs/detail/FMA7383.glb",
+      "kind": "source structure",
+      "description": "Middle lobe of lung, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7383",
+        "Region: Respiratory",
+        "Source surface: 23,478 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7394",
+      "displayName": "Trachea",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7394.stl",
+      "detailUrl": "/models/organs/detail/FMA7394.glb",
+      "kind": "source structure",
+      "description": "Trachea, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7394",
+        "Region: Respiratory",
+        "Source surface: 13,870 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7409",
+      "displayName": "Bronchus",
+      "systems": ["respiratory"],
+      "sex": "male",
+      "region": "Respiratory",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7409.stl",
+      "detailUrl": "/models/organs/detail/FMA7409.glb",
+      "kind": "source structure",
+      "description": "Bronchus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7409",
+        "Region: Respiratory",
+        "Source surface: 115,630 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA14543nsn",
+      "displayName": "Colon, nsn",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA14543nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA14543nsn.glb",
+      "kind": "source structure",
+      "description": "Colon, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA14543nsn",
+        "Region: Digestive",
+        "Source surface: 69,516 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7131",
+      "displayName": "Esophagus",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7131.stl",
+      "detailUrl": "/models/organs/detail/FMA7131.glb",
+      "kind": "source structure",
+      "description": "Esophagus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7131",
+        "Region: Digestive",
+        "Source surface: 2,642 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7148",
+      "displayName": "Stomach",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7148.stl",
+      "detailUrl": "/models/organs/detail/FMA7148.glb",
+      "kind": "source structure",
+      "description": "Stomach, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7148",
+        "Region: Digestive",
+        "Source surface: 9,384 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7197",
+      "displayName": "Liver",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7197.stl",
+      "detailUrl": "/models/organs/detail/FMA7197.glb",
+      "kind": "source structure",
+      "description": "Liver, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7197",
+        "Region: Digestive",
+        "Source surface: 19,416 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7198nsn",
+      "displayName": "Pancreas, nsn",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7198nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA7198nsn.glb",
+      "kind": "source structure",
+      "description": "Pancreas, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7198nsn",
+        "Region: Digestive",
+        "Source surface: 11,414 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7202",
+      "displayName": "Gallbladder",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7202.stl",
+      "detailUrl": "/models/organs/detail/FMA7202.glb",
+      "kind": "source structure",
+      "description": "Gallbladder, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7202",
+        "Region: Digestive",
+        "Source surface: 13,846 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7206",
+      "displayName": "Duodenum",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7206.stl",
+      "detailUrl": "/models/organs/detail/FMA7206.glb",
+      "kind": "source structure",
+      "description": "Duodenum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7206",
+        "Region: Digestive",
+        "Source surface: 11,950 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7207",
+      "displayName": "Jejunum",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7207.stl",
+      "detailUrl": "/models/organs/detail/FMA7207.glb",
+      "kind": "source structure",
+      "description": "Jejunum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7207",
+        "Region: Digestive",
+        "Source surface: 31,468 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7208",
+      "displayName": "Ileum",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7208.stl",
+      "detailUrl": "/models/organs/detail/FMA7208.glb",
+      "kind": "source structure",
+      "description": "Ileum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7208",
+        "Region: Digestive",
+        "Source surface: 31,250 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA76891",
+      "displayName": "Mesocolic taenia",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76891.stl",
+      "detailUrl": "/models/organs/detail/FMA76891.glb",
+      "kind": "source structure",
+      "description": "Mesocolic taenia, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA76891",
+        "Region: Digestive",
+        "Source surface: 31,524 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA76892",
+      "displayName": "Omental taenia",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76892.stl",
+      "detailUrl": "/models/organs/detail/FMA76892.glb",
+      "kind": "source structure",
+      "description": "Omental taenia, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA76892",
+        "Region: Digestive",
+        "Source surface: 37,118 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA76893",
+      "displayName": "Free taenia",
+      "systems": ["digestive"],
+      "sex": "male",
+      "region": "Digestive",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA76893.stl",
+      "detailUrl": "/models/organs/detail/FMA76893.glb",
+      "kind": "source structure",
+      "description": "Free taenia, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA76893",
+        "Region: Digestive",
+        "Source surface: 49,028 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA15571",
+      "displayName": "Right ureter",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15571.stl",
+      "detailUrl": "/models/organs/detail/FMA15571.glb",
+      "kind": "source structure",
+      "description": "Right ureter, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA15571",
+        "Region: Urinary",
+        "Source surface: 2,210 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA15572",
+      "displayName": "Left ureter",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15572.stl",
+      "detailUrl": "/models/organs/detail/FMA15572.glb",
+      "kind": "source structure",
+      "description": "Left ureter, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA15572",
+        "Region: Urinary",
+        "Source surface: 2,226 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA15900",
+      "displayName": "Urinary bladder",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA15900.stl",
+      "detailUrl": "/models/organs/detail/FMA15900.glb",
+      "kind": "source structure",
+      "description": "Urinary bladder, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA15900",
+        "Region: Urinary",
+        "Source surface: 4,016 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA19667",
+      "displayName": "Urethra",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA19667.stl",
+      "detailUrl": "/models/organs/detail/FMA19667.glb",
+      "kind": "source structure",
+      "description": "Urethra, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA19667",
+        "Region: Urinary",
+        "Source surface: 1,186 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7204",
+      "displayName": "Right kidney",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7204.stl",
+      "detailUrl": "/models/organs/detail/FMA7204.glb",
+      "kind": "source structure",
+      "description": "Right kidney, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7204",
+        "Region: Urinary",
+        "Source surface: 12,394 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA7205",
+      "displayName": "Left kidney",
+      "systems": ["urinary"],
+      "sex": "male",
+      "region": "Urinary",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7205.stl",
+      "detailUrl": "/models/organs/detail/FMA7205.glb",
+      "kind": "source structure",
+      "description": "Left kidney, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA7205",
+        "Region: Urinary",
+        "Source surface: 15,358 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "BP49",
+      "displayName": "Left superior parietal lobule precuneus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/BP49.stl",
+      "detailUrl": "/models/organs/detail/BP49.glb",
+      "kind": "source structure",
+      "description": "Left superior parietal lobule precuneus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: BP49",
+        "Region: Nervous",
+        "Source surface: 19,906 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "BP50",
+      "displayName": "Right superior parietal lobule precuneus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/BP50.stl",
+      "detailUrl": "/models/organs/detail/BP50.glb",
+      "kind": "source structure",
+      "description": "Right superior parietal lobule precuneus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: BP50",
+        "Region: Nervous",
+        "Source surface: 19,926 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA258714",
+      "displayName": "Right thalamus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA258714.stl",
+      "detailUrl": "/models/organs/detail/FMA258714.glb",
+      "kind": "source structure",
+      "description": "Right thalamus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA258714",
+        "Region: Nervous",
+        "Source surface: 3,298 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA258716",
+      "displayName": "Left thalamus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA258716.stl",
+      "detailUrl": "/models/organs/detail/FMA258716.glb",
+      "kind": "source structure",
+      "description": "Left thalamus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA258716",
+        "Region: Nervous",
+        "Source surface: 7,396 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA274027",
+      "displayName": "Choroid plexus of right cerebral hemisphere",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA274027.stl",
+      "detailUrl": "/models/organs/detail/FMA274027.glb",
+      "kind": "source structure",
+      "description": "Choroid plexus of right cerebral hemisphere, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA274027",
+        "Region: Nervous",
+        "Source surface: 21,558 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA274029",
+      "displayName": "Choroid plexus of left cerebral hemisphere",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA274029.stl",
+      "detailUrl": "/models/organs/detail/FMA274029.glb",
+      "kind": "source structure",
+      "description": "Choroid plexus of left cerebral hemisphere, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA274029",
+        "Region: Nervous",
+        "Source surface: 21,508 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA50875",
+      "displayName": "Right optic nerve",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50875.stl",
+      "detailUrl": "/models/organs/detail/FMA50875.glb",
+      "kind": "source structure",
+      "description": "Right optic nerve, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA50875",
+        "Region: Nervous",
+        "Source surface: 10,310 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA50878",
+      "displayName": "Left optic nerve",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA50878.stl",
+      "detailUrl": "/models/organs/detail/FMA50878.glb",
+      "kind": "source structure",
+      "description": "Left optic nerve, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA50878",
+        "Region: Nervous",
+        "Source surface: 10,302 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61822",
+      "displayName": "White matter structure of cerebral hemisphere",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61822.stl",
+      "detailUrl": "/models/organs/detail/FMA61822.glb",
+      "kind": "source structure",
+      "description": "White matter structure of cerebral hemisphere, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61822",
+        "Region: Nervous",
+        "Source surface: 176,564 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61844",
+      "displayName": "Septum pellucidum",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61844.stl",
+      "detailUrl": "/models/organs/detail/FMA61844.glb",
+      "kind": "source structure",
+      "description": "Septum pellucidum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61844",
+        "Region: Nervous",
+        "Source surface: 25,012 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61961",
+      "displayName": "Anterior commissure",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61961.stl",
+      "detailUrl": "/models/organs/detail/FMA61961.glb",
+      "kind": "source structure",
+      "description": "Anterior commissure, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61961",
+        "Region: Nervous",
+        "Source surface: 3,690 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61970",
+      "displayName": "Commissure of fornix of forebrain",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61970.stl",
+      "detailUrl": "/models/organs/detail/FMA61970.glb",
+      "kind": "source structure",
+      "description": "Commissure of fornix of forebrain, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61970",
+        "Region: Nervous",
+        "Source surface: 46,164 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61975",
+      "displayName": "Lamina terminalis",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61975.stl",
+      "detailUrl": "/models/organs/detail/FMA61975.glb",
+      "kind": "source structure",
+      "description": "Lamina terminalis, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61975",
+        "Region: Nervous",
+        "Source surface: 2,448 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA61993nsn",
+      "displayName": "Midbrain, nsn",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA61993nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA61993nsn.glb",
+      "kind": "source structure",
+      "description": "Midbrain, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA61993nsn",
+        "Region: Nervous",
+        "Source surface: 56,314 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62004",
+      "displayName": "Medulla oblongata",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62004.stl",
+      "detailUrl": "/models/organs/detail/FMA62004.glb",
+      "kind": "source structure",
+      "description": "Medulla oblongata, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62004",
+        "Region: Nervous",
+        "Source surface: 52,760 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62008nsn",
+      "displayName": "Hypothalamus, nsn",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62008nsn.stl",
+      "detailUrl": "/models/organs/detail/FMA62008nsn.glb",
+      "kind": "source structure",
+      "description": "Hypothalamus, nsn, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62008nsn",
+        "Region: Nervous",
+        "Source surface: 17,690 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62032",
+      "displayName": "Habenula",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62032.stl",
+      "detailUrl": "/models/organs/detail/FMA62032.glb",
+      "kind": "source structure",
+      "description": "Habenula, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62032",
+        "Region: Nervous",
+        "Source surface: 384 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62033",
+      "displayName": "Pineal body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62033.stl",
+      "detailUrl": "/models/organs/detail/FMA62033.glb",
+      "kind": "source structure",
+      "description": "Pineal body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62033",
+        "Region: Nervous",
+        "Source surface: 2,536 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62045",
+      "displayName": "Optic chiasm",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62045.stl",
+      "detailUrl": "/models/organs/detail/FMA62045.glb",
+      "kind": "source structure",
+      "description": "Optic chiasm, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62045",
+        "Region: Nervous",
+        "Source surface: 7,752 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62072",
+      "displayName": "Posterior commissure",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62072.stl",
+      "detailUrl": "/models/organs/detail/FMA62072.glb",
+      "kind": "source structure",
+      "description": "Posterior commissure, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62072",
+        "Region: Nervous",
+        "Source surface: 3,786 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62327",
+      "displayName": "Tuber cinereum",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62327.stl",
+      "detailUrl": "/models/organs/detail/FMA62327.glb",
+      "kind": "source structure",
+      "description": "Tuber cinereum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62327",
+        "Region: Nervous",
+        "Source surface: 6,974 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62382",
+      "displayName": "Right optic tract",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62382.stl",
+      "detailUrl": "/models/organs/detail/FMA62382.glb",
+      "kind": "source structure",
+      "description": "Right optic tract, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62382",
+        "Region: Nervous",
+        "Source surface: 10,110 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA62394",
+      "displayName": "Peduncle of midbrain",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA62394.stl",
+      "detailUrl": "/models/organs/detail/FMA62394.glb",
+      "kind": "source structure",
+      "description": "Peduncle of midbrain, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA62394",
+        "Region: Nervous",
+        "Source surface: 46,834 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA67936",
+      "displayName": "Left optic tract",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67936.stl",
+      "detailUrl": "/models/organs/detail/FMA67936.glb",
+      "kind": "source structure",
+      "description": "Left optic tract, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA67936",
+        "Region: Nervous",
+        "Source surface: 10,122 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA67943",
+      "displayName": "Pons",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67943.stl",
+      "detailUrl": "/models/organs/detail/FMA67943.glb",
+      "kind": "source structure",
+      "description": "Pons, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA67943",
+        "Region: Nervous",
+        "Source surface: 90,072 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA67944",
+      "displayName": "Cerebellum",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA67944.stl",
+      "detailUrl": "/models/organs/detail/FMA67944.glb",
+      "kind": "source structure",
+      "description": "Cerebellum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA67944",
+        "Region: Nervous",
+        "Source surface: 238,506 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72653",
+      "displayName": "Right superior frontal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72653.stl",
+      "detailUrl": "/models/organs/detail/FMA72653.glb",
+      "kind": "source structure",
+      "description": "Right superior frontal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72653",
+        "Region: Nervous",
+        "Source surface: 30,448 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72654",
+      "displayName": "Left superior frontal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72654.stl",
+      "detailUrl": "/models/organs/detail/FMA72654.glb",
+      "kind": "source structure",
+      "description": "Left superior frontal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72654",
+        "Region: Nervous",
+        "Source surface: 30,450 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72655",
+      "displayName": "Right middle frontal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72655.stl",
+      "detailUrl": "/models/organs/detail/FMA72655.glb",
+      "kind": "source structure",
+      "description": "Right middle frontal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72655",
+        "Region: Nervous",
+        "Source surface: 15,558 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72656",
+      "displayName": "Left middle frontal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72656.stl",
+      "detailUrl": "/models/organs/detail/FMA72656.glb",
+      "kind": "source structure",
+      "description": "Left middle frontal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72656",
+        "Region: Nervous",
+        "Source surface: 15,544 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72661",
+      "displayName": "Right precentral gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72661.stl",
+      "detailUrl": "/models/organs/detail/FMA72661.glb",
+      "kind": "source structure",
+      "description": "Right precentral gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72661",
+        "Region: Nervous",
+        "Source surface: 18,838 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72662",
+      "displayName": "Left precentral gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72662.stl",
+      "detailUrl": "/models/organs/detail/FMA72662.glb",
+      "kind": "source structure",
+      "description": "Left precentral gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72662",
+        "Region: Nervous",
+        "Source surface: 18,836 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72665",
+      "displayName": "Right postcentral gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72665.stl",
+      "detailUrl": "/models/organs/detail/FMA72665.glb",
+      "kind": "source structure",
+      "description": "Right postcentral gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72665",
+        "Region: Nervous",
+        "Source surface: 16,862 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72666",
+      "displayName": "Left postcentral gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72666.stl",
+      "detailUrl": "/models/organs/detail/FMA72666.glb",
+      "kind": "source structure",
+      "description": "Left postcentral gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72666",
+        "Region: Nervous",
+        "Source surface: 16,858 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72667",
+      "displayName": "Right supramarginal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72667.stl",
+      "detailUrl": "/models/organs/detail/FMA72667.glb",
+      "kind": "source structure",
+      "description": "Right supramarginal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72667",
+        "Region: Nervous",
+        "Source surface: 9,782 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72668",
+      "displayName": "Left supramarginal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72668.stl",
+      "detailUrl": "/models/organs/detail/FMA72668.glb",
+      "kind": "source structure",
+      "description": "Left supramarginal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72668",
+        "Region: Nervous",
+        "Source surface: 9,778 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72669",
+      "displayName": "Right angular gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72669.stl",
+      "detailUrl": "/models/organs/detail/FMA72669.glb",
+      "kind": "source structure",
+      "description": "Right angular gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72669",
+        "Region: Nervous",
+        "Source surface: 13,172 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72670",
+      "displayName": "Left angular gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72670.stl",
+      "detailUrl": "/models/organs/detail/FMA72670.glb",
+      "kind": "source structure",
+      "description": "Left angular gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72670",
+        "Region: Nervous",
+        "Source surface: 13,164 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72685",
+      "displayName": "Right middle temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72685.stl",
+      "detailUrl": "/models/organs/detail/FMA72685.glb",
+      "kind": "source structure",
+      "description": "Right middle temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72685",
+        "Region: Nervous",
+        "Source surface: 12,926 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72686",
+      "displayName": "Left middle temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72686.stl",
+      "detailUrl": "/models/organs/detail/FMA72686.glb",
+      "kind": "source structure",
+      "description": "Left middle temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72686",
+        "Region: Nervous",
+        "Source surface: 12,918 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72687",
+      "displayName": "Right inferior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72687.stl",
+      "detailUrl": "/models/organs/detail/FMA72687.glb",
+      "kind": "source structure",
+      "description": "Right inferior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72687",
+        "Region: Nervous",
+        "Source surface: 13,056 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72688",
+      "displayName": "Left inferior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72688.stl",
+      "detailUrl": "/models/organs/detail/FMA72688.glb",
+      "kind": "source structure",
+      "description": "Left inferior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72688",
+        "Region: Nervous",
+        "Source surface: 13,040 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72689",
+      "displayName": "Right fusiform gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72689.stl",
+      "detailUrl": "/models/organs/detail/FMA72689.glb",
+      "kind": "source structure",
+      "description": "Right fusiform gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72689",
+        "Region: Nervous",
+        "Source surface: 6,150 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72690",
+      "displayName": "Left fusiform gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72690.stl",
+      "detailUrl": "/models/organs/detail/FMA72690.glb",
+      "kind": "source structure",
+      "description": "Left fusiform gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72690",
+        "Region: Nervous",
+        "Source surface: 6,148 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72701",
+      "displayName": "Right accessory short gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72701.stl",
+      "detailUrl": "/models/organs/detail/FMA72701.glb",
+      "kind": "source structure",
+      "description": "Right accessory short gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72701",
+        "Region: Nervous",
+        "Source surface: 15,346 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72702",
+      "displayName": "Left accessory short gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72702.stl",
+      "detailUrl": "/models/organs/detail/FMA72702.glb",
+      "kind": "source structure",
+      "description": "Left accessory short gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72702",
+        "Region: Nervous",
+        "Source surface: 15,330 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72705",
+      "displayName": "Right parahippocampal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72705.stl",
+      "detailUrl": "/models/organs/detail/FMA72705.glb",
+      "kind": "source structure",
+      "description": "Right parahippocampal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72705",
+        "Region: Nervous",
+        "Source surface: 3,454 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72706",
+      "displayName": "Left parahippocampal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72706.stl",
+      "detailUrl": "/models/organs/detail/FMA72706.glb",
+      "kind": "source structure",
+      "description": "Left parahippocampal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72706",
+        "Region: Nervous",
+        "Source surface: 3,452 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72713",
+      "displayName": "Right hippocampus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72713.stl",
+      "detailUrl": "/models/organs/detail/FMA72713.glb",
+      "kind": "source structure",
+      "description": "Right hippocampus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72713",
+        "Region: Nervous",
+        "Source surface: 4,452 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72714",
+      "displayName": "Left hippocampus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72714.stl",
+      "detailUrl": "/models/organs/detail/FMA72714.glb",
+      "kind": "source structure",
+      "description": "Left hippocampus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72714",
+        "Region: Nervous",
+        "Source surface: 4,280 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72717",
+      "displayName": "Right cingulate gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72717.stl",
+      "detailUrl": "/models/organs/detail/FMA72717.glb",
+      "kind": "source structure",
+      "description": "Right cingulate gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72717",
+        "Region: Nervous",
+        "Source surface: 11,716 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72718",
+      "displayName": "Left cingulate gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72718.stl",
+      "detailUrl": "/models/organs/detail/FMA72718.glb",
+      "kind": "source structure",
+      "description": "Left cingulate gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72718",
+        "Region: Nervous",
+        "Source surface: 11,724 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72800",
+      "displayName": "Anterior part of right superior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72800.stl",
+      "detailUrl": "/models/organs/detail/FMA72800.glb",
+      "kind": "source structure",
+      "description": "Anterior part of right superior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72800",
+        "Region: Nervous",
+        "Source surface: 8,348 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72801",
+      "displayName": "Anterior part of left superior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72801.stl",
+      "detailUrl": "/models/organs/detail/FMA72801.glb",
+      "kind": "source structure",
+      "description": "Anterior part of left superior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72801",
+        "Region: Nervous",
+        "Source surface: 8,338 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72804",
+      "displayName": "Posterior part of right superior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72804.stl",
+      "detailUrl": "/models/organs/detail/FMA72804.glb",
+      "kind": "source structure",
+      "description": "Posterior part of right superior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72804",
+        "Region: Nervous",
+        "Source surface: 10,472 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72805",
+      "displayName": "Posterior part of left superior temporal gyrus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72805.stl",
+      "detailUrl": "/models/organs/detail/FMA72805.glb",
+      "kind": "source structure",
+      "description": "Posterior part of left superior temporal gyrus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72805",
+        "Region: Nervous",
+        "Source surface: 10,472 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72826",
+      "displayName": "Right caudate nucleus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72826.stl",
+      "detailUrl": "/models/organs/detail/FMA72826.glb",
+      "kind": "source structure",
+      "description": "Right caudate nucleus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72826",
+        "Region: Nervous",
+        "Source surface: 11,272 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72827",
+      "displayName": "Left caudate nucleus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72827.stl",
+      "detailUrl": "/models/organs/detail/FMA72827.glb",
+      "kind": "source structure",
+      "description": "Left caudate nucleus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72827",
+        "Region: Nervous",
+        "Source surface: 11,160 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72828",
+      "displayName": "Right putamen",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72828.stl",
+      "detailUrl": "/models/organs/detail/FMA72828.glb",
+      "kind": "source structure",
+      "description": "Right putamen, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72828",
+        "Region: Nervous",
+        "Source surface: 30,670 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72829",
+      "displayName": "Left putamen",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72829.stl",
+      "detailUrl": "/models/organs/detail/FMA72829.glb",
+      "kind": "source structure",
+      "description": "Left putamen, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72829",
+        "Region: Nervous",
+        "Source surface: 30,636 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72830",
+      "displayName": "Right globus pallidus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72830.stl",
+      "detailUrl": "/models/organs/detail/FMA72830.glb",
+      "kind": "source structure",
+      "description": "Right globus pallidus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72830",
+        "Region: Nervous",
+        "Source surface: 23,206 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72831",
+      "displayName": "Left globus pallidus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72831.stl",
+      "detailUrl": "/models/organs/detail/FMA72831.glb",
+      "kind": "source structure",
+      "description": "Left globus pallidus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72831",
+        "Region: Nervous",
+        "Source surface: 30,738 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72832",
+      "displayName": "Right amygdala",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72832.stl",
+      "detailUrl": "/models/organs/detail/FMA72832.glb",
+      "kind": "source structure",
+      "description": "Right amygdala, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72832",
+        "Region: Nervous",
+        "Source surface: 1,744 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72833",
+      "displayName": "Left amygdala",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72833.stl",
+      "detailUrl": "/models/organs/detail/FMA72833.glb",
+      "kind": "source structure",
+      "description": "Left amygdala, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72833",
+        "Region: Nervous",
+        "Source surface: 1,736 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72908",
+      "displayName": "Anterior limb of right internal capsule",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72908.stl",
+      "detailUrl": "/models/organs/detail/FMA72908.glb",
+      "kind": "source structure",
+      "description": "Anterior limb of right internal capsule, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72908",
+        "Region: Nervous",
+        "Source surface: 48,722 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72909",
+      "displayName": "Anterior limb of left internal capsule",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72909.stl",
+      "detailUrl": "/models/organs/detail/FMA72909.glb",
+      "kind": "source structure",
+      "description": "Anterior limb of left internal capsule, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72909",
+        "Region: Nervous",
+        "Source surface: 48,712 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72924",
+      "displayName": "Right fornix of forebrain",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72924.stl",
+      "detailUrl": "/models/organs/detail/FMA72924.glb",
+      "kind": "source structure",
+      "description": "Right fornix of forebrain, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72924",
+        "Region: Nervous",
+        "Source surface: 29,300 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72925",
+      "displayName": "Left fornix of forebrain",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72925.stl",
+      "detailUrl": "/models/organs/detail/FMA72925.glb",
+      "kind": "source structure",
+      "description": "Left fornix of forebrain, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72925",
+        "Region: Nervous",
+        "Source surface: 29,372 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72939",
+      "displayName": "Right stria terminalis",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72939.stl",
+      "detailUrl": "/models/organs/detail/FMA72939.glb",
+      "kind": "source structure",
+      "description": "Right stria terminalis, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72939",
+        "Region: Nervous",
+        "Source surface: 3,078 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72940",
+      "displayName": "Left stria terminalis",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72940.stl",
+      "detailUrl": "/models/organs/detail/FMA72940.glb",
+      "kind": "source structure",
+      "description": "Left stria terminalis, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72940",
+        "Region: Nervous",
+        "Source surface: 3,026 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72975",
+      "displayName": "Right occipital lobe",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72975.stl",
+      "detailUrl": "/models/organs/detail/FMA72975.glb",
+      "kind": "source structure",
+      "description": "Right occipital lobe, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72975",
+        "Region: Nervous",
+        "Source surface: 18,762 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72976",
+      "displayName": "Left occipital lobe",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72976.stl",
+      "detailUrl": "/models/organs/detail/FMA72976.glb",
+      "kind": "source structure",
+      "description": "Left occipital lobe, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72976",
+        "Region: Nervous",
+        "Source surface: 18,746 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72977",
+      "displayName": "Right insula",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72977.stl",
+      "detailUrl": "/models/organs/detail/FMA72977.glb",
+      "kind": "source structure",
+      "description": "Right insula, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72977",
+        "Region: Nervous",
+        "Source surface: 12,240 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA72978",
+      "displayName": "Left insula",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA72978.stl",
+      "detailUrl": "/models/organs/detail/FMA72978.glb",
+      "kind": "source structure",
+      "description": "Left insula, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA72978",
+        "Region: Nervous",
+        "Source surface: 12,242 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73303",
+      "displayName": "Right lateral geniculate body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73303.stl",
+      "detailUrl": "/models/organs/detail/FMA73303.glb",
+      "kind": "source structure",
+      "description": "Right lateral geniculate body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73303",
+        "Region: Nervous",
+        "Source surface: 2,620 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73304",
+      "displayName": "Left lateral geniculate body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73304.stl",
+      "detailUrl": "/models/organs/detail/FMA73304.glb",
+      "kind": "source structure",
+      "description": "Left lateral geniculate body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73304",
+        "Region: Nervous",
+        "Source surface: 686 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73309",
+      "displayName": "Right medial geniculate body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73309.stl",
+      "detailUrl": "/models/organs/detail/FMA73309.glb",
+      "kind": "source structure",
+      "description": "Right medial geniculate body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73309",
+        "Region: Nervous",
+        "Source surface: 208 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73310",
+      "displayName": "Left medial geniculate body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73310.stl",
+      "detailUrl": "/models/organs/detail/FMA73310.glb",
+      "kind": "source structure",
+      "description": "Left medial geniculate body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73310",
+        "Region: Nervous",
+        "Source surface: 200 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73413",
+      "displayName": "Right stria medullaris of thalamus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73413.stl",
+      "detailUrl": "/models/organs/detail/FMA73413.glb",
+      "kind": "source structure",
+      "description": "Right stria medullaris of thalamus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73413",
+        "Region: Nervous",
+        "Source surface: 3,852 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73414",
+      "displayName": "Left stria medullaris of thalamus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73414.stl",
+      "detailUrl": "/models/organs/detail/FMA73414.glb",
+      "kind": "source structure",
+      "description": "Left stria medullaris of thalamus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73414",
+        "Region: Nervous",
+        "Source surface: 3,870 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73422",
+      "displayName": "Right superior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73422.stl",
+      "detailUrl": "/models/organs/detail/FMA73422.glb",
+      "kind": "source structure",
+      "description": "Right superior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73422",
+        "Region: Nervous",
+        "Source surface: 204 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73423",
+      "displayName": "Left superior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73423.stl",
+      "detailUrl": "/models/organs/detail/FMA73423.glb",
+      "kind": "source structure",
+      "description": "Left superior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73423",
+        "Region: Nervous",
+        "Source surface: 204 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73434",
+      "displayName": "Right inferior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73434.stl",
+      "detailUrl": "/models/organs/detail/FMA73434.glb",
+      "kind": "source structure",
+      "description": "Right inferior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73434",
+        "Region: Nervous",
+        "Source surface: 270 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73435",
+      "displayName": "Left inferior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73435.stl",
+      "detailUrl": "/models/organs/detail/FMA73435.glb",
+      "kind": "source structure",
+      "description": "Left inferior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73435",
+        "Region: Nervous",
+        "Source surface: 270 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73461",
+      "displayName": "Brachium of right superior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73461.stl",
+      "detailUrl": "/models/organs/detail/FMA73461.glb",
+      "kind": "source structure",
+      "description": "Brachium of right superior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73461",
+        "Region: Nervous",
+        "Source surface: 730 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73462",
+      "displayName": "Brachium of left superior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73462.stl",
+      "detailUrl": "/models/organs/detail/FMA73462.glb",
+      "kind": "source structure",
+      "description": "Brachium of left superior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73462",
+        "Region: Nervous",
+        "Source surface: 714 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73463",
+      "displayName": "Brachium of right inferior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73463.stl",
+      "detailUrl": "/models/organs/detail/FMA73463.glb",
+      "kind": "source structure",
+      "description": "Brachium of right inferior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73463",
+        "Region: Nervous",
+        "Source surface: 686 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA73464",
+      "displayName": "Brachium of left inferior colliculus",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA73464.stl",
+      "detailUrl": "/models/organs/detail/FMA73464.glb",
+      "kind": "source structure",
+      "description": "Brachium of left inferior colliculus, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA73464",
+        "Region: Nervous",
+        "Source surface: 672 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA74877",
+      "displayName": "Mammillary body",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA74877.stl",
+      "detailUrl": "/models/organs/detail/FMA74877.glb",
+      "kind": "source structure",
+      "description": "Mammillary body, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA74877",
+        "Region: Nervous",
+        "Source surface: 1,666 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA75351",
+      "displayName": "Interventricular foramen",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA75351.stl",
+      "detailUrl": "/models/organs/detail/FMA75351.glb",
+      "kind": "source structure",
+      "description": "Interventricular foramen, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA75351",
+        "Region: Nervous",
+        "Source surface: 4,642 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78449",
+      "displayName": "Right lateral ventricle",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78449.stl",
+      "detailUrl": "/models/organs/detail/FMA78449.glb",
+      "kind": "source structure",
+      "description": "Right lateral ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78449",
+        "Region: Nervous",
+        "Source surface: 78,218 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78450",
+      "displayName": "Left lateral ventricle",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78450.stl",
+      "detailUrl": "/models/organs/detail/FMA78450.glb",
+      "kind": "source structure",
+      "description": "Left lateral ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78450",
+        "Region: Nervous",
+        "Source surface: 78,010 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78454",
+      "displayName": "Third ventricle",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78454.stl",
+      "detailUrl": "/models/organs/detail/FMA78454.glb",
+      "kind": "source structure",
+      "description": "Third ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78454",
+        "Region: Nervous",
+        "Source surface: 16,808 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78467",
+      "displayName": "Cerebral aqueduct",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78467.stl",
+      "detailUrl": "/models/organs/detail/FMA78467.glb",
+      "kind": "source structure",
+      "description": "Cerebral aqueduct, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78467",
+        "Region: Nervous",
+        "Source surface: 2,252 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78469",
+      "displayName": "Fourth ventricle",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78469.stl",
+      "detailUrl": "/models/organs/detail/FMA78469.glb",
+      "kind": "source structure",
+      "description": "Fourth ventricle, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78469",
+        "Region: Nervous",
+        "Source surface: 30,134 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA78497",
+      "displayName": "Central canal of spinal cord",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA78497.stl",
+      "detailUrl": "/models/organs/detail/FMA78497.glb",
+      "kind": "source structure",
+      "description": "Central canal of spinal cord, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA78497",
+        "Region: Nervous",
+        "Source surface: 3,162 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA83740",
+      "displayName": "Interpeduncular fossa",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA83740.stl",
+      "detailUrl": "/models/organs/detail/FMA83740.glb",
+      "kind": "source structure",
+      "description": "Interpeduncular fossa, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA83740",
+        "Region: Nervous",
+        "Source surface: 426 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    },
+    {
+      "meshName": "FMA86464",
+      "displayName": "Corpus callosum",
+      "systems": ["nervous"],
+      "sex": "male",
+      "region": "Nervous",
+      "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA86464.stl",
+      "detailUrl": "/models/organs/detail/FMA86464.glb",
+      "kind": "source structure",
+      "description": "Corpus callosum, represented by the BodyParts3D adult male source surface. Its original position is preserved relative to the skeleton; organ relationships and anatomical landmarks have not been independently reviewed.",
+      "facts": [
+        "Source identifier: FMA86464",
+        "Region: Nervous",
+        "Source surface: 132,552 triangles",
+        "BodyParts3D 3.0 (95% polygon reduction)."
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "region": "Cardiovascular",
+      "url": "/models/organs/cardiovascular.glb",
+      "systems": ["cardiovascular"],
+      "meshes": [
+        "FMA10951",
+        "FMA14331",
+        "FMA14332",
+        "FMA14335",
+        "FMA14336",
+        "FMA14749",
+        "FMA14750",
+        "FMA14752",
+        "FMA14753",
+        "FMA14765",
+        "FMA14766",
+        "FMA14768",
+        "FMA14771",
+        "FMA14773",
+        "FMA18806",
+        "FMA18807",
+        "FMA18809",
+        "FMA18810",
+        "FMA18885",
+        "FMA18886",
+        "FMA18887",
+        "FMA18888",
+        "FMA21387",
+        "FMA21388",
+        "FMA3736",
+        "FMA3768",
+        "FMA3784",
+        "FMA3802",
+        "FMA3818",
+        "FMA3840nsn",
+        "FMA3862nsn",
+        "FMA3895",
+        "FMA3932nsn",
+        "FMA3941",
+        "FMA3953",
+        "FMA4058",
+        "FMA4685",
+        "FMA4694",
+        "FMA4706",
+        "FMA4707",
+        "FMA4713",
+        "FMA4720",
+        "FMA4751",
+        "FMA4754",
+        "FMA4755",
+        "FMA4761",
+        "FMA4762",
+        "FMA4763",
+        "FMA50737",
+        "FMA66326",
+        "FMA66643",
+        "FMA71567",
+        "FMA71669",
+        "FMA71670",
+        "FMA7234",
+        "FMA7235",
+        "FMA7246",
+        "FMA7260",
+        "FMA7261",
+        "FMA7262",
+        "FMA7266",
+        "FMA7274",
+        "FMA76751",
+        "FMA76994",
+        "FMA9352nsn"
+      ],
+      "triangles": 756682,
+      "overviewTriangles": 174010,
+      "bytes": 754096
+    },
+    {
+      "region": "Respiratory",
+      "url": "/models/organs/respiratory.glb",
+      "systems": ["respiratory", "digestive"],
+      "meshes": [
+        "FMA55099",
+        "FMA59763",
+        "FMA59764",
+        "FMA59815nsn",
+        "FMA71704",
+        "FMA7333",
+        "FMA7337",
+        "FMA7370",
+        "FMA7371",
+        "FMA7383",
+        "FMA7394",
+        "FMA7409"
+      ],
+      "triangles": 389108,
+      "overviewTriangles": 101606,
+      "bytes": 410136
+    },
+    {
+      "region": "Digestive",
+      "url": "/models/organs/digestive.glb",
+      "systems": ["digestive"],
+      "meshes": [
+        "FMA14543nsn",
+        "FMA7131",
+        "FMA7148",
+        "FMA7197",
+        "FMA7198nsn",
+        "FMA7202",
+        "FMA7206",
+        "FMA7207",
+        "FMA7208",
+        "FMA76891",
+        "FMA76892",
+        "FMA76893"
+      ],
+      "triangles": 318556,
+      "overviewTriangles": 98640,
+      "bytes": 384756
+    },
+    {
+      "region": "Urinary",
+      "url": "/models/organs/urinary.glb",
+      "systems": ["urinary"],
+      "meshes": ["FMA15571", "FMA15572", "FMA15900", "FMA19667", "FMA7204", "FMA7205"],
+      "triangles": 37390,
+      "overviewTriangles": 12968,
+      "bytes": 56984
+    },
+    {
+      "region": "Nervous",
+      "url": "/models/organs/nervous.glb",
+      "systems": ["nervous"],
+      "meshes": [
+        "BP49",
+        "BP50",
+        "FMA258714",
+        "FMA258716",
+        "FMA274027",
+        "FMA274029",
+        "FMA50875",
+        "FMA50878",
+        "FMA61822",
+        "FMA61844",
+        "FMA61961",
+        "FMA61970",
+        "FMA61975",
+        "FMA61993nsn",
+        "FMA62004",
+        "FMA62008nsn",
+        "FMA62032",
+        "FMA62033",
+        "FMA62045",
+        "FMA62072",
+        "FMA62327",
+        "FMA62382",
+        "FMA62394",
+        "FMA67936",
+        "FMA67943",
+        "FMA67944",
+        "FMA72653",
+        "FMA72654",
+        "FMA72655",
+        "FMA72656",
+        "FMA72661",
+        "FMA72662",
+        "FMA72665",
+        "FMA72666",
+        "FMA72667",
+        "FMA72668",
+        "FMA72669",
+        "FMA72670",
+        "FMA72685",
+        "FMA72686",
+        "FMA72687",
+        "FMA72688",
+        "FMA72689",
+        "FMA72690",
+        "FMA72701",
+        "FMA72702",
+        "FMA72705",
+        "FMA72706",
+        "FMA72713",
+        "FMA72714",
+        "FMA72717",
+        "FMA72718",
+        "FMA72800",
+        "FMA72801",
+        "FMA72804",
+        "FMA72805",
+        "FMA72826",
+        "FMA72827",
+        "FMA72828",
+        "FMA72829",
+        "FMA72830",
+        "FMA72831",
+        "FMA72832",
+        "FMA72833",
+        "FMA72908",
+        "FMA72909",
+        "FMA72924",
+        "FMA72925",
+        "FMA72939",
+        "FMA72940",
+        "FMA72975",
+        "FMA72976",
+        "FMA72977",
+        "FMA72978",
+        "FMA73303",
+        "FMA73304",
+        "FMA73309",
+        "FMA73310",
+        "FMA73413",
+        "FMA73414",
+        "FMA73422",
+        "FMA73423",
+        "FMA73434",
+        "FMA73435",
+        "FMA73461",
+        "FMA73462",
+        "FMA73463",
+        "FMA73464",
+        "FMA74877",
+        "FMA75351",
+        "FMA78449",
+        "FMA78450",
+        "FMA78454",
+        "FMA78467",
+        "FMA78469",
+        "FMA78497",
+        "FMA83740",
+        "FMA86464"
+      ],
+      "triangles": 2021252,
+      "overviewTriangles": 541160,
+      "bytes": 2184396
+    }
+  ],
+  "report": {
+    "detailTriangles": 3522980,
+    "detailBytes": 11487644,
+    "overviewTriangles": 928384,
+    "compression": "Draco 16-bit position / 12-bit normal quantization",
+    "overview": "12% target triangle ratio, error limit 0.001; source-resolution detail loaded separately on selection",
+    "source": "BodyParts3D 3.0, 95% reduction",
+    "commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
+    "structures": 193,
+    "triangles": 3522988,
+    "bytes": 3790368,
+    "transform": {
+      "source": "BodyParts3D 3.0",
+      "scale": 0.001,
+      "rotationX": -1.5707963267948966,
+      "groundOffsetMetres": 0.004171000003814697
+    },
+    "coverage": "Available terminal source structures across five system selections. Supporting bones and skeletal muscles remain in their existing layers.",
+    "limitations": [
+      "No independent review of organ relationships or anatomical accuracy.",
+      "Source groups may contain more than one structure; no synthetic splitting.",
+      "Coverage is limited to available source surfaces; peripheral nerves and complete vessel trees are not included."
+    ]
+  }
+}

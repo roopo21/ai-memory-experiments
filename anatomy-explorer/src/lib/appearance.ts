@@ -1,4 +1,4 @@
-import type { Structure, SystemId } from '../data/anatomy'
+import { systemById, type Structure, type SystemId } from '../data/anatomy'
 import type { LayerState } from '../store/useAnatomyStore'
 
 export interface Target {
@@ -18,9 +18,11 @@ export function computeTarget(
 ): Target {
   const owners = structure?.systems.map((id) => layers[id]) ?? []
   const opacity = Math.max(0, ...owners.map((layer) => (layer.visible ? layer.opacity : 0)))
+  const primary = structure?.systems[0]
+  const base = primary ? systemById.get(primary)!.color : '#d6c6a6'
   const muscle = structure?.systems.includes('muscular')
   return {
-    color: muscle ? (selected ? '#e7a57d' : '#a6534c') : selected ? '#c4ad82' : '#d6c6a6',
+    color: selected ? '#e7c59b' : muscle ? '#a6534c' : base,
     opacity,
     emissive: hovered ? 0.06 : 0,
     visible: opacity > 0.002,

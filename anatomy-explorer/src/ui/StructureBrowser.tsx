@@ -4,6 +4,8 @@ import {
   type SystemId,
   skeletonReport,
   muscleReport,
+  systems,
+  organReport,
   muscleChunks,
 } from '../data/anatomy'
 import { useAnatomyStore } from '../store/useAnatomyStore'
@@ -30,7 +32,7 @@ export default function StructureBrowser() {
         <p className="font-semibold text-[var(--text)]">One body · aligned source anatomy</p>
         <p>
           {skeletonReport.structures} skeletal structures · {muscleReport.structures} muscle/tendon
-          structures
+          structures · {organReport.structures} additional structures
         </p>
         <details className="mt-2">
           <summary className="cursor-pointer">Coverage and source</summary>
@@ -40,8 +42,9 @@ export default function StructureBrowser() {
           </p>
           <p className="mt-2">
             Muscles: available source structures, including some grouped muscles and tendons.
-            Attachments are not independently reviewed. Other systems and female anatomy are not yet
-            imported.
+            Attachments are not independently reviewed. Five internal systems are available with
+            partial source coverage. Nervous anatomy is predominantly brain structures; vessels are
+            a limited major-vessel selection. Female anatomy is not imported.
           </p>
           <a
             className="mt-2 block underline"
@@ -53,22 +56,27 @@ export default function StructureBrowser() {
           </a>
         </details>
       </div>
-      <div className="flex gap-2 text-xs" role="group" aria-label="Browse structures">
-        <button
-          aria-pressed={system === 'muscular'}
-          className={`rounded border border-white/15 px-3 py-2 ${system === 'muscular' ? 'bg-white/15' : ''}`}
-          onClick={() => setSystem('muscular')}
+      <label className="block text-xs">
+        Browse system
+        <select
+          aria-label="Browse system"
+          value={system}
+          onChange={(e) => setSystem(e.target.value as SystemId)}
+          className="mt-1 w-full rounded-lg bg-slate-900 p-2"
         >
-          Browse muscles
-        </button>
-        <button
-          aria-pressed={system === 'skeletal'}
-          className={`rounded border border-white/15 px-3 py-2 ${system === 'skeletal' ? 'bg-white/15' : ''}`}
-          onClick={() => setSystem('skeletal')}
-        >
-          Browse bones
-        </button>
-      </div>
+          {systems.map((s) => (
+            <option key={s.id} value={s.id}>
+              {s.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <button
+        onClick={() => useAnatomyStore.getState().showSystem(system)}
+        className="w-full rounded-lg border border-white/20 p-2 text-sm"
+      >
+        Show only {system}
+      </button>
       <label className="block text-xs text-[var(--muted)]">
         Muscle region
         <select

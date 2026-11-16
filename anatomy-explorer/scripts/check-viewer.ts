@@ -10,7 +10,7 @@ const muscles = structures.filter((s) => s.systems.includes('muscular'))
 assert.equal(muscles.length, 435)
 assert.equal(muscles.length, muscleReport.structures)
 assert(structures.every((s) => s.sex === 'male'))
-assert.equal(searchStructures('liver').length, 0, 'Do not expose nonexistent anatomy')
+assert.equal(searchStructures('liver')[0].meshName, 'FMA7197')
 const muscle = muscles.find((s) => s.displayName === 'Left rectus abdominis')!
 assert(muscle)
 assert.equal(searchStructures(muscle.displayName)[0].meshName, muscle.meshName)

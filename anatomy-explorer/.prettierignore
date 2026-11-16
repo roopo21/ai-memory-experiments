@@ -5,3 +5,4 @@ public/
 src/data/skeleton.json
 src/data/muscles.json
 package-lock.json
+src/data/organs.json
