@@ -3,3 +3,5 @@ dist
 
 assets-src/
 *.tsbuildinfo
+
+.netlify/

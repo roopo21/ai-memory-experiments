@@ -78,3 +78,26 @@ input[type='range'] {
     transition-duration: 0.001ms !important;
   }
 }
+
+.viewer-brand {
+  position: absolute;
+  inset: 0 0 0 21.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  color: rgb(139 151 173 / 0.12);
+  font-size: clamp(3rem, 9vw, 11rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .viewer-brand {
+    inset-inline-start: 0;
+    align-items: flex-start;
+    padding-top: 18vh;
+    font-size: 14vw;
+  }
+}

@@ -1,0 +1,1194 @@
+[
+  {
+    "source": "Fourth ventricle",
+    "triangles": 5798
+  },
+  {
+    "source": "Olive.l",
+    "triangles": 960
+  },
+  {
+    "source": "Pyramid of medulla oblongata.l",
+    "triangles": 960
+  },
+  {
+    "source": "Medulla oblongata.l",
+    "triangles": 6080
+  },
+  {
+    "source": "Olive.r",
+    "triangles": 960
+  },
+  {
+    "source": "Pyramid of medulla oblongata.r",
+    "triangles": 960
+  },
+  {
+    "source": "Anterior cochlear nucleus.l",
+    "triangles": 192
+  },
+  {
+    "source": "Anterior cochlear nucleus.r",
+    "triangles": 192
+  },
+  {
+    "source": "Inferior salivatory nucleus.l",
+    "triangles": 768
+  },
+  {
+    "source": "Inferior salivatory nucleus.r",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus ambiguus.l",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus ambiguus.r",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of hypoglossal nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of hypoglossal nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Posterior cochlear nucleus.l",
+    "triangles": 960
+  },
+  {
+    "source": "Posterior cochlear nucleus.r",
+    "triangles": 960
+  },
+  {
+    "source": "Posterior nucleus of vagus nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Posterior nucleus of vagus nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Medulla oblongata.r",
+    "triangles": 6080
+  },
+  {
+    "source": "Aqueduct of midbrain",
+    "triangles": 460
+  },
+  {
+    "source": "Base of peduncle.l",
+    "triangles": 5046
+  },
+  {
+    "source": "Base of peduncle.r",
+    "triangles": 5046
+  },
+  {
+    "source": "Nucleus of trochlear nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of trochlear nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Accessory nucleus of oculomotor nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Accessory nucleus of oculomotor nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of oculomotor nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of oculomotor nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Red nucleus.l",
+    "triangles": 704
+  },
+  {
+    "source": "Red nucleus.r",
+    "triangles": 704
+  },
+  {
+    "source": "Interpeduncular fossa.l",
+    "triangles": 58
+  },
+  {
+    "source": "Interpeduncular fossa.r",
+    "triangles": 58
+  },
+  {
+    "source": "Midbrain.l",
+    "triangles": 6092
+  },
+  {
+    "source": "Midbrain.r",
+    "triangles": 6092
+  },
+  {
+    "source": "Inferior colliculus.l",
+    "triangles": 464
+  },
+  {
+    "source": "Inferior colliculus.r",
+    "triangles": 464
+  },
+  {
+    "source": "Superior colliculus.l",
+    "triangles": 458
+  },
+  {
+    "source": "Superior colliculus.r",
+    "triangles": 458
+  },
+  {
+    "source": "Pons.l",
+    "triangles": 10171
+  },
+  {
+    "source": "Motor nucleus of facial nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Motor nucleus of facial nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of abducens nerve.l",
+    "triangles": 768
+  },
+  {
+    "source": "Nucleus of abducens nerve.r",
+    "triangles": 768
+  },
+  {
+    "source": "Superior salivatory nucleus.l",
+    "triangles": 768
+  },
+  {
+    "source": "Superior salivatory nucleus.r",
+    "triangles": 768
+  },
+  {
+    "source": "Vestibular nuclei.l",
+    "triangles": 1568
+  },
+  {
+    "source": "Vestibular nuclei.r",
+    "triangles": 1568
+  },
+  {
+    "source": "Pons.r",
+    "triangles": 10171
+  },
+  {
+    "source": "Anterior quadrangular lobule.l",
+    "triangles": 6520
+  },
+  {
+    "source": "Anterior quadrangular lobule.r",
+    "triangles": 6520
+  },
+  {
+    "source": "Biventral lobule.l",
+    "triangles": 8902
+  },
+  {
+    "source": "Biventral lobule.r",
+    "triangles": 8902
+  },
+  {
+    "source": "Central lobule",
+    "triangles": 1006
+  },
+  {
+    "source": "Culmen",
+    "triangles": 2378
+  },
+  {
+    "source": "Declive",
+    "triangles": 2125
+  },
+  {
+    "source": "Flocculus.l",
+    "triangles": 3660
+  },
+  {
+    "source": "Flocculus.r",
+    "triangles": 3660
+  },
+  {
+    "source": "Folium of vermis",
+    "triangles": 812
+  },
+  {
+    "source": "Gracile lobule.l",
+    "triangles": 6961
+  },
+  {
+    "source": "Gracile lobule.r",
+    "triangles": 6961
+  },
+  {
+    "source": "Inferior semilunar lobule.l",
+    "triangles": 7787
+  },
+  {
+    "source": "Inferior semilunar lobule.r",
+    "triangles": 7787
+  },
+  {
+    "source": "Lingula of cerebellum",
+    "triangles": 1028
+  },
+  {
+    "source": "Nodule of vermis",
+    "triangles": 1012
+  },
+  {
+    "source": "Peduncle of flocculus.l",
+    "triangles": 2368
+  },
+  {
+    "source": "Peduncle of flocculus.r",
+    "triangles": 2368
+  },
+  {
+    "source": "Posterior quadrangular lobule.l",
+    "triangles": 3618
+  },
+  {
+    "source": "Posterior quadrangular lobule.r",
+    "triangles": 3618
+  },
+  {
+    "source": "Pyramis of vermis",
+    "triangles": 1182
+  },
+  {
+    "source": "Superior cerebellar peduncle.l",
+    "triangles": 8474
+  },
+  {
+    "source": "Superior cerebellar peduncle.r",
+    "triangles": 8474
+  },
+  {
+    "source": "Superior semilunar lobule.l",
+    "triangles": 8688
+  },
+  {
+    "source": "Superior semilunar lobule.r",
+    "triangles": 8688
+  },
+  {
+    "source": "Tonsil of cerebellum.l",
+    "triangles": 3638
+  },
+  {
+    "source": "Tonsil of cerebellum.r",
+    "triangles": 3638
+  },
+  {
+    "source": "Tuber of vermis",
+    "triangles": 1178
+  },
+  {
+    "source": "Uvula of vermis",
+    "triangles": 2176
+  },
+  {
+    "source": "Wing of central lobule.l",
+    "triangles": 3144
+  },
+  {
+    "source": "Wing of central lobule.r",
+    "triangles": 3144
+  },
+  {
+    "source": "Habenula",
+    "triangles": 398
+  },
+  {
+    "source": "Hypothalamus",
+    "triangles": 4258
+  },
+  {
+    "source": "Lateral geniculate body.l",
+    "triangles": 604
+  },
+  {
+    "source": "Lateral geniculate body.r",
+    "triangles": 604
+  },
+  {
+    "source": "Mamillary body.l",
+    "triangles": 220
+  },
+  {
+    "source": "Mamillary body.r",
+    "triangles": 220
+  },
+  {
+    "source": "Medial geniculate body.l",
+    "triangles": 198
+  },
+  {
+    "source": "Medial geniculate body.r",
+    "triangles": 198
+  },
+  {
+    "source": "Optic chiasm.l",
+    "triangles": 890
+  },
+  {
+    "source": "Optic chiasm.r",
+    "triangles": 890
+  },
+  {
+    "source": "Optic tract.l",
+    "triangles": 2332
+  },
+  {
+    "source": "Optic tract.r",
+    "triangles": 2332
+  },
+  {
+    "source": "Thalamus.l",
+    "triangles": 758
+  },
+  {
+    "source": "Thalamus.r",
+    "triangles": 758
+  },
+  {
+    "source": "Third ventricle",
+    "triangles": 4313
+  },
+  {
+    "source": "Posterior commissure",
+    "triangles": 866
+  },
+  {
+    "source": "Stria medullaris thalami.l",
+    "triangles": 842
+  },
+  {
+    "source": "Stria medullaris thalami.r",
+    "triangles": 842
+  },
+  {
+    "source": "Amygdaloid body.l",
+    "triangles": 384
+  },
+  {
+    "source": "Amygdaloid body.r",
+    "triangles": 384
+  },
+  {
+    "source": "Septal nuclei",
+    "triangles": 548
+  },
+  {
+    "source": "Caudate nucleus.l",
+    "triangles": 2570
+  },
+  {
+    "source": "Caudate nucleus.r",
+    "triangles": 2570
+  },
+  {
+    "source": "Putamen.l",
+    "triangles": 1150
+  },
+  {
+    "source": "Putamen.r",
+    "triangles": 1150
+  },
+  {
+    "source": "Globus pallidus.l",
+    "triangles": 5276
+  },
+  {
+    "source": "Globus pallidus.r",
+    "triangles": 5276
+  },
+  {
+    "source": "Lentiform nucleus.l",
+    "triangles": 2144
+  },
+  {
+    "source": "Lentiform nucleus.r",
+    "triangles": 2144
+  },
+  {
+    "source": "Inferior frontal sulcus.l",
+    "triangles": 742
+  },
+  {
+    "source": "Orbital part of  inferior frontal gyrus.r",
+    "triangles": 186
+  },
+  {
+    "source": "Inferior frontal sulcus.r",
+    "triangles": 742
+  },
+  {
+    "source": "Lat_Fis-ant-Horizont.l",
+    "triangles": 174
+  },
+  {
+    "source": "Lat_Fis-ant-Horizont.r",
+    "triangles": 174
+  },
+  {
+    "source": "Lat_Fis-ant-Vertical.l",
+    "triangles": 194
+  },
+  {
+    "source": "Lat_Fis-ant-Vertical.r",
+    "triangles": 194
+  },
+  {
+    "source": "Middle frontal gyrus.l",
+    "triangles": 2277
+  },
+  {
+    "source": "Middle frontal gyrus.r",
+    "triangles": 2277
+  },
+  {
+    "source": "Olfactory sulcus.l",
+    "triangles": 548
+  },
+  {
+    "source": "Olfactory sulcus.r",
+    "triangles": 548
+  },
+  {
+    "source": "Opercular part of inferior frontal gyrus.l",
+    "triangles": 740
+  },
+  {
+    "source": "Opercular part of inferior frontal gyrus.r",
+    "triangles": 740
+  },
+  {
+    "source": "Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+    "triangles": 656
+  },
+  {
+    "source": "Orbital gyri (Frontomarginal gyrus and sulcus*).r",
+    "triangles": 656
+  },
+  {
+    "source": "Orbital gyri.l",
+    "triangles": 1512
+  },
+  {
+    "source": "Orbital gyri.r",
+    "triangles": 1512
+  },
+  {
+    "source": "Orbital part of  inferior frontal gyrus.l",
+    "triangles": 186
+  },
+  {
+    "source": "Orbital sulci (H-shaped orbital sulci*).l",
+    "triangles": 762
+  },
+  {
+    "source": "Orbital sulci (H-shaped orbital sulci*).r",
+    "triangles": 762
+  },
+  {
+    "source": "Orbital sulci (Lateral Orbital sulcus*).l",
+    "triangles": 200
+  },
+  {
+    "source": "Orbital sulci (Lateral Orbital sulcus*).r",
+    "triangles": 200
+  },
+  {
+    "source": "Paracentral gyrus and sulcus*.l",
+    "triangles": 746
+  },
+  {
+    "source": "Paracentral gyrus and sulcus*.r",
+    "triangles": 746
+  },
+  {
+    "source": "Paracentral sulcus.l",
+    "triangles": 668
+  },
+  {
+    "source": "Paracentral sulcus.r",
+    "triangles": 668
+  },
+  {
+    "source": "Precentral gyrus.l",
+    "triangles": 1532
+  },
+  {
+    "source": "Precentral gyrus.r",
+    "triangles": 1532
+  },
+  {
+    "source": "Precentral sulcus (inferior part)*.l",
+    "triangles": 780
+  },
+  {
+    "source": "Precentral sulcus (inferior part)*.r",
+    "triangles": 780
+  },
+  {
+    "source": "Precentral sulcus (Superior part)*.l",
+    "triangles": 568
+  },
+  {
+    "source": "Precentral sulcus (Superior part)*.r",
+    "triangles": 568
+  },
+  {
+    "source": "Straight gyrus (Gyrus rectus).l",
+    "triangles": 508
+  },
+  {
+    "source": "Straight gyrus (Gyrus rectus).r",
+    "triangles": 508
+  },
+  {
+    "source": "Superior frontal gyrus.l",
+    "triangles": 3735
+  },
+  {
+    "source": "Superior frontal gyrus.r",
+    "triangles": 3735
+  },
+  {
+    "source": "Superior frontal sulcus.l",
+    "triangles": 1290
+  },
+  {
+    "source": "Superior frontal sulcus.r",
+    "triangles": 1290
+  },
+  {
+    "source": "Transverse frontopolar gyrus and sulcus*.l",
+    "triangles": 242
+  },
+  {
+    "source": "Transverse frontopolar gyrus and sulcus*.r",
+    "triangles": 242
+  },
+  {
+    "source": "Triangular part of inferior frontal gyrus.l",
+    "triangles": 504
+  },
+  {
+    "source": "Triangular part of inferior frontal gyrus.r",
+    "triangles": 504
+  },
+  {
+    "source": "Insula (Subcentral gyrus and ant. and post. sulci*).l",
+    "triangles": 740
+  },
+  {
+    "source": "Insula (Subcentral gyrus and ant. and post. sulci*).r",
+    "triangles": 740
+  },
+  {
+    "source": " Posterior transverse collateral sulcus.l",
+    "triangles": 184
+  },
+  {
+    "source": " Posterior transverse collateral sulcus.r",
+    "triangles": 184
+  },
+  {
+    "source": "Anterior occipital sulcus*.l",
+    "triangles": 364
+  },
+  {
+    "source": "Anterior occipital sulcus*.r",
+    "triangles": 364
+  },
+  {
+    "source": "Central sulcus.l",
+    "triangles": 1440
+  },
+  {
+    "source": "Central sulcus.r",
+    "triangles": 1440
+  },
+  {
+    "source": "Circular sulcus of insula.l",
+    "triangles": 798
+  },
+  {
+    "source": "Circular sulcus of insula.r",
+    "triangles": 798
+  },
+  {
+    "source": "Collateral sulcus.l",
+    "triangles": 1142
+  },
+  {
+    "source": "Collateral sulcus.r",
+    "triangles": 1142
+  },
+  {
+    "source": "Lat_Fis-post.l",
+    "triangles": 480
+  },
+  {
+    "source": "Lat_Fis-post.r",
+    "triangles": 480
+  },
+  {
+    "source": "Parieto-occipital sulcus.l",
+    "triangles": 1636
+  },
+  {
+    "source": "Parieto-occipital sulcus.r",
+    "triangles": 1636
+  },
+  {
+    "source": "Subparietal sulcus.l",
+    "triangles": 561
+  },
+  {
+    "source": "Subparietal sulcus.r",
+    "triangles": 561
+  },
+  {
+    "source": "Sulcus interm_prim-Jensen.l",
+    "triangles": 360
+  },
+  {
+    "source": "Sulcus interm_prim-Jensen.r",
+    "triangles": 360
+  },
+  {
+    "source": "Lateral ventricle.l",
+    "triangles": 2898
+  },
+  {
+    "source": "Lateral ventricle.r",
+    "triangles": 2898
+  },
+  {
+    "source": "Cingulate gyrus (Posteroventral part*).l",
+    "triangles": 298
+  },
+  {
+    "source": "Cingulate gyrus (Posteroventral part*).r",
+    "triangles": 298
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Middle anterior part).l",
+    "triangles": 736
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Middle anterior part).r",
+    "triangles": 736
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Middle posterior part).l",
+    "triangles": 600
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Middle posterior part).r",
+    "triangles": 600
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+    "triangles": 410
+  },
+  {
+    "source": "Cingulate gyrus and sulcus (Posterior dorsal part).r",
+    "triangles": 410
+  },
+  {
+    "source": "Cingulate sulcus (Marginal part*).l",
+    "triangles": 544
+  },
+  {
+    "source": "Cingulate sulcus (Marginal part*).r",
+    "triangles": 544
+  },
+  {
+    "source": "Hippocampus.l",
+    "triangles": 1020
+  },
+  {
+    "source": "Hippocampus.r",
+    "triangles": 1020
+  },
+  {
+    "source": "Calcarine sulcus.l",
+    "triangles": 872
+  },
+  {
+    "source": "Calcarine sulcus.r",
+    "triangles": 872
+  },
+  {
+    "source": "Cuneus.l",
+    "triangles": 946
+  },
+  {
+    "source": "Cuneus.r",
+    "triangles": 946
+  },
+  {
+    "source": "Inferior occipital gyrus and sulcus*.l",
+    "triangles": 894
+  },
+  {
+    "source": "Inferior occipital gyrus and sulcus*.r",
+    "triangles": 894
+  },
+  {
+    "source": "Lateral occipital gyrus (Middle occipital gyrus*).l",
+    "triangles": 854
+  },
+  {
+    "source": "Lateral occipital gyrus (Middle occipital gyrus*).r",
+    "triangles": 854
+  },
+  {
+    "source": "Lingual gyrus.l",
+    "triangles": 1658
+  },
+  {
+    "source": "Lingual gyrus.r",
+    "triangles": 1658
+  },
+  {
+    "source": "Lunate sulcus.l",
+    "triangles": 382
+  },
+  {
+    "source": "Lunate sulcus.r",
+    "triangles": 382
+  },
+  {
+    "source": "Occipital pole.l",
+    "triangles": 954
+  },
+  {
+    "source": "Occipital pole.r",
+    "triangles": 954
+  },
+  {
+    "source": "Superior occipital gyri.l",
+    "triangles": 670
+  },
+  {
+    "source": "Superior occipital gyri.r",
+    "triangles": 670
+  },
+  {
+    "source": "Transverse occipital sulcus.l",
+    "triangles": 686
+  },
+  {
+    "source": "Transverse occipital sulcus.r",
+    "triangles": 686
+  },
+  {
+    "source": "Angular gyrus.l",
+    "triangles": 1511
+  },
+  {
+    "source": "Angular gyrus.r",
+    "triangles": 1511
+  },
+  {
+    "source": "Intraparietal sulcus.l",
+    "triangles": 852
+  },
+  {
+    "source": "Intraparietal sulcus.r",
+    "triangles": 852
+  },
+  {
+    "source": "Postcentral gyrus.l",
+    "triangles": 1153
+  },
+  {
+    "source": "Postcentral gyrus.r",
+    "triangles": 1153
+  },
+  {
+    "source": "Postcentral sulcus.l",
+    "triangles": 1189
+  },
+  {
+    "source": "Postcentral sulcus.r",
+    "triangles": 1189
+  },
+  {
+    "source": "Precuneus.l",
+    "triangles": 1300
+  },
+  {
+    "source": "Precuneus.r",
+    "triangles": 1300
+  },
+  {
+    "source": "Superior parietal lobule.l",
+    "triangles": 1199
+  },
+  {
+    "source": "Superior parietal lobule.r",
+    "triangles": 1199
+  },
+  {
+    "source": "Supramarginal gyrus.l",
+    "triangles": 1510
+  },
+  {
+    "source": "Supramarginal gyrus.r",
+    "triangles": 1510
+  },
+  {
+    "source": "Inferior temporal gyrus.l",
+    "triangles": 1498
+  },
+  {
+    "source": "Inferior temporal gyrus.r",
+    "triangles": 1498
+  },
+  {
+    "source": "Inferior temporal sulcus.l",
+    "triangles": 246
+  },
+  {
+    "source": "Inferior temporal sulcus.r",
+    "triangles": 246
+  },
+  {
+    "source": "Lateral occipitotemporal gyrus.l",
+    "triangles": 866
+  },
+  {
+    "source": "Lateral occipitotemporal gyrus.r",
+    "triangles": 866
+  },
+  {
+    "source": "Medial occipitotemporal gyrus (Parahippocampal*).l",
+    "triangles": 858
+  },
+  {
+    "source": "Medial occipitotemporal gyrus (Parahippocampal*).r",
+    "triangles": 858
+  },
+  {
+    "source": "Middle temporal gyrus.l",
+    "triangles": 1312
+  },
+  {
+    "source": "Middle temporal gyrus.r",
+    "triangles": 1312
+  },
+  {
+    "source": "Occipitotemporal sulcus (Lateral part*).l",
+    "triangles": 487
+  },
+  {
+    "source": "Occipitotemporal sulcus (Lateral part*).r",
+    "triangles": 487
+  },
+  {
+    "source": "Superior temporal gyrus (Lateral part).l",
+    "triangles": 1072
+  },
+  {
+    "source": "Superior temporal gyrus (Lateral part).r",
+    "triangles": 1072
+  },
+  {
+    "source": "Superior temporal sulcus.l",
+    "triangles": 2374
+  },
+  {
+    "source": "Superior temporal sulcus.r",
+    "triangles": 2374
+  },
+  {
+    "source": "Temporal plane.l",
+    "triangles": 556
+  },
+  {
+    "source": "Temporal plane.r",
+    "triangles": 556
+  },
+  {
+    "source": "Temporal pole.l",
+    "triangles": 523
+  },
+  {
+    "source": "Temporal pole.r",
+    "triangles": 523
+  },
+  {
+    "source": "Transverse temporal gyri.l",
+    "triangles": 234
+  },
+  {
+    "source": "Transverse temporal gyri.r",
+    "triangles": 234
+  },
+  {
+    "source": "Septum pellucidum",
+    "triangles": 2388
+  },
+  {
+    "source": "Stria terminalis.l",
+    "triangles": 746
+  },
+  {
+    "source": "Stria terminalis.r",
+    "triangles": 746
+  },
+  {
+    "source": "Anterior commissure",
+    "triangles": 800
+  },
+  {
+    "source": "Corpus callosum",
+    "triangles": 3996
+  },
+  {
+    "source": "Hippocampal commissure",
+    "triangles": 9860
+  },
+  {
+    "source": "Fornix.l",
+    "triangles": 2158
+  },
+  {
+    "source": "Fornix.r",
+    "triangles": 2158
+  },
+  {
+    "source": "White matter of telencephalon.l",
+    "triangles": 135288
+  },
+  {
+    "source": "White matter of telencephalon.r",
+    "triangles": 135288
+  },
+  {
+    "source": "Falx cerebri",
+    "triangles": 14708
+  },
+  {
+    "source": "Tentorium cerebelli.l",
+    "triangles": 4480
+  },
+  {
+    "source": "Tentorium cerebelli.r",
+    "triangles": 4480
+  },
+  {
+    "source": "Choroid plexus.l",
+    "triangles": 2647
+  },
+  {
+    "source": "Choroid plexus.r",
+    "triangles": 2647
+  },
+  {
+    "source": "Central canal'",
+    "triangles": 576
+  },
+  {
+    "source": "Nucleus of accessory nerve.l",
+    "triangles": 1792
+  },
+  {
+    "source": "Nucleus of accessory nerve.r",
+    "triangles": 1792
+  },
+  {
+    "source": "Optic nerve (II).l",
+    "triangles": 1748
+  },
+  {
+    "source": "Optic nerve (II).r",
+    "triangles": 1748
+  },
+  {
+    "source": "Tympanic membrane.l",
+    "triangles": 1572
+  },
+  {
+    "source": "Tympanic membrane.r",
+    "triangles": 1572
+  },
+  {
+    "source": "Cochlea.l",
+    "triangles": 6168
+  },
+  {
+    "source": "Cochlea.r",
+    "triangles": 6168
+  },
+  {
+    "source": "Vestibule.l",
+    "triangles": 8580
+  },
+  {
+    "source": "Vestibule.r",
+    "triangles": 8580
+  },
+  {
+    "source": "Auditory tube.l",
+    "triangles": 1840
+  },
+  {
+    "source": "Auditory tube.r",
+    "triangles": 1840
+  },
+  {
+    "source": "Ampulla of lacrimal canaliculus.l",
+    "triangles": 244
+  },
+  {
+    "source": "Lacrimal canaliculus.l",
+    "triangles": 411
+  },
+  {
+    "source": "Ampulla of lacrimal canaliculus.r",
+    "triangles": 244
+  },
+  {
+    "source": "Lacrimal canaliculus.r",
+    "triangles": 411
+  },
+  {
+    "source": "Lacrimal gland.l",
+    "triangles": 1810
+  },
+  {
+    "source": "Lacrimal gland.r",
+    "triangles": 1810
+  },
+  {
+    "source": "Lacrimal sac.l",
+    "triangles": 384
+  },
+  {
+    "source": "Lacrimal sac.r",
+    "triangles": 384
+  },
+  {
+    "source": "Nasolacrimal duct.l",
+    "triangles": 444
+  },
+  {
+    "source": "Nasolacrimal duct.r",
+    "triangles": 444
+  },
+  {
+    "source": "Suspensory ligament of eyeball.l",
+    "triangles": 5502
+  },
+  {
+    "source": "Suspensory ligament of eyeball.r",
+    "triangles": 5502
+  },
+  {
+    "source": "Anterior chamber of eyeball.l",
+    "triangles": 8704
+  },
+  {
+    "source": "Zonular fibres.l",
+    "triangles": 704
+  },
+  {
+    "source": "Anterior segment of eyeball.l",
+    "triangles": 3328
+  },
+  {
+    "source": "Anterior chamber of eyeball.r",
+    "triangles": 8704
+  },
+  {
+    "source": "Zonular fibres.r",
+    "triangles": 68288
+  },
+  {
+    "source": "Anterior segment of eyeball.r",
+    "triangles": 3328
+  },
+  {
+    "source": "Cornea.l",
+    "triangles": 2688
+  },
+  {
+    "source": "Cornea.r",
+    "triangles": 2688
+  },
+  {
+    "source": "Iris.l",
+    "triangles": 3248
+  },
+  {
+    "source": "Iris.r",
+    "triangles": 3248
+  },
+  {
+    "source": "Lens.l",
+    "triangles": 1598
+  },
+  {
+    "source": "Lens.r",
+    "triangles": 1598
+  },
+  {
+    "source": "Vitreous body.l",
+    "triangles": 5436
+  },
+  {
+    "source": "Posterior segment of eyeball.l",
+    "triangles": 6528
+  },
+  {
+    "source": "Vitreous body.r",
+    "triangles": 5436
+  },
+  {
+    "source": "Posterior segment of eyeball.r",
+    "triangles": 6528
+  },
+  {
+    "source": "Retina.l",
+    "triangles": 6304
+  },
+  {
+    "source": "Retina.r",
+    "triangles": 6304
+  },
+  {
+    "source": "Sclera.l",
+    "triangles": 4540
+  },
+  {
+    "source": "Sclera.r",
+    "triangles": 4540
+  }
+]

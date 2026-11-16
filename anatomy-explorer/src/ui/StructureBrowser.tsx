@@ -6,6 +6,7 @@ import {
   muscleReport,
   systems,
   organReport,
+  nerveReport,
   muscleChunks,
 } from '../data/anatomy'
 import { useAnatomyStore } from '../store/useAnatomyStore'
@@ -32,7 +33,8 @@ export default function StructureBrowser() {
         <p className="font-semibold text-[var(--text)]">One body · aligned source anatomy</p>
         <p>
           {skeletonReport.structures} skeletal structures · {muscleReport.structures} muscle/tendon
-          structures · {organReport.structures} additional structures
+          structures · {organReport.structures} organ structures · {nerveReport.structures} nerve
+          structures
         </p>
         <details className="mt-2">
           <summary className="cursor-pointer">Coverage and source</summary>
@@ -43,8 +45,9 @@ export default function StructureBrowser() {
           <p className="mt-2">
             Muscles: available source structures, including some grouped muscles and tendons.
             Attachments are not independently reviewed. Five internal systems are available with
-            partial source coverage. Nervous anatomy is predominantly brain structures; vessels are
-            a limited major-vessel selection. Female anatomy is not imported.
+            partial source coverage; vessels are a limited major-vessel selection. The spinal cord,
+            cranial and peripheral nerves come from Z-Anatomy and are registered onto this body by
+            one fitted similarity transform. Female anatomy is not imported.
           </p>
           <a
             className="mt-2 block underline"
@@ -52,7 +55,7 @@ export default function StructureBrowser() {
             target="_blank"
             rel="noreferrer"
           >
-            BodyParts3D · source and licence
+            BodyParts3D and Z-Anatomy · sources and licences
           </a>
         </details>
       </div>

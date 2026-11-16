@@ -1,0 +1,42 @@
+{
+  "method": "Uniform scale and translation fitted by least squares to bounding-box centres of bones present in both the Z-Anatomy skeletal export and the shipped BodyParts3D skeleton. No rotation (both are Y-up metre exports) and no per-structure adjustment.",
+  "source": {
+    "file": "models/skeletal.glb",
+    "sha256": "c2b70b31ddec4062cbc5ba969fc24ecfed61d00397a0bca795e2701d997200f8"
+  },
+  "target": "public/models/male-skeleton.glb",
+  "scale": 0.9685936380709932,
+  "translation": [
+    -0.0007853486063206966,
+    -0.00943346306053472,
+    0.09784864144722773
+  ],
+  "pairs": 99,
+  "residualMm": {
+    "median": 0.7962924960456383,
+    "p90": 3.8616037116605026,
+    "max": 17.43920667885953
+  },
+  "worst": [
+    {
+      "name": "sacrum",
+      "mm": 17.43920667885953
+    },
+    {
+      "name": "left fibula",
+      "mm": 5.849004219026434
+    },
+    {
+      "name": "right fibula",
+      "mm": 5.596896329520351
+    },
+    {
+      "name": "left fifth metatarsal bone",
+      "mm": 3.9599677151256367
+    },
+    {
+      "name": "left third metatarsal bone",
+      "mm": 3.931943057488822
+    }
+  ]
+}

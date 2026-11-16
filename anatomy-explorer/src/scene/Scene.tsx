@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import {
   skeletonNames,
   muscleChunks,
-  organChunks,
+  systemChunks,
   structureByMesh,
   type SystemId,
 } from '../data/anatomy'
@@ -101,7 +101,7 @@ export default function Scene() {
                 </ModelBoundary>
               </Suspense>
             ))}
-        {organChunks
+        {systemChunks
           .filter((chunk) => chunk.systems.some((id) => layers[id as SystemId].visible))
           .map((chunk) => (
             <Suspense key={chunk.url} fallback={null}>

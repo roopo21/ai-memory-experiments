@@ -69,7 +69,10 @@ export default function SidePanel() {
       </div>
 
       <footer className="border-t border-white/10 px-4 py-2 text-center text-[11px] text-[var(--muted)]">
-        For education only, not medical advice.
+        For education only, not medical advice.{' '}
+        <a className="underline" href="/models/ATTRIBUTION.md" target="_blank" rel="noreferrer">
+          Sources
+        </a>
       </footer>
     </aside>
   )

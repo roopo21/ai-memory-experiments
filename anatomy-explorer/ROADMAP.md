@@ -6,7 +6,13 @@ Updated 2026-11-16. This is the single forward plan for the anatomy app. `README
 
 Five additional system layers are now imported: 65 cardiovascular, 12 respiratory, 12 further digestive (plus three shared respiratory/oral surfaces), six urinary and 98 nervous structures. The viewer supports independent visibility and one-click solo views, search, streamed detail, hide/restore and isolation for all seven systems. The new import has a pinned selection, source checksums and output audit.
 
-Milestones 3 and 4 below now describe coverage expansion and review of this initial import. They are not complete: peripheral vessels, peripheral nerves, complete spinal cord geometry, anatomical review, registration landmarks and measured performance remain outstanding. Milestones 1 and 2 still apply. Female anatomy and other system layers remain unimplemented.
+Milestones 3 and 4 below now describe coverage expansion and review of this initial import. They are not complete: peripheral vessels, nervous coverage completeness, anatomical review and measured performance remain outstanding. Milestones 1 and 2 still apply. Female anatomy and other system layers remain unimplemented.
+
+The nervous extension now adds 282 Z-Anatomy surfaces, including spinal cord and cranial, trunk, pelvic and limb nerves. Registration against 99 shared bone landmarks has a median residual of 0.80 mm; courses still need review.
+
+## Next product focus: stretching
+
+Build a body-area-to-stretch flow: select an area or muscle, show its mapped muscle group, then provide a source-backed stretch with setup, movement, duration and a clear visual. Start with calves, quadriceps, hamstrings and shoulders. Include sources and review dates, and obtain professional review before personalized advice. Validate that people can find a relevant stretch without knowing anatomical names. Routine saving and progress tracking follow the core interaction.
 
 ## Outcome
 

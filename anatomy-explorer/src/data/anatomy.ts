@@ -2,8 +2,13 @@ import raw from './systems.json'
 import skeleton from './skeleton.json'
 import muscles from './muscles.json'
 import organs from './organs.json'
+import nerves from './nerves.json'
 export const organChunks = organs.chunks
 export const organReport = organs.report
+export const nerveChunks = nerves.chunks
+export const nerveReport = nerves.report
+/** Every on-demand system layer: BodyParts3D organ selections plus the Z-Anatomy nerve layer. */
+export const systemChunks = [...organs.chunks, ...nerves.chunks]
 
 export const skeletonReport = skeleton.report
 export const muscleReport = muscles.report
@@ -38,6 +43,7 @@ export const structures = [
   ...skeleton.structures,
   ...muscles.structures,
   ...organs.structures,
+  ...nerves.structures,
 ] as Structure[]
 export const systemById = new Map(systems.map((s) => [s.id, s]))
 export const structureByMesh = new Map(structures.map((s) => [s.meshName, s]))

@@ -1,0 +1,7260 @@
+{
+  "structures": 282,
+  "triangles": 1459866,
+  "exportedTriangles": 1459866,
+  "bytes": 3623820,
+  "compression": "Draco 16-bit position / 12-bit normal quantization; no simplification",
+  "source": "Z-Anatomy per-system glTF export (nqwrc/3d-anatomy), derived from BodyParts3D",
+  "repository": "nqwrc/3d-anatomy",
+  "commit": "8ca3b7421bcfbe88b85859eb1983d5cf79f21749",
+  "registration": {
+    "method": "Uniform scale and translation fitted by least squares to bounding-box centres of bones present in both the Z-Anatomy skeletal export and the shipped BodyParts3D skeleton. No rotation (both are Y-up metre exports) and no per-structure adjustment.",
+    "source": {
+      "file": "models/skeletal.glb",
+      "sha256": "c2b70b31ddec4062cbc5ba969fc24ecfed61d00397a0bca795e2701d997200f8"
+    },
+    "target": "public/models/male-skeleton.glb",
+    "scale": 0.9685936380709932,
+    "translation": [
+      -0.0007853486063206966,
+      -0.00943346306053472,
+      0.09784864144722773
+    ],
+    "pairs": 99,
+    "residualMm": {
+      "median": 0.7962924960456383,
+      "p90": 3.8616037116605026,
+      "max": 17.43920667885953
+    },
+    "worst": [
+      {
+        "name": "sacrum",
+        "mm": 17.43920667885953
+      },
+      {
+        "name": "left fibula",
+        "mm": 5.849004219026434
+      },
+      {
+        "name": "right fibula",
+        "mm": 5.596896329520351
+      },
+      {
+        "name": "left fifth metatarsal bone",
+        "mm": 3.9599677151256367
+      },
+      {
+        "name": "left third metatarsal bone",
+        "mm": 3.931943057488822
+      }
+    ]
+  },
+  "coverage": "Spinal cord with grey-matter columns and white-matter tracts, spinal roots and ganglia, cauda equina, cranial nerves I and III to XII with major branches, brachial plexus and upper limb nerves, sympathetic trunk, intercostal and lumbosacral nerves, lower limb nerves. Brain structures and the optic nerves remain the BodyParts3D selection.",
+  "limitations": [
+    "Registered by one similarity transform fitted to bone centres; nerve courses relative to muscles and vessels are not independently reviewed.",
+    "Z-Anatomy groups some nerves (for example all intercostal nerves per side) into one surface; no synthetic splitting.",
+    "298 source nodes (brain, brainstem, eye and inner-ear structures) are intentionally not imported."
+  ],
+  "chunks": [
+    {
+      "region": "Cranial nerves",
+      "url": "/models/nerves/cranial-nerves.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "ZA_abducens_nerve_vi_l",
+        "ZA_accessory_nerve_xi_l",
+        "ZA_anterior_division_of_mandibular_nerve_l",
+        "ZA_buccal_nerve_l",
+        "ZA_chorda_tympani_l",
+        "ZA_cochlear_nerve_l",
+        "ZA_facial_nerve_vii_l",
+        "ZA_glossopharyngeal_nerve_ix_l",
+        "ZA_hypoglossal_nerve_xii_l",
+        "ZA_inferior_alveolar_nerve_l",
+        "ZA_lingual_nerve_l",
+        "ZA_maxillary_nerve_l",
+        "ZA_meningeal_branch_of_maxillary_nerve_l",
+        "ZA_mental_nerve_l",
+        "ZA_motor_root_of_trigeminal_nerve_l",
+        "ZA_nerve_to_mylohyoid_muscle_l",
+        "ZA_oculomotor_nerve_iii_l",
+        "ZA_olfactory_nerve_i_l",
+        "ZA_ophthalmic_nerve_l",
+        "ZA_posterior_division_of_mandibular_nerve_l",
+        "ZA_sensory_root_of_trigeminal_nerve_l",
+        "ZA_trigeminal_nerve_v_l",
+        "ZA_trochlear_nerve_iv_l",
+        "ZA_vagus_nerve_x_l",
+        "ZA_vestibular_nerve_l",
+        "ZA_vestibulocochlear_nerve_viii_l",
+        "ZA_abducens_nerve_vi_r",
+        "ZA_accessory_nerve_xi_r",
+        "ZA_anterior_division_of_mandibular_nerve_r",
+        "ZA_buccal_nerve_r",
+        "ZA_chorda_tympani_r",
+        "ZA_cochlear_nerve",
+        "ZA_facial_nerve_vii_r",
+        "ZA_glossopharyngeal_nerve_ix_r",
+        "ZA_hypoglossal_nerve_xii_r",
+        "ZA_inferior_alveolar_nerve_r",
+        "ZA_lingual_nerve_r",
+        "ZA_maxillary_nerve_r",
+        "ZA_meningeal_branch_of_maxillary_nerve_r",
+        "ZA_mental_nerve_r",
+        "ZA_motor_root_of_trigeminal_nerve_r",
+        "ZA_nerve_to_mylohyoid_muscle_r",
+        "ZA_oculomotor_nerve_iii_r",
+        "ZA_olfactory_nerve_i_r",
+        "ZA_ophthalmic_nerve_r",
+        "ZA_posterior_division_of_mandibular_nerve_r",
+        "ZA_sensory_root_of_trigeminal_nerve_r",
+        "ZA_trigeminal_nerve_v_r",
+        "ZA_trochlear_nerve_iv_r",
+        "ZA_vagus_nerve_x_r",
+        "ZA_vestibular_nerve_r",
+        "ZA_vestibulocochlear_nerve_viii_r"
+      ],
+      "triangles": 426252,
+      "overviewTriangles": 426252,
+      "bytes": 1037672
+    },
+    {
+      "region": "Lower limb nerves",
+      "url": "/models/nerves/lower-limb-nerves.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "ZA_anterior_branch_of_obturator_nerve_l",
+        "ZA_anterior_cutaneous_branches_of_femoral_nerve_l",
+        "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_l",
+        "ZA_common_fibular_nerve_l",
+        "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_l",
+        "ZA_common_plantar_digital_branches_of_medial_plantar_nerve_l",
+        "ZA_deep_fibular_nerve_l",
+        "ZA_dorsal_digital_branches_of_deep_fibular_nerve_l",
+        "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_l",
+        "ZA_femoral_nerve_l",
+        "ZA_infrapatellar_branch_of_saphenous_nerve_l",
+        "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_l",
+        "ZA_lateral_femoral_cutaneous_nerve_l",
+        "ZA_lateral_plantar_nerve_l",
+        "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_l",
+        "ZA_medial_dorsal_cutaneous_nerve_of_foot_l",
+        "ZA_medial_plantar_nerve_l",
+        "ZA_medial_sural_cutaneous_nerve_l",
+        "ZA_muscular_branches_of_deep_fibular_nerve_l",
+        "ZA_nerve_to_piriformis_muscle_l",
+        "ZA_nerve_to_quadratus_femoris_muscle_l",
+        "ZA_obturator_nerve_l",
+        "ZA_posterior_branch_of_obturator_nerve_l",
+        "ZA_posterior_femoral_cutaneous_nerve_l",
+        "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_l",
+        "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_l",
+        "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_l",
+        "ZA_saphenous_nerve_l",
+        "ZA_sciatic_nerve_l",
+        "ZA_superficial_fibular_nerve_l",
+        "ZA_superior_gluteal_nerve_l",
+        "ZA_sural_communicating_branch_of_common_fibular_nerve_l",
+        "ZA_sural_nerve_l",
+        "ZA_tibial_nerve_l",
+        "ZA_anterior_branch_of_obturator_nerve_r",
+        "ZA_anterior_cutaneous_branches_of_femoral_nerve_r",
+        "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_r",
+        "ZA_common_fibular_nerve_r",
+        "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_r",
+        "ZA_common_plantar_digital_branches_of_medial_plantar_nerve",
+        "ZA_deep_fibular_nerve_r",
+        "ZA_dorsal_digital_branches_of_deep_fibular_nerve_r",
+        "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_r",
+        "ZA_femoral_nerve_r",
+        "ZA_infrapatellar_branch_of_saphenous_nerve_r",
+        "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_r",
+        "ZA_lateral_femoral_cutaneous_nerve_r",
+        "ZA_lateral_plantar_nerve_r",
+        "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_r",
+        "ZA_medial_dorsal_cutaneous_nerve_of_foot_r",
+        "ZA_medial_plantar_nerve_r",
+        "ZA_medial_sural_cutaneous_nerve_r",
+        "ZA_muscular_branches_of_deep_fibular_nerve_r",
+        "ZA_nerve_to_piriformis_muscle_r",
+        "ZA_nerve_to_quadratus_femoris_muscle_r",
+        "ZA_obturator_nerve_r",
+        "ZA_posterior_branch_of_obturator_nerve_r",
+        "ZA_posterior_femoral_cutaneous_nerve_r",
+        "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_r",
+        "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_r",
+        "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_r",
+        "ZA_saphenous_nerve_r",
+        "ZA_sciatic_nerve_r",
+        "ZA_superficial_fibular_nerve_r",
+        "ZA_superior_gluteal_nerve_r",
+        "ZA_sural_communicating_branch_of_common_fibular_nerve_r",
+        "ZA_sural_nerve_r",
+        "ZA_tibial_nerve_r"
+      ],
+      "triangles": 204480,
+      "overviewTriangles": 204480,
+      "bytes": 567864
+    },
+    {
+      "region": "Spinal cord",
+      "url": "/models/nerves/spinal-cord.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "ZA_anterior_corticospinal_tract",
+        "ZA_anterior_fasciculus_proprius",
+        "ZA_anterior_horn_of_spinal_cord",
+        "ZA_anterior_spinocerebellar_tract",
+        "ZA_anterior_spinothalamic_tract",
+        "ZA_cauda_equina",
+        "ZA_central_canal",
+        "ZA_cuneate_fasciculus",
+        "ZA_gracile_fasciculus",
+        "ZA_intermediolateral_nucleus",
+        "ZA_intermediomedial_nucleus",
+        "ZA_lateral_corticospinal_tract",
+        "ZA_lateral_fasciculus_proprius",
+        "ZA_lateral_intermediate_substance",
+        "ZA_lateral_reticulospinal_tract",
+        "ZA_lateral_spinothalamic_tract",
+        "ZA_lateral_vestibulospinal_tract",
+        "ZA_anterior_root_of_spinal_nerve_l",
+        "ZA_posterior_root_of_spinal_nerve_l",
+        "ZA_spinal_ganglion_l",
+        "ZA_medial_reticulospinal_tract",
+        "ZA_medial_vestibulospinal_tract",
+        "ZA_nucleus_proprius",
+        "ZA_posterior_fasciculus_proprius",
+        "ZA_posterior_horn_of_spinal_cord",
+        "ZA_posterior_spinocerebellar_tract",
+        "ZA_posterolateral_tract",
+        "ZA_anterior_root_of_spinal_nerve_r",
+        "ZA_posterior_root_of_spinal_nerve_r",
+        "ZA_spinal_ganglion_r",
+        "ZA_rubrospinal_tract",
+        "ZA_spinal_dura",
+        "ZA_spinal_reticular_process",
+        "ZA_spinotectal_tract",
+        "ZA_tectospinal_tract",
+        "ZA_white_matter_of_spinal_cord"
+      ],
+      "triangles": 295242,
+      "overviewTriangles": 295242,
+      "bytes": 706324
+    },
+    {
+      "region": "Trunk and pelvic nerves",
+      "url": "/models/nerves/trunk-and-pelvic-nerves.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "ZA_femoral_branch_of_genitofemoral_nerve_l",
+        "ZA_ganglia_of_sympathetic_trunk_l",
+        "ZA_genital_branch_of_genitofemoral_nerve_l",
+        "ZA_genitofemoral_nerve_l",
+        "ZA_ilio_inguinal_nerve_l",
+        "ZA_iliohypogastric_nerve_l",
+        "ZA_intercostal_nerves_l",
+        "ZA_pudendal_nerve_l",
+        "ZA_sympathetic_nerves_l",
+        "ZA_sympathetic_trunk_l",
+        "ZA_femoral_branch_of_genitofemoral_nerve_r",
+        "ZA_ganglia_of_sympathetic_trunk_r",
+        "ZA_genital_branch_of_genitofemoral_nerve_r",
+        "ZA_genitofemoral_nerve_r",
+        "ZA_ilio_inguinal_nerve_r",
+        "ZA_iliohypogastric_nerve_r",
+        "ZA_intercostal_nerves_r",
+        "ZA_pudendal_nerve_r",
+        "ZA_sympathetic_nerves_r",
+        "ZA_sympathetic_trunk_r"
+      ],
+      "triangles": 282180,
+      "overviewTriangles": 282180,
+      "bytes": 582668
+    },
+    {
+      "region": "Upper limb nerves",
+      "url": "/models/nerves/upper-limb-nerves.glb",
+      "systems": [
+        "nervous"
+      ],
+      "meshes": [
+        "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_l",
+        "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_l",
+        "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_l",
+        "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_l",
+        "ZA_anterior_interosseous_nerve_of_forearm_l",
+        "ZA_axillary_nerve_l",
+        "ZA_common_palmar_digital_branches_of_median_nerve_l",
+        "ZA_common_palmar_digital_branches_of_ulnar_nerve_l",
+        "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_l",
+        "ZA_deep_branch_of_radial_nerve_l",
+        "ZA_deep_branch_of_ulnar_nerve_l",
+        "ZA_dorsal_branch_of_ulnar_nerve_l",
+        "ZA_dorsal_digital_branches_of_radial_nerve_l",
+        "ZA_dorsal_digital_branches_of_ulnar_nerve_l",
+        "ZA_dorsal_scapular_nerve_l",
+        "ZA_inferior_lateral_brachial_cutaneous_nerve_l",
+        "ZA_inferior_subscapular_nerve_l",
+        "ZA_inferior_trunk_of_brachial_plexus_l",
+        "ZA_lateral_antebrachial_cutaneous_nerve_l",
+        "ZA_lateral_pectoral_nerve_l",
+        "ZA_long_thoracic_nerve_l",
+        "ZA_medial_antebrachial_cutaneous_nerve_l",
+        "ZA_medial_brachial_cutaneous_nerve_l",
+        "ZA_medial_pectoral_nerve_l",
+        "ZA_median_nerve_l",
+        "ZA_middle_trunk_of_brachial_plexus_l",
+        "ZA_muscular_branches_of_axillary_nerve_l",
+        "ZA_muscular_branches_of_median_nerve_l",
+        "ZA_muscular_branches_of_radial_nerve_l",
+        "ZA_muscular_branches_of_ulnar_nerve_l",
+        "ZA_musculocutaneous_nerve_l",
+        "ZA_palmar_branch_of_median_nerve_l",
+        "ZA_palmar_branch_of_ulnar_nerve_l",
+        "ZA_posterior_antebrachial_cutaneous_nerve_l",
+        "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_l",
+        "ZA_posterior_cord_of_brachial_plexus_l",
+        "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_l",
+        "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_l",
+        "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_l",
+        "ZA_posterior_interosseous_nerve_of_forearm_l",
+        "ZA_proper_palmar_digital_branches_of_median_nerve_l",
+        "ZA_proper_palmar_digital_branches_of_ulnar_nerve_l",
+        "ZA_radial_nerve_l",
+        "ZA_roots_of_brachial_plexus_l",
+        "ZA_subclavian_nerve_l",
+        "ZA_superficial_branch_of_radial_nerve_l",
+        "ZA_superficial_branch_of_ulnar_nerve_l",
+        "ZA_superior_lateral_brachial_cutaneous_nerve_l",
+        "ZA_superior_subscapular_nerve_l",
+        "ZA_superior_trunk_of_brachial_plexus_l",
+        "ZA_suprascapular_nerve_l",
+        "ZA_thoracodorsal_nerve_l",
+        "ZA_ulnar_nerve_l",
+        "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_r",
+        "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_r",
+        "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_r",
+        "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_r",
+        "ZA_anterior_interosseous_nerve_of_forearm_r",
+        "ZA_axillary_nerve_r",
+        "ZA_common_palmar_digital_branches_of_median_nerve_r",
+        "ZA_common_palmar_digital_branches_of_ulnar_nerve_r",
+        "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_r",
+        "ZA_deep_branch_of_radial_nerve_r",
+        "ZA_deep_branch_of_ulnar_nerve_r",
+        "ZA_dorsal_branch_of_ulnar_nerve_r",
+        "ZA_dorsal_digital_branches_of_radial_nerve_r",
+        "ZA_dorsal_digital_branches_of_ulnar_nerve_r",
+        "ZA_dorsal_scapular_nerve_r",
+        "ZA_inferior_lateral_brachial_cutaneous_nerve_r",
+        "ZA_inferior_subscapular_nerve_r",
+        "ZA_inferior_trunk_of_brachial_plexus_r",
+        "ZA_lateral_antebrachial_cutaneous_nerve_r",
+        "ZA_lateral_pectoral_nerve_r",
+        "ZA_long_thoracic_nerve_r",
+        "ZA_medial_antebrachial_cutaneous_nerve_r",
+        "ZA_medial_brachial_cutaneous_nerve_r",
+        "ZA_medial_pectoral_nerve_r",
+        "ZA_median_nerve_r",
+        "ZA_middle_trunk_of_brachial_plexus_r",
+        "ZA_muscular_branches_of_axillary_nerve_r",
+        "ZA_muscular_branches_of_median_nerve_r",
+        "ZA_muscular_branches_of_radial_nerve_r",
+        "ZA_muscular_branches_of_ulnar_nerve_r",
+        "ZA_musculocutaneous_nerve_r",
+        "ZA_palmar_branch_of_median_nerve_r",
+        "ZA_palmar_branch_of_ulnar_nerve_r",
+        "ZA_posterior_antebrachial_cutaneous_nerve_r",
+        "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_r",
+        "ZA_posterior_cord_of_brachial_plexus_r",
+        "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_r",
+        "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_r",
+        "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_r",
+        "ZA_posterior_interosseous_nerve_of_forearm_r",
+        "ZA_proper_palmar_digital_branches_of_median_nerve_r",
+        "ZA_proper_palmar_digital_branches_of_ulnar_nerve_r",
+        "ZA_radial_nerve_r",
+        "ZA_roots_of_brachial_plexus_r",
+        "ZA_subclavian_nerve_r",
+        "ZA_superficial_branch_of_radial_nerve_r",
+        "ZA_superficial_branch_of_ulnar_nerve_r",
+        "ZA_superior_lateral_brachial_cutaneous_nerve_r",
+        "ZA_superior_subscapular_nerve_r",
+        "ZA_superior_trunk_of_brachial_plexus_r",
+        "ZA_suprascapular_nerve_r",
+        "ZA_thoracodorsal_nerve_r",
+        "ZA_ulnar_nerve_r"
+      ],
+      "triangles": 251712,
+      "overviewTriangles": 251712,
+      "bytes": 729292
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "models/nervous.glb",
+      "url": "https://raw.githubusercontent.com/nqwrc/3d-anatomy/8ca3b7421bcfbe88b85859eb1983d5cf79f21749/public/models/nervous.glb",
+      "sha256": "c7cde35497f887b319c0a84f1b5b605fa3ce66e23084b5e09d6e3825fa5030d9",
+      "bytes": 3802588
+    },
+    {
+      "path": "models/skeletal.glb",
+      "url": "https://raw.githubusercontent.com/nqwrc/3d-anatomy/8ca3b7421bcfbe88b85859eb1983d5cf79f21749/public/models/skeletal.glb",
+      "sha256": "c2b70b31ddec4062cbc5ba969fc24ecfed61d00397a0bca795e2701d997200f8",
+      "bytes": 1863828
+    },
+    {
+      "path": "models/License.txt",
+      "url": "https://raw.githubusercontent.com/nqwrc/3d-anatomy/8ca3b7421bcfbe88b85859eb1983d5cf79f21749/public/models/License.txt",
+      "sha256": "47c73bd1a7557f49fa5a2c02561ce6ca4ac0169066ab76fc6a6351835f5d185f",
+      "bytes": 1746
+    }
+  ],
+  "selection": [
+    {
+      "id": "ZA_abducens_nerve_vi_l",
+      "source": "Abducens nerve (VI).l",
+      "name": "Left abducens nerve (VI)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 4936
+    },
+    {
+      "id": "ZA_accessory_nerve_xi_l",
+      "source": "Accessory nerve (XI).l",
+      "name": "Left accessory nerve (XI)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 15376
+    },
+    {
+      "id": "ZA_anterior_division_of_mandibular_nerve_l",
+      "source": "Anterior division of mandibular nerve.l",
+      "name": "Left anterior division of mandibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 596
+    },
+    {
+      "id": "ZA_buccal_nerve_l",
+      "source": "Buccal nerve.l",
+      "name": "Left buccal nerve",
+      "region": "Cranial nerves",
+      "parent": "Anterior division of mandibular nerve.l",
+      "triangles": 2632
+    },
+    {
+      "id": "ZA_chorda_tympani_l",
+      "source": "Chorda tympani.l",
+      "name": "Left chorda tympani",
+      "region": "Cranial nerves",
+      "parent": "Facial nerve (VII).l",
+      "triangles": 1748
+    },
+    {
+      "id": "ZA_cochlear_nerve_l",
+      "source": "Cochlear nerve.l",
+      "name": "Left cochlear nerve",
+      "region": "Cranial nerves",
+      "parent": "Vestibulocochlear nerve (VIII).l",
+      "triangles": 884
+    },
+    {
+      "id": "ZA_facial_nerve_vii_l",
+      "source": "Facial nerve (VII).l",
+      "name": "Left facial nerve (VII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 27312
+    },
+    {
+      "id": "ZA_glossopharyngeal_nerve_ix_l",
+      "source": "Glossopharyngeal nerve (IX).l",
+      "name": "Left glossopharyngeal nerve (IX)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 13388
+    },
+    {
+      "id": "ZA_hypoglossal_nerve_xii_l",
+      "source": "Hypoglossal nerve (XII).l",
+      "name": "Left hypoglossal nerve (XII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 16288
+    },
+    {
+      "id": "ZA_inferior_alveolar_nerve_l",
+      "source": "Inferior alveolar nerve.l",
+      "name": "Left inferior alveolar nerve",
+      "region": "Cranial nerves",
+      "parent": "Posterior division of mandibular nerve.l",
+      "triangles": 16944
+    },
+    {
+      "id": "ZA_lingual_nerve_l",
+      "source": "Lingual nerve.l",
+      "name": "Left lingual nerve",
+      "region": "Cranial nerves",
+      "parent": "Posterior division of mandibular nerve.l",
+      "triangles": 2612
+    },
+    {
+      "id": "ZA_maxillary_nerve_l",
+      "source": "Maxillary nerve.l",
+      "name": "Left maxillary nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).l",
+      "triangles": 7876
+    },
+    {
+      "id": "ZA_meningeal_branch_of_maxillary_nerve_l",
+      "source": "Meningeal branch of maxillary nerve.l",
+      "name": "Left meningeal branch of maxillary nerve",
+      "region": "Cranial nerves",
+      "parent": "Maxillary nerve.l",
+      "triangles": 6108
+    },
+    {
+      "id": "ZA_mental_nerve_l",
+      "source": "Mental nerve.l",
+      "name": "Left mental nerve",
+      "region": "Cranial nerves",
+      "parent": "Inferior alveolar nerve.l",
+      "triangles": 2652
+    },
+    {
+      "id": "ZA_motor_root_of_trigeminal_nerve_l",
+      "source": "Motor root of trigeminal nerve.l",
+      "name": "Left motor root of trigeminal nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).l",
+      "triangles": 960
+    },
+    {
+      "id": "ZA_nerve_to_mylohyoid_muscle_l",
+      "source": "Nerve to mylohyoid muscle.l",
+      "name": "Left nerve to mylohyoid muscle",
+      "region": "Cranial nerves",
+      "parent": "Inferior alveolar nerve.l",
+      "triangles": 3496
+    },
+    {
+      "id": "ZA_oculomotor_nerve_iii_l",
+      "source": "Oculomotor nerve (III).l",
+      "name": "Left oculomotor nerve (III)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 8780
+    },
+    {
+      "id": "ZA_olfactory_nerve_i_l",
+      "source": "Olfactory nerve (I).l",
+      "name": "Left olfactory nerve (I)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 26956
+    },
+    {
+      "id": "ZA_ophthalmic_nerve_l",
+      "source": "Ophthalmic nerve.l",
+      "name": "Left ophthalmic nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).l",
+      "triangles": 6724
+    },
+    {
+      "id": "ZA_posterior_division_of_mandibular_nerve_l",
+      "source": "Posterior division of mandibular nerve.l",
+      "name": "Left posterior division of mandibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 884
+    },
+    {
+      "id": "ZA_sensory_root_of_trigeminal_nerve_l",
+      "source": "Sensory root of trigeminal nerve.l",
+      "name": "Left sensory root of trigeminal nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).l",
+      "triangles": 2752
+    },
+    {
+      "id": "ZA_trigeminal_nerve_v_l",
+      "source": "Trigeminal nerve (V).l",
+      "name": "Left trigeminal nerve (V)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 2344
+    },
+    {
+      "id": "ZA_trochlear_nerve_iv_l",
+      "source": "Trochlear nerve (IV).l",
+      "name": "Left trochlear nerve (IV)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 3764
+    },
+    {
+      "id": "ZA_vagus_nerve_x_l",
+      "source": "Vagus nerve (X).l",
+      "name": "Left vagus nerve (X)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 14528
+    },
+    {
+      "id": "ZA_vestibular_nerve_l",
+      "source": "Vestibular nerve.l",
+      "name": "Left vestibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Vestibulocochlear nerve (VIII).l",
+      "triangles": 4688
+    },
+    {
+      "id": "ZA_vestibulocochlear_nerve_viii_l",
+      "source": "Vestibulocochlear nerve (VIII).l",
+      "name": "Left vestibulocochlear nerve (VIII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 1768
+    },
+    {
+      "id": "ZA_abducens_nerve_vi_r",
+      "source": "Abducens nerve (VI).r",
+      "name": "Right abducens nerve (VI)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 4936
+    },
+    {
+      "id": "ZA_accessory_nerve_xi_r",
+      "source": "Accessory nerve (XI).r",
+      "name": "Right accessory nerve (XI)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 15376
+    },
+    {
+      "id": "ZA_anterior_division_of_mandibular_nerve_r",
+      "source": "Anterior division of mandibular nerve.r",
+      "name": "Right anterior division of mandibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 596
+    },
+    {
+      "id": "ZA_buccal_nerve_r",
+      "source": "Buccal nerve.r",
+      "name": "Right buccal nerve",
+      "region": "Cranial nerves",
+      "parent": "Anterior division of mandibular nerve.r",
+      "triangles": 2632
+    },
+    {
+      "id": "ZA_chorda_tympani_r",
+      "source": "Chorda tympani.r",
+      "name": "Right chorda tympani",
+      "region": "Cranial nerves",
+      "parent": "Facial nerve (VII).r",
+      "triangles": 1748
+    },
+    {
+      "id": "ZA_cochlear_nerve",
+      "source": "Cochlear nerve",
+      "name": "Right cochlear nerve",
+      "region": "Cranial nerves",
+      "parent": "Vestibulocochlear nerve (VIII).r",
+      "triangles": 1758
+    },
+    {
+      "id": "ZA_facial_nerve_vii_r",
+      "source": "Facial nerve (VII).r",
+      "name": "Right facial nerve (VII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 27312
+    },
+    {
+      "id": "ZA_glossopharyngeal_nerve_ix_r",
+      "source": "Glossopharyngeal nerve (IX).r",
+      "name": "Right glossopharyngeal nerve (IX)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 13388
+    },
+    {
+      "id": "ZA_hypoglossal_nerve_xii_r",
+      "source": "Hypoglossal nerve (XII).r",
+      "name": "Right hypoglossal nerve (XII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 16288
+    },
+    {
+      "id": "ZA_inferior_alveolar_nerve_r",
+      "source": "Inferior alveolar nerve.r",
+      "name": "Right inferior alveolar nerve",
+      "region": "Cranial nerves",
+      "parent": "Posterior division of mandibular nerve.r",
+      "triangles": 16944
+    },
+    {
+      "id": "ZA_lingual_nerve_r",
+      "source": "Lingual nerve.r",
+      "name": "Right lingual nerve",
+      "region": "Cranial nerves",
+      "parent": "Posterior division of mandibular nerve.r",
+      "triangles": 2612
+    },
+    {
+      "id": "ZA_maxillary_nerve_r",
+      "source": "Maxillary nerve.r",
+      "name": "Right maxillary nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 7876
+    },
+    {
+      "id": "ZA_meningeal_branch_of_maxillary_nerve_r",
+      "source": "Meningeal branch of maxillary nerve.r",
+      "name": "Right meningeal branch of maxillary nerve",
+      "region": "Cranial nerves",
+      "parent": "Maxillary nerve.r",
+      "triangles": 6108
+    },
+    {
+      "id": "ZA_mental_nerve_r",
+      "source": "Mental nerve.r",
+      "name": "Right mental nerve",
+      "region": "Cranial nerves",
+      "parent": "Inferior alveolar nerve.r",
+      "triangles": 2652
+    },
+    {
+      "id": "ZA_motor_root_of_trigeminal_nerve_r",
+      "source": "Motor root of trigeminal nerve.r",
+      "name": "Right motor root of trigeminal nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 960
+    },
+    {
+      "id": "ZA_nerve_to_mylohyoid_muscle_r",
+      "source": "Nerve to mylohyoid muscle.r",
+      "name": "Right nerve to mylohyoid muscle",
+      "region": "Cranial nerves",
+      "parent": "Inferior alveolar nerve.r",
+      "triangles": 3496
+    },
+    {
+      "id": "ZA_oculomotor_nerve_iii_r",
+      "source": "Oculomotor nerve (III).r",
+      "name": "Right oculomotor nerve (III)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 8780
+    },
+    {
+      "id": "ZA_olfactory_nerve_i_r",
+      "source": "Olfactory nerve (I).r",
+      "name": "Right olfactory nerve (I)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 26956
+    },
+    {
+      "id": "ZA_ophthalmic_nerve_r",
+      "source": "Ophthalmic nerve.r",
+      "name": "Right ophthalmic nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 6724
+    },
+    {
+      "id": "ZA_posterior_division_of_mandibular_nerve_r",
+      "source": "Posterior division of mandibular nerve.r",
+      "name": "Right posterior division of mandibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 884
+    },
+    {
+      "id": "ZA_sensory_root_of_trigeminal_nerve_r",
+      "source": "Sensory root of trigeminal nerve.r",
+      "name": "Right sensory root of trigeminal nerve",
+      "region": "Cranial nerves",
+      "parent": "Trigeminal nerve (V).r",
+      "triangles": 2752
+    },
+    {
+      "id": "ZA_trigeminal_nerve_v_r",
+      "source": "Trigeminal nerve (V).r",
+      "name": "Right trigeminal nerve (V)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 2344
+    },
+    {
+      "id": "ZA_trochlear_nerve_iv_r",
+      "source": "Trochlear nerve (IV).r",
+      "name": "Right trochlear nerve (IV)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 3764
+    },
+    {
+      "id": "ZA_vagus_nerve_x_r",
+      "source": "Vagus nerve (X).r",
+      "name": "Right vagus nerve (X)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 45914
+    },
+    {
+      "id": "ZA_vestibular_nerve_r",
+      "source": "Vestibular nerve.r",
+      "name": "Right vestibular nerve",
+      "region": "Cranial nerves",
+      "parent": "Vestibulocochlear nerve (VIII).r",
+      "triangles": 4688
+    },
+    {
+      "id": "ZA_vestibulocochlear_nerve_viii_r",
+      "source": "Vestibulocochlear nerve (VIII).r",
+      "name": "Right vestibulocochlear nerve (VIII)",
+      "region": "Cranial nerves",
+      "parent": null,
+      "triangles": 1768
+    },
+    {
+      "id": "ZA_anterior_branch_of_obturator_nerve_l",
+      "source": "Anterior branch of obturator nerve.l",
+      "name": "Left anterior branch of obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": "Obturator nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_anterior_cutaneous_branches_of_femoral_nerve_l",
+      "source": "Anterior cutaneous branches of femoral nerve.l",
+      "name": "Left anterior cutaneous branches of femoral nerve",
+      "region": "Lower limb nerves",
+      "parent": "Femoral nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_l",
+      "source": "Anterior root of posterior femoral cutaneous nerve.l",
+      "name": "Left anterior root of posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_common_fibular_nerve_l",
+      "source": "Common fibular nerve.l",
+      "name": "Left common fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Sciatic nerve.l",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_l",
+      "source": "Common plantar digital branches of lateral plantar nerve.l",
+      "name": "Left common plantar digital branches of lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Lateral plantar nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_common_plantar_digital_branches_of_medial_plantar_nerve_l",
+      "source": "Common plantar digital branches of medial plantar nerve.l",
+      "name": "Left common plantar digital branches of medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Medial plantar nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_deep_fibular_nerve_l",
+      "source": "Deep fibular nerve.l",
+      "name": "Left deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.l",
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_deep_fibular_nerve_l",
+      "source": "Dorsal digital branches of deep fibular nerve.l",
+      "name": "Left dorsal digital branches of deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Deep fibular nerve.l",
+      "triangles": 3168
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_l",
+      "source": "Dorsal digital branches of superficial fibular nerve.l",
+      "name": "Left dorsal digital branches of superficial fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.l",
+      "triangles": 8352
+    },
+    {
+      "id": "ZA_femoral_nerve_l",
+      "source": "Femoral nerve.l",
+      "name": "Left femoral nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_infrapatellar_branch_of_saphenous_nerve_l",
+      "source": "Infrapatellar branch of saphenous nerve.l",
+      "name": "Left infrapatellar branch of saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Saphenous nerve.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_l",
+      "source": "Intermediate dorsal cutaneous nerve of foot.l",
+      "name": "Left intermediate dorsal cutaneous nerve of foot",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.l",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_lateral_femoral_cutaneous_nerve_l",
+      "source": "Lateral femoral cutaneous nerve.l",
+      "name": "Left lateral femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_lateral_plantar_nerve_l",
+      "source": "Lateral plantar nerve.l",
+      "name": "Left lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_l",
+      "source": "Medial crural cutaneous branches of saphenous nerve.l",
+      "name": "Left medial crural cutaneous branches of saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Saphenous nerve.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_medial_dorsal_cutaneous_nerve_of_foot_l",
+      "source": "Medial dorsal cutaneous nerve of foot.l",
+      "name": "Left medial dorsal cutaneous nerve of foot",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.l",
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_medial_plantar_nerve_l",
+      "source": "Medial plantar nerve.l",
+      "name": "Left medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_medial_sural_cutaneous_nerve_l",
+      "source": "Medial sural cutaneous nerve.l",
+      "name": "Left medial sural cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_muscular_branches_of_deep_fibular_nerve_l",
+      "source": "Muscular branches of deep fibular nerve.l",
+      "name": "Left muscular branches of deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Deep fibular nerve.l",
+      "triangles": 864
+    },
+    {
+      "id": "ZA_nerve_to_piriformis_muscle_l",
+      "source": "Nerve to piriformis muscle.l",
+      "name": "Left nerve to piriformis muscle",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_nerve_to_quadratus_femoris_muscle_l",
+      "source": "Nerve to quadratus femoris muscle.l",
+      "name": "Left nerve to quadratus femoris muscle",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_obturator_nerve_l",
+      "source": "Obturator nerve.l",
+      "name": "Left obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 3456
+    },
+    {
+      "id": "ZA_posterior_branch_of_obturator_nerve_l",
+      "source": "Posterior branch of obturator nerve.l",
+      "name": "Left posterior branch of obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": "Obturator nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_posterior_femoral_cutaneous_nerve_l",
+      "source": "Posterior femoral cutaneous nerve.l",
+      "name": "Left posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_l",
+      "source": "Posterior root of posterior femoral cutaneous nerve.l",
+      "name": "Left posterior root of posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_l",
+      "source": "Proper plantar digital branches of lateral plantar nerve.l",
+      "name": "Left proper plantar digital branches of lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common plantar digital branches of lateral plantar nerve.l",
+      "triangles": 7488
+    },
+    {
+      "id": "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_l",
+      "source": "Proper plantar digital branches of medial plantar nerve.l",
+      "name": "Left proper plantar digital branches of medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common plantar digital branches of medial plantar nerve.l",
+      "triangles": 6336
+    },
+    {
+      "id": "ZA_saphenous_nerve_l",
+      "source": "Saphenous nerve.l",
+      "name": "Left saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Femoral nerve.l",
+      "triangles": 6624
+    },
+    {
+      "id": "ZA_sciatic_nerve_l",
+      "source": "Sciatic nerve.l",
+      "name": "Left sciatic nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_superficial_fibular_nerve_l",
+      "source": "Superficial fibular nerve.l",
+      "name": "Left superficial fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.l",
+      "triangles": 3168
+    },
+    {
+      "id": "ZA_superior_gluteal_nerve_l",
+      "source": "Superior gluteal nerve.l",
+      "name": "Left superior gluteal nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 3456
+    },
+    {
+      "id": "ZA_sural_communicating_branch_of_common_fibular_nerve_l",
+      "source": "Sural communicating branch of common fibular nerve.l",
+      "name": "Left sural communicating branch of common fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_sural_nerve_l",
+      "source": "Sural nerve.l",
+      "name": "Left sural nerve",
+      "region": "Lower limb nerves",
+      "parent": "Medial sural cutaneous nerve.l",
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_tibial_nerve_l",
+      "source": "Tibial nerve.l",
+      "name": "Left tibial nerve",
+      "region": "Lower limb nerves",
+      "parent": "Sciatic nerve.l",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_anterior_branch_of_obturator_nerve_r",
+      "source": "Anterior branch of obturator nerve.r",
+      "name": "Right anterior branch of obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": "Obturator nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_anterior_cutaneous_branches_of_femoral_nerve_r",
+      "source": "Anterior cutaneous branches of femoral nerve.r",
+      "name": "Right anterior cutaneous branches of femoral nerve",
+      "region": "Lower limb nerves",
+      "parent": "Femoral nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_r",
+      "source": "Anterior root of posterior femoral cutaneous nerve.r",
+      "name": "Right anterior root of posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_common_fibular_nerve_r",
+      "source": "Common fibular nerve.r",
+      "name": "Right common fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Sciatic nerve.r",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_r",
+      "source": "Common plantar digital branches of lateral plantar nerve.r",
+      "name": "Right common plantar digital branches of lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Lateral plantar nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_common_plantar_digital_branches_of_medial_plantar_nerve",
+      "source": "Common plantar digital branches of medial plantar nerve",
+      "name": "Right common plantar digital branches of medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Medial plantar nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_deep_fibular_nerve_r",
+      "source": "Deep fibular nerve.r",
+      "name": "Right deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.r",
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_deep_fibular_nerve_r",
+      "source": "Dorsal digital branches of deep fibular nerve.r",
+      "name": "Right dorsal digital branches of deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Deep fibular nerve.r",
+      "triangles": 3168
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_r",
+      "source": "Dorsal digital branches of superficial fibular nerve.r",
+      "name": "Right dorsal digital branches of superficial fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.r",
+      "triangles": 8352
+    },
+    {
+      "id": "ZA_femoral_nerve_r",
+      "source": "Femoral nerve.r",
+      "name": "Right femoral nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_infrapatellar_branch_of_saphenous_nerve_r",
+      "source": "Infrapatellar branch of saphenous nerve.r",
+      "name": "Right infrapatellar branch of saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Saphenous nerve.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_r",
+      "source": "Intermediate dorsal cutaneous nerve of foot.r",
+      "name": "Right intermediate dorsal cutaneous nerve of foot",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.r",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_lateral_femoral_cutaneous_nerve_r",
+      "source": "Lateral femoral cutaneous nerve.r",
+      "name": "Right lateral femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_lateral_plantar_nerve_r",
+      "source": "Lateral plantar nerve.r",
+      "name": "Right lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_r",
+      "source": "Medial crural cutaneous branches of saphenous nerve.r",
+      "name": "Right medial crural cutaneous branches of saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Saphenous nerve.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_medial_dorsal_cutaneous_nerve_of_foot_r",
+      "source": "Medial dorsal cutaneous nerve of foot.r",
+      "name": "Right medial dorsal cutaneous nerve of foot",
+      "region": "Lower limb nerves",
+      "parent": "Superficial fibular nerve.r",
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_medial_plantar_nerve_r",
+      "source": "Medial plantar nerve.r",
+      "name": "Right medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_medial_sural_cutaneous_nerve_r",
+      "source": "Medial sural cutaneous nerve.r",
+      "name": "Right medial sural cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Tibial nerve.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_muscular_branches_of_deep_fibular_nerve_r",
+      "source": "Muscular branches of deep fibular nerve.r",
+      "name": "Right muscular branches of deep fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Deep fibular nerve.r",
+      "triangles": 864
+    },
+    {
+      "id": "ZA_nerve_to_piriformis_muscle_r",
+      "source": "Nerve to piriformis muscle.r",
+      "name": "Right nerve to piriformis muscle",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_nerve_to_quadratus_femoris_muscle_r",
+      "source": "Nerve to quadratus femoris muscle.r",
+      "name": "Right nerve to quadratus femoris muscle",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_obturator_nerve_r",
+      "source": "Obturator nerve.r",
+      "name": "Right obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 3456
+    },
+    {
+      "id": "ZA_posterior_branch_of_obturator_nerve_r",
+      "source": "Posterior branch of obturator nerve.r",
+      "name": "Right posterior branch of obturator nerve",
+      "region": "Lower limb nerves",
+      "parent": "Obturator nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_posterior_femoral_cutaneous_nerve_r",
+      "source": "Posterior femoral cutaneous nerve.r",
+      "name": "Right posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_r",
+      "source": "Posterior root of posterior femoral cutaneous nerve.r",
+      "name": "Right posterior root of posterior femoral cutaneous nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_r",
+      "source": "Proper plantar digital branches of lateral plantar nerve.r",
+      "name": "Right proper plantar digital branches of lateral plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common plantar digital branches of lateral plantar nerve.r",
+      "triangles": 7488
+    },
+    {
+      "id": "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_r",
+      "source": "Proper plantar digital branches of medial plantar nerve.r",
+      "name": "Right proper plantar digital branches of medial plantar nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common plantar digital branches of medial plantar nerve",
+      "triangles": 6336
+    },
+    {
+      "id": "ZA_saphenous_nerve_r",
+      "source": "Saphenous nerve.r",
+      "name": "Right saphenous nerve",
+      "region": "Lower limb nerves",
+      "parent": "Femoral nerve.r",
+      "triangles": 6624
+    },
+    {
+      "id": "ZA_sciatic_nerve_r",
+      "source": "Sciatic nerve.r",
+      "name": "Right sciatic nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_superficial_fibular_nerve_r",
+      "source": "Superficial fibular nerve.r",
+      "name": "Right superficial fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.r",
+      "triangles": 3168
+    },
+    {
+      "id": "ZA_superior_gluteal_nerve_r",
+      "source": "Superior gluteal nerve.r",
+      "name": "Right superior gluteal nerve",
+      "region": "Lower limb nerves",
+      "parent": null,
+      "triangles": 3456
+    },
+    {
+      "id": "ZA_sural_communicating_branch_of_common_fibular_nerve_r",
+      "source": "Sural communicating branch of common fibular nerve.r",
+      "name": "Right sural communicating branch of common fibular nerve",
+      "region": "Lower limb nerves",
+      "parent": "Common fibular nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_sural_nerve_r",
+      "source": "Sural nerve.r",
+      "name": "Right sural nerve",
+      "region": "Lower limb nerves",
+      "parent": "Medial sural cutaneous nerve.r",
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_tibial_nerve_r",
+      "source": "Tibial nerve.r",
+      "name": "Right tibial nerve",
+      "region": "Lower limb nerves",
+      "parent": "Sciatic nerve.r",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_anterior_corticospinal_tract",
+      "source": "Anterior corticospinal tract",
+      "name": "Anterior corticospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 7192
+    },
+    {
+      "id": "ZA_anterior_fasciculus_proprius",
+      "source": "Anterior fasciculus proprius",
+      "name": "Anterior fasciculus proprius",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 9212
+    },
+    {
+      "id": "ZA_anterior_horn_of_spinal_cord",
+      "source": "Anterior horn of spinal cord",
+      "name": "Anterior horn of spinal cord",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 8810
+    },
+    {
+      "id": "ZA_anterior_spinocerebellar_tract",
+      "source": "Anterior spinocerebellar tract",
+      "name": "Anterior spinocerebellar tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 11616
+    },
+    {
+      "id": "ZA_anterior_spinothalamic_tract",
+      "source": "Anterior spinothalamic tract",
+      "name": "Anterior spinothalamic tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 7948
+    },
+    {
+      "id": "ZA_cauda_equina",
+      "source": "Cauda equina",
+      "name": "Cauda equina",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 13824
+    },
+    {
+      "id": "ZA_central_canal",
+      "source": "Central canal",
+      "name": "Central canal",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3136
+    },
+    {
+      "id": "ZA_cuneate_fasciculus",
+      "source": "Cuneate fasciculus",
+      "name": "Cuneate fasciculus",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3024
+    },
+    {
+      "id": "ZA_gracile_fasciculus",
+      "source": "Gracile fasciculus",
+      "name": "Gracile fasciculus",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 7622
+    },
+    {
+      "id": "ZA_intermediolateral_nucleus",
+      "source": "Intermediolateral nucleus",
+      "name": "Intermediolateral nucleus",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 5530
+    },
+    {
+      "id": "ZA_intermediomedial_nucleus",
+      "source": "Intermediomedial nucleus",
+      "name": "Intermediomedial nucleus",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6318
+    },
+    {
+      "id": "ZA_lateral_corticospinal_tract",
+      "source": "Lateral corticospinal tract",
+      "name": "Lateral corticospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 7608
+    },
+    {
+      "id": "ZA_lateral_fasciculus_proprius",
+      "source": "Lateral fasciculus proprius",
+      "name": "Lateral fasciculus proprius",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 19974
+    },
+    {
+      "id": "ZA_lateral_intermediate_substance",
+      "source": "Lateral intermediate substance",
+      "name": "Lateral intermediate substance",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 13192
+    },
+    {
+      "id": "ZA_lateral_reticulospinal_tract",
+      "source": "Lateral reticulospinal tract",
+      "name": "Lateral reticulospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3166
+    },
+    {
+      "id": "ZA_lateral_spinothalamic_tract",
+      "source": "Lateral spinothalamic tract",
+      "name": "Lateral spinothalamic tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 8760
+    },
+    {
+      "id": "ZA_lateral_vestibulospinal_tract",
+      "source": "Lateral vestibulospinal tract",
+      "name": "Lateral vestibulospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 9555
+    },
+    {
+      "id": "ZA_anterior_root_of_spinal_nerve_l",
+      "source": "Anterior root of spinal nerve.l",
+      "name": "Left anterior root of spinal nerve",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6624
+    },
+    {
+      "id": "ZA_posterior_root_of_spinal_nerve_l",
+      "source": "Posterior root of spinal nerve.l",
+      "name": "Left posterior root of spinal nerve",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6048
+    },
+    {
+      "id": "ZA_spinal_ganglion_l",
+      "source": "Spinal ganglion.l",
+      "name": "Left spinal ganglion",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 1680
+    },
+    {
+      "id": "ZA_medial_reticulospinal_tract",
+      "source": "Medial reticulospinal tract",
+      "name": "Medial reticulospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 7962
+    },
+    {
+      "id": "ZA_medial_vestibulospinal_tract",
+      "source": "Medial vestibulospinal tract",
+      "name": "Medial vestibulospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3174
+    },
+    {
+      "id": "ZA_nucleus_proprius",
+      "source": "Nucleus proprius",
+      "name": "Nucleus proprius",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3205
+    },
+    {
+      "id": "ZA_posterior_fasciculus_proprius",
+      "source": "Posterior fasciculus proprius",
+      "name": "Posterior fasciculus proprius",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 12816
+    },
+    {
+      "id": "ZA_posterior_horn_of_spinal_cord",
+      "source": "Posterior horn of spinal cord",
+      "name": "Posterior horn of spinal cord",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 12788
+    },
+    {
+      "id": "ZA_posterior_spinocerebellar_tract",
+      "source": "Posterior spinocerebellar tract",
+      "name": "Posterior spinocerebellar tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 11586
+    },
+    {
+      "id": "ZA_posterolateral_tract",
+      "source": "Posterolateral tract",
+      "name": "Posterolateral tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 8743
+    },
+    {
+      "id": "ZA_anterior_root_of_spinal_nerve_r",
+      "source": "Anterior root of spinal nerve.r",
+      "name": "Right anterior root of spinal nerve",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6624
+    },
+    {
+      "id": "ZA_posterior_root_of_spinal_nerve_r",
+      "source": "Posterior root of spinal nerve.r",
+      "name": "Right posterior root of spinal nerve",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6048
+    },
+    {
+      "id": "ZA_spinal_ganglion_r",
+      "source": "Spinal ganglion.r",
+      "name": "Right spinal ganglion",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 1680
+    },
+    {
+      "id": "ZA_rubrospinal_tract",
+      "source": "Rubrospinal tract",
+      "name": "Rubrospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6398
+    },
+    {
+      "id": "ZA_spinal_dura",
+      "source": "Spinal dura",
+      "name": "Spinal dura",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 24863
+    },
+    {
+      "id": "ZA_spinal_reticular_process",
+      "source": "Spinal reticular process",
+      "name": "Spinal reticular process",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 6760
+    },
+    {
+      "id": "ZA_spinotectal_tract",
+      "source": "Spinotectal tract",
+      "name": "Spinotectal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3174
+    },
+    {
+      "id": "ZA_tectospinal_tract",
+      "source": "Tectospinal tract",
+      "name": "Tectospinal tract",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 3140
+    },
+    {
+      "id": "ZA_white_matter_of_spinal_cord",
+      "source": "White matter of spinal cord",
+      "name": "White matter of spinal cord",
+      "region": "Spinal cord",
+      "parent": null,
+      "triangles": 15442
+    },
+    {
+      "id": "ZA_femoral_branch_of_genitofemoral_nerve_l",
+      "source": "Femoral branch of genitofemoral nerve.l",
+      "name": "Left femoral branch of genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Genitofemoral nerve.l",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_ganglia_of_sympathetic_trunk_l",
+      "source": "Ganglia of sympathetic trunk.l",
+      "name": "Left ganglia of sympathetic trunk",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Sympathetic trunk.l",
+      "triangles": 25344
+    },
+    {
+      "id": "ZA_genital_branch_of_genitofemoral_nerve_l",
+      "source": "Genital branch of genitofemoral nerve.l",
+      "name": "Left genital branch of genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Genitofemoral nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_genitofemoral_nerve_l",
+      "source": "Genitofemoral nerve.l",
+      "name": "Left genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 864
+    },
+    {
+      "id": "ZA_ilio_inguinal_nerve_l",
+      "source": "Ilio-inguinal nerve.l",
+      "name": "Left ilio-inguinal nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 3744
+    },
+    {
+      "id": "ZA_iliohypogastric_nerve_l",
+      "source": "Iliohypogastric nerve.l",
+      "name": "Left iliohypogastric nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_intercostal_nerves_l",
+      "source": "Intercostal nerves.l",
+      "name": "Left intercostal nerves",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 51552
+    },
+    {
+      "id": "ZA_pudendal_nerve_l",
+      "source": "Pudendal nerve.l",
+      "name": "Left pudendal nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 3744
+    },
+    {
+      "id": "ZA_sympathetic_nerves_l",
+      "source": "Sympathetic nerves.l",
+      "name": "Left sympathetic nerves",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 24480
+    },
+    {
+      "id": "ZA_sympathetic_trunk_l",
+      "source": "Sympathetic trunk.l",
+      "name": "Left sympathetic trunk",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 25314
+    },
+    {
+      "id": "ZA_femoral_branch_of_genitofemoral_nerve_r",
+      "source": "Femoral branch of genitofemoral nerve.r",
+      "name": "Right femoral branch of genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Genitofemoral nerve.r",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_ganglia_of_sympathetic_trunk_r",
+      "source": "Ganglia of sympathetic trunk.r",
+      "name": "Right ganglia of sympathetic trunk",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Sympathetic trunk.r",
+      "triangles": 25344
+    },
+    {
+      "id": "ZA_genital_branch_of_genitofemoral_nerve_r",
+      "source": "Genital branch of genitofemoral nerve.r",
+      "name": "Right genital branch of genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": "Genitofemoral nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_genitofemoral_nerve_r",
+      "source": "Genitofemoral nerve.r",
+      "name": "Right genitofemoral nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 864
+    },
+    {
+      "id": "ZA_ilio_inguinal_nerve_r",
+      "source": "Ilio-inguinal nerve.r",
+      "name": "Right ilio-inguinal nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 3744
+    },
+    {
+      "id": "ZA_iliohypogastric_nerve_r",
+      "source": "Iliohypogastric nerve.r",
+      "name": "Right iliohypogastric nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_intercostal_nerves_r",
+      "source": "Intercostal nerves.r",
+      "name": "Right intercostal nerves",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 51552
+    },
+    {
+      "id": "ZA_pudendal_nerve_r",
+      "source": "Pudendal nerve.r",
+      "name": "Right pudendal nerve",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 3744
+    },
+    {
+      "id": "ZA_sympathetic_nerves_r",
+      "source": "Sympathetic nerves.r",
+      "name": "Right sympathetic nerves",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 24480
+    },
+    {
+      "id": "ZA_sympathetic_trunk_r",
+      "source": "Sympathetic trunk.r",
+      "name": "Right sympathetic trunk",
+      "region": "Trunk and pelvic nerves",
+      "parent": null,
+      "triangles": 25314
+    },
+    {
+      "id": "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_l",
+      "source": "Anterior branch of medial antebrachial cutaneous nerve.l",
+      "name": "Left anterior branch of medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Medial antebrachial cutaneous nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_l",
+      "source": "Anterior division of inferior trunk of brachial plexus.l",
+      "name": "Left anterior division of inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Inferior trunk of brachial plexus.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_l",
+      "source": "Anterior division of middle trunk of brachial plexus.l",
+      "name": "Left anterior division of middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Middle trunk of brachial plexus.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_l",
+      "source": "Anterior division of superior trunk of brachial plexus.l",
+      "name": "Left anterior division of superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Superior trunk of brachial plexus.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_anterior_interosseous_nerve_of_forearm_l",
+      "source": "Anterior interosseous nerve of forearm.l",
+      "name": "Left anterior interosseous nerve of forearm",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_axillary_nerve_l",
+      "source": "Axillary nerve.l",
+      "name": "Left axillary nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_common_palmar_digital_branches_of_median_nerve_l",
+      "source": "Common palmar digital branches of median nerve.l",
+      "name": "Left common palmar digital branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.l",
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_common_palmar_digital_branches_of_ulnar_nerve_l",
+      "source": "Common palmar digital branches of ulnar nerve.l",
+      "name": "Left common palmar digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Superficial branch of ulnar nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_l",
+      "source": "(Communicating branch of median nerve with ulnar nerve).l",
+      "name": "Left communicating branch of median nerve with ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_deep_branch_of_radial_nerve_l",
+      "source": "Deep branch of radial nerve.l",
+      "name": "Left deep branch of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.l",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_deep_branch_of_ulnar_nerve_l",
+      "source": "Deep branch of ulnar nerve.l",
+      "name": "Left deep branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_dorsal_branch_of_ulnar_nerve_l",
+      "source": "Dorsal branch of ulnar nerve.l",
+      "name": "Left dorsal branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.l",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_radial_nerve_l",
+      "source": "Dorsal digital branches of radial nerve.l",
+      "name": "Left dorsal digital branches of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Superficial branch of radial nerve.l",
+      "triangles": 13536
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_ulnar_nerve_l",
+      "source": "Dorsal digital branches of ulnar nerve.l",
+      "name": "Left dorsal digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Dorsal branch of ulnar nerve.l",
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_dorsal_scapular_nerve_l",
+      "source": "Dorsal scapular nerve.l",
+      "name": "Left dorsal scapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_inferior_lateral_brachial_cutaneous_nerve_l",
+      "source": "Inferior lateral brachial cutaneous nerve.l",
+      "name": "Left inferior lateral brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_inferior_subscapular_nerve_l",
+      "source": "Inferior subscapular nerve.l",
+      "name": "Left inferior subscapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_inferior_trunk_of_brachial_plexus_l",
+      "source": "Inferior trunk of brachial plexus.l",
+      "name": "Left inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 576
+    },
+    {
+      "id": "ZA_lateral_antebrachial_cutaneous_nerve_l",
+      "source": "Lateral antebrachial cutaneous nerve.l",
+      "name": "Left lateral antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Musculocutaneous nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_lateral_pectoral_nerve_l",
+      "source": "Lateral pectoral nerve.l",
+      "name": "Left lateral pectoral nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 7200
+    },
+    {
+      "id": "ZA_long_thoracic_nerve_l",
+      "source": "Long thoracic nerve.l",
+      "name": "Left long thoracic nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_medial_antebrachial_cutaneous_nerve_l",
+      "source": "Medial antebrachial cutaneous nerve.l",
+      "name": "Left medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_medial_brachial_cutaneous_nerve_l",
+      "source": "Medial brachial cutaneous nerve.l",
+      "name": "Left medial brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_medial_pectoral_nerve_l",
+      "source": "Medial pectoral nerve.l",
+      "name": "Left medial pectoral nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_median_nerve_l",
+      "source": "Median nerve.l",
+      "name": "Left median nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 5184
+    },
+    {
+      "id": "ZA_middle_trunk_of_brachial_plexus_l",
+      "source": "Middle trunk of brachial plexus.l",
+      "name": "Left middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 288
+    },
+    {
+      "id": "ZA_muscular_branches_of_axillary_nerve_l",
+      "source": "Muscular branches of axillary nerve.l",
+      "name": "Left muscular branches of axillary nerve",
+      "region": "Upper limb nerves",
+      "parent": "Axillary nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_muscular_branches_of_median_nerve_l",
+      "source": "Muscular branches of median nerve.l",
+      "name": "Left muscular branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_muscular_branches_of_radial_nerve_l",
+      "source": "Muscular branches of radial nerve.l",
+      "name": "Left muscular branches of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.l",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_muscular_branches_of_ulnar_nerve_l",
+      "source": "Muscular branches of ulnar nerve.l",
+      "name": "Left muscular branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.l",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_musculocutaneous_nerve_l",
+      "source": "Musculocutaneous nerve.l",
+      "name": "Left musculocutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_palmar_branch_of_median_nerve_l",
+      "source": "Palmar branch of median nerve.l",
+      "name": "Left palmar branch of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_palmar_branch_of_ulnar_nerve_l",
+      "source": "Palmar branch of ulnar nerve.l",
+      "name": "Left palmar branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.l",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_posterior_antebrachial_cutaneous_nerve_l",
+      "source": "Posterior antebrachial cutaneous nerve.l",
+      "name": "Left posterior antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.l",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_l",
+      "source": "Posterior branch of medial antebrachial cutaneous nerve.l",
+      "name": "Left posterior branch of medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Medial antebrachial cutaneous nerve.l",
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_posterior_cord_of_brachial_plexus_l",
+      "source": "Posterior cord of brachial plexus.l",
+      "name": "Left posterior cord of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 576
+    },
+    {
+      "id": "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_l",
+      "source": "Posterior division of inferior trunk of brachial plexus.l",
+      "name": "Left posterior division of inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Inferior trunk of brachial plexus.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_l",
+      "source": "Posterior division of middle trunk of brachial plexus.l",
+      "name": "Left posterior division of middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Middle trunk of brachial plexus.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_l",
+      "source": "Posterior division of superior trunk of brachial plexus.l",
+      "name": "Left posterior division of superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Superior trunk of brachial plexus.l",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_interosseous_nerve_of_forearm_l",
+      "source": "Posterior interosseous nerve of forearm.l",
+      "name": "Left posterior interosseous nerve of forearm",
+      "region": "Upper limb nerves",
+      "parent": "Deep branch of radial nerve.l",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_proper_palmar_digital_branches_of_median_nerve_l",
+      "source": "Proper palmar digital branches of median nerve.l",
+      "name": "Left proper palmar digital branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Common palmar digital branches of median nerve.l",
+      "triangles": 10944
+    },
+    {
+      "id": "ZA_proper_palmar_digital_branches_of_ulnar_nerve_l",
+      "source": "Proper palmar digital branches of ulnar nerve.l",
+      "name": "Left proper palmar digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Common palmar digital branches of ulnar nerve.l",
+      "triangles": 5760
+    },
+    {
+      "id": "ZA_radial_nerve_l",
+      "source": "Radial nerve.l",
+      "name": "Left radial nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_roots_of_brachial_plexus_l",
+      "source": "Roots of brachial plexus.l",
+      "name": "Left roots of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_subclavian_nerve_l",
+      "source": "Subclavian nerve.l",
+      "name": "Left subclavian nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 864
+    },
+    {
+      "id": "ZA_superficial_branch_of_radial_nerve_l",
+      "source": "Superficial branch of radial nerve.l",
+      "name": "Left superficial branch of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.l",
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_superficial_branch_of_ulnar_nerve_l",
+      "source": "Superficial branch of ulnar nerve.l",
+      "name": "Left superficial branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.l",
+      "triangles": 864
+    },
+    {
+      "id": "ZA_superior_lateral_brachial_cutaneous_nerve_l",
+      "source": "Superior lateral brachial cutaneous nerve.l",
+      "name": "Left superior lateral brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Axillary nerve.l",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_superior_subscapular_nerve_l",
+      "source": "Superior subscapular nerve.l",
+      "name": "Left superior subscapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_superior_trunk_of_brachial_plexus_l",
+      "source": "Superior trunk of brachial plexus.l",
+      "name": "Left superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 288
+    },
+    {
+      "id": "ZA_suprascapular_nerve_l",
+      "source": "Suprascapular nerve.l",
+      "name": "Left suprascapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_thoracodorsal_nerve_l",
+      "source": "Thoracodorsal nerve.l",
+      "name": "Left thoracodorsal nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_ulnar_nerve_l",
+      "source": "Ulnar nerve.l",
+      "name": "Left ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 3168
+    },
+    {
+      "id": "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_r",
+      "source": "Anterior branch of medial antebrachial cutaneous nerve.r",
+      "name": "Right anterior branch of medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Medial antebrachial cutaneous nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_r",
+      "source": "Anterior division of inferior trunk of brachial plexus.r",
+      "name": "Right anterior division of inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Inferior trunk of brachial plexus.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_r",
+      "source": "Anterior division of middle trunk of brachial plexus.r",
+      "name": "Right anterior division of middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Middle trunk of brachial plexus.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_r",
+      "source": "Anterior division of superior trunk of brachial plexus.r",
+      "name": "Right anterior division of superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Superior trunk of brachial plexus.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_anterior_interosseous_nerve_of_forearm_r",
+      "source": "Anterior interosseous nerve of forearm.r",
+      "name": "Right anterior interosseous nerve of forearm",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_axillary_nerve_r",
+      "source": "Axillary nerve.r",
+      "name": "Right axillary nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_common_palmar_digital_branches_of_median_nerve_r",
+      "source": "Common palmar digital branches of median nerve.r",
+      "name": "Right common palmar digital branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.r",
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_common_palmar_digital_branches_of_ulnar_nerve_r",
+      "source": "Common palmar digital branches of ulnar nerve.r",
+      "name": "Right common palmar digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Superficial branch of ulnar nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_r",
+      "source": "(Communicating branch of median nerve with ulnar nerve).r",
+      "name": "Right communicating branch of median nerve with ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_deep_branch_of_radial_nerve_r",
+      "source": "Deep branch of radial nerve.r",
+      "name": "Right deep branch of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.r",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_deep_branch_of_ulnar_nerve_r",
+      "source": "Deep branch of ulnar nerve.r",
+      "name": "Right deep branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_dorsal_branch_of_ulnar_nerve_r",
+      "source": "Dorsal branch of ulnar nerve.r",
+      "name": "Right dorsal branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.r",
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_radial_nerve_r",
+      "source": "Dorsal digital branches of radial nerve.r",
+      "name": "Right dorsal digital branches of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Superficial branch of radial nerve.r",
+      "triangles": 13536
+    },
+    {
+      "id": "ZA_dorsal_digital_branches_of_ulnar_nerve_r",
+      "source": "Dorsal digital branches of ulnar nerve.r",
+      "name": "Right dorsal digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Dorsal branch of ulnar nerve.r",
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_dorsal_scapular_nerve_r",
+      "source": "Dorsal scapular nerve.r",
+      "name": "Right dorsal scapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_inferior_lateral_brachial_cutaneous_nerve_r",
+      "source": "Inferior lateral brachial cutaneous nerve.r",
+      "name": "Right inferior lateral brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_inferior_subscapular_nerve_r",
+      "source": "Inferior subscapular nerve.r",
+      "name": "Right inferior subscapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_inferior_trunk_of_brachial_plexus_r",
+      "source": "Inferior trunk of brachial plexus.r",
+      "name": "Right inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 576
+    },
+    {
+      "id": "ZA_lateral_antebrachial_cutaneous_nerve_r",
+      "source": "Lateral antebrachial cutaneous nerve.r",
+      "name": "Right lateral antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Musculocutaneous nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_lateral_pectoral_nerve_r",
+      "source": "Lateral pectoral nerve.r",
+      "name": "Right lateral pectoral nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 7200
+    },
+    {
+      "id": "ZA_long_thoracic_nerve_r",
+      "source": "Long thoracic nerve.r",
+      "name": "Right long thoracic nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4032
+    },
+    {
+      "id": "ZA_medial_antebrachial_cutaneous_nerve_r",
+      "source": "Medial antebrachial cutaneous nerve.r",
+      "name": "Right medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_medial_brachial_cutaneous_nerve_r",
+      "source": "Medial brachial cutaneous nerve.r",
+      "name": "Right medial brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_medial_pectoral_nerve_r",
+      "source": "Medial pectoral nerve.r",
+      "name": "Right medial pectoral nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_median_nerve_r",
+      "source": "Median nerve.r",
+      "name": "Right median nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 5184
+    },
+    {
+      "id": "ZA_middle_trunk_of_brachial_plexus_r",
+      "source": "Middle trunk of brachial plexus.r",
+      "name": "Right middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 288
+    },
+    {
+      "id": "ZA_muscular_branches_of_axillary_nerve_r",
+      "source": "Muscular branches of axillary nerve.r",
+      "name": "Right muscular branches of axillary nerve",
+      "region": "Upper limb nerves",
+      "parent": "Axillary nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_muscular_branches_of_median_nerve_r",
+      "source": "Muscular branches of median nerve.r",
+      "name": "Right muscular branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_muscular_branches_of_radial_nerve_r",
+      "source": "Muscular branches of radial nerve.r",
+      "name": "Right muscular branches of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.r",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_muscular_branches_of_ulnar_nerve_r",
+      "source": "Muscular branches of ulnar nerve.r",
+      "name": "Right muscular branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.r",
+      "triangles": 576
+    },
+    {
+      "id": "ZA_musculocutaneous_nerve_r",
+      "source": "Musculocutaneous nerve.r",
+      "name": "Right musculocutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1440
+    },
+    {
+      "id": "ZA_palmar_branch_of_median_nerve_r",
+      "source": "Palmar branch of median nerve.r",
+      "name": "Right palmar branch of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Median nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_palmar_branch_of_ulnar_nerve_r",
+      "source": "Palmar branch of ulnar nerve.r",
+      "name": "Right palmar branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.r",
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_posterior_antebrachial_cutaneous_nerve_r",
+      "source": "Posterior antebrachial cutaneous nerve.r",
+      "name": "Right posterior antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.r",
+      "triangles": 2592
+    },
+    {
+      "id": "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_r",
+      "source": "Posterior branch of medial antebrachial cutaneous nerve.r",
+      "name": "Right posterior branch of medial antebrachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Medial antebrachial cutaneous nerve.r",
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_posterior_cord_of_brachial_plexus_r",
+      "source": "Posterior cord of brachial plexus.r",
+      "name": "Right posterior cord of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 576
+    },
+    {
+      "id": "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_r",
+      "source": "Posterior division of inferior trunk of brachial plexus.r",
+      "name": "Right posterior division of inferior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Inferior trunk of brachial plexus.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_r",
+      "source": "Posterior division of middle trunk of brachial plexus.r",
+      "name": "Right posterior division of middle trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Middle trunk of brachial plexus.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_r",
+      "source": "Posterior division of superior trunk of brachial plexus.r",
+      "name": "Right posterior division of superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": "Superior trunk of brachial plexus.r",
+      "triangles": 288
+    },
+    {
+      "id": "ZA_posterior_interosseous_nerve_of_forearm_r",
+      "source": "Posterior interosseous nerve of forearm.r",
+      "name": "Right posterior interosseous nerve of forearm",
+      "region": "Upper limb nerves",
+      "parent": "Deep branch of radial nerve.r",
+      "triangles": 1728
+    },
+    {
+      "id": "ZA_proper_palmar_digital_branches_of_median_nerve_r",
+      "source": "Proper palmar digital branches of median nerve.r",
+      "name": "Right proper palmar digital branches of median nerve",
+      "region": "Upper limb nerves",
+      "parent": "Common palmar digital branches of median nerve.r",
+      "triangles": 10944
+    },
+    {
+      "id": "ZA_proper_palmar_digital_branches_of_ulnar_nerve_r",
+      "source": "Proper palmar digital branches of ulnar nerve.r",
+      "name": "Right proper palmar digital branches of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Common palmar digital branches of ulnar nerve.r",
+      "triangles": 5760
+    },
+    {
+      "id": "ZA_radial_nerve_r",
+      "source": "Radial nerve.r",
+      "name": "Right radial nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 2304
+    },
+    {
+      "id": "ZA_roots_of_brachial_plexus_r",
+      "source": "Roots of brachial plexus.r",
+      "name": "Right roots of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_subclavian_nerve_r",
+      "source": "Subclavian nerve.r",
+      "name": "Right subclavian nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 864
+    },
+    {
+      "id": "ZA_superficial_branch_of_radial_nerve_r",
+      "source": "Superficial branch of radial nerve.r",
+      "name": "Right superficial branch of radial nerve",
+      "region": "Upper limb nerves",
+      "parent": "Radial nerve.r",
+      "triangles": 4320
+    },
+    {
+      "id": "ZA_superficial_branch_of_ulnar_nerve_r",
+      "source": "Superficial branch of ulnar nerve.r",
+      "name": "Right superficial branch of ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": "Ulnar nerve.r",
+      "triangles": 864
+    },
+    {
+      "id": "ZA_superior_lateral_brachial_cutaneous_nerve_r",
+      "source": "Superior lateral brachial cutaneous nerve.r",
+      "name": "Right superior lateral brachial cutaneous nerve",
+      "region": "Upper limb nerves",
+      "parent": "Axillary nerve.r",
+      "triangles": 2016
+    },
+    {
+      "id": "ZA_superior_subscapular_nerve_r",
+      "source": "Superior subscapular nerve.r",
+      "name": "Right superior subscapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 1152
+    },
+    {
+      "id": "ZA_superior_trunk_of_brachial_plexus_r",
+      "source": "Superior trunk of brachial plexus.r",
+      "name": "Right superior trunk of brachial plexus",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 288
+    },
+    {
+      "id": "ZA_suprascapular_nerve_r",
+      "source": "Suprascapular nerve.r",
+      "name": "Right suprascapular nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4896
+    },
+    {
+      "id": "ZA_thoracodorsal_nerve_r",
+      "source": "Thoracodorsal nerve.r",
+      "name": "Right thoracodorsal nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 4608
+    },
+    {
+      "id": "ZA_ulnar_nerve_r",
+      "source": "Ulnar nerve.r",
+      "name": "Right ulnar nerve",
+      "region": "Upper limb nerves",
+      "parent": null,
+      "triangles": 3168
+    }
+  ],
+  "excluded": [
+    {
+      "source": "Fourth ventricle",
+      "triangles": 5798
+    },
+    {
+      "source": "Olive.l",
+      "triangles": 960
+    },
+    {
+      "source": "Pyramid of medulla oblongata.l",
+      "triangles": 960
+    },
+    {
+      "source": "Medulla oblongata.l",
+      "triangles": 6080
+    },
+    {
+      "source": "Olive.r",
+      "triangles": 960
+    },
+    {
+      "source": "Pyramid of medulla oblongata.r",
+      "triangles": 960
+    },
+    {
+      "source": "Anterior cochlear nucleus.l",
+      "triangles": 192
+    },
+    {
+      "source": "Anterior cochlear nucleus.r",
+      "triangles": 192
+    },
+    {
+      "source": "Inferior salivatory nucleus.l",
+      "triangles": 768
+    },
+    {
+      "source": "Inferior salivatory nucleus.r",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus ambiguus.l",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus ambiguus.r",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of hypoglossal nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of hypoglossal nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Posterior cochlear nucleus.l",
+      "triangles": 960
+    },
+    {
+      "source": "Posterior cochlear nucleus.r",
+      "triangles": 960
+    },
+    {
+      "source": "Posterior nucleus of vagus nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Posterior nucleus of vagus nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Medulla oblongata.r",
+      "triangles": 6080
+    },
+    {
+      "source": "Aqueduct of midbrain",
+      "triangles": 460
+    },
+    {
+      "source": "Base of peduncle.l",
+      "triangles": 5046
+    },
+    {
+      "source": "Base of peduncle.r",
+      "triangles": 5046
+    },
+    {
+      "source": "Nucleus of trochlear nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of trochlear nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Accessory nucleus of oculomotor nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Accessory nucleus of oculomotor nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of oculomotor nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of oculomotor nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Red nucleus.l",
+      "triangles": 704
+    },
+    {
+      "source": "Red nucleus.r",
+      "triangles": 704
+    },
+    {
+      "source": "Interpeduncular fossa.l",
+      "triangles": 58
+    },
+    {
+      "source": "Interpeduncular fossa.r",
+      "triangles": 58
+    },
+    {
+      "source": "Midbrain.l",
+      "triangles": 6092
+    },
+    {
+      "source": "Midbrain.r",
+      "triangles": 6092
+    },
+    {
+      "source": "Inferior colliculus.l",
+      "triangles": 464
+    },
+    {
+      "source": "Inferior colliculus.r",
+      "triangles": 464
+    },
+    {
+      "source": "Superior colliculus.l",
+      "triangles": 458
+    },
+    {
+      "source": "Superior colliculus.r",
+      "triangles": 458
+    },
+    {
+      "source": "Pons.l",
+      "triangles": 10171
+    },
+    {
+      "source": "Motor nucleus of facial nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Motor nucleus of facial nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of abducens nerve.l",
+      "triangles": 768
+    },
+    {
+      "source": "Nucleus of abducens nerve.r",
+      "triangles": 768
+    },
+    {
+      "source": "Superior salivatory nucleus.l",
+      "triangles": 768
+    },
+    {
+      "source": "Superior salivatory nucleus.r",
+      "triangles": 768
+    },
+    {
+      "source": "Vestibular nuclei.l",
+      "triangles": 1568
+    },
+    {
+      "source": "Vestibular nuclei.r",
+      "triangles": 1568
+    },
+    {
+      "source": "Pons.r",
+      "triangles": 10171
+    },
+    {
+      "source": "Anterior quadrangular lobule.l",
+      "triangles": 6520
+    },
+    {
+      "source": "Anterior quadrangular lobule.r",
+      "triangles": 6520
+    },
+    {
+      "source": "Biventral lobule.l",
+      "triangles": 8902
+    },
+    {
+      "source": "Biventral lobule.r",
+      "triangles": 8902
+    },
+    {
+      "source": "Central lobule",
+      "triangles": 1006
+    },
+    {
+      "source": "Culmen",
+      "triangles": 2378
+    },
+    {
+      "source": "Declive",
+      "triangles": 2125
+    },
+    {
+      "source": "Flocculus.l",
+      "triangles": 3660
+    },
+    {
+      "source": "Flocculus.r",
+      "triangles": 3660
+    },
+    {
+      "source": "Folium of vermis",
+      "triangles": 812
+    },
+    {
+      "source": "Gracile lobule.l",
+      "triangles": 6961
+    },
+    {
+      "source": "Gracile lobule.r",
+      "triangles": 6961
+    },
+    {
+      "source": "Inferior semilunar lobule.l",
+      "triangles": 7787
+    },
+    {
+      "source": "Inferior semilunar lobule.r",
+      "triangles": 7787
+    },
+    {
+      "source": "Lingula of cerebellum",
+      "triangles": 1028
+    },
+    {
+      "source": "Nodule of vermis",
+      "triangles": 1012
+    },
+    {
+      "source": "Peduncle of flocculus.l",
+      "triangles": 2368
+    },
+    {
+      "source": "Peduncle of flocculus.r",
+      "triangles": 2368
+    },
+    {
+      "source": "Posterior quadrangular lobule.l",
+      "triangles": 3618
+    },
+    {
+      "source": "Posterior quadrangular lobule.r",
+      "triangles": 3618
+    },
+    {
+      "source": "Pyramis of vermis",
+      "triangles": 1182
+    },
+    {
+      "source": "Superior cerebellar peduncle.l",
+      "triangles": 8474
+    },
+    {
+      "source": "Superior cerebellar peduncle.r",
+      "triangles": 8474
+    },
+    {
+      "source": "Superior semilunar lobule.l",
+      "triangles": 8688
+    },
+    {
+      "source": "Superior semilunar lobule.r",
+      "triangles": 8688
+    },
+    {
+      "source": "Tonsil of cerebellum.l",
+      "triangles": 3638
+    },
+    {
+      "source": "Tonsil of cerebellum.r",
+      "triangles": 3638
+    },
+    {
+      "source": "Tuber of vermis",
+      "triangles": 1178
+    },
+    {
+      "source": "Uvula of vermis",
+      "triangles": 2176
+    },
+    {
+      "source": "Wing of central lobule.l",
+      "triangles": 3144
+    },
+    {
+      "source": "Wing of central lobule.r",
+      "triangles": 3144
+    },
+    {
+      "source": "Habenula",
+      "triangles": 398
+    },
+    {
+      "source": "Hypothalamus",
+      "triangles": 4258
+    },
+    {
+      "source": "Lateral geniculate body.l",
+      "triangles": 604
+    },
+    {
+      "source": "Lateral geniculate body.r",
+      "triangles": 604
+    },
+    {
+      "source": "Mamillary body.l",
+      "triangles": 220
+    },
+    {
+      "source": "Mamillary body.r",
+      "triangles": 220
+    },
+    {
+      "source": "Medial geniculate body.l",
+      "triangles": 198
+    },
+    {
+      "source": "Medial geniculate body.r",
+      "triangles": 198
+    },
+    {
+      "source": "Optic chiasm.l",
+      "triangles": 890
+    },
+    {
+      "source": "Optic chiasm.r",
+      "triangles": 890
+    },
+    {
+      "source": "Optic tract.l",
+      "triangles": 2332
+    },
+    {
+      "source": "Optic tract.r",
+      "triangles": 2332
+    },
+    {
+      "source": "Thalamus.l",
+      "triangles": 758
+    },
+    {
+      "source": "Thalamus.r",
+      "triangles": 758
+    },
+    {
+      "source": "Third ventricle",
+      "triangles": 4313
+    },
+    {
+      "source": "Posterior commissure",
+      "triangles": 866
+    },
+    {
+      "source": "Stria medullaris thalami.l",
+      "triangles": 842
+    },
+    {
+      "source": "Stria medullaris thalami.r",
+      "triangles": 842
+    },
+    {
+      "source": "Amygdaloid body.l",
+      "triangles": 384
+    },
+    {
+      "source": "Amygdaloid body.r",
+      "triangles": 384
+    },
+    {
+      "source": "Septal nuclei",
+      "triangles": 548
+    },
+    {
+      "source": "Caudate nucleus.l",
+      "triangles": 2570
+    },
+    {
+      "source": "Caudate nucleus.r",
+      "triangles": 2570
+    },
+    {
+      "source": "Putamen.l",
+      "triangles": 1150
+    },
+    {
+      "source": "Putamen.r",
+      "triangles": 1150
+    },
+    {
+      "source": "Globus pallidus.l",
+      "triangles": 5276
+    },
+    {
+      "source": "Globus pallidus.r",
+      "triangles": 5276
+    },
+    {
+      "source": "Lentiform nucleus.l",
+      "triangles": 2144
+    },
+    {
+      "source": "Lentiform nucleus.r",
+      "triangles": 2144
+    },
+    {
+      "source": "Inferior frontal sulcus.l",
+      "triangles": 742
+    },
+    {
+      "source": "Orbital part of  inferior frontal gyrus.r",
+      "triangles": 186
+    },
+    {
+      "source": "Inferior frontal sulcus.r",
+      "triangles": 742
+    },
+    {
+      "source": "Lat_Fis-ant-Horizont.l",
+      "triangles": 174
+    },
+    {
+      "source": "Lat_Fis-ant-Horizont.r",
+      "triangles": 174
+    },
+    {
+      "source": "Lat_Fis-ant-Vertical.l",
+      "triangles": 194
+    },
+    {
+      "source": "Lat_Fis-ant-Vertical.r",
+      "triangles": 194
+    },
+    {
+      "source": "Middle frontal gyrus.l",
+      "triangles": 2277
+    },
+    {
+      "source": "Middle frontal gyrus.r",
+      "triangles": 2277
+    },
+    {
+      "source": "Olfactory sulcus.l",
+      "triangles": 548
+    },
+    {
+      "source": "Olfactory sulcus.r",
+      "triangles": 548
+    },
+    {
+      "source": "Opercular part of inferior frontal gyrus.l",
+      "triangles": 740
+    },
+    {
+      "source": "Opercular part of inferior frontal gyrus.r",
+      "triangles": 740
+    },
+    {
+      "source": "Orbital gyri (Frontomarginal gyrus and sulcus*).l",
+      "triangles": 656
+    },
+    {
+      "source": "Orbital gyri (Frontomarginal gyrus and sulcus*).r",
+      "triangles": 656
+    },
+    {
+      "source": "Orbital gyri.l",
+      "triangles": 1512
+    },
+    {
+      "source": "Orbital gyri.r",
+      "triangles": 1512
+    },
+    {
+      "source": "Orbital part of  inferior frontal gyrus.l",
+      "triangles": 186
+    },
+    {
+      "source": "Orbital sulci (H-shaped orbital sulci*).l",
+      "triangles": 762
+    },
+    {
+      "source": "Orbital sulci (H-shaped orbital sulci*).r",
+      "triangles": 762
+    },
+    {
+      "source": "Orbital sulci (Lateral Orbital sulcus*).l",
+      "triangles": 200
+    },
+    {
+      "source": "Orbital sulci (Lateral Orbital sulcus*).r",
+      "triangles": 200
+    },
+    {
+      "source": "Paracentral gyrus and sulcus*.l",
+      "triangles": 746
+    },
+    {
+      "source": "Paracentral gyrus and sulcus*.r",
+      "triangles": 746
+    },
+    {
+      "source": "Paracentral sulcus.l",
+      "triangles": 668
+    },
+    {
+      "source": "Paracentral sulcus.r",
+      "triangles": 668
+    },
+    {
+      "source": "Precentral gyrus.l",
+      "triangles": 1532
+    },
+    {
+      "source": "Precentral gyrus.r",
+      "triangles": 1532
+    },
+    {
+      "source": "Precentral sulcus (inferior part)*.l",
+      "triangles": 780
+    },
+    {
+      "source": "Precentral sulcus (inferior part)*.r",
+      "triangles": 780
+    },
+    {
+      "source": "Precentral sulcus (Superior part)*.l",
+      "triangles": 568
+    },
+    {
+      "source": "Precentral sulcus (Superior part)*.r",
+      "triangles": 568
+    },
+    {
+      "source": "Straight gyrus (Gyrus rectus).l",
+      "triangles": 508
+    },
+    {
+      "source": "Straight gyrus (Gyrus rectus).r",
+      "triangles": 508
+    },
+    {
+      "source": "Superior frontal gyrus.l",
+      "triangles": 3735
+    },
+    {
+      "source": "Superior frontal gyrus.r",
+      "triangles": 3735
+    },
+    {
+      "source": "Superior frontal sulcus.l",
+      "triangles": 1290
+    },
+    {
+      "source": "Superior frontal sulcus.r",
+      "triangles": 1290
+    },
+    {
+      "source": "Transverse frontopolar gyrus and sulcus*.l",
+      "triangles": 242
+    },
+    {
+      "source": "Transverse frontopolar gyrus and sulcus*.r",
+      "triangles": 242
+    },
+    {
+      "source": "Triangular part of inferior frontal gyrus.l",
+      "triangles": 504
+    },
+    {
+      "source": "Triangular part of inferior frontal gyrus.r",
+      "triangles": 504
+    },
+    {
+      "source": "Insula (Subcentral gyrus and ant. and post. sulci*).l",
+      "triangles": 740
+    },
+    {
+      "source": "Insula (Subcentral gyrus and ant. and post. sulci*).r",
+      "triangles": 740
+    },
+    {
+      "source": " Posterior transverse collateral sulcus.l",
+      "triangles": 184
+    },
+    {
+      "source": " Posterior transverse collateral sulcus.r",
+      "triangles": 184
+    },
+    {
+      "source": "Anterior occipital sulcus*.l",
+      "triangles": 364
+    },
+    {
+      "source": "Anterior occipital sulcus*.r",
+      "triangles": 364
+    },
+    {
+      "source": "Central sulcus.l",
+      "triangles": 1440
+    },
+    {
+      "source": "Central sulcus.r",
+      "triangles": 1440
+    },
+    {
+      "source": "Circular sulcus of insula.l",
+      "triangles": 798
+    },
+    {
+      "source": "Circular sulcus of insula.r",
+      "triangles": 798
+    },
+    {
+      "source": "Collateral sulcus.l",
+      "triangles": 1142
+    },
+    {
+      "source": "Collateral sulcus.r",
+      "triangles": 1142
+    },
+    {
+      "source": "Lat_Fis-post.l",
+      "triangles": 480
+    },
+    {
+      "source": "Lat_Fis-post.r",
+      "triangles": 480
+    },
+    {
+      "source": "Parieto-occipital sulcus.l",
+      "triangles": 1636
+    },
+    {
+      "source": "Parieto-occipital sulcus.r",
+      "triangles": 1636
+    },
+    {
+      "source": "Subparietal sulcus.l",
+      "triangles": 561
+    },
+    {
+      "source": "Subparietal sulcus.r",
+      "triangles": 561
+    },
+    {
+      "source": "Sulcus interm_prim-Jensen.l",
+      "triangles": 360
+    },
+    {
+      "source": "Sulcus interm_prim-Jensen.r",
+      "triangles": 360
+    },
+    {
+      "source": "Lateral ventricle.l",
+      "triangles": 2898
+    },
+    {
+      "source": "Lateral ventricle.r",
+      "triangles": 2898
+    },
+    {
+      "source": "Cingulate gyrus (Posteroventral part*).l",
+      "triangles": 298
+    },
+    {
+      "source": "Cingulate gyrus (Posteroventral part*).r",
+      "triangles": 298
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Middle anterior part).l",
+      "triangles": 736
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Middle anterior part).r",
+      "triangles": 736
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Middle posterior part).l",
+      "triangles": 600
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Middle posterior part).r",
+      "triangles": 600
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Posterior dorsal part).l",
+      "triangles": 410
+    },
+    {
+      "source": "Cingulate gyrus and sulcus (Posterior dorsal part).r",
+      "triangles": 410
+    },
+    {
+      "source": "Cingulate sulcus (Marginal part*).l",
+      "triangles": 544
+    },
+    {
+      "source": "Cingulate sulcus (Marginal part*).r",
+      "triangles": 544
+    },
+    {
+      "source": "Hippocampus.l",
+      "triangles": 1020
+    },
+    {
+      "source": "Hippocampus.r",
+      "triangles": 1020
+    },
+    {
+      "source": "Calcarine sulcus.l",
+      "triangles": 872
+    },
+    {
+      "source": "Calcarine sulcus.r",
+      "triangles": 872
+    },
+    {
+      "source": "Cuneus.l",
+      "triangles": 946
+    },
+    {
+      "source": "Cuneus.r",
+      "triangles": 946
+    },
+    {
+      "source": "Inferior occipital gyrus and sulcus*.l",
+      "triangles": 894
+    },
+    {
+      "source": "Inferior occipital gyrus and sulcus*.r",
+      "triangles": 894
+    },
+    {
+      "source": "Lateral occipital gyrus (Middle occipital gyrus*).l",
+      "triangles": 854
+    },
+    {
+      "source": "Lateral occipital gyrus (Middle occipital gyrus*).r",
+      "triangles": 854
+    },
+    {
+      "source": "Lingual gyrus.l",
+      "triangles": 1658
+    },
+    {
+      "source": "Lingual gyrus.r",
+      "triangles": 1658
+    },
+    {
+      "source": "Lunate sulcus.l",
+      "triangles": 382
+    },
+    {
+      "source": "Lunate sulcus.r",
+      "triangles": 382
+    },
+    {
+      "source": "Occipital pole.l",
+      "triangles": 954
+    },
+    {
+      "source": "Occipital pole.r",
+      "triangles": 954
+    },
+    {
+      "source": "Superior occipital gyri.l",
+      "triangles": 670
+    },
+    {
+      "source": "Superior occipital gyri.r",
+      "triangles": 670
+    },
+    {
+      "source": "Transverse occipital sulcus.l",
+      "triangles": 686
+    },
+    {
+      "source": "Transverse occipital sulcus.r",
+      "triangles": 686
+    },
+    {
+      "source": "Angular gyrus.l",
+      "triangles": 1511
+    },
+    {
+      "source": "Angular gyrus.r",
+      "triangles": 1511
+    },
+    {
+      "source": "Intraparietal sulcus.l",
+      "triangles": 852
+    },
+    {
+      "source": "Intraparietal sulcus.r",
+      "triangles": 852
+    },
+    {
+      "source": "Postcentral gyrus.l",
+      "triangles": 1153
+    },
+    {
+      "source": "Postcentral gyrus.r",
+      "triangles": 1153
+    },
+    {
+      "source": "Postcentral sulcus.l",
+      "triangles": 1189
+    },
+    {
+      "source": "Postcentral sulcus.r",
+      "triangles": 1189
+    },
+    {
+      "source": "Precuneus.l",
+      "triangles": 1300
+    },
+    {
+      "source": "Precuneus.r",
+      "triangles": 1300
+    },
+    {
+      "source": "Superior parietal lobule.l",
+      "triangles": 1199
+    },
+    {
+      "source": "Superior parietal lobule.r",
+      "triangles": 1199
+    },
+    {
+      "source": "Supramarginal gyrus.l",
+      "triangles": 1510
+    },
+    {
+      "source": "Supramarginal gyrus.r",
+      "triangles": 1510
+    },
+    {
+      "source": "Inferior temporal gyrus.l",
+      "triangles": 1498
+    },
+    {
+      "source": "Inferior temporal gyrus.r",
+      "triangles": 1498
+    },
+    {
+      "source": "Inferior temporal sulcus.l",
+      "triangles": 246
+    },
+    {
+      "source": "Inferior temporal sulcus.r",
+      "triangles": 246
+    },
+    {
+      "source": "Lateral occipitotemporal gyrus.l",
+      "triangles": 866
+    },
+    {
+      "source": "Lateral occipitotemporal gyrus.r",
+      "triangles": 866
+    },
+    {
+      "source": "Medial occipitotemporal gyrus (Parahippocampal*).l",
+      "triangles": 858
+    },
+    {
+      "source": "Medial occipitotemporal gyrus (Parahippocampal*).r",
+      "triangles": 858
+    },
+    {
+      "source": "Middle temporal gyrus.l",
+      "triangles": 1312
+    },
+    {
+      "source": "Middle temporal gyrus.r",
+      "triangles": 1312
+    },
+    {
+      "source": "Occipitotemporal sulcus (Lateral part*).l",
+      "triangles": 487
+    },
+    {
+      "source": "Occipitotemporal sulcus (Lateral part*).r",
+      "triangles": 487
+    },
+    {
+      "source": "Superior temporal gyrus (Lateral part).l",
+      "triangles": 1072
+    },
+    {
+      "source": "Superior temporal gyrus (Lateral part).r",
+      "triangles": 1072
+    },
+    {
+      "source": "Superior temporal sulcus.l",
+      "triangles": 2374
+    },
+    {
+      "source": "Superior temporal sulcus.r",
+      "triangles": 2374
+    },
+    {
+      "source": "Temporal plane.l",
+      "triangles": 556
+    },
+    {
+      "source": "Temporal plane.r",
+      "triangles": 556
+    },
+    {
+      "source": "Temporal pole.l",
+      "triangles": 523
+    },
+    {
+      "source": "Temporal pole.r",
+      "triangles": 523
+    },
+    {
+      "source": "Transverse temporal gyri.l",
+      "triangles": 234
+    },
+    {
+      "source": "Transverse temporal gyri.r",
+      "triangles": 234
+    },
+    {
+      "source": "Septum pellucidum",
+      "triangles": 2388
+    },
+    {
+      "source": "Stria terminalis.l",
+      "triangles": 746
+    },
+    {
+      "source": "Stria terminalis.r",
+      "triangles": 746
+    },
+    {
+      "source": "Anterior commissure",
+      "triangles": 800
+    },
+    {
+      "source": "Corpus callosum",
+      "triangles": 3996
+    },
+    {
+      "source": "Hippocampal commissure",
+      "triangles": 9860
+    },
+    {
+      "source": "Fornix.l",
+      "triangles": 2158
+    },
+    {
+      "source": "Fornix.r",
+      "triangles": 2158
+    },
+    {
+      "source": "White matter of telencephalon.l",
+      "triangles": 135288
+    },
+    {
+      "source": "White matter of telencephalon.r",
+      "triangles": 135288
+    },
+    {
+      "source": "Falx cerebri",
+      "triangles": 14708
+    },
+    {
+      "source": "Tentorium cerebelli.l",
+      "triangles": 4480
+    },
+    {
+      "source": "Tentorium cerebelli.r",
+      "triangles": 4480
+    },
+    {
+      "source": "Choroid plexus.l",
+      "triangles": 2647
+    },
+    {
+      "source": "Choroid plexus.r",
+      "triangles": 2647
+    },
+    {
+      "source": "Central canal'",
+      "triangles": 576
+    },
+    {
+      "source": "Nucleus of accessory nerve.l",
+      "triangles": 1792
+    },
+    {
+      "source": "Nucleus of accessory nerve.r",
+      "triangles": 1792
+    },
+    {
+      "source": "Optic nerve (II).l",
+      "triangles": 1748
+    },
+    {
+      "source": "Optic nerve (II).r",
+      "triangles": 1748
+    },
+    {
+      "source": "Tympanic membrane.l",
+      "triangles": 1572
+    },
+    {
+      "source": "Tympanic membrane.r",
+      "triangles": 1572
+    },
+    {
+      "source": "Cochlea.l",
+      "triangles": 6168
+    },
+    {
+      "source": "Cochlea.r",
+      "triangles": 6168
+    },
+    {
+      "source": "Vestibule.l",
+      "triangles": 8580
+    },
+    {
+      "source": "Vestibule.r",
+      "triangles": 8580
+    },
+    {
+      "source": "Auditory tube.l",
+      "triangles": 1840
+    },
+    {
+      "source": "Auditory tube.r",
+      "triangles": 1840
+    },
+    {
+      "source": "Ampulla of lacrimal canaliculus.l",
+      "triangles": 244
+    },
+    {
+      "source": "Lacrimal canaliculus.l",
+      "triangles": 411
+    },
+    {
+      "source": "Ampulla of lacrimal canaliculus.r",
+      "triangles": 244
+    },
+    {
+      "source": "Lacrimal canaliculus.r",
+      "triangles": 411
+    },
+    {
+      "source": "Lacrimal gland.l",
+      "triangles": 1810
+    },
+    {
+      "source": "Lacrimal gland.r",
+      "triangles": 1810
+    },
+    {
+      "source": "Lacrimal sac.l",
+      "triangles": 384
+    },
+    {
+      "source": "Lacrimal sac.r",
+      "triangles": 384
+    },
+    {
+      "source": "Nasolacrimal duct.l",
+      "triangles": 444
+    },
+    {
+      "source": "Nasolacrimal duct.r",
+      "triangles": 444
+    },
+    {
+      "source": "Suspensory ligament of eyeball.l",
+      "triangles": 5502
+    },
+    {
+      "source": "Suspensory ligament of eyeball.r",
+      "triangles": 5502
+    },
+    {
+      "source": "Anterior chamber of eyeball.l",
+      "triangles": 8704
+    },
+    {
+      "source": "Zonular fibres.l",
+      "triangles": 704
+    },
+    {
+      "source": "Anterior segment of eyeball.l",
+      "triangles": 3328
+    },
+    {
+      "source": "Anterior chamber of eyeball.r",
+      "triangles": 8704
+    },
+    {
+      "source": "Zonular fibres.r",
+      "triangles": 68288
+    },
+    {
+      "source": "Anterior segment of eyeball.r",
+      "triangles": 3328
+    },
+    {
+      "source": "Cornea.l",
+      "triangles": 2688
+    },
+    {
+      "source": "Cornea.r",
+      "triangles": 2688
+    },
+    {
+      "source": "Iris.l",
+      "triangles": 3248
+    },
+    {
+      "source": "Iris.r",
+      "triangles": 3248
+    },
+    {
+      "source": "Lens.l",
+      "triangles": 1598
+    },
+    {
+      "source": "Lens.r",
+      "triangles": 1598
+    },
+    {
+      "source": "Vitreous body.l",
+      "triangles": 5436
+    },
+    {
+      "source": "Posterior segment of eyeball.l",
+      "triangles": 6528
+    },
+    {
+      "source": "Vitreous body.r",
+      "triangles": 5436
+    },
+    {
+      "source": "Posterior segment of eyeball.r",
+      "triangles": 6528
+    },
+    {
+      "source": "Retina.l",
+      "triangles": 6304
+    },
+    {
+      "source": "Retina.r",
+      "triangles": 6304
+    },
+    {
+      "source": "Sclera.l",
+      "triangles": 4540
+    },
+    {
+      "source": "Sclera.r",
+      "triangles": 4540
+    }
+  ],
+  "bounds": {
+    "ZA_abducens_nerve_vi_l": {
+      "min": [
+        0.00035717932041734457,
+        1.5163017511367798,
+        0.08224131166934967
+      ],
+      "max": [
+        0.03073018416762352,
+        1.5409002304077148,
+        0.14292433857917786
+      ]
+    },
+    "ZA_accessory_nerve_xi_l": {
+      "min": [
+        0.0018170722760260105,
+        1.2401000261306763,
+        -0.010934952646493912
+      ],
+      "max": [
+        0.0568854920566082,
+        1.510864019393921,
+        0.10951483249664307
+      ]
+    },
+    "ZA_anterior_division_of_mandibular_nerve_l": {
+      "min": [
+        0.02108846791088581,
+        1.505258321762085,
+        0.11205524951219559
+      ],
+      "max": [
+        0.028441181406378746,
+        1.5181652307510376,
+        0.1194772943854332
+      ]
+    },
+    "ZA_buccal_nerve_l": {
+      "min": [
+        0.027887145057320595,
+        1.4711759090423584,
+        0.11895348876714706
+      ],
+      "max": [
+        0.03201667591929436,
+        1.5055409669876099,
+        0.15867993235588074
+      ]
+    },
+    "ZA_chorda_tympani_l": {
+      "min": [
+        0.024189013987779617,
+        1.497871994972229,
+        0.09177999198436737
+      ],
+      "max": [
+        0.034769780933856964,
+        1.5211646556854248,
+        0.11440735310316086
+      ]
+    },
+    "ZA_cochlear_nerve_l": {
+      "min": [
+        0.01793523132801056,
+        1.5195181369781494,
+        0.09291945397853851
+      ],
+      "max": [
+        0.03704309090971947,
+        1.5228047370910645,
+        0.10002235323190689
+      ]
+    },
+    "ZA_facial_nerve_vii_l": {
+      "min": [
+        -0.0006259270012378693,
+        1.451433539390564,
+        0.08095164597034454
+      ],
+      "max": [
+        0.06274357438087463,
+        1.5639249086380005,
+        0.181831955909729
+      ]
+    },
+    "ZA_glossopharyngeal_nerve_ix_l": {
+      "min": [
+        0.0008819495560601354,
+        1.3753784894943237,
+        0.07743605971336365
+      ],
+      "max": [
+        0.038625672459602356,
+        1.5183178186416626,
+        0.1305616796016693
+      ]
+    },
+    "ZA_hypoglossal_nerve_xii_l": {
+      "min": [
+        0.000639741076156497,
+        1.4524589776992798,
+        0.07745294272899628
+      ],
+      "max": [
+        0.026308899745345116,
+        1.5149641036987305,
+        0.15080679953098297
+      ]
+    },
+    "ZA_inferior_alveolar_nerve_l": {
+      "min": [
+        0.0008050748729147017,
+        1.4443039894104004,
+        0.11613907665014267
+      ],
+      "max": [
+        0.03531079366803169,
+        1.4880034923553467,
+        0.17990751564502716
+      ]
+    },
+    "ZA_lingual_nerve_l": {
+      "min": [
+        0.006946616806089878,
+        1.4618722200393677,
+        0.11297985166311264
+      ],
+      "max": [
+        0.029046393930912018,
+        1.5116126537322998,
+        0.1574890911579132
+      ]
+    },
+    "ZA_maxillary_nerve_l": {
+      "min": [
+        0.009693770669400692,
+        1.4860036373138428,
+        0.09976992011070251
+      ],
+      "max": [
+        0.03138842061161995,
+        1.5403932332992554,
+        0.17458012700080872
+      ]
+    },
+    "ZA_meningeal_branch_of_maxillary_nerve_l": {
+      "min": [
+        0.021114856004714966,
+        1.49908447265625,
+        0.07429564744234085
+      ],
+      "max": [
+        0.07304256409406662,
+        1.602718472480774,
+        0.12451539933681488
+      ]
+    },
+    "ZA_mental_nerve_l": {
+      "min": [
+        0.016182010993361473,
+        1.446936011314392,
+        0.162992924451828
+      ],
+      "max": [
+        0.020473601296544075,
+        1.4584696292877197,
+        0.16818352043628693
+      ]
+    },
+    "ZA_motor_root_of_trigeminal_nerve_l": {
+      "min": [
+        0.005784394685178995,
+        1.5284298658370972,
+        0.08642663806676865
+      ],
+      "max": [
+        0.007625449914485216,
+        1.5315570831298828,
+        0.08826769143342972
+      ]
+    },
+    "ZA_nerve_to_mylohyoid_muscle_l": {
+      "min": [
+        0.01002993993461132,
+        1.4460514783859253,
+        0.11630678176879883
+      ],
+      "max": [
+        0.03435765951871872,
+        1.4879170656204224,
+        0.15057258307933807
+      ]
+    },
+    "ZA_oculomotor_nerve_iii_l": {
+      "min": [
+        -0.0006238847272470593,
+        1.5154967308044434,
+        0.08867336064577103
+      ],
+      "max": [
+        0.037072356790304184,
+        1.5485488176345825,
+        0.16743594408035278
+      ]
+    },
+    "ZA_olfactory_nerve_i_l": {
+      "min": [
+        -0.0009065349004231393,
+        1.536629557609558,
+        0.1152348518371582
+      ],
+      "max": [
+        0.021803025156259537,
+        1.5539920330047607,
+        0.16489458084106445
+      ]
+    },
+    "ZA_ophthalmic_nerve_l": {
+      "min": [
+        0.0086817080155015,
+        1.5374523401260376,
+        0.09972631931304932
+      ],
+      "max": [
+        0.03705430403351784,
+        1.5723176002502441,
+        0.18308863043785095
+      ]
+    },
+    "ZA_posterior_division_of_mandibular_nerve_l": {
+      "min": [
+        0.021078450605273247,
+        1.4874882698059082,
+        0.11202133446931839
+      ],
+      "max": [
+        0.03465156629681587,
+        1.518100619316101,
+        0.11730184406042099
+      ]
+    },
+    "ZA_sensory_root_of_trigeminal_nerve_l": {
+      "min": [
+        0.0014952787896618247,
+        1.4849193096160889,
+        0.06485424935817719
+      ],
+      "max": [
+        0.005743291694670916,
+        1.5495989322662354,
+        0.09033838659524918
+      ]
+    },
+    "ZA_trigeminal_nerve_v_l": {
+      "min": [
+        0.003603794611990452,
+        1.5176877975463867,
+        0.08144790679216385
+      ],
+      "max": [
+        0.02175881341099739,
+        1.5404407978057861,
+        0.11275669932365417
+      ]
+    },
+    "ZA_trochlear_nerve_iv_l": {
+      "min": [
+        -0.0024836058728396893,
+        1.5365617275238037,
+        0.08234724402427673
+      ],
+      "max": [
+        0.02849201112985611,
+        1.5469393730163574,
+        0.15390300750732422
+      ]
+    },
+    "ZA_vagus_nerve_x_l": {
+      "min": [
+        0.0007960721850395203,
+        1.294458031654358,
+        0.05649087578058243
+      ],
+      "max": [
+        0.027263691648840904,
+        1.5169408321380615,
+        0.1280308961868286
+      ]
+    },
+    "ZA_vestibular_nerve_l": {
+      "min": [
+        0.01793522946536541,
+        1.5198050737380981,
+        0.0923195481300354
+      ],
+      "max": [
+        0.038498930633068085,
+        1.5244027376174927,
+        0.09550019353628159
+      ]
+    },
+    "ZA_vestibulocochlear_nerve_viii_l": {
+      "min": [
+        0.006160648539662361,
+        1.5176889896392822,
+        0.0822986513376236
+      ],
+      "max": [
+        0.02010936662554741,
+        1.5228842496871948,
+        0.0932103767991066
+      ]
+    },
+    "ZA_abducens_nerve_vi_r": {
+      "min": [
+        -0.032300882041454315,
+        1.5163017511367798,
+        0.08224129676818848
+      ],
+      "max": [
+        -0.001927876495756209,
+        1.5409002304077148,
+        0.14292433857917786
+      ]
+    },
+    "ZA_accessory_nerve_xi_r": {
+      "min": [
+        -0.0584561862051487,
+        1.2400999069213867,
+        -0.010934898629784584
+      ],
+      "max": [
+        -0.0033877717796713114,
+        1.510864019393921,
+        0.10951486229896545
+      ]
+    },
+    "ZA_anterior_division_of_mandibular_nerve_r": {
+      "min": [
+        -0.03001187928020954,
+        1.505258321762085,
+        0.11205524951219559
+      ],
+      "max": [
+        -0.022659165784716606,
+        1.5181652307510376,
+        0.1194772943854332
+      ]
+    },
+    "ZA_buccal_nerve_r": {
+      "min": [
+        -0.03358737379312515,
+        1.4711759090423584,
+        0.11895348876714706
+      ],
+      "max": [
+        -0.02945784106850624,
+        1.5055409669876099,
+        0.15867993235588074
+      ]
+    },
+    "ZA_chorda_tympani_r": {
+      "min": [
+        -0.03634047508239746,
+        1.4978718757629395,
+        0.09177998453378677
+      ],
+      "max": [
+        -0.025759709998965263,
+        1.5211646556854248,
+        0.11440735310316086
+      ]
+    },
+    "ZA_cochlear_nerve": {
+      "min": [
+        -0.040013812482357025,
+        1.5188757181167603,
+        0.09148989617824554
+      ],
+      "max": [
+        -0.018970491364598274,
+        1.5237669944763184,
+        0.10012403875589371
+      ]
+    },
+    "ZA_facial_nerve_vii_r": {
+      "min": [
+        -0.06431426852941513,
+        1.451433539390564,
+        0.08095163851976395
+      ],
+      "max": [
+        -0.0009447701741009951,
+        1.5639249086380005,
+        0.1818319708108902
+      ]
+    },
+    "ZA_glossopharyngeal_nerve_ix_r": {
+      "min": [
+        -0.04019637033343315,
+        1.3753784894943237,
+        0.07743604481220245
+      ],
+      "max": [
+        -0.0024526468478143215,
+        1.5183178186416626,
+        0.1305616945028305
+      ]
+    },
+    "ZA_hypoglossal_nerve_xii_r": {
+      "min": [
+        -0.02787959575653076,
+        1.4524589776992798,
+        0.07745293527841568
+      ],
+      "max": [
+        -0.0022104382514953613,
+        1.5149641036987305,
+        0.15080682933330536
+      ]
+    },
+    "ZA_inferior_alveolar_nerve_r": {
+      "min": [
+        -0.03688148781657219,
+        1.4443039894104004,
+        0.11613907665014267
+      ],
+      "max": [
+        -0.002375771990045905,
+        1.4880034923553467,
+        0.17990751564502716
+      ]
+    },
+    "ZA_lingual_nerve_r": {
+      "min": [
+        -0.030617091804742813,
+        1.4618722200393677,
+        0.11297985166311264
+      ],
+      "max": [
+        -0.008517313748598099,
+        1.5116126537322998,
+        0.1574890911579132
+      ]
+    },
+    "ZA_maxillary_nerve_r": {
+      "min": [
+        -0.032959118485450745,
+        1.4860036373138428,
+        0.09976990520954132
+      ],
+      "max": [
+        -0.011264467611908913,
+        1.5403932332992554,
+        0.1745801419019699
+      ]
+    },
+    "ZA_meningeal_branch_of_maxillary_nerve_r": {
+      "min": [
+        -0.07461326569318771,
+        1.4990843534469604,
+        0.07429561764001846
+      ],
+      "max": [
+        -0.02268555387854576,
+        1.602718472480774,
+        0.12451538443565369
+      ]
+    },
+    "ZA_mental_nerve_r": {
+      "min": [
+        -0.02204429730772972,
+        1.446936011314392,
+        0.162992924451828
+      ],
+      "max": [
+        -0.01775270886719227,
+        1.4584696292877197,
+        0.16818352043628693
+      ]
+    },
+    "ZA_motor_root_of_trigeminal_nerve_r": {
+      "min": [
+        -0.009196147322654724,
+        1.5284298658370972,
+        0.08642663061618805
+      ],
+      "max": [
+        -0.007355091627687216,
+        1.5315570831298828,
+        0.08826768398284912
+      ]
+    },
+    "ZA_nerve_to_mylohyoid_muscle_r": {
+      "min": [
+        -0.035928357392549515,
+        1.4460514783859253,
+        0.11630678176879883
+      ],
+      "max": [
+        -0.011600636877119541,
+        1.4879170656204224,
+        0.15057258307933807
+      ]
+    },
+    "ZA_oculomotor_nerve_iii_r": {
+      "min": [
+        -0.03864305466413498,
+        1.5154967308044434,
+        0.08867335319519043
+      ],
+      "max": [
+        -0.0009468125062994659,
+        1.5485488176345825,
+        0.16743595898151398
+      ]
+    },
+    "ZA_olfactory_nerve_i_r": {
+      "min": [
+        -0.023373723030090332,
+        1.5366294384002686,
+        0.1152348518371582
+      ],
+      "max": [
+        -0.000664162274915725,
+        1.5539920330047607,
+        0.16489458084106445
+      ]
+    },
+    "ZA_ophthalmic_nerve_r": {
+      "min": [
+        -0.03862500190734863,
+        1.5374523401260376,
+        0.09972630441188812
+      ],
+      "max": [
+        -0.01025240495800972,
+        1.5723176002502441,
+        0.18308861553668976
+      ]
+    },
+    "ZA_posterior_division_of_mandibular_nerve_r": {
+      "min": [
+        -0.03622226417064667,
+        1.4874882698059082,
+        0.11202133446931839
+      ],
+      "max": [
+        -0.022649148479104042,
+        1.518100619316101,
+        0.11730184406042099
+      ]
+    },
+    "ZA_sensory_root_of_trigeminal_nerve_r": {
+      "min": [
+        -0.007313989102840424,
+        1.4849193096160889,
+        0.06485424935817719
+      ],
+      "max": [
+        -0.003065975848585367,
+        1.5495988130569458,
+        0.09033837914466858
+      ]
+    },
+    "ZA_trigeminal_nerve_v_r": {
+      "min": [
+        -0.023329511284828186,
+        1.5176877975463867,
+        0.08144789189100266
+      ],
+      "max": [
+        -0.00517449202015996,
+        1.5404407978057861,
+        0.11275669932365417
+      ]
+    },
+    "ZA_trochlear_nerve_iv_r": {
+      "min": [
+        -0.030062709003686905,
+        1.5365617275238037,
+        0.08234723657369614
+      ],
+      "max": [
+        0.0009129086975008249,
+        1.5469393730163574,
+        0.15390300750732422
+      ]
+    },
+    "ZA_vagus_nerve_x_r": {
+      "min": [
+        -0.02883438766002655,
+        1.0607854127883911,
+        0.05341438204050064
+      ],
+      "max": [
+        0.06683490425348282,
+        1.5169408321380615,
+        0.13925503194332123
+      ]
+    },
+    "ZA_vestibular_nerve_r": {
+      "min": [
+        -0.04006962850689888,
+        1.5198050737380981,
+        0.0923195481300354
+      ],
+      "max": [
+        -0.019505925476551056,
+        1.5244027376174927,
+        0.09550019353628159
+      ]
+    },
+    "ZA_vestibulocochlear_nerve_viii_r": {
+      "min": [
+        -0.021680062636733055,
+        1.5176888704299927,
+        0.0822986513376236
+      ],
+      "max": [
+        -0.007731345947831869,
+        1.5228842496871948,
+        0.0932103767991066
+      ]
+    },
+    "ZA_anterior_branch_of_obturator_nerve_l": {
+      "min": [
+        0.017684241756796837,
+        0.5304537415504456,
+        0.08443859219551086
+      ],
+      "max": [
+        0.0442025251686573,
+        0.8253953456878662,
+        0.13599899411201477
+      ]
+    },
+    "ZA_anterior_cutaneous_branches_of_femoral_nerve_l": {
+      "min": [
+        0.04702756926417351,
+        0.47557052969932556,
+        0.12080422788858414
+      ],
+      "max": [
+        0.060601744800806046,
+        0.8252335786819458,
+        0.1383056342601776
+      ]
+    },
+    "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_l": {
+      "min": [
+        0.014953063800930977,
+        0.8594343662261963,
+        0.03861584514379501
+      ],
+      "max": [
+        0.0392414927482605,
+        0.9385903477668762,
+        0.07856829464435577
+      ]
+    },
+    "ZA_common_fibular_nerve_l": {
+      "min": [
+        0.07287781685590744,
+        0.3634851276874542,
+        0.038136254996061325
+      ],
+      "max": [
+        0.11856553703546524,
+        0.5138168931007385,
+        0.059782661497592926
+      ]
+    },
+    "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_l": {
+      "min": [
+        0.09117259085178375,
+        0.003317151917144656,
+        0.10075055062770844
+      ],
+      "max": [
+        0.12888120114803314,
+        0.012847869656980038,
+        0.1630079299211502
+      ]
+    },
+    "ZA_common_plantar_digital_branches_of_medial_plantar_nerve_l": {
+      "min": [
+        0.056990329176187515,
+        0.003987515810877085,
+        0.1210879534482956
+      ],
+      "max": [
+        0.09452587366104126,
+        0.02057999186217785,
+        0.17135317623615265
+      ]
+    },
+    "ZA_deep_fibular_nerve_l": {
+      "min": [
+        0.06574686616659164,
+        0.03263568878173828,
+        0.05244117230176926
+      ],
+      "max": [
+        0.11856567859649658,
+        0.364052951335907,
+        0.1524548977613449
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_deep_fibular_nerve_l": {
+      "min": [
+        0.07298236340284348,
+        0.004596642684191465,
+        0.1519121527671814
+      ],
+      "max": [
+        0.09382345527410507,
+        0.03345099091529846,
+        0.22068142890930176
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_l": {
+      "min": [
+        0.05836280807852745,
+        0.003859385848045349,
+        0.13687950372695923
+      ],
+      "max": [
+        0.13247334957122803,
+        0.02785824052989483,
+        0.21875639259815216
+      ]
+    },
+    "ZA_femoral_nerve_l": {
+      "min": [
+        0.010108169168233871,
+        0.5992188453674316,
+        0.06945542246103287
+      ],
+      "max": [
+        0.08494272083044052,
+        1.0568575859069824,
+        0.14015568792819977
+      ]
+    },
+    "ZA_infrapatellar_branch_of_saphenous_nerve_l": {
+      "min": [
+        0.05084550380706787,
+        0.32651692628860474,
+        0.07757656276226044
+      ],
+      "max": [
+        0.08466073125600815,
+        0.33826133608818054,
+        0.10723273456096649
+      ]
+    },
+    "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_l": {
+      "min": [
+        0.10011705756187439,
+        0.018675372004508972,
+        0.06667327135801315
+      ],
+      "max": [
+        0.11701793223619461,
+        0.08264613151550293,
+        0.14910463988780975
+      ]
+    },
+    "ZA_lateral_femoral_cutaneous_nerve_l": {
+      "min": [
+        0.04812568426132202,
+        0.5276641249656677,
+        0.04280886426568031
+      ],
+      "max": [
+        0.15299464762210846,
+        1.036269187927246,
+        0.15484920144081116
+      ]
+    },
+    "ZA_lateral_plantar_nerve_l": {
+      "min": [
+        0.05484272912144661,
+        0.011892834678292274,
+        0.04426734521985054
+      ],
+      "max": [
+        0.09200167655944824,
+        0.0467330738902092,
+        0.1013917550444603
+      ]
+    },
+    "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_l": {
+      "min": [
+        0.02320091240108013,
+        0.7277575135231018,
+        0.12868039309978485
+      ],
+      "max": [
+        0.060578566044569016,
+        0.8254066705703735,
+        0.14891000092029572
+      ]
+    },
+    "ZA_medial_dorsal_cutaneous_nerve_of_foot_l": {
+      "min": [
+        0.05839855596423149,
+        0.016593866050243378,
+        0.0668003261089325
+      ],
+      "max": [
+        0.10180848836898804,
+        0.08287746459245682,
+        0.1774733066558838
+      ]
+    },
+    "ZA_medial_plantar_nerve_l": {
+      "min": [
+        0.05484503507614136,
+        0.015476756729185581,
+        0.04426734521985054
+      ],
+      "max": [
+        0.07383938878774643,
+        0.04673515260219574,
+        0.1217535138130188
+      ]
+    },
+    "ZA_medial_sural_cutaneous_nerve_l": {
+      "min": [
+        0.06710968911647797,
+        0.3877280652523041,
+        0.00976044125854969
+      ],
+      "max": [
+        0.0738406777381897,
+        0.5138995051383972,
+        0.05975773185491562
+      ]
+    },
+    "ZA_muscular_branches_of_deep_fibular_nerve_l": {
+      "min": [
+        0.07979762554168701,
+        0.03930244594812393,
+        0.08376694470643997
+      ],
+      "max": [
+        0.10117379575967789,
+        0.06793975830078125,
+        0.0875985324382782
+      ]
+    },
+    "ZA_nerve_to_piriformis_muscle_l": {
+      "min": [
+        0.014950909651815891,
+        0.85167396068573,
+        0.03861584514379501
+      ],
+      "max": [
+        0.06589394062757492,
+        0.8941094279289246,
+        0.06139297038316727
+      ]
+    },
+    "ZA_nerve_to_quadratus_femoris_muscle_l": {
+      "min": [
+        0.017960574477910995,
+        0.777381420135498,
+        0.056210219860076904
+      ],
+      "max": [
+        0.08596397936344147,
+        0.9676956534385681,
+        0.09287211298942566
+      ]
+    },
+    "ZA_obturator_nerve_l": {
+      "min": [
+        0.015048270113766193,
+        0.8246908187866211,
+        0.07500826567411423
+      ],
+      "max": [
+        0.05742046982049942,
+        1.0358814001083374,
+        0.11254635453224182
+      ]
+    },
+    "ZA_posterior_branch_of_obturator_nerve_l": {
+      "min": [
+        0.03766122832894325,
+        0.6713215708732605,
+        0.10826083272695541
+      ],
+      "max": [
+        0.05378742516040802,
+        0.8252816200256348,
+        0.12001719325780869
+      ]
+    },
+    "ZA_posterior_femoral_cutaneous_nerve_l": {
+      "min": [
+        0.029021702706813812,
+        0.6210960149765015,
+        0.005208673421293497
+      ],
+      "max": [
+        0.06952653080224991,
+        0.9087381958961487,
+        0.0805472806096077
+      ]
+    },
+    "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_l": {
+      "min": [
+        0.010173894464969635,
+        0.8480989933013916,
+        0.021516764536499977
+      ],
+      "max": [
+        0.04254050552845001,
+        0.9386337399482727,
+        0.06537774205207825
+      ]
+    },
+    "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_l": {
+      "min": [
+        0.10463868826627731,
+        -0.0027700571808964014,
+        0.14349976181983948
+      ],
+      "max": [
+        0.14087684452533722,
+        0.01186922937631607,
+        0.21289655566215515
+      ]
+    },
+    "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_l": {
+      "min": [
+        0.056509267538785934,
+        -0.0008408364956267178,
+        0.1595713198184967
+      ],
+      "max": [
+        0.11016857624053955,
+        0.010000396519899368,
+        0.22401675581932068
+      ]
+    },
+    "ZA_saphenous_nerve_l": {
+      "min": [
+        0.02916025184094906,
+        0.09137817472219467,
+        -0.004263018257915974
+      ],
+      "max": [
+        0.06997202336788177,
+        0.8253179788589478,
+        0.1439765989780426
+      ]
+    },
+    "ZA_sciatic_nerve_l": {
+      "min": [
+        0.014956830069422722,
+        0.5133664011955261,
+        0.028289182111620903
+      ],
+      "max": [
+        0.07648763060569763,
+        0.9379910230636597,
+        0.08212216943502426
+      ]
+    },
+    "ZA_superficial_fibular_nerve_l": {
+      "min": [
+        0.09888333082199097,
+        0.08234179764986038,
+        0.05235746130347252
+      ],
+      "max": [
+        0.11854624003171921,
+        0.36393046379089355,
+        0.06758581101894379
+      ]
+    },
+    "ZA_superior_gluteal_nerve_l": {
+      "min": [
+        0.027620619162917137,
+        0.866632878780365,
+        0.057774800807237625
+      ],
+      "max": [
+        0.1131988912820816,
+        0.9254975914955139,
+        0.07633426040410995
+      ]
+    },
+    "ZA_sural_communicating_branch_of_common_fibular_nerve_l": {
+      "min": [
+        0.07481088489294052,
+        0.33097904920578003,
+        -0.0005137681146152318
+      ],
+      "max": [
+        0.10992372035980225,
+        0.37385430932044983,
+        0.0453304797410965
+      ]
+    },
+    "ZA_sural_nerve_l": {
+      "min": [
+        0.06732427328824997,
+        0.003138244152069092,
+        -0.0016695148078724742
+      ],
+      "max": [
+        0.139470636844635,
+        0.3880206346511841,
+        0.17471422255039215
+      ]
+    },
+    "ZA_tibial_nerve_l": {
+      "min": [
+        0.05377839133143425,
+        0.04628864675760269,
+        0.03402213752269745
+      ],
+      "max": [
+        0.09232641756534576,
+        0.5140902400016785,
+        0.0612056590616703
+      ]
+    },
+    "ZA_anterior_branch_of_obturator_nerve_r": {
+      "min": [
+        -0.045773230493068695,
+        0.530453622341156,
+        0.08443872630596161
+      ],
+      "max": [
+        -0.01925494521856308,
+        0.8253952860832214,
+        0.13599905371665955
+      ]
+    },
+    "ZA_anterior_cutaneous_branches_of_femoral_nerve_r": {
+      "min": [
+        -0.06217245012521744,
+        0.4755704998970032,
+        0.12080437690019608
+      ],
+      "max": [
+        -0.0485982745885849,
+        0.8252335786819458,
+        0.1383056789636612
+      ]
+    },
+    "ZA_anterior_root_of_posterior_femoral_cutaneous_nerve_r": {
+      "min": [
+        -0.04081219062209129,
+        0.8594344258308411,
+        0.038615841418504715
+      ],
+      "max": [
+        -0.016523759812116623,
+        0.938590407371521,
+        0.07856830209493637
+      ]
+    },
+    "ZA_common_fibular_nerve_r": {
+      "min": [
+        -0.12013624608516693,
+        0.36348509788513184,
+        0.038136325776576996
+      ],
+      "max": [
+        -0.07444852590560913,
+        0.5138168334960938,
+        0.05978270620107651
+      ]
+    },
+    "ZA_common_plantar_digital_branches_of_lateral_plantar_nerve_r": {
+      "min": [
+        -0.13045190274715424,
+        0.0033170287497341633,
+        0.10075076669454575
+      ],
+      "max": [
+        -0.09274329245090485,
+        0.012847735546529293,
+        0.1630081683397293
+      ]
+    },
+    "ZA_common_plantar_digital_branches_of_medial_plantar_nerve": {
+      "min": [
+        -0.09609656780958176,
+        0.00398740079253912,
+        0.1210881769657135
+      ],
+      "max": [
+        -0.05856102705001831,
+        0.02057986706495285,
+        0.17135341465473175
+      ]
+    },
+    "ZA_deep_fibular_nerve_r": {
+      "min": [
+        -0.12013639509677887,
+        0.03263559192419052,
+        0.05244126170873642
+      ],
+      "max": [
+        -0.06731758266687393,
+        0.3640528917312622,
+        0.15245512127876282
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_deep_fibular_nerve_r": {
+      "min": [
+        -0.09539416432380676,
+        0.004596559796482325,
+        0.1519123762845993
+      ],
+      "max": [
+        -0.07455307245254517,
+        0.0334508903324604,
+        0.22068168222904205
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_superficial_fibular_nerve_r": {
+      "min": [
+        -0.13404403626918793,
+        0.003859284333884716,
+        0.13687971234321594
+      ],
+      "max": [
+        -0.05993350222706795,
+        0.027858125045895576,
+        0.21875664591789246
+      ]
+    },
+    "ZA_femoral_nerve_r": {
+      "min": [
+        -0.08651342242956161,
+        0.5992188453674316,
+        0.06945537775754929
+      ],
+      "max": [
+        -0.011678873561322689,
+        1.0568575859069824,
+        0.14015573263168335
+      ]
+    },
+    "ZA_infrapatellar_branch_of_saphenous_nerve_r": {
+      "min": [
+        -0.08623144775629044,
+        0.32651692628860474,
+        0.07757675647735596
+      ],
+      "max": [
+        -0.05241622030735016,
+        0.33826133608818054,
+        0.10723292827606201
+      ]
+    },
+    "ZA_intermediate_dorsal_cutaneous_nerve_of_foot_r": {
+      "min": [
+        -0.1185886412858963,
+        0.018675250932574272,
+        0.06667345762252808
+      ],
+      "max": [
+        -0.10168776661157608,
+        0.08264600485563278,
+        0.14910486340522766
+      ]
+    },
+    "ZA_lateral_femoral_cutaneous_nerve_r": {
+      "min": [
+        -0.15456533432006836,
+        0.527664065361023,
+        0.042808882892131805
+      ],
+      "max": [
+        -0.04969638213515282,
+        1.036269187927246,
+        0.15484917163848877
+      ]
+    },
+    "ZA_lateral_plantar_nerve_r": {
+      "min": [
+        -0.09357237815856934,
+        0.01189270056784153,
+        0.04426753893494606
+      ],
+      "max": [
+        -0.056413426995277405,
+        0.04673292860388756,
+        0.10139197111129761
+      ]
+    },
+    "ZA_medial_crural_cutaneous_branches_of_saphenous_nerve_r": {
+      "min": [
+        -0.0621492862701416,
+        0.7277575731277466,
+        0.12868045270442963
+      ],
+      "max": [
+        -0.024771634489297867,
+        0.8254067897796631,
+        0.1489100456237793
+      ]
+    },
+    "ZA_medial_dorsal_cutaneous_nerve_of_foot_r": {
+      "min": [
+        -0.10337919741868973,
+        0.016593756154179573,
+        0.06680050492286682
+      ],
+      "max": [
+        -0.05996926873922348,
+        0.08287733793258667,
+        0.1774735450744629
+      ]
+    },
+    "ZA_medial_plantar_nerve_r": {
+      "min": [
+        -0.07541009038686752,
+        0.015476629137992859,
+        0.04426753893494606
+      ],
+      "max": [
+        -0.05641573294997215,
+        0.0467350073158741,
+        0.12175372987985611
+      ]
+    },
+    "ZA_medial_sural_cutaneous_nerve_r": {
+      "min": [
+        -0.07541137933731079,
+        0.3877280354499817,
+        0.00976051390171051
+      ],
+      "max": [
+        -0.06868038326501846,
+        0.5138995051383972,
+        0.0597577728331089
+      ]
+    },
+    "ZA_muscular_branches_of_deep_fibular_nerve_r": {
+      "min": [
+        -0.10274450480937958,
+        0.03930233046412468,
+        0.08376713842153549
+      ],
+      "max": [
+        -0.0813683420419693,
+        0.0679396465420723,
+        0.08759873360395432
+      ]
+    },
+    "ZA_nerve_to_piriformis_muscle_r": {
+      "min": [
+        -0.06746463477611542,
+        0.8516740202903748,
+        0.038615841418504715
+      ],
+      "max": [
+        -0.016521606594324112,
+        0.8941094875335693,
+        0.06139297038316727
+      ]
+    },
+    "ZA_nerve_to_quadratus_femoris_muscle_r": {
+      "min": [
+        -0.08753467351198196,
+        0.7773813009262085,
+        0.056210219860076904
+      ],
+      "max": [
+        -0.01953127235174179,
+        0.9676955938339233,
+        0.09287212044000626
+      ]
+    },
+    "ZA_obturator_nerve_r": {
+      "min": [
+        -0.05899117514491081,
+        0.8246908187866211,
+        0.07500826567411423
+      ],
+      "max": [
+        -0.01661897450685501,
+        1.035881519317627,
+        0.1125463992357254
+      ]
+    },
+    "ZA_posterior_branch_of_obturator_nerve_r": {
+      "min": [
+        -0.055358126759529114,
+        0.6713215112686157,
+        0.10826091468334198
+      ],
+      "max": [
+        -0.039231929928064346,
+        0.8252816200256348,
+        0.12001724541187286
+      ]
+    },
+    "ZA_posterior_femoral_cutaneous_nerve_r": {
+      "min": [
+        -0.071097232401371,
+        0.6210960149765015,
+        0.005208661779761314
+      ],
+      "max": [
+        -0.03059239871799946,
+        0.9087382555007935,
+        0.0805472880601883
+      ]
+    },
+    "ZA_posterior_root_of_posterior_femoral_cutaneous_nerve_r": {
+      "min": [
+        -0.04411120340228081,
+        0.848098874092102,
+        0.02151675894856453
+      ],
+      "max": [
+        -0.011744591407477856,
+        0.9386336803436279,
+        0.06537774205207825
+      ]
+    },
+    "ZA_proper_plantar_digital_branches_of_lateral_plantar_nerve_r": {
+      "min": [
+        -0.14244753122329712,
+        -0.0027701687067747116,
+        0.14350000023841858
+      ],
+      "max": [
+        -0.10620936751365662,
+        0.011869114823639393,
+        0.21289680898189545
+      ]
+    },
+    "ZA_proper_plantar_digital_branches_of_medial_plantar_nerve_r": {
+      "min": [
+        -0.11173927038908005,
+        -0.0008409351576119661,
+        0.1595715582370758
+      ],
+      "max": [
+        -0.05807996541261673,
+        0.010000281035900116,
+        0.22401700913906097
+      ]
+    },
+    "ZA_saphenous_nerve_r": {
+      "min": [
+        -0.07154273986816406,
+        0.09137777984142303,
+        -0.004262867849320173
+      ],
+      "max": [
+        -0.030730970203876495,
+        0.8253176808357239,
+        0.1439765989780426
+      ]
+    },
+    "ZA_sciatic_nerve_r": {
+      "min": [
+        -0.07805832475423813,
+        0.5133663415908813,
+        0.028289122506976128
+      ],
+      "max": [
+        -0.016527527943253517,
+        0.9379910826683044,
+        0.08212209492921829
+      ]
+    },
+    "ZA_superficial_fibular_nerve_r": {
+      "min": [
+        -0.1201169490814209,
+        0.08234166353940964,
+        0.05235755071043968
+      ],
+      "max": [
+        -0.10045403987169266,
+        0.3639303743839264,
+        0.06758598983287811
+      ]
+    },
+    "ZA_superior_gluteal_nerve_r": {
+      "min": [
+        -0.1147695854306221,
+        0.8666329383850098,
+        0.057774726301431656
+      ],
+      "max": [
+        -0.029191317036747932,
+        0.9254977107048035,
+        0.07633418589830399
+      ]
+    },
+    "ZA_sural_communicating_branch_of_common_fibular_nerve_r": {
+      "min": [
+        -0.11149443686008453,
+        0.33097898960113525,
+        -0.0005136804538778961
+      ],
+      "max": [
+        -0.07638160139322281,
+        0.37385424971580505,
+        0.04533056169748306
+      ]
+    },
+    "ZA_sural_nerve_r": {
+      "min": [
+        -0.1410413384437561,
+        0.003138159867376089,
+        -0.001669420162215829
+      ],
+      "max": [
+        -0.06889497488737106,
+        0.3880205750465393,
+        0.17471446096897125
+      ]
+    },
+    "ZA_tibial_nerve_r": {
+      "min": [
+        -0.09389711916446686,
+        0.04628850147128105,
+        0.03402220457792282
+      ],
+      "max": [
+        -0.055349089205265045,
+        0.5140902400016785,
+        0.061205703765153885
+      ]
+    },
+    "ZA_anterior_corticospinal_tract": {
+      "min": [
+        -0.0014220019802451134,
+        1.0121793746948242,
+        0.028775574639439583
+      ],
+      "max": [
+        -0.0003514715062920004,
+        1.4861928224563599,
+        0.08047930151224136
+      ]
+    },
+    "ZA_anterior_fasciculus_proprius": {
+      "min": [
+        -0.004199295304715633,
+        1.0121793746948242,
+        0.028162747621536255
+      ],
+      "max": [
+        0.002428038977086544,
+        1.4863088130950928,
+        0.07880832254886627
+      ]
+    },
+    "ZA_anterior_horn_of_spinal_cord": {
+      "min": [
+        -0.004852778278291225,
+        1.0121793746948242,
+        0.02801143378019333
+      ],
+      "max": [
+        0.0030773491598665714,
+        1.4863373041152954,
+        0.07868900150060654
+      ]
+    },
+    "ZA_anterior_spinocerebellar_tract": {
+      "min": [
+        -0.008007315918803215,
+        1.0121796131134033,
+        0.027544358745217323
+      ],
+      "max": [
+        0.00623483769595623,
+        1.4864258766174316,
+        0.07964979857206345
+      ]
+    },
+    "ZA_anterior_spinothalamic_tract": {
+      "min": [
+        -0.004488833714276552,
+        1.0121794939041138,
+        0.031244417652487755
+      ],
+      "max": [
+        0.002708447864279151,
+        1.485725998878479,
+        0.08090277016162872
+      ]
+    },
+    "ZA_cauda_equina": {
+      "min": [
+        -0.04738577455282211,
+        0.836393415927887,
+        0.01376670878380537
+      ],
+      "max": [
+        0.045821044594049454,
+        1.0968414545059204,
+        0.08064733445644379
+      ]
+    },
+    "ZA_central_canal": {
+      "min": [
+        -0.0011351641733199358,
+        1.0170140266418457,
+        0.027690505608916283
+      ],
+      "max": [
+        -0.0006481021409854293,
+        1.486398696899414,
+        0.07682647556066513
+      ]
+    },
+    "ZA_cuneate_fasciculus": {
+      "min": [
+        -0.004644115921109915,
+        1.3880701065063477,
+        0.05912347882986069
+      ],
+      "max": [
+        0.00285919732414186,
+        1.4872045516967773,
+        0.07615115493535995
+      ]
+    },
+    "ZA_gracile_fasciculus": {
+      "min": [
+        -0.003007371909916401,
+        1.0121797323226929,
+        0.023157568648457527
+      ],
+      "max": [
+        0.0012263527605682611,
+        1.4872558116912842,
+        0.07616612315177917
+      ]
+    },
+    "ZA_intermediolateral_nucleus": {
+      "min": [
+        -0.0050977906212210655,
+        1.0121790170669556,
+        0.027399811893701553
+      ],
+      "max": [
+        0.0033264048397541046,
+        1.486452579498291,
+        0.07658437639474869
+      ]
+    },
+    "ZA_intermediomedial_nucleus": {
+      "min": [
+        -0.0024941633455455303,
+        1.0121790170669556,
+        0.02764642797410488
+      ],
+      "max": [
+        0.0007188733434304595,
+        1.4864059686660767,
+        0.07688404619693756
+      ]
+    },
+    "ZA_lateral_corticospinal_tract": {
+      "min": [
+        -0.006978217978030443,
+        1.0121797323226929,
+        0.025354990735650063
+      ],
+      "max": [
+        0.005190330557525158,
+        1.4868401288986206,
+        0.07579652220010757
+      ]
+    },
+    "ZA_lateral_fasciculus_proprius": {
+      "min": [
+        -0.005272164940834045,
+        1.0121796131134033,
+        0.024619391188025475
+      ],
+      "max": [
+        0.0034801694564521313,
+        1.4869792461395264,
+        0.07878533005714417
+      ]
+    },
+    "ZA_lateral_intermediate_substance": {
+      "min": [
+        -0.005125004798173904,
+        1.0121790170669556,
+        0.027192754670977592
+      ],
+      "max": [
+        0.003328838152810931,
+        1.4864917993545532,
+        0.07736573368310928
+      ]
+    },
+    "ZA_lateral_reticulospinal_tract": {
+      "min": [
+        -0.004815042484551668,
+        1.0121796131134033,
+        0.029775572940707207
+      ],
+      "max": [
+        0.0030227391980588436,
+        1.4860037565231323,
+        0.07897138595581055
+      ]
+    },
+    "ZA_lateral_spinothalamic_tract": {
+      "min": [
+        -0.006782183423638344,
+        1.0121796131134033,
+        0.02873329073190689
+      ],
+      "max": [
+        0.004993847571313381,
+        1.4862010478973389,
+        0.07928052544593811
+      ]
+    },
+    "ZA_lateral_vestibulospinal_tract": {
+      "min": [
+        -0.004145174287259579,
+        1.0121793746948242,
+        0.030443470925092697
+      ],
+      "max": [
+        0.0023604745510965586,
+        1.485877275466919,
+        0.08005988597869873
+      ]
+    },
+    "ZA_anterior_root_of_spinal_nerve_l": {
+      "min": [
+        -0.00025792638189159334,
+        1.024863600730896,
+        0.02692864090204239
+      ],
+      "max": [
+        0.02404709719121456,
+        1.4778660535812378,
+        0.09141021221876144
+      ]
+    },
+    "ZA_posterior_root_of_spinal_nerve_l": {
+      "min": [
+        -0.0002377920609433204,
+        1.024875283241272,
+        0.024176690727472305
+      ],
+      "max": [
+        0.016298549249768257,
+        1.4779101610183716,
+        0.08302172273397446
+      ]
+    },
+    "ZA_spinal_ganglion_l": {
+      "min": [
+        0.00790872611105442,
+        1.0233314037322998,
+        0.025730852037668228
+      ],
+      "max": [
+        0.018474167212843895,
+        1.47421395778656,
+        0.08484626561403275
+      ]
+    },
+    "ZA_medial_reticulospinal_tract": {
+      "min": [
+        -0.004322889726608992,
+        1.0121793746948242,
+        0.03077850118279457
+      ],
+      "max": [
+        0.0025288101751357317,
+        1.485813856124878,
+        0.0805039182305336
+      ]
+    },
+    "ZA_medial_vestibulospinal_tract": {
+      "min": [
+        -0.0017271748511120677,
+        1.0121794939041138,
+        0.027881914749741554
+      ],
+      "max": [
+        -0.0000484481752209831,
+        1.4863618612289429,
+        0.07694125175476074
+      ]
+    },
+    "ZA_nucleus_proprius": {
+      "min": [
+        -0.0046187653206288815,
+        1.0121791362762451,
+        0.025808002799749374
+      ],
+      "max": [
+        0.0026231103111058474,
+        1.4867537021636963,
+        0.07496585696935654
+      ]
+    },
+    "ZA_posterior_fasciculus_proprius": {
+      "min": [
+        -0.004630785435438156,
+        1.0121797323226929,
+        0.024619391188025475
+      ],
+      "max": [
+        0.0028463720809668303,
+        1.4869792461395264,
+        0.07632190734148026
+      ]
+    },
+    "ZA_posterior_horn_of_spinal_cord": {
+      "min": [
+        -0.0049973297864198685,
+        1.0121791362762451,
+        0.02477394975721836
+      ],
+      "max": [
+        0.0030009972397238016,
+        1.4869493246078491,
+        0.07606756687164307
+      ]
+    },
+    "ZA_posterior_spinocerebellar_tract": {
+      "min": [
+        -0.007980926893651485,
+        1.0121797323226929,
+        0.024406686425209045
+      ],
+      "max": [
+        0.006192096043378115,
+        1.4870195388793945,
+        0.07620053738355637
+      ]
+    },
+    "ZA_posterolateral_tract": {
+      "min": [
+        -0.005655508954077959,
+        1.012179970741272,
+        0.023832591250538826
+      ],
+      "max": [
+        0.0038823033683001995,
+        1.4871282577514648,
+        0.07450765371322632
+      ]
+    },
+    "ZA_anterior_root_of_spinal_nerve_r": {
+      "min": [
+        -0.02561779133975506,
+        1.024863600730896,
+        0.02692864090204239
+      ],
+      "max": [
+        -0.001312771812081337,
+        1.4778660535812378,
+        0.09141021221876144
+      ]
+    },
+    "ZA_posterior_root_of_spinal_nerve_r": {
+      "min": [
+        -0.017869245260953903,
+        1.024875283241272,
+        0.024176690727472305
+      ],
+      "max": [
+        -0.001332906074821949,
+        1.4779101610183716,
+        0.08302172273397446
+      ]
+    },
+    "ZA_spinal_ganglion_r": {
+      "min": [
+        -0.020044928416609764,
+        1.0233314037322998,
+        0.02573086880147457
+      ],
+      "max": [
+        -0.00947946310043335,
+        1.47421395778656,
+        0.08484621345996857
+      ]
+    },
+    "ZA_rubrospinal_tract": {
+      "min": [
+        -0.007141251116991043,
+        1.0121797323226929,
+        0.02746511809527874
+      ],
+      "max": [
+        0.005364446435123682,
+        1.486440896987915,
+        0.07731422036886215
+      ]
+    },
+    "ZA_spinal_dura": {
+      "min": [
+        -0.018142271786928177,
+        1.0121796131134033,
+        0.022781597450375557
+      ],
+      "max": [
+        0.016573695465922356,
+        1.487327218055725,
+        0.0835127905011177
+      ]
+    },
+    "ZA_spinal_reticular_process": {
+      "min": [
+        -0.005546198692172766,
+        1.0121791362762451,
+        0.026408778503537178
+      ],
+      "max": [
+        0.0035474190954118967,
+        1.4866400957107544,
+        0.07607614994049072
+      ]
+    },
+    "ZA_spinotectal_tract": {
+      "min": [
+        -0.004731944762170315,
+        1.0121796131134033,
+        0.03039109893143177
+      ],
+      "max": [
+        0.0029593382496386766,
+        1.4858874082565308,
+        0.07960374653339386
+      ]
+    },
+    "ZA_tectospinal_tract": {
+      "min": [
+        -0.0015408097533509135,
+        1.0170120000839233,
+        0.028427228331565857
+      ],
+      "max": [
+        -0.0002519063127692789,
+        1.4862587451934814,
+        0.07743419706821442
+      ]
+    },
+    "ZA_white_matter_of_spinal_cord": {
+      "min": [
+        -0.008016595616936684,
+        1.0121794939041138,
+        0.023080119863152504
+      ],
+      "max": [
+        0.006221926771104336,
+        1.4872705936431885,
+        0.08110717684030533
+      ]
+    },
+    "ZA_femoral_branch_of_genitofemoral_nerve_l": {
+      "min": [
+        0.033530011773109436,
+        0.7638406157493591,
+        0.1168067529797554
+      ],
+      "max": [
+        0.05406259745359421,
+        0.9742128849029541,
+        0.1509634554386139
+      ]
+    },
+    "ZA_ganglia_of_sympathetic_trunk_l": {
+      "min": [
+        0.003416813677176833,
+        1.094360113143921,
+        0.037556663155555725
+      ],
+      "max": [
+        0.02088402397930622,
+        1.4480873346328735,
+        0.10317211598157883
+      ]
+    },
+    "ZA_genital_branch_of_genitofemoral_nerve_l": {
+      "min": [
+        0.015000613406300545,
+        0.7258793115615845,
+        0.1168067529797554
+      ],
+      "max": [
+        0.042663972824811935,
+        0.9742128252983093,
+        0.14971472322940826
+      ]
+    },
+    "ZA_genitofemoral_nerve_l": {
+      "min": [
+        0.012970021925866604,
+        0.9738430380821228,
+        0.07326887547969818
+      ],
+      "max": [
+        0.04023418948054314,
+        1.049716830253601,
+        0.11769179999828339
+      ]
+    },
+    "ZA_ilio_inguinal_nerve_l": {
+      "min": [
+        0.029243506491184235,
+        0.8093301653862,
+        0.05550343170762062
+      ],
+      "max": [
+        0.11800822615623474,
+        1.0754780769348145,
+        0.15026265382766724
+      ]
+    },
+    "ZA_iliohypogastric_nerve_l": {
+      "min": [
+        0.012680521234869957,
+        0.9645098447799683,
+        0.05530279502272606
+      ],
+      "max": [
+        0.11109999567270279,
+        1.0876977443695068,
+        0.11122344434261322
+      ]
+    },
+    "ZA_intercostal_nerves_l": {
+      "min": [
+        0.010826547630131245,
+        0.941321849822998,
+        0.010353000834584236
+      ],
+      "max": [
+        0.13211078941822052,
+        1.3808262348175049,
+        0.19977737963199615
+      ]
+    },
+    "ZA_pudendal_nerve_l": {
+      "min": [
+        0.007579037919640541,
+        0.7787190675735474,
+        0.01834544725716114
+      ],
+      "max": [
+        0.02727086842060089,
+        0.8912840485572815,
+        0.12009570747613907
+      ]
+    },
+    "ZA_sympathetic_nerves_l": {
+      "min": [
+        0.004096201155334711,
+        1.1150442361831665,
+        0.00925578735768795
+      ],
+      "max": [
+        0.023019349202513695,
+        1.4333378076553345,
+        0.10188990086317062
+      ]
+    },
+    "ZA_sympathetic_trunk_l": {
+      "min": [
+        0.0036363478284329176,
+        1.0880868434906006,
+        0.03708233684301376
+      ],
+      "max": [
+        0.023203309625387192,
+        1.4474653005599976,
+        0.10282476991415024
+      ]
+    },
+    "ZA_femoral_branch_of_genitofemoral_nerve_r": {
+      "min": [
+        -0.0556332990527153,
+        0.7638405561447144,
+        0.1168067455291748
+      ],
+      "max": [
+        -0.03510071709752083,
+        0.9742128849029541,
+        0.15096351504325867
+      ]
+    },
+    "ZA_ganglia_of_sympathetic_trunk_r": {
+      "min": [
+        -0.022454719990491867,
+        1.0943602323532104,
+        0.03755667805671692
+      ],
+      "max": [
+        -0.0049875108525156975,
+        1.4480873346328735,
+        0.10317206382751465
+      ]
+    },
+    "ZA_genital_branch_of_genitofemoral_nerve_r": {
+      "min": [
+        -0.04423467814922333,
+        0.7258792519569397,
+        0.1168067455291748
+      ],
+      "max": [
+        -0.016571318730711937,
+        0.9742128252983093,
+        0.14971478283405304
+      ]
+    },
+    "ZA_genitofemoral_nerve_r": {
+      "min": [
+        -0.04180489480495453,
+        0.9738430380821228,
+        0.0732688382267952
+      ],
+      "max": [
+        -0.014540726318955421,
+        1.049716830253601,
+        0.11769179254770279
+      ]
+    },
+    "ZA_ilio_inguinal_nerve_r": {
+      "min": [
+        -0.11957897990942001,
+        0.8093301653862,
+        0.055503398180007935
+      ],
+      "max": [
+        -0.030814262107014656,
+        1.0754780769348145,
+        0.15026265382766724
+      ]
+    },
+    "ZA_iliohypogastric_nerve_r": {
+      "min": [
+        -0.11267074942588806,
+        0.9645098447799683,
+        0.055302802473306656
+      ],
+      "max": [
+        -0.014251275919377804,
+        1.0876977443695068,
+        0.11122346669435501
+      ]
+    },
+    "ZA_intercostal_nerves_r": {
+      "min": [
+        -0.13368147611618042,
+        0.9413217902183533,
+        0.010352972894906998
+      ],
+      "max": [
+        -0.012397252023220062,
+        1.3808262348175049,
+        0.19977739453315735
+      ]
+    },
+    "ZA_pudendal_nerve_r": {
+      "min": [
+        -0.028841566294431686,
+        0.7787190079689026,
+        0.018345441669225693
+      ],
+      "max": [
+        -0.009149734862148762,
+        0.8912839889526367,
+        0.12009572237730026
+      ]
+    },
+    "ZA_sympathetic_nerves_r": {
+      "min": [
+        -0.02459004707634449,
+        1.1150442361831665,
+        0.009255802258849144
+      ],
+      "max": [
+        -0.005666898563504219,
+        1.4333378076553345,
+        0.10188985615968704
+      ]
+    },
+    "ZA_sympathetic_trunk_r": {
+      "min": [
+        -0.024774007499217987,
+        1.0880868434906006,
+        0.037082359194755554
+      ],
+      "max": [
+        -0.005207045003771782,
+        1.4474653005599976,
+        0.10282471776008606
+      ]
+    },
+    "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_l": {
+      "min": [
+        0.18202251195907593,
+        0.8907489776611328,
+        0.08054597675800323
+      ],
+      "max": [
+        0.22734639048576355,
+        1.1181734800338745,
+        0.1177905946969986
+      ]
+    },
+    "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.07886484265327454,
+        1.3449316024780273,
+        0.08066441118717194
+      ],
+      "max": [
+        0.09765968471765518,
+        1.363824486732483,
+        0.0889570564031601
+      ]
+    },
+    "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.07979537546634674,
+        1.3451299667358398,
+        0.07386001944541931
+      ],
+      "max": [
+        0.10689481347799301,
+        1.3664746284484863,
+        0.08490456640720367
+      ]
+    },
+    "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.08298375457525253,
+        1.3453657627105713,
+        0.06990115344524384
+      ],
+      "max": [
+        0.10666064918041229,
+        1.3652880191802979,
+        0.08480127155780792
+      ]
+    },
+    "ZA_anterior_interosseous_nerve_of_forearm_l": {
+      "min": [
+        0.2067607194185257,
+        0.8468692302703857,
+        0.07666496187448502
+      ],
+      "max": [
+        0.24444171786308289,
+        1.0499374866485596,
+        0.11071427166461945
+      ]
+    },
+    "ZA_axillary_nerve_l": {
+      "min": [
+        0.10564655810594559,
+        1.2984395027160645,
+        0.06139368563890457
+      ],
+      "max": [
+        0.15766648948192596,
+        1.346811056137085,
+        0.08562392741441727
+      ]
+    },
+    "ZA_common_palmar_digital_branches_of_median_nerve_l": {
+      "min": [
+        0.25395339727401733,
+        0.7432504892349243,
+        0.13058888912200928
+      ],
+      "max": [
+        0.28967541456222534,
+        0.8006826639175415,
+        0.14113375544548035
+      ]
+    },
+    "ZA_common_palmar_digital_branches_of_ulnar_nerve_l": {
+      "min": [
+        0.23924246430397034,
+        0.7432035803794861,
+        0.13112403452396393
+      ],
+      "max": [
+        0.25736650824546814,
+        0.8074315786361694,
+        0.141117125749588
+      ]
+    },
+    "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_l": {
+      "min": [
+        0.23783475160598755,
+        0.8173117637634277,
+        0.12401983886957169
+      ],
+      "max": [
+        0.2489139288663864,
+        0.830837070941925,
+        0.12633474171161652
+      ]
+    },
+    "ZA_deep_branch_of_radial_nerve_l": {
+      "min": [
+        0.22516967356204987,
+        0.8094730377197266,
+        0.06573892384767532
+      ],
+      "max": [
+        0.25696104764938354,
+        1.048279881477356,
+        0.11000769585371017
+      ]
+    },
+    "ZA_deep_branch_of_ulnar_nerve_l": {
+      "min": [
+        0.23938798904418945,
+        0.7951845526695251,
+        0.12439469993114471
+      ],
+      "max": [
+        0.27571576833724976,
+        0.8136976957321167,
+        0.13071875274181366
+      ]
+    },
+    "ZA_dorsal_branch_of_ulnar_nerve_l": {
+      "min": [
+        0.2222273200750351,
+        0.7478280067443848,
+        0.11000005155801773
+      ],
+      "max": [
+        0.23880068957805634,
+        0.846062958240509,
+        0.1333550363779068
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_radial_nerve_l": {
+      "min": [
+        0.25262218713760376,
+        0.6703519225120544,
+        0.11013097316026688
+      ],
+      "max": [
+        0.32247427105903625,
+        0.7988336086273193,
+        0.18509621918201447
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_ulnar_nerve_l": {
+      "min": [
+        0.21734458208084106,
+        0.6816538572311401,
+        0.126653254032135
+      ],
+      "max": [
+        0.2456226795911789,
+        0.749793291091919,
+        0.18391646444797516
+      ]
+    },
+    "ZA_dorsal_scapular_nerve_l": {
+      "min": [
+        0.02385031245648861,
+        1.2538057565689087,
+        -0.007034095004200935
+      ],
+      "max": [
+        0.05597030371427536,
+        1.4270758628845215,
+        0.08732698112726212
+      ]
+    },
+    "ZA_inferior_lateral_brachial_cutaneous_nerve_l": {
+      "min": [
+        0.2036660760641098,
+        1.1313880681991577,
+        0.052366193383932114
+      ],
+      "max": [
+        0.23277676105499268,
+        1.177436113357544,
+        0.07370801270008087
+      ]
+    },
+    "ZA_inferior_subscapular_nerve_l": {
+      "min": [
+        0.09040514379739761,
+        1.2392455339431763,
+        0.009728053584694862
+      ],
+      "max": [
+        0.11372007429599762,
+        1.3309767246246338,
+        0.07332339882850647
+      ]
+    },
+    "ZA_inferior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.051972921937704086,
+        1.3615361452102661,
+        0.08062218129634857
+      ],
+      "max": [
+        0.0807490348815918,
+        1.38265061378479,
+        0.0881257876753807
+      ]
+    },
+    "ZA_lateral_antebrachial_cutaneous_nerve_l": {
+      "min": [
+        0.21495003998279572,
+        0.8914525508880615,
+        0.08106270432472229
+      ],
+      "max": [
+        0.26604586839675903,
+        1.0483602285385132,
+        0.10648129135370255
+      ]
+    },
+    "ZA_lateral_pectoral_nerve_l": {
+      "min": [
+        0.03355899080634117,
+        1.1788110733032227,
+        0.08301019668579102
+      ],
+      "max": [
+        0.13405978679656982,
+        1.3468388319015503,
+        0.2184743583202362
+      ]
+    },
+    "ZA_long_thoracic_nerve_l": {
+      "min": [
+        0.02146739512681961,
+        1.1480568647384644,
+        0.04495970904827118
+      ],
+      "max": [
+        0.13836568593978882,
+        1.42658269405365,
+        0.10315387696027756
+      ]
+    },
+    "ZA_medial_antebrachial_cutaneous_nerve_l": {
+      "min": [
+        0.12406894564628601,
+        1.117993712425232,
+        0.07820937037467957
+      ],
+      "max": [
+        0.18297189474105835,
+        1.3151752948760986,
+        0.0946863442659378
+      ]
+    },
+    "ZA_medial_brachial_cutaneous_nerve_l": {
+      "min": [
+        0.09627396613359451,
+        1.149549126625061,
+        0.04569351300597191
+      ],
+      "max": [
+        0.16550114750862122,
+        1.3464499711990356,
+        0.09436889737844467
+      ]
+    },
+    "ZA_medial_pectoral_nerve_l": {
+      "min": [
+        0.05623772740364075,
+        1.2873096466064453,
+        0.08576489239931107
+      ],
+      "max": [
+        0.10035773366689682,
+        1.3775603771209717,
+        0.14549683034420013
+      ]
+    },
+    "ZA_median_nerve_l": {
+      "min": [
+        0.1062266156077385,
+        0.8002013564109802,
+        0.07173074036836624
+      ],
+      "max": [
+        0.25490686297416687,
+        1.3369636535644531,
+        0.13155697286128998
+      ]
+    },
+    "ZA_middle_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.04915532469749451,
+        1.3640568256378174,
+        0.0713823214173317
+      ],
+      "max": [
+        0.08151216804981232,
+        1.3883870840072632,
+        0.07666748017072678
+      ]
+    },
+    "ZA_muscular_branches_of_axillary_nerve_l": {
+      "min": [
+        0.15728183090686798,
+        1.29657781124115,
+        0.05908893421292305
+      ],
+      "max": [
+        0.18969787657260895,
+        1.3174188137054443,
+        0.07994377613067627
+      ]
+    },
+    "ZA_muscular_branches_of_median_nerve_l": {
+      "min": [
+        0.20426200330257416,
+        0.9678819179534912,
+        0.08357912302017212
+      ],
+      "max": [
+        0.22388909757137299,
+        1.0230363607406616,
+        0.10573451966047287
+      ]
+    },
+    "ZA_muscular_branches_of_radial_nerve_l": {
+      "min": [
+        0.19523932039737701,
+        1.0489081144332886,
+        0.0401962585747242
+      ],
+      "max": [
+        0.2552739679813385,
+        1.1138973236083984,
+        0.07893671095371246
+      ]
+    },
+    "ZA_muscular_branches_of_ulnar_nerve_l": {
+      "min": [
+        0.1822502315044403,
+        0.9548568725585938,
+        0.06378403306007385
+      ],
+      "max": [
+        0.21268969774246216,
+        1.0070592164993286,
+        0.08849436789751053
+      ]
+    },
+    "ZA_musculocutaneous_nerve_l": {
+      "min": [
+        0.16829553246498108,
+        1.0479247570037842,
+        0.07028445601463318
+      ],
+      "max": [
+        0.2158312350511551,
+        1.2602992057800293,
+        0.09050692617893219
+      ]
+    },
+    "ZA_palmar_branch_of_median_nerve_l": {
+      "min": [
+        0.23173271119594574,
+        0.8041720986366272,
+        0.10895819216966629
+      ],
+      "max": [
+        0.26786479353904724,
+        0.8996789455413818,
+        0.14215800166130066
+      ]
+    },
+    "ZA_palmar_branch_of_ulnar_nerve_l": {
+      "min": [
+        0.20663398504257202,
+        0.7828392386436462,
+        0.09326396137475967
+      ],
+      "max": [
+        0.2552257478237152,
+        0.905596137046814,
+        0.14070923626422882
+      ]
+    },
+    "ZA_posterior_antebrachial_cutaneous_nerve_l": {
+      "min": [
+        0.23079398274421692,
+        0.8481858372688293,
+        0.043076712638139725
+      ],
+      "max": [
+        0.24614906311035156,
+        1.0717965364456177,
+        0.09097081422805786
+      ]
+    },
+    "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_l": {
+      "min": [
+        0.17555487155914307,
+        0.8984431624412537,
+        0.06091894581913948
+      ],
+      "max": [
+        0.21867026388645172,
+        1.1181504726409912,
+        0.08574210107326508
+      ]
+    },
+    "ZA_posterior_cord_of_brachial_plexus_l": {
+      "min": [
+        0.09604343771934509,
+        1.3256237506866455,
+        0.07138209789991379
+      ],
+      "max": [
+        0.11770156770944595,
+        1.3467622995376587,
+        0.07388857752084732
+      ]
+    },
+    "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.07927010208368301,
+        1.3461518287658691,
+        0.08061634004116058
+      ],
+      "max": [
+        0.10644017159938812,
+        1.3640296459197998,
+        0.08483206480741501
+      ]
+    },
+    "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.07978563010692596,
+        1.345384120941162,
+        0.07140086591243744
+      ],
+      "max": [
+        0.09737760573625565,
+        1.3664921522140503,
+        0.07720000296831131
+      ]
+    },
+    "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.0833391547203064,
+        1.345373511314392,
+        0.07036963105201721
+      ],
+      "max": [
+        0.0973915085196495,
+        1.3649849891662598,
+        0.0733167976140976
+      ]
+    },
+    "ZA_posterior_interosseous_nerve_of_forearm_l": {
+      "min": [
+        0.2300795018672943,
+        0.8582491874694824,
+        0.06774137169122696
+      ],
+      "max": [
+        0.2439364194869995,
+        1.0202889442443848,
+        0.10467329621315002
+      ]
+    },
+    "ZA_proper_palmar_digital_branches_of_median_nerve_l": {
+      "min": [
+        0.25287359952926636,
+        0.6703547239303589,
+        0.13190427422523499
+      ],
+      "max": [
+        0.31778040528297424,
+        0.7926512360572815,
+        0.19110053777694702
+      ]
+    },
+    "ZA_proper_palmar_digital_branches_of_ulnar_nerve_l": {
+      "min": [
+        0.21703068912029266,
+        0.6809042096138,
+        0.12781456112861633
+      ],
+      "max": [
+        0.24635528028011322,
+        0.8074315786361694,
+        0.18854117393493652
+      ]
+    },
+    "ZA_radial_nerve_l": {
+      "min": [
+        0.11628582328557968,
+        1.0478646755218506,
+        0.051561880856752396
+      ],
+      "max": [
+        0.2357846051454544,
+        1.3269449472427368,
+        0.08234361559152603
+      ]
+    },
+    "ZA_roots_of_brachial_plexus_l": {
+      "min": [
+        0.011906217783689499,
+        1.3786908388137817,
+        0.06379857659339905
+      ],
+      "max": [
+        0.05349303036928177,
+        1.4481208324432373,
+        0.09250631928443909
+      ]
+    },
+    "ZA_subclavian_nerve_l": {
+      "min": [
+        0.05126803368330002,
+        1.3427942991256714,
+        0.0848197191953659
+      ],
+      "max": [
+        0.06385181844234467,
+        1.3983930349349976,
+        0.1256253570318222
+      ]
+    },
+    "ZA_superficial_branch_of_radial_nerve_l": {
+      "min": [
+        0.22508181631565094,
+        0.7881503105163574,
+        0.08146677911281586
+      ],
+      "max": [
+        0.29167622327804565,
+        1.0482255220413208,
+        0.14199692010879517
+      ]
+    },
+    "ZA_superficial_branch_of_ulnar_nerve_l": {
+      "min": [
+        0.22819387912750244,
+        0.8073351383209229,
+        0.11571469902992249
+      ],
+      "max": [
+        0.2410324662923813,
+        0.8461852669715881,
+        0.13207237422466278
+      ]
+    },
+    "ZA_superior_lateral_brachial_cutaneous_nerve_l": {
+      "min": [
+        0.1573464572429657,
+        1.257912516593933,
+        0.009988060221076012
+      ],
+      "max": [
+        0.22181443870067596,
+        1.3122358322143555,
+        0.06271381676197052
+      ]
+    },
+    "ZA_superior_subscapular_nerve_l": {
+      "min": [
+        0.0764947459101677,
+        1.3002045154571533,
+        0.012329453602433205
+      ],
+      "max": [
+        0.1076408177614212,
+        1.3368006944656372,
+        0.07311159372329712
+      ]
+    },
+    "ZA_superior_trunk_of_brachial_plexus_l": {
+      "min": [
+        0.05063258856534958,
+        1.3635329008102417,
+        0.06987334042787552
+      ],
+      "max": [
+        0.08526182174682617,
+        1.3991491794586182,
+        0.08670642226934433
+      ]
+    },
+    "ZA_suprascapular_nerve_l": {
+      "min": [
+        0.051335446536540985,
+        1.265442967414856,
+        0.009258924052119255
+      ],
+      "max": [
+        0.13798712193965912,
+        1.3985276222229004,
+        0.08573205024003983
+      ]
+    },
+    "ZA_thoracodorsal_nerve_l": {
+      "min": [
+        0.08506112545728683,
+        1.170775055885315,
+        -0.003061917144805193
+      ],
+      "max": [
+        0.14435534179210663,
+        1.3267258405685425,
+        0.07346178591251373
+      ]
+    },
+    "ZA_ulnar_nerve_l": {
+      "min": [
+        0.0962815210223198,
+        0.8457966446876526,
+        0.054514236748218536
+      ],
+      "max": [
+        0.2290923297405243,
+        1.346449851989746,
+        0.11664123833179474
+      ]
+    },
+    "ZA_anterior_branch_of_medial_antebrachial_cutaneous_nerve_r": {
+      "min": [
+        -0.22891710698604584,
+        0.8907487988471985,
+        0.08054602146148682
+      ],
+      "max": [
+        -0.18359322845935822,
+        1.118173360824585,
+        0.11779072880744934
+      ]
+    },
+    "ZA_anterior_division_of_inferior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.09923038631677628,
+        1.3449312448501587,
+        0.08066430687904358
+      ],
+      "max": [
+        -0.08043554425239563,
+        1.3638241291046143,
+        0.08895696699619293
+      ]
+    },
+    "ZA_anterior_division_of_middle_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.10846547782421112,
+        1.3451299667358398,
+        0.07385997474193573
+      ],
+      "max": [
+        -0.08136604726314545,
+        1.3664747476577759,
+        0.08490452915430069
+      ]
+    },
+    "ZA_anterior_division_of_superior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.10823134332895279,
+        1.3453655242919922,
+        0.06990104913711548
+      ],
+      "max": [
+        -0.08455444872379303,
+        1.3652877807617188,
+        0.08480117470026016
+      ]
+    },
+    "ZA_anterior_interosseous_nerve_of_forearm_r": {
+      "min": [
+        -0.24601240456104279,
+        0.846869170665741,
+        0.07666490226984024
+      ],
+      "max": [
+        -0.2083314210176468,
+        1.0499374866485596,
+        0.1107141450047493
+      ]
+    },
+    "ZA_axillary_nerve_r": {
+      "min": [
+        -0.15923720598220825,
+        1.2984395027160645,
+        0.06139368563890457
+      ],
+      "max": [
+        -0.10721728950738907,
+        1.346811056137085,
+        0.08562392741441727
+      ]
+    },
+    "ZA_common_palmar_digital_branches_of_median_nerve_r": {
+      "min": [
+        -0.29124611616134644,
+        0.7432504296302795,
+        0.13058874011039734
+      ],
+      "max": [
+        -0.25552406907081604,
+        0.8006826043128967,
+        0.14113357663154602
+      ]
+    },
+    "ZA_common_palmar_digital_branches_of_ulnar_nerve_r": {
+      "min": [
+        -0.25893720984458923,
+        0.7432034611701965,
+        0.13112413883209229
+      ],
+      "max": [
+        -0.24081318080425262,
+        0.8074314594268799,
+        0.14111725986003876
+      ]
+    },
+    "ZA_communicating_branch_of_median_nerve_with_ulnar_nerve_r": {
+      "min": [
+        -0.2504846155643463,
+        0.817311704158783,
+        0.12401970475912094
+      ],
+      "max": [
+        -0.23940543830394745,
+        0.8308370113372803,
+        0.12633460760116577
+      ]
+    },
+    "ZA_deep_branch_of_radial_nerve_r": {
+      "min": [
+        -0.25853171944618225,
+        0.809472918510437,
+        0.0657389834523201
+      ],
+      "max": [
+        -0.22674036026000977,
+        1.048279881477356,
+        0.11000784486532211
+      ]
+    },
+    "ZA_deep_branch_of_ulnar_nerve_r": {
+      "min": [
+        -0.27728649973869324,
+        0.7951844334602356,
+        0.12439481914043427
+      ],
+      "max": [
+        -0.24095870554447174,
+        0.8136975765228271,
+        0.1307188719511032
+      ]
+    },
+    "ZA_dorsal_branch_of_ulnar_nerve_r": {
+      "min": [
+        -0.24037140607833862,
+        0.7478278875350952,
+        0.11000015586614609
+      ],
+      "max": [
+        -0.22379803657531738,
+        0.8460628390312195,
+        0.13335518538951874
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_radial_nerve_r": {
+      "min": [
+        -0.32404494285583496,
+        0.6703516840934753,
+        0.11013112217187881
+      ],
+      "max": [
+        -0.25419285893440247,
+        0.798833429813385,
+        0.18509644269943237
+      ]
+    },
+    "ZA_dorsal_digital_branches_of_ulnar_nerve_r": {
+      "min": [
+        -0.24719339609146118,
+        0.6816536784172058,
+        0.12665340304374695
+      ],
+      "max": [
+        -0.21891529858112335,
+        0.7497931122779846,
+        0.18391664326190948
+      ]
+    },
+    "ZA_dorsal_scapular_nerve_r": {
+      "min": [
+        -0.05754097178578377,
+        1.2538056373596191,
+        -0.007034079637378454
+      ],
+      "max": [
+        -0.025420984253287315,
+        1.427075982093811,
+        0.08732697367668152
+      ]
+    },
+    "ZA_inferior_lateral_brachial_cutaneous_nerve_r": {
+      "min": [
+        -0.23434746265411377,
+        1.1313880681991577,
+        0.052366189658641815
+      ],
+      "max": [
+        -0.2052367776632309,
+        1.177436113357544,
+        0.07370802760124207
+      ]
+    },
+    "ZA_inferior_subscapular_nerve_r": {
+      "min": [
+        -0.11529078334569931,
+        1.2392455339431763,
+        0.009728042408823967
+      ],
+      "max": [
+        -0.09197584539651871,
+        1.3309767246246338,
+        0.07332339882850647
+      ]
+    },
+    "ZA_inferior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.0823196992278099,
+        1.3615362644195557,
+        0.08062213659286499
+      ],
+      "max": [
+        -0.05354359745979309,
+        1.38265061378479,
+        0.08812574297189713
+      ]
+    },
+    "ZA_lateral_antebrachial_cutaneous_nerve_r": {
+      "min": [
+        -0.2676165699958801,
+        0.8914523720741272,
+        0.08106277137994766
+      ],
+      "max": [
+        -0.216520756483078,
+        1.0483601093292236,
+        0.10648138076066971
+      ]
+    },
+    "ZA_lateral_pectoral_nerve_r": {
+      "min": [
+        -0.13563048839569092,
+        1.1788110733032227,
+        0.08301013708114624
+      ],
+      "max": [
+        -0.03512971103191376,
+        1.3468388319015503,
+        0.2184744030237198
+      ]
+    },
+    "ZA_long_thoracic_nerve_r": {
+      "min": [
+        -0.13993634283542633,
+        1.1480568647384644,
+        0.04495975002646446
+      ],
+      "max": [
+        -0.023038070648908615,
+        1.4265828132629395,
+        0.10315386950969696
+      ]
+    },
+    "ZA_medial_antebrachial_cutaneous_nerve_r": {
+      "min": [
+        -0.18454262614250183,
+        1.117993712425232,
+        0.07820940017700195
+      ],
+      "max": [
+        -0.1256396770477295,
+        1.3151754140853882,
+        0.09468633681535721
+      ]
+    },
+    "ZA_medial_brachial_cutaneous_nerve_r": {
+      "min": [
+        -0.1670718640089035,
+        1.149549126625061,
+        0.045693546533584595
+      ],
+      "max": [
+        -0.0978446900844574,
+        1.3464499711990356,
+        0.09436890482902527
+      ]
+    },
+    "ZA_medial_pectoral_nerve_r": {
+      "min": [
+        -0.1019284576177597,
+        1.2873096466064453,
+        0.08576489239931107
+      ],
+      "max": [
+        -0.05780845507979393,
+        1.3775603771209717,
+        0.14549684524536133
+      ]
+    },
+    "ZA_median_nerve_r": {
+      "min": [
+        -0.25647756457328796,
+        0.8002012968063354,
+        0.07173088192939758
+      ],
+      "max": [
+        -0.10779732465744019,
+        1.3369637727737427,
+        0.13155682384967804
+      ]
+    },
+    "ZA_middle_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.08308283984661102,
+        1.3640568256378174,
+        0.07138226181268692
+      ],
+      "max": [
+        -0.05072600021958351,
+        1.3883872032165527,
+        0.0766674280166626
+      ]
+    },
+    "ZA_muscular_branches_of_axillary_nerve_r": {
+      "min": [
+        -0.19126859307289124,
+        1.29657781124115,
+        0.05908893421292305
+      ],
+      "max": [
+        -0.15885256230831146,
+        1.3174188137054443,
+        0.07994378358125687
+      ]
+    },
+    "ZA_muscular_branches_of_median_nerve_r": {
+      "min": [
+        -0.22545978426933289,
+        0.9678818583488464,
+        0.08357907831668854
+      ],
+      "max": [
+        -0.20583269000053406,
+        1.0230363607406616,
+        0.1057344526052475
+      ]
+    },
+    "ZA_muscular_branches_of_radial_nerve_r": {
+      "min": [
+        -0.2568446695804596,
+        1.048907995223999,
+        0.04019626975059509
+      ],
+      "max": [
+        -0.1968100219964981,
+        1.1138973236083984,
+        0.07893674820661545
+      ]
+    },
+    "ZA_muscular_branches_of_ulnar_nerve_r": {
+      "min": [
+        -0.21426041424274445,
+        0.954856812953949,
+        0.06378405541181564
+      ],
+      "max": [
+        -0.1838209480047226,
+        1.0070592164993286,
+        0.08849441260099411
+      ]
+    },
+    "ZA_musculocutaneous_nerve_r": {
+      "min": [
+        -0.21740195155143738,
+        1.0479246377944946,
+        0.07028448581695557
+      ],
+      "max": [
+        -0.16986626386642456,
+        1.2602992057800293,
+        0.09050692617893219
+      ]
+    },
+    "ZA_palmar_branch_of_median_nerve_r": {
+      "min": [
+        -0.26943546533584595,
+        0.8041720390319824,
+        0.10895809531211853
+      ],
+      "max": [
+        -0.23330339789390564,
+        0.8996789455413818,
+        0.14215785264968872
+      ]
+    },
+    "ZA_palmar_branch_of_ulnar_nerve_r": {
+      "min": [
+        -0.2567964494228363,
+        0.7828391194343567,
+        0.09326403588056564
+      ],
+      "max": [
+        -0.2082047015428543,
+        0.9055960178375244,
+        0.14070937037467957
+      ]
+    },
+    "ZA_posterior_antebrachial_cutaneous_nerve_r": {
+      "min": [
+        -0.24771974980831146,
+        0.8481857180595398,
+        0.043076761066913605
+      ],
+      "max": [
+        -0.232364684343338,
+        1.0717965364456177,
+        0.09097093343734741
+      ]
+    },
+    "ZA_posterior_branch_of_medial_antebrachial_cutaneous_nerve_r": {
+      "min": [
+        -0.220240980386734,
+        0.8984429836273193,
+        0.06091901287436485
+      ],
+      "max": [
+        -0.17712558805942535,
+        1.1181504726409912,
+        0.08574221283197403
+      ]
+    },
+    "ZA_posterior_cord_of_brachial_plexus_r": {
+      "min": [
+        -0.11927223205566406,
+        1.3256237506866455,
+        0.07138209789991379
+      ],
+      "max": [
+        -0.0976141095161438,
+        1.3467622995376587,
+        0.07388858497142792
+      ]
+    },
+    "ZA_posterior_division_of_inferior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.10801085829734802,
+        1.3461514711380005,
+        0.08061624318361282
+      ],
+      "max": [
+        -0.08084079623222351,
+        1.3640294075012207,
+        0.08483196794986725
+      ]
+    },
+    "ZA_posterior_division_of_middle_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.09894827008247375,
+        1.345384120941162,
+        0.07140082120895386
+      ],
+      "max": [
+        -0.08135630190372467,
+        1.3664921522140503,
+        0.07719995826482773
+      ]
+    },
+    "ZA_posterior_division_of_superior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.09896217286586761,
+        1.345373511314392,
+        0.07036957889795303
+      ],
+      "max": [
+        -0.0849098190665245,
+        1.3649851083755493,
+        0.07331675291061401
+      ]
+    },
+    "ZA_posterior_interosseous_nerve_of_forearm_r": {
+      "min": [
+        -0.2455071061849594,
+        0.8582490682601929,
+        0.06774142384529114
+      ],
+      "max": [
+        -0.2316501885652542,
+        1.0202889442443848,
+        0.10467342287302017
+      ]
+    },
+    "ZA_proper_palmar_digital_branches_of_median_nerve_r": {
+      "min": [
+        -0.31935110688209534,
+        0.6703546047210693,
+        0.13190412521362305
+      ],
+      "max": [
+        -0.25444427132606506,
+        0.7926511168479919,
+        0.1911003440618515
+      ]
+    },
+    "ZA_proper_palmar_digital_branches_of_ulnar_nerve_r": {
+      "min": [
+        -0.2479259967803955,
+        0.6809040307998657,
+        0.12781468033790588
+      ],
+      "max": [
+        -0.21860142052173615,
+        0.8074314594268799,
+        0.18854135274887085
+      ]
+    },
+    "ZA_radial_nerve_r": {
+      "min": [
+        -0.2373552918434143,
+        1.0478646755218506,
+        0.0515618771314621
+      ],
+      "max": [
+        -0.11785652488470078,
+        1.3269449472427368,
+        0.08234366774559021
+      ]
+    },
+    "ZA_roots_of_brachial_plexus_r": {
+      "min": [
+        -0.05506369471549988,
+        1.3786908388137817,
+        0.06379858404397964
+      ],
+      "max": [
+        -0.013476887717843056,
+        1.4481208324432373,
+        0.09250631928443909
+      ]
+    },
+    "ZA_subclavian_nerve_r": {
+      "min": [
+        -0.06542248278856277,
+        1.3427942991256714,
+        0.08481970429420471
+      ],
+      "max": [
+        -0.052838701754808426,
+        1.3983930349349976,
+        0.1256253719329834
+      ]
+    },
+    "ZA_superficial_branch_of_radial_nerve_r": {
+      "min": [
+        -0.29324689507484436,
+        0.7881501317024231,
+        0.08146683126688004
+      ],
+      "max": [
+        -0.22665251791477203,
+        1.0482254028320312,
+        0.1419970840215683
+      ]
+    },
+    "ZA_superficial_branch_of_ulnar_nerve_r": {
+      "min": [
+        -0.24260319769382477,
+        0.8073350787162781,
+        0.11571479588747025
+      ],
+      "max": [
+        -0.22976461052894592,
+        0.8461852073669434,
+        0.13207249343395233
+      ]
+    },
+    "ZA_superior_lateral_brachial_cutaneous_nerve_r": {
+      "min": [
+        -0.22338515520095825,
+        1.257912516593933,
+        0.009988056495785713
+      ],
+      "max": [
+        -0.15891718864440918,
+        1.3122358322143555,
+        0.06271381676197052
+      ]
+    },
+    "ZA_superior_subscapular_nerve_r": {
+      "min": [
+        -0.1092115193605423,
+        1.3002045154571533,
+        0.012329447083175182
+      ],
+      "max": [
+        -0.07806544005870819,
+        1.3368006944656372,
+        0.07311159372329712
+      ]
+    },
+    "ZA_superior_trunk_of_brachial_plexus_r": {
+      "min": [
+        -0.08683248609304428,
+        1.3635330200195312,
+        0.06987328827381134
+      ],
+      "max": [
+        -0.052203260362148285,
+        1.3991491794586182,
+        0.08670636266469955
+      ]
+    },
+    "ZA_suprascapular_nerve_r": {
+      "min": [
+        -0.13955777883529663,
+        1.265442967414856,
+        0.009258930571377277
+      ],
+      "max": [
+        -0.05290612205862999,
+        1.3985276222229004,
+        0.08573205024003983
+      ]
+    },
+    "ZA_thoracodorsal_nerve_r": {
+      "min": [
+        -0.1459260731935501,
+        1.170775055885315,
+        -0.003061930648982525
+      ],
+      "max": [
+        -0.08663184940814972,
+        1.3267258405685425,
+        0.07346178591251373
+      ]
+    },
+    "ZA_ulnar_nerve_r": {
+      "min": [
+        -0.23066306114196777,
+        0.8457965850830078,
+        0.054514236748218536
+      ],
+      "max": [
+        -0.09785225242376328,
+        1.3464499711990356,
+        0.1166413351893425
+      ]
+    }
+  }
+}

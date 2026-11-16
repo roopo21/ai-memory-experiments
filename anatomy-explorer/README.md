@@ -45,7 +45,7 @@ npm run check
 
 The downloader pins the source revision, validates binary STL lengths and hashes, and fails on incomplete downloads. It can reuse validated cached meshes. `python3 scripts/select-muscles.py` rebuilds the muscle selection from cached or downloaded source indexes; inspect that diff before regenerating assets.
 
-All systems share `scripts/source-transform.json`: source `(x, y, z)` millimetres become `(x, z, -y) / 1000` metres plus the same ground offset. Individual structures are never centered separately.
+BodyParts3D systems share `scripts/source-transform.json`: source `(x, y, z)` millimetres become `(x, z, -y) / 1000` metres plus the same ground offset. Individual structures are never centered separately.
 
 ## What the assets represent
 
@@ -58,14 +58,20 @@ Source and derived-geometry terms are retained in [ATTRIBUTION.md](public/models
 
 ## Additional systems
 
-| Layer          | New selectable surfaces                           | Coverage                                                                                                                                       |
-| -------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cardiovascular | 65                                                | Heart wall, valves, papillary structures and available major vessels; not a complete peripheral network                                        |
-| Respiratory    | 12                                                | Five lung lobes, trachea, bronchus, selected laryngeal/nasal and oral surfaces                                                                 |
-| Digestive      | 12 additional, plus 3 shared respiratory surfaces | Liver, stomach, esophagus, pancreas, gallbladder, bowel and source subdivisions                                                                |
-| Urinary        | 6                                                 | Two kidneys, two ureters, bladder and urethra                                                                                                  |
-| Nervous        | 98                                                | Predominantly brain subdivisions, optic structures and source cavity/canal surfaces; no complete peripheral nerve or spinal-cord surface model |
+| Layer          | New selectable surfaces                           | Coverage                                                                                                                                                                     |
+| -------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cardiovascular | 65                                                | Heart wall, valves, papillary structures and available major vessels; not a complete peripheral network                                                                      |
+| Respiratory    | 12                                                | Five lung lobes, trachea, bronchus, selected laryngeal/nasal and oral surfaces                                                                                               |
+| Digestive      | 12 additional, plus 3 shared respiratory surfaces | Liver, stomach, esophagus, pancreas, gallbladder, bowel and source subdivisions                                                                                              |
+| Urinary        | 6                                                 | Two kidneys, two ureters, bladder and urethra                                                                                                                                |
+| Nervous        | 98                                                | Predominantly brain subdivisions, optic structures and source cavity/canal surfaces; extended with 282 Z-Anatomy spinal cord, cranial, trunk, pelvic and limb nerve surfaces |
 
 These use the same source transform as bones and muscles. Overview transfer totals 3.8 MB; selected detail files total 11.5 MB collectively. The detailed exports contain 3,522,980 triangles versus 3,522,988 source triangles. Supporting oral bones and skeletal muscles already imported stay in their existing layers. Source-defined groups and cavity surfaces retain their original names. These layers are imported source coverage, not complete or independently reviewed systems.
 
 The single forward plan is [ROADMAP.md](ROADMAP.md).
+
+### Nerve extension and deployment
+
+`npm run fetch:nerves`, `npm run select:nerves`, `npm run register:nerves`, and `npm run build:nerves` reproduce the pinned Z-Anatomy import. Registration fits 99 shared bone landmarks (median residual 0.80 mm). Source terms and upstream notice are retained under `public/models/`.
+
+Production: https://vrisha-anatomy.netlify.app. Run `npm run check`, then `netlify deploy --prod --dir dist --no-build --site 27c67818-b9d4-4595-b392-1374549d2231`. The background and favicon use Vrisha Labs branding.

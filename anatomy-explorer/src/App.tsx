@@ -24,6 +24,9 @@ const ChunkLoading = () => (
 export default function App() {
   return (
     <div className="relative h-dvh w-screen overflow-hidden md:pl-[21.5rem]">
+      <div aria-hidden="true" className="viewer-brand">
+        vrisha labs
+      </div>
       <main className="absolute inset-0" aria-label="3D anatomy viewport">
         <Suspense fallback={null}>
           <Scene />

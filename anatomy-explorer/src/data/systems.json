@@ -47,7 +47,7 @@
       "name": "Nervous",
       "color": "#e8cf72",
       "icon": "nervous",
-      "description": "Available BodyParts3D nervous structures. Source coverage is partial."
+      "description": "Brain structures from BodyParts3D plus spinal cord, cranial and peripheral nerves from Z-Anatomy, registered onto the same body. Coverage is source-limited."
     }
   ]
 }
