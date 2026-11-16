@@ -1,5 +1,4 @@
-import SkeletonBrowser from './SkeletonBrowser'
-import { useState } from 'react'
+import StructureBrowser from './StructureBrowser'
 import { ChevronUp, RotateCcw } from 'lucide-react'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import LayerControls from './LayerControls'
@@ -8,14 +7,13 @@ import SystemList from './SystemList'
 import { useIsMobile } from './useIsMobile'
 
 export default function SidePanel() {
-  const mode = useAnatomyStore(s => s.mode)
-  const setMode = useAnatomyStore(s => s.setMode)
   const expanded = useAnatomyStore((s) => s.panelExpanded)
   const setExpanded = useAnatomyStore((s) => s.setPanelExpanded)
   const reset = useAnatomyStore((s) => s.reset)
-  const activeCount = useAnatomyStore((s) => s.activeSystems.length)
+  const activeCount = useAnatomyStore(
+    (s) => Object.values(s.layers).filter((layer) => layer.visible).length,
+  )
   const mobile = useIsMobile()
-  const [layersOpen, setLayersOpen] = useState(false)
   const collapsed = mobile && !expanded
 
   return (
@@ -31,42 +29,43 @@ export default function SidePanel() {
         onClick={() => setExpanded(!expanded)}
       >
         <span className="h-1 w-10 rounded-full bg-white/25" />
-        <ChevronUp className={`h-4 w-4 text-[var(--muted)] transition-transform ${expanded ? 'rotate-180' : ''}`} aria-hidden />
+        <ChevronUp
+          className={`h-4 w-4 text-[var(--muted)] transition-transform ${expanded ? 'rotate-180' : ''}`}
+          aria-hidden
+        />
       </button>
 
       <header className="flex items-center justify-between gap-2 px-4 pb-2 pt-1 md:pt-4">
         <div>
           <h1 className="text-base font-semibold tracking-tight">Anatomy Explorer</h1>
-          <p className="text-xs text-[var(--muted)]">{activeCount ? `${activeCount} system${activeCount > 1 ? 's' : ''} selected` : 'Select a system to isolate it'}</p>
+          <p className="text-xs text-[var(--muted)]">
+            {activeCount
+              ? `${activeCount} system${activeCount > 1 ? 's' : ''} visible`
+              : 'All systems hidden'}
+          </p>
         </div>
-        <button onClick={reset} className="flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-xs text-[var(--text)] hover:bg-white/10">
+        <button
+          onClick={reset}
+          className="flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-xs text-[var(--text)] hover:bg-white/10"
+        >
           <RotateCcw className="h-3.5 w-3.5" aria-hidden /> Reset
         </button>
       </header>
 
-      <div className="flex gap-2 px-4 pb-3 text-xs">
-        <button aria-pressed={mode === 'skeleton'} className={`rounded-lg border border-white/15 p-2 ${mode === 'skeleton' ? 'bg-white/15' : ''}`} onClick={() => setMode('skeleton')}>Male skeleton</button>
-        <button aria-pressed={mode === 'overview'} className={`rounded-lg border border-white/15 p-2 ${mode === 'overview' ? 'bg-white/15' : ''}`} onClick={() => setMode('overview')}>Placeholder systems</button>
+      <div className="px-4 pb-2">
+        <SearchBox />
       </div>
-      <div className="px-4 pb-2"><SearchBox key={mode} /></div>
 
       <div
         // `inert` keeps the collapsed sheet's controls out of the tab order.
         inert={collapsed}
         className={`min-h-0 overflow-y-auto px-3 transition-[height] duration-300 md:h-auto md:flex-1 ${collapsed ? 'h-0' : 'h-[50dvh]'}`}
       >
-        {mode === 'skeleton' ? <SkeletonBrowser /> : <SystemList />}
-        <div className="mt-3 border-t border-white/10 pt-2">
-          <button
-            aria-expanded={layersOpen}
-            onClick={() => setLayersOpen(!layersOpen)}
-            className="flex w-full items-center justify-between rounded-lg px-2 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--muted)] hover:text-white"
-          >
-            Layers
-            <ChevronUp className={`h-4 w-4 transition-transform ${layersOpen ? '' : 'rotate-180'}`} aria-hidden />
-          </button>
-          {layersOpen && <div className="pb-3"><LayerControls /></div>}
+        <SystemList />
+        <div className="my-3">
+          <LayerControls />
         </div>
+        <StructureBrowser />
       </div>
 
       <footer className="border-t border-white/10 px-4 py-2 text-center text-[11px] text-[var(--muted)]">

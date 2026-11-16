@@ -1,14 +1,12 @@
 import raw from './systems.json'
 import skeleton from './skeleton.json'
-export type ModelMode = 'overview' | 'skeleton'
+import muscles from './muscles.json'
+
 export const skeletonReport = skeleton.report
-
+export const muscleReport = muscles.report
+export const muscleChunks = muscles.chunks
 export type Sex = 'male' | 'female'
-export type SystemId =
-  | 'integumentary' | 'skeletal' | 'muscular' | 'nervous' | 'endocrine' | 'cardiovascular'
-  | 'lymphatic' | 'immune' | 'respiratory' | 'digestive' | 'urinary' | 'reproductive'
-
-type Vec3 = [number, number, number]
+export type SystemId = 'skeletal' | 'muscular'
 
 export interface System {
   id: SystemId
@@ -16,27 +14,23 @@ export interface System {
   color: string
   icon: string
   description: string
-  camera: { position: Vec3; target: Vec3 }
-  meshNames: string[]
 }
 
 export interface Structure {
   meshName: string
-  model?: ModelMode
-  region?: string
-  source?: string
+  region: string
+  source: string
+  detailUrl?: string
   displayName: string
   systems: SystemId[]
-  /** Present only for sex-specific anatomy; omitted = both. */
-  sex?: Sex
+  sex: Sex
   description: string
   facts: string[]
 }
 
+/** Only shipped source anatomy belongs in the runtime catalogue. */
 export const systems = raw.systems as System[]
-export const structures = [...raw.structures, ...skeleton.structures] as Structure[]
-
+export const structures = [...skeleton.structures, ...muscles.structures] as Structure[]
 export const systemById = new Map(systems.map((s) => [s.id, s]))
 export const structureByMesh = new Map(structures.map((s) => [s.meshName, s]))
-
-export const structuresForSex = (sex: Sex, mode: ModelMode = 'overview') => structures.filter((s) => (!s.sex || s.sex === sex) && (s.model ?? 'overview') === mode)
+export const skeletonNames = skeleton.structures.map((s) => s.meshName)

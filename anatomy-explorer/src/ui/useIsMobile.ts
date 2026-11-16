@@ -6,4 +6,9 @@ const subscribe = (cb: () => void) => {
   mq.addEventListener('change', cb)
   return () => mq.removeEventListener('change', cb)
 }
-export const useIsMobile = () => useSyncExternalStore(subscribe, () => window.matchMedia(Q).matches, () => false)
+export const useIsMobile = () =>
+  useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(Q).matches,
+    () => false,
+  )

@@ -7,7 +7,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10014.stl",
       "description": "Ninth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -31,7 +30,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10037.stl",
       "description": "Tenth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -55,7 +53,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10059.stl",
       "description": "Eleventh thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -79,7 +76,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA10081.stl",
       "description": "Twelfth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -103,7 +99,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12519.stl",
       "description": "Atlas, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -127,7 +122,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12520.stl",
       "description": "Axis, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -151,7 +145,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12521.stl",
       "description": "Third cervical vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -175,7 +168,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12522.stl",
       "description": "Fourth cervical vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -199,7 +191,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12523.stl",
       "description": "Fifth cervical vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -223,7 +214,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12524.stl",
       "description": "Sixth cervical vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -247,7 +237,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA12525.stl",
       "description": "Seventh cervical vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -271,7 +260,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13072.stl",
       "description": "First lumbar vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -295,7 +283,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13073.stl",
       "description": "Second lumbar vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -319,7 +306,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13074.stl",
       "description": "Third lumbar vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -343,7 +329,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13075.stl",
       "description": "Fourth lumbar vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -367,7 +352,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13076.stl",
       "description": "Fifth lumbar vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -391,7 +375,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13322.stl",
       "description": "Right clavicle, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -415,7 +398,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13323.stl",
       "description": "Left clavicle, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -439,7 +421,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13395.stl",
       "description": "Right scapula, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -463,7 +444,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA13396.stl",
       "description": "Left scapula, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -487,7 +467,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA16202.stl",
       "description": "Sacrum, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -511,7 +490,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Pelvis",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA16586.stl",
       "description": "Right hip bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -535,7 +513,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Pelvis",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA16587.stl",
       "description": "Left hip bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -559,7 +536,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA230986.stl",
       "description": "Middle phalanx of right little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -583,7 +559,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA230988.stl",
       "description": "Middle phalanx of left little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -607,7 +582,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23130.stl",
       "description": "Right humerus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -631,7 +605,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23131.stl",
       "description": "Left humerus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -655,7 +628,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23464.stl",
       "description": "Right radius, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -679,7 +651,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23465.stl",
       "description": "Left radius, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -703,7 +674,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23467.stl",
       "description": "Right ulna, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -727,7 +697,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Shoulders and arms",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23468.stl",
       "description": "Left ulna, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -751,7 +720,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23725.stl",
       "description": "Right trapezoid, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -775,7 +743,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23938.stl",
       "description": "Middle phalanx of left index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -799,7 +766,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23940.stl",
       "description": "Middle phalanx of left middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -823,7 +789,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23942.stl",
       "description": "Middle phalanx of left ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -847,7 +812,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23944.stl",
       "description": "Middle phalanx of left little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -871,7 +835,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23951.stl",
       "description": "Distal phalanx of left thumb, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -895,7 +858,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23953.stl",
       "description": "Distal phalanx of left index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -919,7 +881,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23955.stl",
       "description": "Distal phalanx of left middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -943,7 +904,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23957.stl",
       "description": "Distal phalanx of left ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -967,7 +927,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA23959.stl",
       "description": "Distal phalanx of left little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -991,7 +950,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24435.stl",
       "description": "Right scaphoid, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1015,7 +973,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24436.stl",
       "description": "Left scaphoid, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1039,7 +996,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24437.stl",
       "description": "Right lunate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1063,7 +1019,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24438.stl",
       "description": "Left lunate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1087,7 +1042,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24439.stl",
       "description": "Right triquetral, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1111,7 +1065,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24440.stl",
       "description": "Left triquetral, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1135,7 +1088,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24441.stl",
       "description": "Right pisiform, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1159,7 +1111,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24442.stl",
       "description": "Left pisiform, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1183,7 +1134,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24443.stl",
       "description": "Right trapezium, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1207,7 +1157,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24444.stl",
       "description": "Left trapezium, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1231,7 +1180,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24445.stl",
       "description": "Left trapezoid, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1255,7 +1203,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24446.stl",
       "description": "Right capitate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1279,7 +1226,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24447.stl",
       "description": "Left capitate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1303,7 +1249,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24448.stl",
       "description": "Right hamate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1327,7 +1272,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24449.stl",
       "description": "Left hamate, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1351,7 +1295,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24450.stl",
       "description": "Proximal phalanx of right thumb, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1375,7 +1318,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24451.stl",
       "description": "Proximal phalanx of right index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1399,7 +1341,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24452.stl",
       "description": "Proximal phalanx of right middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1423,7 +1364,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24453.stl",
       "description": "Proximal phalanx of right ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1447,7 +1387,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24454.stl",
       "description": "Proximal phalanx of right little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1471,7 +1410,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24455.stl",
       "description": "Middle phalanx of right index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1495,7 +1433,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24456.stl",
       "description": "Middle phalanx of right middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1519,7 +1456,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24457.stl",
       "description": "Middle phalanx of right ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1543,7 +1479,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24458.stl",
       "description": "Middle phalanx of right little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1567,7 +1502,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24459.stl",
       "description": "Distal phalanx of right thumb, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1591,7 +1525,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24460.stl",
       "description": "Distal phalanx of right index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1615,7 +1548,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24461.stl",
       "description": "Distal phalanx of right middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1639,7 +1571,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24462.stl",
       "description": "Distal phalanx of right ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1663,7 +1594,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24463.stl",
       "description": "Distal phalanx of right little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1687,7 +1617,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24464.stl",
       "description": "Right first metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1711,7 +1640,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24465.stl",
       "description": "Left first metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1735,7 +1663,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24466.stl",
       "description": "Right second metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1759,7 +1686,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24467.stl",
       "description": "Left second metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1783,7 +1709,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24468.stl",
       "description": "Right third metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1807,7 +1732,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24469.stl",
       "description": "Left third metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1831,7 +1755,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24470.stl",
       "description": "Right fourth metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1855,7 +1778,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24471.stl",
       "description": "Left fourth metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1879,7 +1801,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24472.stl",
       "description": "Right fifth metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1903,7 +1824,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24473.stl",
       "description": "Left fifth metacarpal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1927,7 +1847,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24474.stl",
       "description": "Right femur, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1951,7 +1870,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24475.stl",
       "description": "Left femur, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1975,7 +1893,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24477.stl",
       "description": "Right tibia, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -1999,7 +1916,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24478.stl",
       "description": "Left tibia, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2023,7 +1939,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24480.stl",
       "description": "Right fibula, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2047,7 +1962,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24481.stl",
       "description": "Left fibula, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2071,7 +1985,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24482.stl",
       "description": "Right talus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2095,7 +2008,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24483.stl",
       "description": "Left talus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2119,7 +2031,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24486.stl",
       "description": "Right patella, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2143,7 +2054,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Legs",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24487.stl",
       "description": "Left patella, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2167,7 +2077,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24497.stl",
       "description": "Right calcaneus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2191,7 +2100,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24498.stl",
       "description": "Left calcaneus, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2215,7 +2123,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24500.stl",
       "description": "Navicular bone of right foot, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2239,7 +2146,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24501.stl",
       "description": "Navicular bone of left foot, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2263,7 +2169,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24507.stl",
       "description": "Right first metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2287,7 +2192,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24508.stl",
       "description": "Left first metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2311,7 +2215,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24509.stl",
       "description": "Right second metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2335,7 +2238,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24510.stl",
       "description": "Left second metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2359,7 +2261,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24511.stl",
       "description": "Right third metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2383,7 +2284,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24512.stl",
       "description": "Left third metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2407,7 +2307,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24513.stl",
       "description": "Right fourth metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2431,7 +2330,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24514.stl",
       "description": "Left fourth metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2455,7 +2353,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24515.stl",
       "description": "Right fifth metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2479,7 +2376,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24516.stl",
       "description": "Left fifth metatarsal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2503,7 +2399,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24521.stl",
       "description": "Right medial cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2527,7 +2422,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24522.stl",
       "description": "Left medial cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2551,7 +2445,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24523.stl",
       "description": "Right intermediate cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2575,7 +2468,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24524.stl",
       "description": "Left intermediate cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2599,7 +2491,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24525.stl",
       "description": "Right lateral cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2623,7 +2514,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24526.stl",
       "description": "Left lateral cuneiform bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2647,7 +2537,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24528.stl",
       "description": "Right cuboid bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2671,7 +2560,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA24529.stl",
       "description": "Left cuboid bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2695,7 +2583,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32634.stl",
       "description": "Proximal phalanx of right second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2719,7 +2606,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32635.stl",
       "description": "Proximal phalanx of left second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2743,7 +2629,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32636.stl",
       "description": "Proximal phalanx of right third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2767,7 +2652,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32637.stl",
       "description": "Proximal phalanx of left third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2791,7 +2675,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32638.stl",
       "description": "Proximal phalanx of right fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2815,7 +2698,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32639.stl",
       "description": "Proximal phalanx of left fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2839,7 +2721,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32640.stl",
       "description": "Proximal phalanx of right little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2863,7 +2744,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32641.stl",
       "description": "Proximal phalanx of left little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2887,7 +2767,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32642.stl",
       "description": "Middle phalanx of right second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2911,7 +2790,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32643.stl",
       "description": "Middle phalanx of left second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2935,7 +2813,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32644.stl",
       "description": "Middle phalanx of right third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2959,7 +2836,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32645.stl",
       "description": "Middle phalanx of left third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -2983,7 +2859,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32646.stl",
       "description": "Middle phalanx of right fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3007,7 +2882,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32647.stl",
       "description": "Middle phalanx of left fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3031,7 +2905,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32650.stl",
       "description": "Distal phalanx of right big toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3055,7 +2928,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32651.stl",
       "description": "Distal phalanx of left big toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3079,7 +2951,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32652.stl",
       "description": "Distal phalanx of right second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3103,7 +2974,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32653.stl",
       "description": "Distal phalanx of left second toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3127,7 +2997,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32654.stl",
       "description": "Distal phalanx of right third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3151,7 +3020,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32655.stl",
       "description": "Distal phalanx of left third toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3175,7 +3043,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32656.stl",
       "description": "Distal phalanx of right fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3199,7 +3066,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32657.stl",
       "description": "Distal phalanx of left fourth toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3223,7 +3089,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32658.stl",
       "description": "Distal phalanx of right little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3247,7 +3112,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA32659.stl",
       "description": "Distal phalanx of left little toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3271,7 +3135,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA43253.stl",
       "description": "Proximal phalanx of right big toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3295,7 +3158,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA43254.stl",
       "description": "Proximal phalanx of left big toe, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3319,7 +3181,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA45097.stl",
       "description": "Sesamoid bone of right foot, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3343,7 +3204,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Feet",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA45098.stl",
       "description": "Sesamoid bone of left foot, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3367,7 +3227,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52734.stl",
       "description": "Frontal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3391,7 +3250,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52735.stl",
       "description": "Occipital bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3415,7 +3273,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52736.stl",
       "description": "Sphenoid bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3439,7 +3296,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52738.stl",
       "description": "Right temporal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3463,7 +3319,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52739.stl",
       "description": "Left temporal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3487,7 +3342,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52740.stl",
       "description": "Ethmoid, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3511,7 +3365,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52748.stl",
       "description": "Mandible, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3535,7 +3388,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52749.stl",
       "description": "Hyoid bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3559,7 +3411,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52788.stl",
       "description": "Right parietal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3583,7 +3434,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52789.stl",
       "description": "Left parietal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3607,7 +3457,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52892.stl",
       "description": "Right zygomatic bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3631,7 +3480,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA52893.stl",
       "description": "Left zygomatic bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3655,7 +3503,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53645.stl",
       "description": "Right lacrimal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3679,7 +3526,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53646.stl",
       "description": "Left lacrimal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3703,7 +3549,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53647.stl",
       "description": "Right nasal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3727,7 +3572,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53648.stl",
       "description": "Left nasal bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3751,7 +3595,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53649.stl",
       "description": "Right maxilla, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3775,7 +3618,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53650.stl",
       "description": "Left maxilla, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3799,7 +3641,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53655.stl",
       "description": "Right palatine bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3823,7 +3664,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA53656.stl",
       "description": "Left palatine bone, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3847,7 +3687,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA54737.stl",
       "description": "Right inferior nasal concha, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3871,7 +3710,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA54738.stl",
       "description": "Left inferior nasal concha, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3895,7 +3733,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55680.stl",
       "description": "Right upper lateral secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3919,7 +3756,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55681.stl",
       "description": "Right upper central secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3943,7 +3779,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55682.stl",
       "description": "Left upper central secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3967,7 +3802,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55683.stl",
       "description": "Left upper lateral secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -3991,7 +3825,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55686.stl",
       "description": "Right lower secondary canine tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4015,7 +3848,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55687.stl",
       "description": "Left lower secondary canine tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4039,7 +3871,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55688.stl",
       "description": "Right upper second secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4063,7 +3894,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55689.stl",
       "description": "Right upper first secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4087,7 +3917,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55690.stl",
       "description": "Left upper first secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4111,7 +3940,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55691.stl",
       "description": "Left upper second secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4135,7 +3963,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55692.stl",
       "description": "Left lower second secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4159,7 +3986,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55693.stl",
       "description": "Left lower first secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4183,7 +4009,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55694.stl",
       "description": "Right lower first secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4207,7 +4032,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55695.stl",
       "description": "Right lower second secondary premolar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4231,7 +4055,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55697.stl",
       "description": "Right upper second secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4255,7 +4078,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55698.stl",
       "description": "Right upper first secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4279,7 +4101,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55699.stl",
       "description": "Left upper first secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4303,7 +4124,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55700.stl",
       "description": "Left upper second secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4327,7 +4147,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55703.stl",
       "description": "Left lower second secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4351,7 +4170,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55704.stl",
       "description": "Left lower first secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4375,7 +4193,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55705.stl",
       "description": "Right lower first secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4399,7 +4216,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55706.stl",
       "description": "Right lower second secondary molar tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4423,7 +4239,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55798.stl",
       "description": "Right upper secondary canine tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4447,7 +4262,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA55799.stl",
       "description": "Left upper secondary canine tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4471,7 +4285,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA57140.stl",
       "description": "Right lower lateral secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4495,7 +4308,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA57141.stl",
       "description": "Left lower lateral secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4519,7 +4331,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA57142.stl",
       "description": "Right lower central secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4543,7 +4354,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Teeth",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA57143.stl",
       "description": "Left lower central secondary incisor tooth, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4567,7 +4377,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA65470.stl",
       "description": "Proximal phalanx of left thumb, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4591,7 +4400,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA66791.stl",
       "description": "Proximal phalanx of left little finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4615,7 +4423,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71908.stl",
       "description": "Proximal phalanx of left middle finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4639,7 +4446,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71915.stl",
       "description": "Proximal phalanx of left index finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4663,7 +4469,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Hands",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA71916.stl",
       "description": "Proximal phalanx of left ring finger, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4687,7 +4492,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7857.stl",
       "description": "Right first rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4711,7 +4515,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7882.stl",
       "description": "Right second rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4735,7 +4538,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7909.stl",
       "description": "Right third rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4759,7 +4561,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7957.stl",
       "description": "Right fourth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4783,7 +4584,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7987.stl",
       "description": "Left first rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4807,7 +4607,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8012.stl",
       "description": "Left second rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4831,7 +4630,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8039.stl",
       "description": "Left third rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4855,7 +4653,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8066.stl",
       "description": "Right fifth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4879,7 +4676,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8093.stl",
       "description": "Left fifth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4903,7 +4699,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8148.stl",
       "description": "Left fourth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4927,7 +4722,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8175.stl",
       "description": "Right sixth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4951,7 +4745,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8202.stl",
       "description": "Left sixth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4975,7 +4768,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8229.stl",
       "description": "Right seventh rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -4999,7 +4791,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8256.stl",
       "description": "Left seventh rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5023,7 +4814,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8283.stl",
       "description": "Right eighth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5047,7 +4837,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8310.stl",
       "description": "Left eighth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5071,7 +4860,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8364.stl",
       "description": "Right ninth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5095,7 +4883,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8391.stl",
       "description": "Left ninth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5119,7 +4906,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8445.stl",
       "description": "Right tenth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5143,7 +4929,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8472.stl",
       "description": "Left tenth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5167,7 +4952,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8531.stl",
       "description": "Right eleventh rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5191,7 +4975,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8532.stl",
       "description": "Left eleventh rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5215,7 +4998,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8533.stl",
       "description": "Right twelfth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5239,7 +5021,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA8534.stl",
       "description": "Left twelfth rib, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5263,7 +5044,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9165.stl",
       "description": "First thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5287,7 +5067,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9187.stl",
       "description": "Second thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5311,7 +5090,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9209.stl",
       "description": "Third thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5335,7 +5113,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9248.stl",
       "description": "Fourth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5359,7 +5136,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Skull and hyoid",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9710.stl",
       "description": "Vomer, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5383,7 +5159,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9922.stl",
       "description": "Fifth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5407,7 +5182,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9945.stl",
       "description": "Sixth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5431,7 +5205,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9968.stl",
       "description": "Seventh thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5455,7 +5228,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Spine",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA9991.stl",
       "description": "Eighth thoracic vertebra, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5479,7 +5251,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7486.stl",
       "description": "Manubrium, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5503,7 +5274,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7487.stl",
       "description": "Body of sternum, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5527,7 +5297,6 @@
         "skeletal"
       ],
       "sex": "male",
-      "model": "skeleton",
       "region": "Thorax",
       "source": "https://raw.githubusercontent.com/Kevin-Mattheus-Moerman/BodyParts3D/2c83c698788cff57f6317bddcf712e7acfbea7d8/assets/BodyParts3D_data/stl/FMA7488.stl",
       "description": "Xiphoid process, as represented in the BodyParts3D adult male dataset. This source-derived surface is provided for anatomical exploration; individual landmarks have not been clinically reviewed.",
@@ -5546,14 +5315,21 @@
     }
   ],
   "report": {
+    "transform": {
+      "source": "BodyParts3D 3.0",
+      "scale": 0.001,
+      "rotationX": -1.5707963267948966,
+      "groundOffsetMetres": 0.004171000003814697
+    },
+    "compression": "Draco, 16-bit position / 12-bit normal quantization",
     "source": "BodyParts3D 3.0, 95% polygon reduction; Kevin-Mattheus-Moerman STL mirror",
     "commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
     "structures": 231,
     "triangles": 2037126,
-    "bytes": 36909524,
+    "bytes": 7067056,
     "sizeMetres": [
       0.6479659974575043,
-      1.6423909664154053,
+      1.6423909662738443,
       0.24219670426100492
     ],
     "standardBonesRepresented": 199,

@@ -1,38 +1,79 @@
-/**
- * Offline mesh audit: compares mesh-bearing node names in each GLB against systems.json.
- * Works on Draco-compressed files too (only the JSON chunk is read).
- * Run: npm run audit:models
- */
-import { readFileSync, existsSync } from 'node:fs'
+import assert from 'node:assert/strict'
+import { readFileSync, statSync } from 'node:fs'
 import { diffMeshNames } from '../src/lib/auditMeshes'
-import type { Sex } from '../src/data/anatomy'
+import { structures, skeletonNames, muscleChunks, muscleReport } from '../src/data/anatomy'
+import { readGlb, meshNames, triangleCount } from './glb'
 
-// three's GLTFLoader sanitises node names; mirror it so names compare equal to runtime.
-const sanitize = (n: string) => n.replace(/\s/g, '_').replace(/[[\].:/]/g, '')
-
-function meshNames(path: string): string[] {
-  const buf = readFileSync(path)
-  if (buf.readUInt32LE(0) !== 0x46546c67) throw new Error(`${path} is not a GLB`)
-  const jsonLen = buf.readUInt32LE(12)
-  const json = JSON.parse(buf.subarray(20, 20 + jsonLen).toString('utf8'))
-  return (json.nodes ?? []).filter((n: { mesh?: number; name?: string }) => n.mesh !== undefined && n.name).map((n: { name: string }) => sanitize(n.name))
+const check = (url: string, expected: string[]) => {
+  const document = readGlb(`public${url}`)
+  const diff = diffMeshNames(meshNames(document), expected)
+  assert.deepEqual(diff, { unmatchedMeshes: [], missingMeshes: [], duplicateMeshes: [] }, url)
+  return document
 }
 
-let bad = 0
-for (const sex of ['male', 'female'] as Sex[]) {
-  const path = `public/models/${sex}.glb`
-  if (!existsSync(path)) { console.warn(`${path}: missing`); bad++; continue }
-  const names = meshNames(path)
-  const { unmatchedMeshes, missingMeshes } = diffMeshNames(names, sex)
-  console.log(`\n${sex}: ${names.length} meshes`)
-  if (unmatchedMeshes.length) console.log('  no entry in systems.json:', unmatchedMeshes.join(', '))
-  if (missingMeshes.length) console.log('  entry with no mesh:      ', missingMeshes.join(', '))
-  if (!unmatchedMeshes.length && !missingMeshes.length) console.log('  OK')
-  bad += unmatchedMeshes.length + missingMeshes.length
+assert.equal(
+  new Set(structures.map((s) => s.meshName)).size,
+  structures.length,
+  'Catalogue IDs must be unique',
+)
+check('/models/male-skeleton.glb', skeletonNames)
+const muscleNames = structures
+  .filter((s) => s.systems.includes('muscular'))
+  .map((s) => s.meshName)
+  .sort()
+assert.deepEqual(
+  muscleChunks.flatMap((chunk) => chunk.meshes).sort(),
+  muscleNames,
+  'Every muscle must belong to exactly one region',
+)
+let overviewTriangles = 0
+for (const chunk of muscleChunks) {
+  const document = check(chunk.url, chunk.meshes)
+  const triangles = triangleCount(document)
+  assert(triangles > 0 && triangles <= chunk.triangles, chunk.region)
+  assert.equal(statSync(`public${chunk.url}`).size, chunk.bytes)
+  overviewTriangles += triangles
 }
-const skeletonNames = meshNames('public/models/male-skeleton.glb')
-const skeletonDiff = diffMeshNames(skeletonNames, 'male', 'skeleton')
-const duplicateCount = skeletonNames.length - new Set(skeletonNames).size
-bad += skeletonDiff.unmatchedMeshes.length + skeletonDiff.missingMeshes.length + duplicateCount
-console.log('Skeleton:', skeletonNames.length, 'structures;', skeletonDiff, 'duplicates:', duplicateCount)
-process.exit(bad ? 1 : 0)
+const manifest = JSON.parse(readFileSync('public/models/muscles-manifest.json', 'utf8')) as {
+  files: { id: string; triangles: number }[]
+  transform: unknown
+  detailExports: { id: string; triangles: number; bytes: number }[]
+}
+assert.deepEqual(
+  manifest.transform,
+  JSON.parse(readFileSync('public/models/skeleton-manifest.json', 'utf8')).transform,
+)
+const sourceTriangles = new Map(manifest.files.map((file) => [file.id, file.triangles]))
+const exported = new Map(manifest.detailExports.map((file) => [file.id, file]))
+let detailTriangles = 0
+for (const structure of structures.filter((s) => s.detailUrl)) {
+  const document = check(structure.detailUrl!, [structure.meshName])
+  const triangles = triangleCount(document)
+  assert.equal(
+    triangles,
+    exported.get(structure.meshName)?.triangles,
+    `Detail topology: ${structure.meshName}`,
+  )
+  assert.equal(
+    statSync(`public${structure.detailUrl}`).size,
+    exported.get(structure.meshName)?.bytes,
+  )
+  assert(triangles > 0 && triangles <= sourceTriangles.get(structure.meshName)!, structure.meshName)
+  for (const mesh of document.meshes)
+    for (const primitive of mesh.primitives) {
+      const { min, max } = document.accessors[primitive.attributes.POSITION]
+      assert([...min, ...max].every(Number.isFinite), structure.meshName)
+      assert(min[1] >= -0.02 && max[1] <= 2.2, `Metre-scale bounds: ${structure.meshName}`)
+    }
+  detailTriangles += triangles
+}
+assert.equal(detailTriangles, muscleReport.detailTriangles)
+assert.equal(
+  muscleReport.triangles - detailTriangles,
+  26,
+  'Pinned compression removes 26 source triangles; investigate any change',
+)
+assert.equal(overviewTriangles, muscleReport.overviewTriangles)
+console.log(
+  `Model audit passed: ${skeletonNames.length} skeletal + ${muscleNames.length} muscle structures; ${muscleChunks.length} regions; ${overviewTriangles.toLocaleString()} overview / ${detailTriangles.toLocaleString()} detail muscle triangles.`,
+)

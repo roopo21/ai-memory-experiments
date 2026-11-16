@@ -1,12 +1,19 @@
 {
+  "transform": {
+    "source": "BodyParts3D 3.0",
+    "scale": 0.001,
+    "rotationX": -1.5707963267948966,
+    "groundOffsetMetres": 0.004171000003814697
+  },
+  "compression": "Draco, 16-bit position / 12-bit normal quantization",
   "source": "BodyParts3D 3.0, 95% polygon reduction; Kevin-Mattheus-Moerman STL mirror",
   "commit": "2c83c698788cff57f6317bddcf712e7acfbea7d8",
   "structures": 231,
   "triangles": 2037126,
-  "bytes": 36909524,
+  "bytes": 7067056,
   "sizeMetres": [
     0.6479659974575043,
-    1.6423909664154053,
+    1.6423909662738443,
     0.24219670426100492
   ],
   "standardBonesRepresented": 199,

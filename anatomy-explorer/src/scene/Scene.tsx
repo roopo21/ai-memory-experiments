@@ -1,23 +1,26 @@
-import { Component, Suspense, useCallback, useEffect, useState, type ReactNode } from 'react'
+import { Component, Suspense, useMemo, type ReactNode } from 'react'
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import type { Sex } from '../data/anatomy'
+import { skeletonNames, muscleChunks, structureByMesh } from '../data/anatomy'
 import { HOME } from '../lib/framing'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import CameraRig from './CameraRig'
-import { FallbackBody, GltfBody, Preload } from './Body'
+import { AnatomyLayer } from './Body'
 
-class ModelBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
+class ModelBoundary extends Component<
+  { fallback: ReactNode; children: ReactNode },
+  { failed: boolean }
+> {
   state = { failed: false }
-  static getDerivedStateFromError() { return { failed: true } }
-  componentDidCatch(e: unknown) { console.warn('[models] GLB failed to load, using procedural placeholder.', e) }
-  render() { return this.state.failed ? this.props.fallback : this.props.children }
-}
-
-/** Fallback for a failed preload: just report ready so the swap proceeds with the procedural body. */
-function Ready({ onReady }: { onReady: () => void }) {
-  useEffect(onReady, [onReady])
-  return null
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+  componentDidCatch(e: unknown) {
+    console.warn('[models] Requested anatomy layer failed to load.', e)
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
 }
 
 function Stage() {
@@ -40,11 +43,11 @@ function Stage() {
 }
 
 export default function Scene() {
-  const mode = useAnatomyStore(s => s.mode)
-  const sex = useAnatomyStore((s) => s.sex)
-  // Keep showing the old body until the new one is fully loaded, then swap (no blank flash).
-  const [shown, setShown] = useState<Sex>(sex)
-  const onReady = useCallback(() => setShown(useAnatomyStore.getState().sex), [])
+  const selected = useAnatomyStore((s) => s.selectedMesh)
+  const detail = selected ? structureByMesh.get(selected) : null
+  const detailNames = useMemo(() => (detail ? [detail.meshName] : []), [detail?.meshName])
+  const muscleVisible = useAnatomyStore((s) => s.layers.muscular.visible)
+  const muscleRegion = useAnatomyStore((s) => s.muscleRegion)
 
   return (
     <Canvas
@@ -53,25 +56,59 @@ export default function Scene() {
       camera={{ fov: 38, near: 0.05, far: 60, position: HOME.position.toArray() }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       onPointerMissed={(e) => {
-        if (e.detail >= 2) useAnatomyStore.getState().recenter() // double-click on empty space
+        if (e.detail >= 2)
+          useAnatomyStore.getState().recenter() // double-click on empty space
         else useAnatomyStore.getState().clearSelection()
       }}
       aria-label="3D human anatomy viewport"
     >
       <Stage />
       <CameraRig />
-      <Suspense fallback={null}>
-        <ModelBoundary key={`${shown}-${mode}`} fallback={mode === 'skeleton' ? <Html center><p role="alert" className="rounded-xl bg-slate-900 p-4 text-white">Skeleton could not load. Reload to retry.</p></Html> : <FallbackBody sex={shown} />}>
-          <GltfBody sex={mode === 'skeleton' ? 'male' : shown} mode={mode} />
-        </ModelBoundary>
-      </Suspense>
-      {sex !== shown && (
+      <>
         <Suspense fallback={null}>
-          <ModelBoundary key={`pre-${sex}`} fallback={<Ready onReady={onReady} />}>
-            <Preload sex={sex} onReady={onReady} />
+          <ModelBoundary
+            fallback={
+              <Html center>
+                <p role="alert">Skeleton failed to load. Reload to retry.</p>
+              </Html>
+            }
+          >
+            <AnatomyLayer url="/models/male-skeleton.glb" expected={skeletonNames} />
           </ModelBoundary>
         </Suspense>
-      )}
+        {muscleVisible &&
+          muscleChunks
+            .filter((c) => !muscleRegion || c.region === muscleRegion)
+            .map((chunk) => (
+              <Suspense key={chunk.url} fallback={null}>
+                <ModelBoundary
+                  fallback={
+                    <Html center>
+                      <p role="alert" className="rounded bg-slate-900 p-3 text-white">
+                        {chunk.region} muscles failed to load. Reload to retry.
+                      </p>
+                    </Html>
+                  }
+                >
+                  <AnatomyLayer url={chunk.url} expected={chunk.meshes} />
+                </ModelBoundary>
+              </Suspense>
+            ))}
+        {muscleVisible && detail?.detailUrl && (
+          <Suspense fallback={null}>
+            <ModelBoundary
+              key={detail.meshName}
+              fallback={
+                <Html center>
+                  <p role="alert">Full detail unavailable. Showing overview surface.</p>
+                </Html>
+              }
+            >
+              <AnatomyLayer url={detail.detailUrl} expected={detailNames} detail />
+            </ModelBoundary>
+          </Suspense>
+        )}
+      </>
     </Canvas>
   )
 }

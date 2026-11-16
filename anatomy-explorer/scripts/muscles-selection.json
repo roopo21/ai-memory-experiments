@@ -1,0 +1,2612 @@
+[
+  {
+    "id": "BP44",
+    "name": "humeral head of left extensor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "BP45",
+    "name": "humeral head of right extensor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "BP46",
+    "name": "ulnar head of left extensor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "BP47",
+    "name": "ulnar head of right extensor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13336",
+    "name": "right external oblique",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA13337",
+    "name": "left external oblique",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA13346",
+    "name": "right sternohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13347",
+    "name": "left sternohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13348",
+    "name": "right omohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13349",
+    "name": "left omohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13350",
+    "name": "right sternothyroid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13351",
+    "name": "left sternothyroid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13352",
+    "name": "right thyrohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13353",
+    "name": "left thyrohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13358",
+    "name": "right latissimus dorsi",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13359",
+    "name": "left latissimus dorsi",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13375",
+    "name": "right pectoralis minor",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13376",
+    "name": "left pectoralis minor",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13377",
+    "name": "right rectus abdominis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA13378",
+    "name": "left rectus abdominis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA13381",
+    "name": "right rhomboid major",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13382",
+    "name": "left rhomboid major",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13383",
+    "name": "right rhomboid minor",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13384",
+    "name": "left rhomboid minor",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13388",
+    "name": "right scalenus posterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13389",
+    "name": "left scalenus posterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13390",
+    "name": "right scalenus medius",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13391",
+    "name": "left scalenus medius",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13392",
+    "name": "right scalenus anterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13393",
+    "name": "left scalenus anterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13398",
+    "name": "right serratus anterior",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13399",
+    "name": "left serratus anterior",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13403",
+    "name": "right serratus posterior superior",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13404",
+    "name": "left serratus posterior superior",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13405",
+    "name": "right serratus posterior inferior",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13406",
+    "name": "left serratus posterior inferior",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA13408",
+    "name": "right sternocleidomastoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13409",
+    "name": "left sternocleidomastoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA13411",
+    "name": "left subclavius",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13412",
+    "name": "right subclavius",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13414",
+    "name": "right subscapularis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13415",
+    "name": "left subscapularis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA13892",
+    "name": "right internal oblique",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA13893",
+    "name": "left internal oblique",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA21930",
+    "name": "external anal sphincter",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA21964",
+    "name": "right inguinal ligament",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA21965",
+    "name": "left inguinal ligament",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22322",
+    "name": "right iliacus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22323",
+    "name": "left iliacus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22324",
+    "name": "right obturator internus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22325",
+    "name": "left obturator internus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22326",
+    "name": "right obturator externus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22327",
+    "name": "left obturator externus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22328",
+    "name": "right gluteus maximus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22329",
+    "name": "left gluteus maximus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22330",
+    "name": "right gluteus medius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22331",
+    "name": "left gluteus medius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22332",
+    "name": "right gluteus minimus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22333",
+    "name": "left gluteus minimus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22334",
+    "name": "right gemellus superior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22335",
+    "name": "left gemellus superior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22336",
+    "name": "right gemellus inferior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22337",
+    "name": "left gemellus inferior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22338",
+    "name": "right quadratus femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22339",
+    "name": "left quadratus femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22340",
+    "name": "right piriformis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22341",
+    "name": "left piriformis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22342",
+    "name": "right psoas major",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22343",
+    "name": "left psoas major",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22344",
+    "name": "right transversus abdominis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22345",
+    "name": "left transversus abdominis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22346",
+    "name": "right pyramidalis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22347",
+    "name": "left pyramidalis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22348",
+    "name": "right quadratus lumborum",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22349",
+    "name": "left quadratus lumborum",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA22354",
+    "name": "right sartorius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22355",
+    "name": "left sartorius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22358",
+    "name": "right semitendinosus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22359",
+    "name": "left semitendinosus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22425",
+    "name": "right tensor fasciae latae",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22426",
+    "name": "left tensor fasciae latae",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22448",
+    "name": "right semimembranosus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22449",
+    "name": "left semimembranosus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22450",
+    "name": "right pectineus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22451",
+    "name": "left pectineus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22452",
+    "name": "right adductor brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22454",
+    "name": "left adductor brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22456",
+    "name": "right adductor longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22457",
+    "name": "left adductor longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22459",
+    "name": "right adductor magnus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22460",
+    "name": "left adductor magnus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22544",
+    "name": "right tibialis anterior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22545",
+    "name": "left tibialis anterior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22546",
+    "name": "right extensor hallucis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22547",
+    "name": "left extensor hallucis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22548",
+    "name": "right extensor digitorum longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22549",
+    "name": "left extensor digitorum longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22550",
+    "name": "right fibularis tertius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22551",
+    "name": "left fibularis tertius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22552",
+    "name": "right fibularis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22553",
+    "name": "left fibularis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22554",
+    "name": "right fibularis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22555",
+    "name": "left fibularis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22558",
+    "name": "right soleus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22559",
+    "name": "left soleus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22560",
+    "name": "right plantaris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22561",
+    "name": "left plantaris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22591",
+    "name": "right popliteus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22592",
+    "name": "left popliteus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA22726",
+    "name": "right splenius cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22727",
+    "name": "left splenius cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22728",
+    "name": "right splenius capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22729",
+    "name": "left splenius capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22740",
+    "name": "right iliocostalis lumborum",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22741",
+    "name": "left iliocostalis lumborum",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22742",
+    "name": "right iliocostalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22743",
+    "name": "left iliocostalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22744",
+    "name": "right iliocostalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22745",
+    "name": "left iliocostalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22751",
+    "name": "right longissimus thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22753",
+    "name": "left longissimus thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22754",
+    "name": "right longissimus capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22756",
+    "name": "left longissimus capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22757",
+    "name": "right longissimus cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22758",
+    "name": "left longissimus cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22779",
+    "name": "right spinalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22780",
+    "name": "left spinalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22781",
+    "name": "right spinalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22782",
+    "name": "left spinalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22872",
+    "name": "right semispinalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22873",
+    "name": "left semispinalis thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22874",
+    "name": "right semispinalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22875",
+    "name": "left semispinalis cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22876",
+    "name": "right semispinalis capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22877",
+    "name": "left semispinalis capitis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22878",
+    "name": "right multifidus",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA22879",
+    "name": "left multifidus",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA23083",
+    "name": "thoracic rotator",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA23089",
+    "name": "right lumbar rotator",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA23090",
+    "name": "left lumbar rotator",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA258847",
+    "name": "right calcaneal tendon",
+    "kind": "tendon",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA258850",
+    "name": "right intermediate tendon",
+    "kind": "tendon",
+    "region": "Other muscle structures"
+  },
+  {
+    "id": "FMA264840",
+    "name": "left intermediate tendon",
+    "kind": "tendon",
+    "region": "Other muscle structures"
+  },
+  {
+    "id": "FMA264844",
+    "name": "left calcaneal tendon",
+    "kind": "tendon",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA32530",
+    "name": "right rectus capitis posterior major",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32531",
+    "name": "left rectus capitis posterior major",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32532",
+    "name": "right rectus capitis posterior minor",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32533",
+    "name": "left rectus capitis posterior minor",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32534",
+    "name": "right obliquus capitis superior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32535",
+    "name": "left obliquus capitis superior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32536",
+    "name": "right obliquus capitis inferior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32537",
+    "name": "left obliquus capitis inferior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA32540",
+    "name": "right levator scapulae",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA32541",
+    "name": "left levator scapulae",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA32544",
+    "name": "right supraspinatus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32545",
+    "name": "left supraspinatus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32547",
+    "name": "right infraspinatus muscle",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32548",
+    "name": "left infraspinatus muscle",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32551",
+    "name": "right teres major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32552",
+    "name": "left teres major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32553",
+    "name": "right teres minor",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA32554",
+    "name": "left teres minor",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA33581",
+    "name": "ascending part of right trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA33583",
+    "name": "ascending part of left trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA33584",
+    "name": "transverse part of right trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA33585",
+    "name": "transverse part of left trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA33586",
+    "name": "descending part of right trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA33587",
+    "name": "descending part of left trapezius",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA34680",
+    "name": "clavicular part of right deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34681",
+    "name": "clavicular part of left deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34682",
+    "name": "acromial part of right deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34683",
+    "name": "acromial part of left deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34684",
+    "name": "spinal part of right deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34685",
+    "name": "spinal part of left deltoid",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34690",
+    "name": "clavicular part of right pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA34691",
+    "name": "clavicular part of left pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37386",
+    "name": "right abductor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37387",
+    "name": "left abductor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37390",
+    "name": "right opponens pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37391",
+    "name": "left opponens pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37396",
+    "name": "abductor digiti minimi of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37397",
+    "name": "abductor digiti minimi of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37398",
+    "name": "flexor digiti minimi brevis of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37399",
+    "name": "flexor digiti minimi brevis of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37400",
+    "name": "opponens digiti minimi of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37401",
+    "name": "opponens digiti minimi of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37459",
+    "name": "right abductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37460",
+    "name": "left abductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37461",
+    "name": "right flexor digitorum brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37462",
+    "name": "left flexor digitorum brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37463",
+    "name": "abductor digiti minimi of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37464",
+    "name": "abductor digiti minimi of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37465",
+    "name": "right flexor accessorius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37466",
+    "name": "left flexor accessorius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37471",
+    "name": "flexor digiti minimi brevis of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37472",
+    "name": "flexor digiti minimi brevis of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37483",
+    "name": "fourth lumbrical of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37484",
+    "name": "fourth lumbrical of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37485",
+    "name": "third lumbrical of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37486",
+    "name": "third lumbrical of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37665",
+    "name": "right coracobrachialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37666",
+    "name": "left coracobrachialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37668",
+    "name": "right brachialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37669",
+    "name": "left brachialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37684",
+    "name": "short head of right biceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37685",
+    "name": "short head of left biceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37686",
+    "name": "long head of right biceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37687",
+    "name": "long head of left biceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37695",
+    "name": "medial head of right triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37696",
+    "name": "medial head of left triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37697",
+    "name": "lateral head of right triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37698",
+    "name": "lateral head of left triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37699",
+    "name": "long head of right triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37700",
+    "name": "long head of left triceps brachii",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37705",
+    "name": "right anconeus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37706",
+    "name": "left anconeus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA37717",
+    "name": "first lumbrical of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37718",
+    "name": "first lumbrical of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37719",
+    "name": "second lumbrical of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37720",
+    "name": "second lumbrical of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37741",
+    "name": "third plantar interosseous of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37742",
+    "name": "third plantar interosseous of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37743",
+    "name": "second plantar interosseous of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37744",
+    "name": "second plantar interosseous of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37745",
+    "name": "first plantar interosseous of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA37746",
+    "name": "first plantar interosseous of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38454",
+    "name": "right pronator quadratus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38455",
+    "name": "left pronator quadratus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38460",
+    "name": "right flexor carpi radialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38461",
+    "name": "left flexor carpi radialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38463",
+    "name": "right palmaris longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38464",
+    "name": "left palmaris longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38479",
+    "name": "right flexor digitorum profundus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38480",
+    "name": "left flexor digitorum profundus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38482",
+    "name": "right flexor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38484",
+    "name": "left flexor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38486",
+    "name": "right brachioradialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38487",
+    "name": "left brachioradialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38495",
+    "name": "right extensor carpi radialis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38496",
+    "name": "left extensor carpi radialis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38498",
+    "name": "right extensor carpi radialis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38499",
+    "name": "left extensor carpi radialis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38501",
+    "name": "right extensor digitorum",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38502",
+    "name": "left extensor digitorum",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38504",
+    "name": "right extensor digiti minimi",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38505",
+    "name": "left extensor digiti minimi",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38513",
+    "name": "right supinator",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38514",
+    "name": "left supinator",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38516",
+    "name": "right abductor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38517",
+    "name": "left abductor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38519",
+    "name": "right extensor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38520",
+    "name": "left extensor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38522",
+    "name": "right extensor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38523",
+    "name": "left extensor pollicis longus",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38525",
+    "name": "right extensor indicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38526",
+    "name": "left extensor indicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38560",
+    "name": "humeral head of right pronator teres",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38561",
+    "name": "humeral head of left pronator teres",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38562",
+    "name": "ulnar head of right pronator teres",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38563",
+    "name": "ulnar head of left pronator teres",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38617",
+    "name": "humeral head of right flexor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38618",
+    "name": "humeral head of left flexor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38619",
+    "name": "ulnar head of right flexor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38620",
+    "name": "ulnar head of left flexor carpi ulnaris",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38638",
+    "name": "humeroulnar head of right flexor digitorum superficialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38639",
+    "name": "humeroulnar head of left flexor digitorum superficialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38640",
+    "name": "radial head of right flexor digitorum superficialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38641",
+    "name": "radial head of left flexor digitorum superficialis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA38928",
+    "name": "right rectus femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38929",
+    "name": "left rectus femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38930",
+    "name": "right vastus lateralis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38931",
+    "name": "left vastus lateralis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38932",
+    "name": "right vastus medialis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38933",
+    "name": "left vastus medialis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38934",
+    "name": "right vastus intermedius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA38935",
+    "name": "left vastus intermedius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA40120",
+    "name": "flexor retinaculum of right wrist",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA40121",
+    "name": "flexor retinaculum of left wrist",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42398",
+    "name": "set of lumbricals of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42399",
+    "name": "set of lumbricals of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42402",
+    "name": "set of palmar interossei of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42403",
+    "name": "set of palmar interossei of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42404",
+    "name": "set of dorsal interossei of right hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA42405",
+    "name": "set of dorsal interossei of left hand",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA43883",
+    "name": "right gracilis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA43884",
+    "name": "left gracilis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA43886",
+    "name": "right adductor minimus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA43887",
+    "name": "left adductor minimus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45739",
+    "name": "right platysma",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA45740",
+    "name": "left platysma",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA45826",
+    "name": "right stylohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA45827",
+    "name": "left stylohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA45854",
+    "name": "right pubococcygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45855",
+    "name": "left pubococcygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45856",
+    "name": "right puborectalis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45857",
+    "name": "left puborectalis",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45858",
+    "name": "right iliococcygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45859",
+    "name": "left iliococcygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA45874",
+    "name": "abdominal part of right pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA45875",
+    "name": "abdominal part of left pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA45888",
+    "name": "long head of right biceps femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45889",
+    "name": "long head of left biceps femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45891",
+    "name": "short head of right biceps femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45892",
+    "name": "short head of left biceps femoris",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45957",
+    "name": "medial head of right gastrocnemius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45958",
+    "name": "medial head of left gastrocnemius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45960",
+    "name": "lateral head of right gastrocnemius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45961",
+    "name": "lateral head of left gastrocnemius",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45971",
+    "name": "medial head of right flexor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45972",
+    "name": "medial head of left flexor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45973",
+    "name": "lateral head of right flexor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA45974",
+    "name": "lateral head of left flexor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA46018",
+    "name": "oblique head of right adductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA46019",
+    "name": "oblique head of left adductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA46020",
+    "name": "transverse head of right adductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA46021",
+    "name": "transverse head of left adductor hallucis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA46110",
+    "name": "deep head of right flexor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46111",
+    "name": "deep head of left flexor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46121",
+    "name": "oblique head of right adductor pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46122",
+    "name": "oblique head of left adductor pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46123",
+    "name": "transverse head of right adductor pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46124",
+    "name": "transverse head of left adductor pollicis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA46283",
+    "name": "superior oblique part of right longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46284",
+    "name": "superior oblique part of left longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46285",
+    "name": "vertical intermediate part of right longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46286",
+    "name": "vertical intermediate part of left longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46287",
+    "name": "inferior oblique part of right longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46288",
+    "name": "inferior oblique part of left longus colli",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46304",
+    "name": "anterior belly of right digastric",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46305",
+    "name": "anterior belly of left digastric",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46306",
+    "name": "posterior belly of right digastric",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46307",
+    "name": "posterior belly of left digastric",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46309",
+    "name": "right longus capitis",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46310",
+    "name": "left longus capitis",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46313",
+    "name": "right rectus capitis anterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46314",
+    "name": "left rectus capitis anterior",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46317",
+    "name": "right rectus capitis lateralis",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46318",
+    "name": "left rectus capitis lateralis",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46321",
+    "name": "right mylohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46322",
+    "name": "left mylohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46326",
+    "name": "right geniohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46327",
+    "name": "left geniohyoid",
+    "kind": "muscle",
+    "region": "Neck"
+  },
+  {
+    "id": "FMA46442",
+    "name": "tendinous arch of levator ani",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA46443",
+    "name": "right coccygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA46444",
+    "name": "left coccygeus",
+    "kind": "muscle",
+    "region": "Abdomen and pelvis"
+  },
+  {
+    "id": "FMA46759",
+    "name": "right frontalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46760",
+    "name": "left frontalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46761",
+    "name": "right occipitalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46762",
+    "name": "left occipitalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46763",
+    "name": "right temporoparietalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46764",
+    "name": "left temporoparietalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46768",
+    "name": "aponeurosis of epicranius",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46782",
+    "name": "orbital part of right orbicularis oculi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46783",
+    "name": "orbital part of left orbicularis oculi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46785",
+    "name": "palpebral part of right orbicularis oculi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46786",
+    "name": "palpebral part of left orbicularis oculi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46796",
+    "name": "right corrugator supercilii",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46797",
+    "name": "left corrugator supercilii",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46803",
+    "name": "right levator labii superioris alaeque nasi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46804",
+    "name": "left levator labii superioris alaeque nasi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46806",
+    "name": "right levator labii superioris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46807",
+    "name": "left levator labii superioris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46812",
+    "name": "right zygomaticus major",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46813",
+    "name": "left zygomaticus major",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46814",
+    "name": "right zygomaticus minor",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46815",
+    "name": "left zygomaticus minor",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46817",
+    "name": "right depressor labii inferioris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46818",
+    "name": "left depressor labii inferioris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46823",
+    "name": "right levator anguli oris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46824",
+    "name": "left levator anguli oris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46826",
+    "name": "right mentalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46827",
+    "name": "left mentalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46829",
+    "name": "right depressor anguli oris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46830",
+    "name": "left depressor anguli oris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46835",
+    "name": "right buccinator",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46836",
+    "name": "left buccinator",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46839",
+    "name": "right risorius",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46840",
+    "name": "left risorius",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA46841",
+    "name": "orbicularis oris",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49001",
+    "name": "superficial part of right masseter",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49002",
+    "name": "superficial part of left masseter",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49004",
+    "name": "deep part of right masseter",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49005",
+    "name": "deep part of left masseter",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49007",
+    "name": "right temporalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49008",
+    "name": "left temporalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49012",
+    "name": "right medial pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49013",
+    "name": "left medial pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49022",
+    "name": "lower head of right lateral pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49023",
+    "name": "lower head of left lateral pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49024",
+    "name": "upper head of right lateral pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA49025",
+    "name": "upper head of left lateral pterygoid",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA51142",
+    "name": "right extensor digitorum brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA51143",
+    "name": "left extensor digitorum brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA51144",
+    "name": "right extensor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA51145",
+    "name": "left extensor hallucis brevis",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA55606",
+    "name": "right nasalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA55607",
+    "name": "left nasalis",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA55608",
+    "name": "right depressor septi nasi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA55609",
+    "name": "left depressor septi nasi",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA55610",
+    "name": "right procerus",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA55611",
+    "name": "left procerus",
+    "kind": "muscle",
+    "region": "Head"
+  },
+  {
+    "id": "FMA58776",
+    "name": "right iliotibial tract",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA58777",
+    "name": "left iliotibial tract",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65014",
+    "name": "right flexor hallucis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65015",
+    "name": "left flexor hallucis longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65016",
+    "name": "right flexor digitorum longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65017",
+    "name": "left flexor digitorum longus",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65018",
+    "name": "right tibialis posterior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65019",
+    "name": "left tibialis posterior",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA65198",
+    "name": "superficial head of right flexor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA65199",
+    "name": "superficial head of left flexor pollicis brevis",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA71307",
+    "name": "set of interspinales lumborum",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA71308",
+    "name": "set of interspinales thoracis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA71309",
+    "name": "set of interspinales cervicis",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA71442",
+    "name": "set of anterior cervical intertransversarii",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA71443",
+    "name": "set of posterior cervical intertransversarii",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA71444",
+    "name": "set of lateral lumbar intertransversarius muscles",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA74075",
+    "name": "set of right levatores costarum longi",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA74076",
+    "name": "set of left levatores costarum longi",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA74077",
+    "name": "set of right levatores costarum breves",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA74078",
+    "name": "set of left levatores costarum breves",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA74140",
+    "name": "set of dorsal interossei of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA74141",
+    "name": "set of dorsal interossei of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA76775",
+    "name": "set of medial lumbar intertransversarius muscles",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA79979",
+    "name": "sternocostal part of right pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA79980",
+    "name": "sternocostal part of left pectoralis major",
+    "kind": "muscle",
+    "region": "Upper limbs"
+  },
+  {
+    "id": "FMA81752",
+    "name": "right cervical rotator",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA81753",
+    "name": "left cervical rotator",
+    "kind": "muscle",
+    "region": "Back"
+  },
+  {
+    "id": "FMA86034",
+    "name": "opponens digiti minimi of right foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA86035",
+    "name": "opponens digiti minimi of left foot",
+    "kind": "muscle",
+    "region": "Lower limbs"
+  },
+  {
+    "id": "FMA9756",
+    "name": "external intercostal muscle",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA9757",
+    "name": "internal intercostal muscle",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA9758",
+    "name": "innermost intercostal muscle",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA9761",
+    "name": "right transversus thoracis",
+    "kind": "muscle",
+    "region": "Thorax"
+  },
+  {
+    "id": "FMA9762",
+    "name": "left transversus thoracis",
+    "kind": "muscle",
+    "region": "Thorax"
+  }
+]

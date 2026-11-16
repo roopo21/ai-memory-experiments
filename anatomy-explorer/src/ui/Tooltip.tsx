@@ -23,7 +23,12 @@ export default function Tooltip() {
   const st = hovered ? structureByMesh.get(hovered) : null
   if (!st) return null
   return (
-    <div ref={ref} role="tooltip" className="glass pointer-events-none fixed left-0 top-0 z-40 max-w-[16rem] rounded-xl px-3 py-2 shadow-xl" style={{ transform: 'translate(-999px,-999px)' }}>
+    <div
+      ref={ref}
+      role="tooltip"
+      className="glass pointer-events-none fixed left-0 top-0 z-40 max-w-[16rem] rounded-xl px-3 py-2 shadow-xl"
+      style={{ transform: 'translate(-999px,-999px)' }}
+    >
       <div className="mb-1 text-sm font-semibold">{st.displayName}</div>
       <Badges ids={st.systems} size="sm" />
     </div>

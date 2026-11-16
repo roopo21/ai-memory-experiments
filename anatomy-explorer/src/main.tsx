@@ -11,5 +11,7 @@ createRoot(document.getElementById('root')!).render(
 
 // Dev-only handle for debugging / browser tests.
 if (import.meta.env.DEV) {
-  void import('./store/useAnatomyStore').then((m) => { (window as unknown as { __store: unknown }).__store = m.useAnatomyStore })
+  void import('./store/useAnatomyStore').then((m) => {
+    ;(window as unknown as { __store: unknown }).__store = m.useAnatomyStore
+  })
 }

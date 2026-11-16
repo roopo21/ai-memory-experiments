@@ -1,10 +1,10 @@
-import { structuresForSex, systemById, type Sex, type Structure, type ModelMode } from '../data/anatomy'
+import { structures, systemById, type Structure } from '../data/anatomy'
 
-export function searchStructures(query: string, sex: Sex, limit = 6, mode: ModelMode = 'overview'): Structure[] {
+export function searchStructures(query: string, limit = 6): Structure[] {
   const q = query.trim().toLowerCase()
   if (!q) return []
   const scored: [number, Structure][] = []
-  for (const s of structuresForSex(sex, mode)) {
+  for (const s of structures) {
     const name = s.displayName.toLowerCase()
     const mesh = s.meshName.toLowerCase().replace(/_/g, ' ')
     const sys = s.systems.map((id) => systemById.get(id)!.name.toLowerCase())
@@ -16,7 +16,10 @@ export function searchStructures(query: string, sex: Sex, limit = 6, mode: Model
     else if (sys.some((n) => n.startsWith(q))) score = 20
     if (score) scored.push([score, s])
   }
-  return scored.sort((a, b) => b[0] - a[0] || a[1].displayName.localeCompare(b[1].displayName)).slice(0, limit).map((x) => x[1])
+  return scored
+    .sort((a, b) => b[0] - a[0] || a[1].displayName.localeCompare(b[1].displayName))
+    .slice(0, limit)
+    .map((x) => x[1])
 }
 
 /** The structure to auto-select while typing: an exact name match, or the only candidate. */

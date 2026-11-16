@@ -1,0 +1,7 @@
+node_modules/
+dist/
+assets-src/
+public/
+src/data/skeleton.json
+src/data/muscles.json
+package-lock.json
