@@ -8,7 +8,7 @@ import {
   Brain,
   type LucideIcon,
 } from 'lucide-react'
-import { systemById, type SystemId } from '../data/anatomy'
+import { systemById, type SystemId } from '../anatomy/catalogue'
 const ICONS: Record<string, LucideIcon> = {
   Bone,
   Dumbbell,

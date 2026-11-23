@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { Check } from 'lucide-react'
-import { systems } from '../data/anatomy'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+import { systems } from '../anatomy/catalogue'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 import { SystemIcon } from './icons'
 
 /** Multi-select list with a roving tabindex: one tab stop, arrow keys move, Space/Enter toggle. */

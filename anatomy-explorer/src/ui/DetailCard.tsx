@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Crosshair, X } from 'lucide-react'
-import { structureByMesh } from '../data/anatomy'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+import { structureByMesh } from '../anatomy/catalogue'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 import Badges from './Badges'
-import GuideLinks from './guide/GuideLinks'
+import GuideLinks from '../guides/ui/GuideLinks'
 
 export default function DetailCard() {
   const hide = useAnatomyStore((s) => s.hideStructure)

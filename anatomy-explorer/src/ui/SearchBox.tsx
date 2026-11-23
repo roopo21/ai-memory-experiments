@@ -1,9 +1,9 @@
 import { useEffect, useId, useMemo, useState } from 'react'
 import { Search, X } from 'lucide-react'
-import { searchStructures, autoPick } from '../lib/search'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+import { searchStructures, autoPick } from '../anatomy/search'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 import { SystemIcon } from './icons'
-import { systemById, type Structure } from '../data/anatomy'
+import { systemById, type Structure } from '../anatomy/catalogue'
 
 export default function SearchBox() {
   const select = useAnatomyStore((s) => s.selectStructure)

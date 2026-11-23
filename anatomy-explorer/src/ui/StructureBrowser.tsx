@@ -8,8 +8,8 @@ import {
   organReport,
   nerveReport,
   muscleChunks,
-} from '../data/anatomy'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+} from '../anatomy/catalogue'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 export default function StructureBrowser() {
   const [system, setSystem] = useState<SystemId>('muscular')
   const selected = useAnatomyStore((s) => s.selectedMesh)

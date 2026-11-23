@@ -2,10 +2,6 @@ node_modules/
 dist/
 assets-src/
 public/
-src/data/skeleton.json
-src/data/muscles.json
 package-lock.json
-src/data/organs.json
-
-src/data/nerves.json
-src/data/previews.json
+src/anatomy/generated/
+asset-pipeline/data/

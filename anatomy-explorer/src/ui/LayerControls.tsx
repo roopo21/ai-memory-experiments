@@ -1,6 +1,6 @@
 import { Eye, EyeOff } from 'lucide-react'
-import { systems } from '../data/anatomy'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+import { systems } from '../anatomy/catalogue'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 import { SystemIcon } from './icons'
 
 export default function LayerControls() {

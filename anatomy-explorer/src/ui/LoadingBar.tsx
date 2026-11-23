@@ -1,5 +1,5 @@
 import { useProgress } from '@react-three/drei'
-import { useLoadState } from '../scene/loadQueue'
+import { useLoadState } from '../viewer/loadQueue'
 
 /**
  * Reflects real GLB download progress (drei's useProgress taps three's DefaultLoadingManager).

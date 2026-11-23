@@ -1,4 +1,4 @@
-import { systemById, type SystemId } from '../data/anatomy'
+import { systemById, type SystemId } from '../anatomy/catalogue'
 import { SystemIcon } from './icons'
 
 export default function Badges({ ids, size = 'md' }: { ids: SystemId[]; size?: 'sm' | 'md' }) {

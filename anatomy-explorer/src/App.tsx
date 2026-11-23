@@ -1,13 +1,13 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { library } from './lib/guides'
-import { useAnatomyStore } from './store/useAnatomyStore'
+import { library } from './guides/exercises'
+import { useAnatomyStore } from './state/useAnatomyStore'
 import DetailCard from './ui/DetailCard'
-import ExerciseCard from './ui/guide/ExerciseCard'
+import ExerciseCard from './guides/ui/ExerciseCard'
 import SidePanel from './ui/SidePanel'
 import Tooltip from './ui/Tooltip'
 
 // The 3D stack (three + r3f + drei) is a separate chunk so the shell paints immediately.
-const Scene = lazy(() => import('./scene/Scene'))
+const Scene = lazy(() => import('./viewer/Scene'))
 const LoadingBar = lazy(() => import('./ui/LoadingBar')) // imports drei, so it must stay out of the main chunk
 
 /** Shown only until the 3D chunk arrives; afterwards LoadingBar shows real model progress. */

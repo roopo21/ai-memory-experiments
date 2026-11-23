@@ -26,7 +26,7 @@ Changes: selected 282 spinal cord, cranial, trunk, pelvic and limb nerve surface
 
 ## Stretch and nerve-glide content
 
-The exercise library under `src/data/guides/` was written for this app and is not clinically reviewed. Entries that link a source paraphrase the movement in that public handout, and a dose that names a source quotes its numbers. No handout text or images are reproduced. Sources:
+The exercise library under `src/guides/library/` was written for this app and is not clinically reviewed. Entries that link a source paraphrase the movement in that public handout, and a dose that names a source quotes its numbers. No handout text or images are reproduced. Sources:
 
 - American Academy of Orthopaedic Surgeons, OrthoInfo: Knee, Rotator Cuff and Shoulder, Spine, Hip, and Foot and Ankle Conditioning Programs; Therapeutic Exercise Programs for Carpal Tunnel Syndrome (2022) and Radial Tunnel Syndrome (2024). https://www.orthoinfo.org
 - NHS: Flexibility exercises. https://www.nhs.uk/live-well/exercise/flexibility-exercises/

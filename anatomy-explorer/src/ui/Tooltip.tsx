@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
-import { structureByMesh } from '../data/anatomy'
-import { groupById } from '../data/guides/groups'
-import { groupsOfMesh } from '../lib/guides'
-import { useAnatomyStore } from '../store/useAnatomyStore'
+import { structureByMesh } from '../anatomy/catalogue'
+import { groupById } from '../guides/library/groups'
+import { groupsOfMesh } from '../guides/exercises'
+import { useAnatomyStore } from '../state/useAnatomyStore'
 import Badges from './Badges'
 
 /** Follows the pointer via direct DOM writes (no React re-render per mousemove). */

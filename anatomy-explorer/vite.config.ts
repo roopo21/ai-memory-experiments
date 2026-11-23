@@ -29,7 +29,7 @@ const listGlbs = (dir: string): string[] =>
  *   `url?v=<hash>`, so a URL changes exactly when its bytes do and the CDN can mark it immutable.
  * - The Draco decoder is emitted under a content-hashed directory for the same reason.
  * - index.html preloads the decoder, the lazily imported 3D chunks and the previews of the mode the
- *   page opens in (src/data/previews.json; a shared `#mode=glide` link opens in that guide), so they
+ *   page opens in (src/anatomy/generated/previews.json; a shared `#mode=glide` link opens in that guide), so they
  *   download alongside the app bundle instead of after it.
  */
 function anatomyAssets(): Plugin {
@@ -76,7 +76,7 @@ function anatomyAssets(): Plugin {
       order: 'post',
       handler(_html, ctx) {
         const { preload, previews } = JSON.parse(
-          readFileSync(join(root, 'src/data/previews.json'), 'utf8'),
+          readFileSync(join(root, 'src/anatomy/generated/previews.json'), 'utf8'),
         ) as { preload: Record<string, string[]>; previews: Record<string, { url: string }> }
         const fetchPreload = (href: string): HtmlTagDescriptor => ({
           tag: 'link',
@@ -90,7 +90,7 @@ function anatomyAssets(): Plugin {
             urls.map((url) => versioned(previews[url].url)),
           ]),
         )
-        // Parses the hash like src/lib/hashState.ts, before any other script runs.
+        // Parses the hash like src/state/hashState.ts, before any other script runs.
         const pickPreviews =
           `(function(){var s=${JSON.stringify(sets)};` +
           `var m=new URLSearchParams(location.hash.slice(1)).get('mode');(` +
