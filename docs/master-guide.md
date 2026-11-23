@@ -18,16 +18,16 @@ On top of that, the body can move: a yoga backbend, a moonwalk and a cartwheel. 
 
 ## 2. What we built, in order
 
-| When       | What happened                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------- |
-| 2026-11-14 | A real 3D skeleton in the browser: 231 bones and teeth you can click                                    |
-| 2026-11-16 | 435 muscles added on the same body, plus a cleaner viewer                                               |
-| 2026-11-16 | Five inside systems: heart and vessels, lungs, gut, kidneys and bladder, brain                          |
-| 2026-11-16 | 282 nerves from a second source, fitted onto the same body; the site goes live on Netlify               |
-| 2026-11-18 | Stretch guide and nerve-glide guide                                                                     |
-| 2026-11-18 | Much faster loading: small preview models first, real ones after, and caching for repeat visits         |
-| 2026-11-18 | The body learns to move: a 20-bone rig with three movements                                             |
-| 2026-11-23 | Everything committed to `main`, then this tidy-up: clear folders, plans folder, agent rules, these docs |
+| When       | What happened                                                                                                                       |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-14 | A real 3D skeleton in the browser: 231 bones and teeth you can click                                                                |
+| 2026-11-16 | 435 muscles added on the same body, plus a cleaner viewer                                                                           |
+| 2026-11-16 | Five inside systems: heart and vessels, lungs, gut, kidneys and bladder, brain                                                      |
+| 2026-11-16 | 282 nerves from a second source, fitted onto the same body; the site goes live on Netlify                                           |
+| 2026-11-18 | Stretch guide and nerve-glide guide                                                                                                 |
+| 2026-11-18 | Much faster loading: small preview models first, real ones after, and caching for repeat visits                                     |
+| 2026-11-18 | The body learns to move: a 20-bone rig with three movements                                                                         |
+| 2026-11-23 | Everything committed to `main`, then this tidy-up: an anatomy-only repository, clear folders, plans folder, agent rules, these docs |
 
 ## 3. What a 3D model is
 
@@ -167,7 +167,7 @@ The site is hosted on Netlify, which copies it to servers around the world. Publ
 ## 13. Where to find things
 
 ```text
-anatomy-explorer/
+anatomy-explorer/      the repository
 ├── README.md          front door: what it is and how to run it
 ├── AGENTS.md          rules for AI coding agents working here
 ├── docs/              this guide, the animation lesson, reference notes and plans

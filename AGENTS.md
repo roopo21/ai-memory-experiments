@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Instructions for AI coding agents, and anyone else, working in `anatomy-explorer/`.
+Instructions for AI coding agents, and anyone else, working in this repository. The repository holds only Anatomy Explorer.
 
 ## What this is
 
