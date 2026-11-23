@@ -1,0 +1,7 @@
+node_modules/
+dist/
+assets-src/
+public/
+package-lock.json
+src/anatomy/generated/
+asset-pipeline/data/

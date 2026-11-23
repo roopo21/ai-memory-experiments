@@ -1,7 +1,0 @@
-node_modules
-dist
-
-assets-src/
-*.tsbuildinfo
-
-.netlify/
