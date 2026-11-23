@@ -1,15 +1,20 @@
-import { useEffect, useMemo } from 'react'
+import { useContext, useEffect, useEffectEvent, useMemo, useState } from 'react'
 import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { damp } from 'maath/easing'
 import { structureByMesh } from '../data/anatomy'
-import { computeTarget } from '../lib/appearance'
+import { GUIDE_SYSTEM } from '../data/guides/groups'
+import { computeTarget, type GuideStyle } from '../lib/appearance'
+import { guideScene } from '../lib/guideView'
 import { auditMeshes } from '../lib/auditMeshes'
 import { useAnatomyStore } from '../store/useAnatomyStore'
-import { registerMeshes, meshRegistry, subscribeRegistry } from './registry'
+import { assetUrl, DRACO_PATH } from './assets'
+import { registerMeshes, meshRegistry, subscribeRegistry, TIER, type Tier } from './registry'
+import { BodyPose } from './LivingBody'
+import { skinAnatomyMesh, updateSkinBounds } from './movementRig'
 
-useGLTF.setDecoderPath('/draco/')
+useGLTF.setDecoderPath(DRACO_PATH)
 
 const noRaycast = () => {}
 
@@ -19,26 +24,62 @@ interface Runtime {
   color: THREE.Color
 }
 
+/**
+ * A mesh that supersedes a preview continues from the preview's current appearance, so the
+ * upgrade reads as the same surface sharpening rather than a fade out and back in.
+ */
+function adoptAppearance(mesh: THREE.Mesh, replaced: THREE.Object3D | undefined) {
+  if (
+    !replaced ||
+    replaced === mesh ||
+    replaced.userData.tier !== TIER.preview ||
+    meshRegistry.get(mesh.name) !== mesh
+  )
+    return
+  const from = replaced.userData.rt as Runtime | undefined
+  const to = mesh.userData.rt as Runtime
+  if (!from) return
+  to.mat.opacity = from.mat.opacity
+  to.mat.emissiveIntensity = from.mat.emissiveIntensity
+  to.mat.depthWrite = from.mat.depthWrite
+  to.color.copy(from.color)
+  to.mat.color.copy(from.mat.color)
+  to.mat.emissive.copy(from.mat.emissive)
+  mesh.visible = replaced.visible
+  from.mat.opacity = 0
+  replaced.visible = false
+}
+
 /** Renders any Object3D whose meshes are named per systems.json, applying ghosting/highlighting. */
 function BodyView({
   source,
   expected,
   label,
-  detail = false,
+  tier,
+  onReady,
 }: {
   source: THREE.Object3D
   expected: string[]
   label: string
-  detail?: boolean
+  tier: Tier
+  onReady?: () => void
 }) {
   const invalidate = useThree((s) => s.invalidate)
+  const rig = useContext(BodyPose)
+  const action = useAnatomyStore((s) => s.bodyAction)
+  const [rigged, setRigged] = useState(action !== 'idle')
+  useEffect(() => {
+    if (action !== 'idle') setRigged(true)
+  }, [action])
   // Own copy of the scene graph with one material per mesh so each can be animated independently.
   const { root, list: meshList } = useMemo(() => {
     const clone = source.clone(true)
     const list: THREE.Mesh[] = []
-    clone.traverse((o) => {
+    const objects: THREE.Object3D[] = []
+    clone.traverse((o) => objects.push(o))
+    objects.forEach((o) => {
       if (!(o as THREE.Mesh).isMesh) return
-      const m = o as THREE.Mesh
+      let m = o as THREE.Mesh
       const mat = new THREE.MeshStandardMaterial({
         color: '#8d96a6',
         roughness: 0.55,
@@ -54,11 +95,15 @@ function BodyView({
         raycast: m.raycast,
         color: new THREE.Color('#8d96a6'),
       } satisfies Runtime
+      if (rigged && rig) {
+        m = skinAnatomyMesh(m, structureByMesh.get(m.name), rig)
+        ;(m.userData.rt as Runtime).raycast = m.raycast
+      }
       m.renderOrder = 1
       list.push(m)
     })
     return { root: clone, list }
-  }, [source])
+  }, [source, rigged, rig])
 
   useEffect(() => {
     auditMeshes(
@@ -66,13 +111,23 @@ function BodyView({
       expected,
       label,
     )
-    const unregister = registerMeshes(meshList, detail)
+    const replaced = meshList.map((mesh) => meshRegistry.get(mesh.name))
+    const unregister = registerMeshes(meshList, tier)
+    meshList.forEach((mesh, i) => adoptAppearance(mesh, replaced[i]))
     invalidate()
     return () => {
       unregister()
       for (const mesh of meshList) (mesh.material as THREE.MeshStandardMaterial).dispose()
+      for (const mesh of meshList)
+        if ((mesh as THREE.SkinnedMesh).isSkinnedMesh) mesh.geometry.dispose()
     }
-  }, [meshList, label, invalidate, expected, detail])
+  }, [meshList, label, invalidate, expected, tier])
+
+  // Fires once per mounted mesh set, whatever the callback's identity.
+  const ready = useEffectEvent(() => onReady?.())
+  useEffect(() => {
+    ready()
+  }, [meshList])
 
   // Any store change wakes the (demand-driven) render loop.
   useEffect(() => useAnatomyStore.subscribe(() => invalidate()), [invalidate])
@@ -80,15 +135,30 @@ function BodyView({
   useEffect(() => subscribeRegistry(() => invalidate()), [invalidate])
   const tmp = useMemo(() => new THREE.Color(), [])
   useFrame((_, dt) => {
-    const { layers, hoveredMesh, selectedMesh, isolated, hiddenMeshes } = useAnatomyStore.getState()
+    const state = useAnatomyStore.getState()
+    const { layers, hoveredMesh, selectedMesh, isolated, hiddenMeshes } = state
+    const scene = guideScene(state)
     let moving = false
     for (const m of meshList) {
       const rt = m.userData.rt as Runtime
+      if ((m as THREE.SkinnedMesh).isSkinnedMesh) updateSkinBounds(m as THREE.SkinnedMesh)
+      const structure = structureByMesh.get(m.name)
+      let guide: GuideStyle | undefined
+      if (scene)
+        guide = {
+          kind: scene.kind,
+          role: structure?.systems.includes(GUIDE_SYSTEM[scene.kind])
+            ? (scene.roles.get(m.name) ?? 'other')
+            : 'context',
+          selection: scene.selection,
+          exercise: scene.exercise,
+        }
       const t = computeTarget(
-        structureByMesh.get(m.name),
+        structure,
         layers,
         m.name === hoveredMesh,
         m.name === selectedMesh,
+        guide,
       )
       if (
         meshRegistry.get(m.name) !== m ||
@@ -148,12 +218,19 @@ function BodyView({
       onClick={(e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation()
         const n = nameOf(e)
-        if (n) useAnatomyStore.getState().selectStructure(n)
+        if (!n) return
+        const store = useAnatomyStore.getState()
+        // In a guide, a click picks body parts. While an exercise is open the body is read-only.
+        if (store.mode === 'explore') store.selectStructure(n)
+        else if (!store.activeExercise) store.toggleGuideMesh(n)
       }}
       onDoubleClick={(e: ThreeEvent<MouseEvent>) => {
         e.stopPropagation()
         const n = nameOf(e)
-        if (n) useAnatomyStore.getState().selectStructure(n, { focus: true })
+        if (!n) return
+        const store = useAnatomyStore.getState()
+        if (store.mode === 'explore') store.selectStructure(n, { focus: true })
+        else if (!store.activeExercise) store.frameGuideMesh(n)
       }}
     />
   )
@@ -162,12 +239,22 @@ function BodyView({
 export function AnatomyLayer({
   url,
   expected,
-  detail = false,
+  tier = TIER.overview,
+  onReady,
 }: {
   url: string
   expected: string[]
-  detail?: boolean
+  tier?: Tier
+  onReady?: () => void
 }) {
-  const { scene } = useGLTF(url)
-  return <BodyView source={scene} label={url} expected={expected} detail={detail} />
+  const { scene } = useGLTF(assetUrl(url))
+  // Free a preview's GPU buffers when it leaves the scene; three.js re-uploads if it returns.
+  useEffect(() => {
+    if (tier !== TIER.preview) return
+    return () => scene.traverse((o) => (o as THREE.Mesh).geometry?.dispose())
+  }, [scene, tier])
+  return <BodyView source={scene} label={url} expected={expected} tier={tier} onReady={onReady} />
 }
+
+/** Drop a superseded preview from the loader cache. Only call once it can never render again. */
+export const forgetPreview = (url: string) => useGLTF.clear(assetUrl(url))

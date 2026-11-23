@@ -1,6 +1,9 @@
 import StructureBrowser from './StructureBrowser'
 import { ChevronUp, RotateCcw } from 'lucide-react'
+import { GUIDE_LABEL } from '../data/guides/groups'
 import { useAnatomyStore } from '../store/useAnatomyStore'
+import GuidePanel from './guide/GuidePanel'
+import ModeSwitch from './guide/ModeSwitch'
 import LayerControls from './LayerControls'
 import SearchBox from './SearchBox'
 import SystemList from './SystemList'
@@ -13,6 +16,8 @@ export default function SidePanel() {
   const activeCount = useAnatomyStore(
     (s) => Object.values(s.layers).filter((layer) => layer.visible).length,
   )
+  const mode = useAnatomyStore((s) => s.mode)
+  const picked = useAnatomyStore((s) => s.guideGroups.length)
   const mobile = useIsMobile()
   const collapsed = mobile && !expanded
 
@@ -39,9 +44,13 @@ export default function SidePanel() {
         <div>
           <h1 className="text-base font-semibold tracking-tight">Anatomy Explorer</h1>
           <p className="text-xs text-[var(--muted)]">
-            {activeCount
-              ? `${activeCount} system${activeCount > 1 ? 's' : ''} visible`
-              : 'All systems hidden'}
+            {mode !== 'explore'
+              ? picked
+                ? `${picked} ${GUIDE_LABEL[mode].target}${picked > 1 ? ' groups' : ' group'} selected`
+                : `Pick a ${GUIDE_LABEL[mode].target} to begin`
+              : activeCount
+                ? `${activeCount} system${activeCount > 1 ? 's' : ''} visible`
+                : 'All systems hidden'}
           </p>
         </div>
         <button
@@ -52,8 +61,9 @@ export default function SidePanel() {
         </button>
       </header>
 
-      <div className="px-4 pb-2">
-        <SearchBox />
+      <div className="space-y-2 px-4 pb-2">
+        <ModeSwitch />
+        {mode === 'explore' && <SearchBox />}
       </div>
 
       <div
@@ -61,11 +71,17 @@ export default function SidePanel() {
         inert={collapsed}
         className={`min-h-0 overflow-y-auto px-3 transition-[height] duration-300 md:h-auto md:flex-1 ${collapsed ? 'h-0' : 'h-[50dvh]'}`}
       >
-        <SystemList />
-        <div className="my-3">
-          <LayerControls />
-        </div>
-        <StructureBrowser />
+        {mode === 'explore' ? (
+          <>
+            <SystemList />
+            <div className="my-3">
+              <LayerControls />
+            </div>
+            <StructureBrowser />
+          </>
+        ) : (
+          <GuidePanel key={mode} kind={mode} />
+        )}
       </div>
 
       <footer className="border-t border-white/10 px-4 py-2 text-center text-[11px] text-[var(--muted)]">

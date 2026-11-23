@@ -1,0 +1,211 @@
+{
+  "settings": {
+    "levels": [
+      {
+        "ratio": 0.06,
+        "error": 0.01
+      },
+      {
+        "ratio": 0.2,
+        "error": 0.003
+      },
+      {
+        "ratio": 0.5,
+        "error": 0.001
+      }
+    ],
+    "maxDrift": {
+      "metres": 0.002,
+      "ofSize": 0.02
+    },
+    "quantizePosition": 14,
+    "quantizeNormal": 8
+  },
+  "preload": {
+    "explore": [
+      "/models/male-skeleton.glb",
+      "/models/muscles/upper-limbs.glb",
+      "/models/muscles/abdomen-and-pelvis.glb",
+      "/models/muscles/neck.glb",
+      "/models/muscles/back.glb",
+      "/models/muscles/lower-limbs.glb",
+      "/models/muscles/other-muscle-structures.glb",
+      "/models/muscles/head.glb",
+      "/models/muscles/thorax.glb"
+    ],
+    "stretch": [
+      "/models/male-skeleton.glb",
+      "/models/muscles/upper-limbs.glb",
+      "/models/muscles/abdomen-and-pelvis.glb",
+      "/models/muscles/neck.glb",
+      "/models/muscles/back.glb",
+      "/models/muscles/lower-limbs.glb",
+      "/models/muscles/other-muscle-structures.glb",
+      "/models/muscles/head.glb",
+      "/models/muscles/thorax.glb"
+    ],
+    "glide": [
+      "/models/male-skeleton.glb",
+      "/models/organs/nervous.glb",
+      "/models/nerves/cranial-nerves.glb",
+      "/models/nerves/lower-limb-nerves.glb",
+      "/models/nerves/spinal-cord.glb",
+      "/models/nerves/trunk-and-pelvic-nerves.glb",
+      "/models/nerves/upper-limb-nerves.glb"
+    ]
+  },
+  "previews": {
+    "/models/male-skeleton.glb": {
+      "url": "/models/preview/male-skeleton.glb",
+      "bytes": 672540,
+      "triangles": 145566,
+      "sourceBytes": 7067056,
+      "sourceTriangles": 2037126,
+      "sourceSha256": "d9e60d0d828cdd253bab32b629e5ce7ccaa56549e3dcf25a19d79055f1391433"
+    },
+    "/models/muscles/upper-limbs.glb": {
+      "url": "/models/preview/muscles/upper-limbs.glb",
+      "bytes": 238312,
+      "triangles": 39628,
+      "sourceBytes": 2508348,
+      "sourceTriangles": 611220,
+      "sourceSha256": "b466495df91ac7eb6ebd57be48d3fe885e2580e4a4524f066addb46ac61b2c04"
+    },
+    "/models/muscles/abdomen-and-pelvis.glb": {
+      "url": "/models/preview/muscles/abdomen-and-pelvis.glb",
+      "bytes": 105504,
+      "triangles": 25708,
+      "sourceBytes": 1443108,
+      "sourceTriangles": 397020,
+      "sourceSha256": "efdb1dcfd3234a2b1c0daab0c36930ef3306f9679f8f22c3f8f32f361a0cd69e"
+    },
+    "/models/muscles/neck.glb": {
+      "url": "/models/preview/muscles/neck.glb",
+      "bytes": 85884,
+      "triangles": 12514,
+      "sourceBytes": 847844,
+      "sourceTriangles": 200350,
+      "sourceSha256": "faaa2b91c5649306891ba66c6733fceb86c5664c38e4fcfd9f6436806eb23275"
+    },
+    "/models/muscles/back.glb": {
+      "url": "/models/preview/muscles/back.glb",
+      "bytes": 139124,
+      "triangles": 25176,
+      "sourceBytes": 1697520,
+      "sourceTriangles": 419910,
+      "sourceSha256": "7eeaeecdbffc53896d4e537c731592aae195a595ae226cb89522f4f0eff32471"
+    },
+    "/models/muscles/lower-limbs.glb": {
+      "url": "/models/preview/muscles/lower-limbs.glb",
+      "bytes": 261580,
+      "triangles": 44264,
+      "sourceBytes": 2917608,
+      "sourceTriangles": 724272,
+      "sourceSha256": "36abd82d198c18ac7093551fa318d99367f5c48447bf8fb46a568c30b31d9094"
+    },
+    "/models/muscles/other-muscle-structures.glb": {
+      "url": "/models/preview/muscles/other-muscle-structures.glb",
+      "bytes": 5468,
+      "triangles": 960,
+      "sourceBytes": 21812,
+      "sourceTriangles": 4668,
+      "sourceSha256": "4d19a1980873a904eb6bfcd0c7e91787da0701031b9f412e2c34bec101d1faf7"
+    },
+    "/models/muscles/head.glb": {
+      "url": "/models/preview/muscles/head.glb",
+      "bytes": 127120,
+      "triangles": 22798,
+      "sourceBytes": 1406284,
+      "sourceTriangles": 342818,
+      "sourceSha256": "39fb043787ec20adf6f3ec17edc8d208529a0c526418459854b468c58428237b"
+    },
+    "/models/muscles/thorax.glb": {
+      "url": "/models/preview/muscles/thorax.glb",
+      "bytes": 71124,
+      "triangles": 17974,
+      "sourceBytes": 1130720,
+      "sourceTriangles": 300232,
+      "sourceSha256": "2946fa5f107c5e32278d9f1f46a748405a96eba8c667bb5c72e4c04a0ecf25aa"
+    },
+    "/models/organs/cardiovascular.glb": {
+      "url": "/models/preview/organs/cardiovascular.glb",
+      "bytes": 134040,
+      "triangles": 21578,
+      "sourceBytes": 754096,
+      "sourceTriangles": 174010,
+      "sourceSha256": "92974319ecd27a594c328d03ec8a0ac981f9a010105c6b42e9dd0c1d585565ea"
+    },
+    "/models/organs/respiratory.glb": {
+      "url": "/models/preview/organs/respiratory.glb",
+      "bytes": 34988,
+      "triangles": 6576,
+      "sourceBytes": 410136,
+      "sourceTriangles": 101606,
+      "sourceSha256": "5ec5c1c4ed2a5afd1b3d8811bbeec21f26c63a4da623f14f225a20df128d2813"
+    },
+    "/models/organs/digestive.glb": {
+      "url": "/models/preview/organs/digestive.glb",
+      "bytes": 40660,
+      "triangles": 7856,
+      "sourceBytes": 384756,
+      "sourceTriangles": 98640,
+      "sourceSha256": "054f38766094948e5c19ebae96d8604ce242b5bbe73dfc757a260c843d16f92e"
+    },
+    "/models/organs/urinary.glb": {
+      "url": "/models/preview/organs/urinary.glb",
+      "bytes": 11128,
+      "triangles": 1670,
+      "sourceBytes": 56984,
+      "sourceTriangles": 12968,
+      "sourceSha256": "7aa984d2b01a039c9723a96ba71a1e474aeb0b383ee9774cfcad9fa3d1798711"
+    },
+    "/models/organs/nervous.glb": {
+      "url": "/models/preview/organs/nervous.glb",
+      "bytes": 234352,
+      "triangles": 42710,
+      "sourceBytes": 2184396,
+      "sourceTriangles": 541160,
+      "sourceSha256": "d84ffccb17a0e6d9d1c2fa57b2278fcf76ad9b37f2d13ecb532a3a2b4151a159"
+    },
+    "/models/nerves/cranial-nerves.glb": {
+      "url": "/models/preview/nerves/cranial-nerves.glb",
+      "bytes": 130480,
+      "triangles": 26000,
+      "sourceBytes": 1037672,
+      "sourceTriangles": 426252,
+      "sourceSha256": "53d299c22e553efe9c38125d496732944ad4f322b4a38523fb3a4b06ab586bf9"
+    },
+    "/models/nerves/lower-limb-nerves.glb": {
+      "url": "/models/preview/nerves/lower-limb-nerves.glb",
+      "bytes": 105716,
+      "triangles": 12208,
+      "sourceBytes": 567864,
+      "sourceTriangles": 204480,
+      "sourceSha256": "cc9d6a49e73ff1b67751821ae516469c80c5484e527c7da5eb922c160c735694"
+    },
+    "/models/nerves/spinal-cord.glb": {
+      "url": "/models/preview/nerves/spinal-cord.glb",
+      "bytes": 151688,
+      "triangles": 43972,
+      "sourceBytes": 706324,
+      "sourceTriangles": 295242,
+      "sourceSha256": "b297a9f4d263ca9162aecff8076671249c043b646a71676545404480616926f4"
+    },
+    "/models/nerves/trunk-and-pelvic-nerves.glb": {
+      "url": "/models/preview/nerves/trunk-and-pelvic-nerves.glb",
+      "bytes": 68640,
+      "triangles": 16902,
+      "sourceBytes": 582668,
+      "sourceTriangles": 282180,
+      "sourceSha256": "62b47fee0f9853abcca90dfe8fd9aeb082ef7c16fd0219daca92b74905e80f66"
+    },
+    "/models/nerves/upper-limb-nerves.glb": {
+      "url": "/models/preview/nerves/upper-limb-nerves.glb",
+      "bytes": 154884,
+      "triangles": 16174,
+      "sourceBytes": 729292,
+      "sourceTriangles": 251712,
+      "sourceSha256": "d7138f1ab9cf7e256c34f963216a05b07f0e0b408d6eef988bda9a4628ae82d6"
+    }
+  }
+}

@@ -8,7 +8,10 @@ export interface GlbDocument {
 
 /** Read metadata without decoding geometry, including Draco-compressed assets. */
 export function readGlb(path: string): GlbDocument {
-  const buffer = readFileSync(path)
+  return parseGlb(readFileSync(path), path)
+}
+
+export function parseGlb(buffer: Buffer, path = 'GLB'): GlbDocument {
   if (
     buffer.readUInt32LE(0) !== 0x46546c67 ||
     buffer.readUInt32LE(4) !== 2 ||

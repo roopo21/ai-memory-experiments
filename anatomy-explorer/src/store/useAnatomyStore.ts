@@ -1,21 +1,40 @@
+import type { BodyAction } from '../scene/movementRig'
 import { create } from 'zustand'
-import { structureByMesh, systems, type SystemId } from '../data/anatomy'
+import { DEFAULT_VISIBLE_SYSTEMS, structureByMesh, systems, type SystemId } from '../data/anatomy'
+import { groupById, groupsByMesh, meshesOf } from '../data/guides/groups'
+import type { GroupView, GuideKind, GuideMode } from '../data/guides/types'
+import { exerciseById, exerciseMeshes, viewFor } from '../lib/guides'
 
 export interface LayerState {
   visible: boolean
   opacity: number
 }
 export type CameraRequest =
+  | { kind: 'performance'; action: BodyAction; nonce: number }
   | { kind: 'system'; nonce: number; system: SystemId }
   | { kind: 'home'; nonce: number }
   | { kind: 'focus'; nonce: number; meshName: string }
+  | { kind: 'meshes'; nonce: number; meshNames: string[]; view: GroupView }
 
 const defaultLayers = () =>
   Object.fromEntries(
-    systems.map((s) => [s.id, { visible: s.id === 'skeletal' || s.id === 'muscular', opacity: 1 }]),
+    systems.map((s) => [s.id, { visible: DEFAULT_VISIBLE_SYSTEMS.includes(s.id), opacity: 1 }]),
+  ) as Record<SystemId, LayerState>
+
+/** Stretches show muscle over bone. Glides show nerves inside a ghosted skeleton. */
+export const guideLayers = (kind: GuideKind) =>
+  Object.fromEntries(
+    systems.map((s) => {
+      if (s.id === 'skeletal') return [s.id, { visible: true, opacity: kind === 'glide' ? 0.3 : 1 }]
+      const own = kind === 'stretch' ? 'muscular' : 'nervous'
+      return [s.id, { visible: s.id === own, opacity: 1 }]
+    }),
   ) as Record<SystemId, LayerState>
 
 interface State {
+  bodyAction: BodyAction
+  actionSerial: number
+  setBodyAction: (action: BodyAction) => void
   hiddenMeshes: string[]
   muscleRegion: string | null
   isolated: boolean
@@ -24,6 +43,21 @@ interface State {
   selectedMesh: string | null
   cameraRequest: CameraRequest
   panelExpanded: boolean
+  /** Explore the anatomy, or find stretches or nerve glides for chosen body parts. */
+  mode: GuideMode
+  /** Selected stretch or glide groups, in the order they were picked. */
+  guideGroups: string[]
+  activeExercise: string | null
+  setMode: (mode: GuideMode) => void
+  toggleGuideGroup: (id: string) => void
+  /** Click on the body: add every group the mesh belongs to, or remove them if all are selected. */
+  toggleGuideMesh: (meshName: string) => void
+  /** Double-click on the body: make sure the mesh's groups are selected and frame them. */
+  frameGuideMesh: (meshName: string) => void
+  clearGuideGroups: () => void
+  openExercise: (id: string | null) => void
+  /** Jump into a guide from elsewhere (detail card, shared link). */
+  startGuide: (kind: GuideKind, groups: string[], exercise?: string) => void
   setMuscleRegion: (region: string | null) => void
   hideStructure: (name: string) => void
   restoreStructures: () => void
@@ -46,6 +80,18 @@ const req = (request: DistributiveOmit<CameraRequest, 'nonce'>): CameraRequest =
   ({ ...request, nonce: ++nonce }) as CameraRequest
 
 export const useAnatomyStore = create<State>((set, get) => ({
+  bodyAction: 'idle',
+  actionSerial: 0,
+  setBodyAction: (bodyAction) =>
+    set((state) => ({
+      bodyAction,
+      actionSerial: state.actionSerial + 1,
+      hoveredMesh: null,
+      cameraRequest:
+        bodyAction === 'idle'
+          ? req({ kind: 'home' })
+          : req({ kind: 'performance', action: bodyAction }),
+    })),
   hiddenMeshes: [],
   muscleRegion: null,
   isolated: false,
@@ -54,6 +100,74 @@ export const useAnatomyStore = create<State>((set, get) => ({
   selectedMesh: null,
   cameraRequest: req({ kind: 'home' }),
   panelExpanded: false,
+  mode: 'explore',
+  guideGroups: [],
+  activeExercise: null,
+
+  setMode: (mode) =>
+    set({
+      bodyAction: 'idle',
+      mode,
+      guideGroups: [],
+      activeExercise: null,
+      layers: mode === 'explore' ? defaultLayers() : guideLayers(mode),
+      selectedMesh: null,
+      hoveredMesh: null,
+      hiddenMeshes: [],
+      isolated: false,
+      muscleRegion: null,
+      cameraRequest: req({ kind: 'home' }),
+    }),
+  toggleGuideGroup: (id) => {
+    const { mode, guideGroups } = get()
+    if (mode === 'explore' || !groupById[mode].has(id)) return
+    const next = guideGroups.includes(id)
+      ? guideGroups.filter((g) => g !== id)
+      : [...guideGroups, id]
+    set({ guideGroups: next, activeExercise: null, cameraRequest: frameGroups(mode, next) })
+  },
+  toggleGuideMesh: (meshName) => {
+    const { mode, guideGroups } = get()
+    if (mode === 'explore') return
+    const ids = groupsByMesh[mode].get(meshName)
+    if (!ids) return
+    const all = ids.every((id) => guideGroups.includes(id))
+    set({
+      guideGroups: all
+        ? guideGroups.filter((g) => !ids.includes(g))
+        : [...guideGroups, ...ids.filter((id) => !guideGroups.includes(id))],
+      activeExercise: null,
+    })
+  },
+  frameGuideMesh: (meshName) => {
+    const { mode, guideGroups } = get()
+    if (mode === 'explore') return
+    const ids = groupsByMesh[mode].get(meshName)
+    if (!ids) return
+    set({
+      guideGroups: [...guideGroups, ...ids.filter((id) => !guideGroups.includes(id))],
+      activeExercise: null,
+      cameraRequest: frameGroups(mode, ids),
+    })
+  },
+  clearGuideGroups: () => set({ guideGroups: [], activeExercise: null }),
+  openExercise: (id) => {
+    const { mode } = get()
+    if (mode === 'explore') return
+    const exercise = id ? exerciseById[mode].get(id) : undefined
+    if (!exercise) return set({ activeExercise: null })
+    set({
+      activeExercise: exercise.id,
+      hoveredMesh: null,
+      cameraRequest: frameExercise(mode, exercise.id),
+    })
+  },
+  startGuide: (kind, groups, exercise) => {
+    get().setMode(kind)
+    const valid = [...new Set(groups)].filter((id) => groupById[kind].has(id))
+    set({ guideGroups: valid, cameraRequest: frameGroups(kind, valid) })
+    if (exercise) get().openExercise(exercise)
+  },
 
   setMuscleRegion: (muscleRegion) => set({ muscleRegion, selectedMesh: null, hoveredMesh: null }),
   hideStructure: (name) => {
@@ -122,13 +236,22 @@ export const useAnatomyStore = create<State>((set, get) => ({
   },
   clearSelection: () => set({ selectedMesh: null }),
   recenter: () => {
-    const selected = get().selectedMesh
+    const { selectedMesh: selected, mode, activeExercise, guideGroups } = get()
+    if (mode !== 'explore')
+      return set({
+        cameraRequest: activeExercise
+          ? frameExercise(mode, activeExercise)
+          : frameGroups(mode, guideGroups),
+      })
     set({
       cameraRequest: selected ? req({ kind: 'focus', meshName: selected }) : req({ kind: 'home' }),
     })
   },
-  reset: () =>
+  reset: () => {
+    const { mode } = get()
+    if (mode !== 'explore') return get().setMode(mode)
     set({
+      bodyAction: 'idle',
       hiddenMeshes: [],
       muscleRegion: null,
       isolated: false,
@@ -136,6 +259,25 @@ export const useAnatomyStore = create<State>((set, get) => ({
       selectedMesh: null,
       hoveredMesh: null,
       cameraRequest: req({ kind: 'home' }),
-    }),
+    })
+  },
   setPanelExpanded: (panelExpanded) => set({ panelExpanded }),
 }))
+
+/** Frame the given groups from the side that shows most of them, or go home when there are none. */
+function frameGroups(kind: GuideKind, ids: string[]): CameraRequest {
+  const meshNames = meshesOf(kind, ids)
+  return meshNames.length
+    ? req({ kind: 'meshes', meshNames, view: viewFor(kind, ids) })
+    : req({ kind: 'home' })
+}
+
+function frameExercise(kind: GuideKind, id: string): CameraRequest {
+  const exercise = exerciseById[kind].get(id)
+  if (!exercise) return req({ kind: 'home' })
+  return req({
+    kind: 'meshes',
+    meshNames: exerciseMeshes(kind, exercise),
+    view: viewFor(kind, exercise.primary),
+  })
+}

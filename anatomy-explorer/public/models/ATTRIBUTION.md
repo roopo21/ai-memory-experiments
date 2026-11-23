@@ -23,3 +23,17 @@ Cranial Nerves and Foramina - University of Dundee, CAHID - CC-BY 4.0.
 The files under `nerves/` adapt the Z-Anatomy glTF export at https://github.com/nqwrc/3d-anatomy/tree/8ca3b7421bcfbe88b85859eb1983d5cf79f21749/public/models, originating from https://github.com/Z-Anatomy/Models-of-human-anatomy. These derived nerve geometry files are distributed under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). The cranial nerve contribution retains CC BY 4.0 attribution (https://creativecommons.org/licenses/by/4.0/). The upstream notice is retained at `nerves/LICENSE.txt`.
 
 Changes: selected 282 spinal cord, cranial, trunk, pelvic and limb nerve surfaces; excluded duplicate brain and inner-ear surfaces; fitted one uniform similarity transform against 99 corresponding bone landmarks (median residual 0.80 mm); baked world coordinates; exported five regional Draco-compressed GLBs. See `nerves-manifest.json` for source hashes, counts and registration. Courses have not been independently reviewed.
+
+## Stretch and nerve-glide content
+
+The exercise library under `src/data/guides/` was written for this app and is not clinically reviewed. Entries that link a source paraphrase the movement in that public handout, and a dose that names a source quotes its numbers. No handout text or images are reproduced. Sources:
+
+- American Academy of Orthopaedic Surgeons, OrthoInfo: Knee, Rotator Cuff and Shoulder, Spine, Hip, and Foot and Ankle Conditioning Programs; Therapeutic Exercise Programs for Carpal Tunnel Syndrome (2022) and Radial Tunnel Syndrome (2024). https://www.orthoinfo.org
+- NHS: Flexibility exercises. https://www.nhs.uk/live-well/exercise/flexibility-exercises/
+- HealthLinkBC: Hip flexor stretch (kneeling). https://www.healthlinkbc.ca/healthwise/hip-flexor-stretch-kneeling
+- Physitrack: Pectoralis stretching. https://us.physitrack.com/home-exercise-video/pectoralis-stretching
+- East Kent Hospitals University NHS Foundation Trust: Cubital tunnel syndrome. https://leaflets.ekhuft.nhs.uk/cubital-tunnel-syndrome/html
+- The Royal Wolverhampton NHS Trust: Nerve Gliding Exercises. https://royalwolverhampton.nhs.uk/wp-content/uploads/2025/06/Nerve-Gliding-Exercises.pdf
+- South Tees Hospitals NHS Foundation Trust: Sciatic nerve slider; Femoral nerve slider. https://www.southtees.nhs.uk/resources/
+
+Default stretch doses follow Garber et al., ACSM position stand, Med Sci Sports Exerc 2011;43(7):1334–59. Glide types follow Coppieters and Butler, Man Ther 2008;13(3):213–21. Evidence notes cite Coppieters et al. 2009 and 2015 (J Orthop Sports Phys Ther) and Basson et al. 2017 (J Orthop Sports Phys Ther 47(9):593–615).

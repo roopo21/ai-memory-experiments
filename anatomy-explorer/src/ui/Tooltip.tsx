@@ -1,11 +1,16 @@
 import { useEffect, useRef } from 'react'
 import { structureByMesh } from '../data/anatomy'
+import { groupById } from '../data/guides/groups'
+import { groupsOfMesh } from '../lib/guides'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import Badges from './Badges'
 
 /** Follows the pointer via direct DOM writes (no React re-render per mousemove). */
 export default function Tooltip() {
   const hovered = useAnatomyStore((s) => s.hoveredMesh)
+  const mode = useAnatomyStore((s) => s.mode)
+  const picked = useAnatomyStore((s) => s.guideGroups)
+  const exerciseOpen = useAnatomyStore((s) => s.activeExercise !== null)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -22,6 +27,8 @@ export default function Tooltip() {
 
   const st = hovered ? structureByMesh.get(hovered) : null
   if (!st) return null
+  const ids = mode === 'explore' ? [] : groupsOfMesh(mode, st.meshName)
+  const allPicked = ids.length > 0 && ids.every((id) => picked.includes(id))
   return (
     <div
       ref={ref}
@@ -29,8 +36,24 @@ export default function Tooltip() {
       className="glass pointer-events-none fixed left-0 top-0 z-40 max-w-[16rem] rounded-xl px-3 py-2 shadow-xl"
       style={{ transform: 'translate(-999px,-999px)' }}
     >
-      <div className="mb-1 text-sm font-semibold">{st.displayName}</div>
-      <Badges ids={st.systems} size="sm" />
+      {mode !== 'explore' && ids.length > 0 ? (
+        <>
+          <div className="text-sm font-semibold">
+            {ids.map((id) => groupById[mode].get(id)!.name).join(' · ')}
+          </div>
+          <div className="text-xs text-[var(--muted)]">{st.displayName}</div>
+          {!exerciseOpen && (
+            <div className="mt-1 text-[11px] text-[var(--accent)]">
+              {allPicked ? 'Click to remove' : 'Click to add'} · double-click to frame
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="mb-1 text-sm font-semibold">{st.displayName}</div>
+          <Badges ids={st.systems} size="sm" />
+        </>
+      )}
     </div>
   )
 }

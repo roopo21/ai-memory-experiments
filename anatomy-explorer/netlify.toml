@@ -2,7 +2,21 @@
   command = "npm run build"
   publish = "dist"
 
+# Content-hashed by Vite: a changed file always gets a new name.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# The app requests every model as /models/...glb?v=<content hash> (see vite.config.ts),
+# so a URL never changes meaning and browsers can keep models without revalidating.
 [[headers]]
   for = "/models/*"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Decoder builds are emitted under /draco/<content hash>/.
+[[headers]]
+  for = "/draco/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

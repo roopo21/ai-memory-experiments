@@ -1,6 +1,6 @@
 # Anatomy Explorer roadmap
 
-Updated 2026-11-16. This is the single forward plan for the anatomy app. `README.md` covers operation; the manifests record what is actually shipped; `ATTRIBUTION.md` records source terms. Update this file as milestones are verified rather than creating parallel planning documents.
+Updated 2026-11-18. This is the single forward plan for the anatomy app. `README.md` covers operation; the manifests record what is actually shipped; `ATTRIBUTION.md` records source terms. Update this file as milestones are verified rather than creating parallel planning documents.
 
 ## Latest implementation update
 
@@ -10,9 +10,18 @@ Milestones 3 and 4 below now describe coverage expansion and review of this init
 
 The nervous extension now adds 282 Z-Anatomy surfaces, including spinal cord and cranial, trunk, pelvic and limb nerves. Registration against 99 shared bone landmarks has a median residual of 0.80 mm; courses still need review.
 
-## Next product focus: stretching
+## Stretch and nerve-glide guides
 
-Build a body-area-to-stretch flow: select an area or muscle, show its mapped muscle group, then provide a source-backed stretch with setup, movement, duration and a clear visual. Start with calves, quadriceps, hamstrings and shoulders. Include sources and review dates, and obtain professional review before personalized advice. Validate that people can find a relevant stretch without knowing anatomical names. Routine saving and progress tracking follow the core interaction.
+The body-area-to-stretch flow shipped on 2026-11-18, together with the same flow for nerve glides. People pick muscles or nerves on the model or from body-area chips and get ranked exercises with setup, steps, where to feel it, dose, cautions and a source link. Opening one highlights its targets on the 3D body and frames them. The library holds 163 stretches over 49 muscle groups and 26 nerve glides over 11 nerve groups. Links share a selection or an exercise, and `npm run check:guides` validates the data.
+
+Still open before this content can be called reviewed:
+
+- Clinical review of every entry, covering targets, dose and contraindications, with a named review record. Until then the content stays labelled as education only.
+- A pose visual per exercise, as an illustration or animation. Today the visual is the highlighted target tissue, not the body position.
+- Source review dates in the card, such as June 2022 for the AAOS carpal tunnel handout and April 2024 for its radial tunnel handout, plus scheduled link checks.
+- A usability test of whether people find a relevant stretch without anatomical names. Plain-language aliases such as "back of thigh" or "tingling in the hand" are the likely fix.
+- Symptom-based entry points and red-flag screening for nerve glides before any condition-specific advice.
+- Routine saving and progress tracking, once the core flow is validated.
 
 ## Outcome
 
@@ -68,6 +77,16 @@ This is the next implementation milestone. Finish it before importing another la
 - Use a spatial picking index and draw-call reduction only after profiling identifies those bottlenecks. Preserve structure identity and selection behavior.
 
 **Proposed acceptance targets, not current claims:** usable first view within 5 seconds on a documented 20 Mbps / 100 ms test connection; 95th-percentile frame time below 33 ms during a repeatable orbit/selection sequence on the chosen laptop; no monotonic memory growth after 20 region/selection cycles. Set the mobile memory budget from device measurements. Record actual results here.
+
+**Recorded so far (load time only):** Chrome on an Apple M4 Pro laptop (Metal), 1440×900, cold cache, emulated network, HTTP/2 static server reproducing Netlify's compression and cache headers. The default view counts as usable when every startup layer has painted.
+
+| Network               | Before progressive loading | Previews painted | Visible muscles at full detail | Hidden skeleton at full detail |
+| --------------------- | -------------------------- | ---------------- | ------------------------------ | ------------------------------ |
+| 38 Mbps / 120 ms      | 4.9 s                      | 1.4 s            | 4.0 s (was 4.0 s)              | 5.3 s (was 4.9 s)              |
+| 10 Mbps / 150 ms      | 16.8 s                     | 2.4 s            | 12.2 s (was 13.4 s)            | 17.8 s (was 16.8 s)            |
+| Repeat visit, 38 Mbps | 1.4 s, 8 to 17 requests    | 1.0 s, 1 request | 1.0 s                          | 1.0 s                          |
+
+Before the change, the live site measured 4.4 s to the first layer and 8.0 s to the whole body on a real connection served from Netlify's Singapore edge. Frame time, memory and a mobile device are still unmeasured.
 
 ### 3. Add thoracic and abdominal organs from the same body
 

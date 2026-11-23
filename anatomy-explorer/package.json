@@ -15,7 +15,7 @@
     "fetch:muscles": "python3 scripts/fetch-models.py --system muscles",
     "build:muscles": "tsx scripts/build-muscles.ts",
     "check:viewer": "tsx scripts/check-viewer.ts",
-    "check": "npm run build && npm run audit:models && npm run check:skeleton && npm run check:viewer && npm run check:organs && npm run check:nerves",
+    "check": "npm run build && npm run audit:models && npm run check:skeleton && npm run check:viewer && npm run check:organs && npm run check:nerves && npm run check:guides && npm run check:previews && npm run check:pose",
     "format": "prettier --write src scripts/*.{ts,mjs} *.json *.md",
     "format:check": "prettier --check src scripts/*.{ts,mjs} *.json *.md",
     "fetch:organs": "python3 scripts/fetch-models.py --system organs",
@@ -25,7 +25,11 @@
     "select:nerves": "tsx scripts/select-nerves.ts",
     "register:nerves": "tsx scripts/register-zanatomy.ts",
     "build:nerves": "tsx scripts/build-nerves.ts",
-    "check:nerves": "tsx scripts/check-nerves.ts"
+    "check:nerves": "tsx scripts/check-nerves.ts",
+    "check:guides": "tsx scripts/check-guides.ts",
+    "build:previews": "tsx scripts/build-previews.ts",
+    "check:previews": "tsx scripts/check-previews.ts",
+    "check:pose": "tsx scripts/check-pose.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

@@ -1,20 +1,26 @@
-import { Component, Suspense, useMemo, type ReactNode } from 'react'
+import { Component, Suspense, useEffect, useMemo, type ReactNode } from 'react'
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import {
-  skeletonNames,
-  muscleChunks,
-  systemChunks,
-  structureByMesh,
-  type SystemId,
-} from '../data/anatomy'
+import { mountedLayerSources, structureByMesh, type LayerSource } from '../data/anatomy'
 import { HOME } from '../lib/framing'
 import { useAnatomyStore } from '../store/useAnatomyStore'
+import { assetUrl, previewUrlOf } from './assets'
 import CameraRig from './CameraRig'
-import { AnatomyLayer } from './Body'
+import LivingBody from './LivingBody'
+import MovementShadows from './MovementShadows'
+import { AnatomyLayer, forgetPreview } from './Body'
+import {
+  fullFailed,
+  fullLoaded,
+  previewSettled,
+  previewStarted,
+  useFullAdmission,
+  useFullLoaded,
+} from './loadQueue'
+import { TIER } from './registry'
 
 class ModelBoundary extends Component<
-  { fallback: ReactNode; children: ReactNode },
+  { fallback: ReactNode; children: ReactNode; onError?: () => void },
   { failed: boolean }
 > {
   state = { failed: false }
@@ -23,10 +29,88 @@ class ModelBoundary extends Component<
   }
   componentDidCatch(e: unknown) {
     console.warn('[models] Requested anatomy layer failed to load.', e)
+    this.props.onError?.()
   }
   render() {
     return this.state.failed ? this.props.fallback : this.props.children
   }
+}
+
+const Alert = ({ children }: { children: ReactNode }) => (
+  <Html center>
+    <p role="alert" className="rounded bg-slate-900 p-3 text-white">
+      {children}
+    </p>
+  </Html>
+)
+
+/** The default view is covered by muscle, so visible surfaces upgrade before the skeleton. */
+const priorityOf = (layer: LayerSource) => (layer.systems.includes('skeletal') ? 1 : 0)
+const labelOf = (layer: LayerSource) =>
+  layer.systems.includes('muscular') ? `${layer.region} muscles` : layer.region
+
+/**
+ * Paints a layer from its lightweight preview, then swaps in the full-quality GLB once the load
+ * queue admits it. Both tiers register the same mesh names; the registry shows the best one.
+ */
+function ProgressiveLayer({ layer }: { layer: LayerSource }) {
+  const previewUrl = previewUrlOf(layer.url)
+  const upgraded = useFullLoaded(layer.url)
+  const showPreview = previewUrl !== undefined && !upgraded
+
+  // Registered before the full request so the queue already sees this preview as downloading.
+  useEffect(() => {
+    if (previewUrl === undefined) return
+    if (upgraded) {
+      forgetPreview(previewUrl) // the full layer now serves this layer for good
+      return
+    }
+    previewStarted(previewUrl, assetUrl(previewUrl))
+    return () => previewSettled(previewUrl)
+  }, [upgraded, previewUrl])
+  const admitted = useFullAdmission(
+    layer.url,
+    priorityOf(layer),
+    previewUrl !== undefined,
+    assetUrl(layer.url),
+  )
+
+  return (
+    <>
+      {previewUrl !== undefined && !upgraded && (
+        <Suspense fallback={null}>
+          <ModelBoundary fallback={null} onError={() => previewSettled(previewUrl)}>
+            <AnatomyLayer
+              url={previewUrl}
+              expected={layer.meshes}
+              tier={TIER.preview}
+              onReady={() => previewSettled(previewUrl)}
+            />
+          </ModelBoundary>
+        </Suspense>
+      )}
+      {(admitted || previewUrl === undefined) && (
+        <Suspense fallback={null}>
+          <ModelBoundary
+            fallback={
+              <Alert>
+                {showPreview
+                  ? `${labelOf(layer)}: full detail failed to load; showing a simplified surface. Reload to retry.`
+                  : `${labelOf(layer)} failed to load. Reload to retry.`}
+              </Alert>
+            }
+            onError={() => fullFailed(layer.url)}
+          >
+            <AnatomyLayer
+              url={layer.url}
+              expected={layer.meshes}
+              onReady={() => fullLoaded(layer.url)}
+            />
+          </ModelBoundary>
+        </Suspense>
+      )}
+    </>
+  )
 }
 
 function Stage() {
@@ -37,24 +121,25 @@ function Stage() {
       <directionalLight position={[3, 4, 5]} intensity={2.2} />
       <directionalLight position={[-4, 2, -3]} intensity={1.1} color="#6fb8ff" />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.002, 0]}>
-        <ringGeometry args={[0.55, 0.57, 96]} />
-        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.35} />
+        <ringGeometry args={[0.9, 0.905, 96]} />
+        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.16} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.004, 0]}>
-        <circleGeometry args={[0.55, 64]} />
-        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.04} />
+        <circleGeometry args={[0.9, 64]} />
+        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.06} />
       </mesh>
     </>
   )
 }
 
-export default function Scene() {
+export default function Scene({ motionEnabled = true }: { motionEnabled?: boolean }) {
   const layers = useAnatomyStore((s) => s.layers)
   const selected = useAnatomyStore((s) => s.selectedMesh)
   const detail = selected ? structureByMesh.get(selected) : null
   const detailNames = useMemo(() => (detail ? [detail.meshName] : []), [detail?.meshName])
-  const muscleVisible = useAnatomyStore((s) => s.layers.muscular.visible)
   const muscleRegion = useAnatomyStore((s) => s.muscleRegion)
+
+  const mounted = mountedLayerSources((id) => layers[id].visible, muscleRegion)
 
   return (
     <Canvas
@@ -63,74 +148,31 @@ export default function Scene() {
       camera={{ fov: 38, near: 0.05, far: 60, position: HOME.position.toArray() }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       onPointerMissed={(e) => {
+        const store = useAnatomyStore.getState()
         if (e.detail >= 2)
-          useAnatomyStore.getState().recenter() // double-click on empty space
-        else useAnatomyStore.getState().clearSelection()
+          store.recenter() // double-click on empty space
+        else if (store.mode === 'explore') store.clearSelection() // a stray click never drops a guide selection
       }}
       aria-label="3D human anatomy viewport"
     >
       <Stage />
       <CameraRig />
-      <>
-        <Suspense fallback={null}>
-          <ModelBoundary
-            fallback={
-              <Html center>
-                <p role="alert">Skeleton failed to load. Reload to retry.</p>
-              </Html>
-            }
-          >
-            <AnatomyLayer url="/models/male-skeleton.glb" expected={skeletonNames} />
-          </ModelBoundary>
-        </Suspense>
-        {muscleVisible &&
-          muscleChunks
-            .filter((c) => !muscleRegion || c.region === muscleRegion)
-            .map((chunk) => (
-              <Suspense key={chunk.url} fallback={null}>
-                <ModelBoundary
-                  fallback={
-                    <Html center>
-                      <p role="alert" className="rounded bg-slate-900 p-3 text-white">
-                        {chunk.region} muscles failed to load. Reload to retry.
-                      </p>
-                    </Html>
-                  }
-                >
-                  <AnatomyLayer url={chunk.url} expected={chunk.meshes} />
-                </ModelBoundary>
-              </Suspense>
-            ))}
-        {systemChunks
-          .filter((chunk) => chunk.systems.some((id) => layers[id as SystemId].visible))
-          .map((chunk) => (
-            <Suspense key={chunk.url} fallback={null}>
-              <ModelBoundary
-                fallback={
-                  <Html center>
-                    <p role="alert">{chunk.region} failed to load. Reload to retry.</p>
-                  </Html>
-                }
-              >
-                <AnatomyLayer url={chunk.url} expected={chunk.meshes} />
-              </ModelBoundary>
-            </Suspense>
-          ))}
+      <LivingBody enabled={motionEnabled}>
+        <MovementShadows />
+        {mounted.map((layer) => (
+          <ProgressiveLayer key={layer.url} layer={layer} />
+        ))}
         {detail?.detailUrl && detail.systems.some((id) => layers[id].visible) && (
           <Suspense fallback={null}>
             <ModelBoundary
               key={detail.meshName}
-              fallback={
-                <Html center>
-                  <p role="alert">Full detail unavailable. Showing overview surface.</p>
-                </Html>
-              }
+              fallback={<Alert>Full detail unavailable. Showing overview surface.</Alert>}
             >
-              <AnatomyLayer url={detail.detailUrl} expected={detailNames} detail />
+              <AnatomyLayer url={detail.detailUrl} expected={detailNames} tier={TIER.detail} />
             </ModelBoundary>
           </Suspense>
         )}
-      </>
+      </LivingBody>
     </Canvas>
   )
 }

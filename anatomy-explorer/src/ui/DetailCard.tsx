@@ -3,6 +3,7 @@ import { Crosshair, X } from 'lucide-react'
 import { structureByMesh } from '../data/anatomy'
 import { useAnatomyStore } from '../store/useAnatomyStore'
 import Badges from './Badges'
+import GuideLinks from './guide/GuideLinks'
 
 export default function DetailCard() {
   const hide = useAnatomyStore((s) => s.hideStructure)
@@ -66,6 +67,7 @@ export default function DetailCard() {
           View original source mesh
         </a>
       )}
+      <GuideLinks structure={st} />
       <h3 className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted)]">
         Key facts
       </h3>
