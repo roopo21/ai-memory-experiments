@@ -1,0 +1,10 @@
+You are an independent research peer. Today is 2026-11-20. Use WebSearch and WebFetch. Prefer PRIMARY sources (official GitHub README, Hugging Face model card, vendor docs) over blogs. Quote the exact line you rely on and give its URL. If you cannot find a primary source, say so; never guess.
+
+Question: which open-weights video generation models are practical to self-host today, and what GPU do they need?
+
+Do this:
+1. List every open-weights text/image-to-video model released up to 2026-11-20 that is plausibly competitive (include Wan 2.x, HunyuanVideo 1.x, LTX-Video / LTX-2.x, CogVideoX, Mochi, Open-Sora, SkyReels, Kandinsky, and anything newer you discover). For Wan 2.5/2.6/2.7/3.0 state whether weights were actually released, citing Alibaba's own GitHub/HF.
+2. For the 5 most relevant models give: licence (exact name + commercial-use conditions), parameter count, supported resolution/fps/clip length, minimum and recommended VRAM at bf16/fp8/quantised, and the MEASURED generation time for roughly a 5-second 720p clip, naming the GPU, step count, precision, and whether the figure is from the vendor or a third party.
+3. Flag any claim that conflicts across sources.
+
+Output a compact markdown report with a table, then a "Confidence and gaps" section. Max 900 words.

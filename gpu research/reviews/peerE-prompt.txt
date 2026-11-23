@@ -1,0 +1,10 @@
+You are an independent research peer. Today is 2026-11-20. Use WebSearch and WebFetch. Prefer PRIMARY provider pricing pages. Quote the exact price line with its URL; write "not readable" rather than guess; do not copy a price from a blog if the provider page is readable.
+
+Goal: the CHEAPEST way to buy short AI video clips (about 5 seconds, 720p; 480p also acceptable if much cheaper) through an API, for a buyer in India who wants INR cost per clip.
+
+1. List the cheapest hosted video-generation endpoints you can find, including hosted open-weights models: LTX-Video / LTX-2.x (all tiers, incl. distilled/fast), Wan 2.1 / 2.2 (1.3B, 5B, A14B), HunyuanVideo, CogVideoX, Mochi, plus cheap closed models (Hailuo 2.3 / Fast, Kling 2.x, Runway Gen-4 Turbo, Veo 3.1 Fast/Lite, Seedance Lite/Fast/Mini, PixVerse, Pika, Vidu, Luma Ray Flash). Providers to check: fal.ai, Replicate, WaveSpeed, Atlas Cloud, Novita, DeepInfra, Together, Hyperbolic, Pruna, the model makers' own sites, and any provider that bills in INR.
+2. For each: the provider's price unit (per second / per clip / credits), resolution and clip-length limits, the USD (or INR) price for ONE 5 s clip at 720p (and 480p where offered), audio included or not, free credits, and any minimum purchase. Compute the price of one 5 s clip and of 100 clips.
+3. Does any provider bill in INR or accept UPI/Indian cards without forex markup? State how GST/tax is treated (reverse charge, OIDAR, etc.) only if the page says so.
+4. Get the USD to INR rate with source and time.
+
+Output a compact markdown table sorted cheapest first (price per 5 s clip), then "Conflicts between sources" and "Confidence and gaps". Max 800 words.

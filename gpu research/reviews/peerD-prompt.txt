@@ -1,0 +1,9 @@
+You are an independent research peer. Today is 2026-11-20. Use WebSearch and WebFetch. Prefer PRIMARY sources (official GitHub README, Hugging Face model card). Quote the line you rely on with its URL. If a figure is not stated by a primary source, say so; never guess.
+
+Context: a buyer wants a fast, cheap, OLDER or lighter open-weights video generation model to run on a single rented GPU (A100 80GB, H100 80GB, L40S 48GB, RTX 4090 24GB) for about 48 hours. They mentioned a "Kimi" video model. 
+1. Does Moonshot AI / Kimi have any released video-generation model, open or API? Does Kuaishou's Kling have any open-weights model? State yes/no with source.
+2. For these older/lighter open models: Wan 2.1 T2V-1.3B, Wan 2.2 TI2V-5B, LTX-Video (0.9.x and 13B distilled) and LTX-2.x, CogVideoX-2B and 5B, Mochi 1, Open-Sora, SkyReels, HunyuanVideo 1.5 step-distilled: give licence (commercial use?), parameters, VRAM needed, output resolution/fps/length, and the MEASURED seconds to generate one clip (name the GPU, resolution, frames, steps, vendor or third party). Include any figure of the form "X seconds on an A100 / H100 / L40S / 4090".
+3. Rank them for "fast and cheap per clip with acceptable quality at about 5 s, 720p (480p acceptable if much cheaper)", and say which have a ready ComfyUI workflow.
+4. Flag anything that would stop it working on a rented Indian cloud GPU (gated weights, licence territory limits, needs Blackwell, needs >80GB).
+
+Output a compact markdown report with one table, then ranking, then "Conflicts" and "Confidence and gaps". Max 900 words.

@@ -1,0 +1,9 @@
+You are an independent research peer. Today is 2026-11-20. Use WebSearch and WebFetch. Prefer PRIMARY pricing pages (the provider's own site). For every price give: provider, GPU, exact price and currency, billing unit, on-demand vs spot, region, whether GST/tax is included, the URL, and the date shown on the page if any. If a page is login-gated or JS-rendered and you cannot read the number, write "not readable" and do not guess. Quote the line you rely on.
+
+Question: what does it cost today to rent GPUs to self-host a video generation model, from India and globally, and what do hosted video-generation APIs charge per second?
+
+Part 1, GPU hourly prices. Check each of: E2E Networks (H100, H200, L40S, A100), Yotta Shakti Cloud, Neysa, JarvisLabs, IndiaAI compute portal (rate card), RunPod (H100, A100 80GB, L40S, RTX 4090, RTX 5090; secure vs community), Lambda, Vast.ai (median), Modal (per-second GPU price), AWS/GCP/Azure H100 on-demand for reference.
+Part 2, hosted API prices per second of video, at 720p and 1080p: Google Veo 3.x (all tiers), Kling, Runway, Luma, MiniMax/Hailuo, ByteDance Seedance, and open-weights models served by fal.ai and Replicate (Wan 2.2, LTX 2.x, HunyuanVideo). Use the provider's own price page where possible.
+Part 3, the current USD to INR rate with source and date.
+
+Output a compact markdown report: one table per part, then "Conflicts between sources" and "Confidence and gaps". Max 900 words.

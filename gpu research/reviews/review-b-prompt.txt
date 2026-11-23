@@ -1,0 +1,343 @@
+You are a hostile but fair senior reviewer (infra economics + ML serving). Today is 2026-11-20. Below are: (1) the requirements for a research task on the GPU needs and cost of self-hosting a video-generation model, (2) a cost model output built from the evidence, and (3) two independent peer research reports it was built from. You may use WebSearch/WebFetch to spot-check the 3 claims you find most load-bearing.
+
+Deliver, in this order, max 900 words:
+A. VERDICT: self-host vs hosted open-weights endpoint vs closed API, in one sentence, for a small team making roughly 500 to 5000 short (5 s, 720p) clips a month. Say what you would do.
+B. OBJECTIONS: numbered, ranked by impact on the ranking. For each: what is wrong, which number it affects, direction of the error (cost too low or too high), and a concrete fix. Cover at least: unverified generation times, acceptance/utilisation assumptions, quality non-comparability across options, GST and FX handling, API same-acceptance assumption, break-even logic, missing cost components (storage, egress, ops time), and platform risk (e.g. a hosted model being removed).
+C. YOUR OWN TOP 5: five concrete options (model + harness + GPU + provider, or API), ranked, each with a one-line reason, confidence, and the cheapest experiment that would disprove it. At least one must be a non-self-host baseline. Do this from the evidence below, not from the author's ranking, then say where you differ from the cost-model ranking.
+D. THE ONE EXPERIMENT: the single paid benchmark run (exact models, GPU, settings, expected spend) that would most reduce uncertainty.
+
+=== REQUIREMENTS ===
+# GPU Research: self-hosting a video generation model
+
+Source: Asana task "Figure out GPUs and cost to self-host a video gen model" (Vrisha AI, `Later · Deep · @experiment`, due 2026-12-01, task gid 1220732719607695).
+Scoped on: 2026-11-20. Status: v2 (revised after reviewer pass 0, see `reviews/00-requirements-review.md`).
+
+## 1. Goal
+
+Work out which GPUs are needed for which video generation models, and what it would cost today to run a video generation model myself and generate videos. End with a ranked **top 5** of concrete recommendations (model + harness + GPU + provider + cost per video).
+
+## 2. Decision this serves
+
+"Should I self-host a video gen model, and if so, on what stack and at what cost per video?" The output must let me decide in about 10 minutes, so it has to be comparable across options and carry a clear "so what".
+
+Out of scope: building the product around the model, fine-tuning or training, audio/lip-sync pipelines, legal and licensing review beyond flagging commercial-use restrictions.
+
+## 3. Work packages (run in order; each ends with a gate)
+
+| # | Work package | Output file | Gate to move on |
+|---|---|---|---|
+| WP1 | Model survey: open-weights models first, closed or API-only ones as a cost baseline | `01-models.md` | Every model has a source link, release date, licence, parameter count |
+| WP2 | GPU mapping: model to VRAM, GPU class, precision/quantisation, throughput, seconds to generate a clip | `02-gpu-mapping.md` | Each figure marked fact / inference / opinion, with a source |
+| WP3 | Pricing: cloud GPU hourly prices in India, sanity-checked against global providers; on-demand vs spot | `03-pricing.md` | Each price has provider, GPU, region, currency, date captured |
+| WP4 | Cost model: cost per generated video under stated resolution, length, utilisation | `04-cost-model.md` + `cost_model.py` | Reproducible: a script regenerates every number |
+| WP5 | Prune and peer review: delete weak or unsupported findings; independent reviewers attack what remains | `05-review-log.md` | All reviewer objections resolved or recorded as open |
+| WP6 | Converge: top 5 recommendations | `RECOMMENDATIONS.md` | Passes the quality rubric (section 5) |
+
+## 4. Functional requirements
+
+**FR1 Model survey.** Cover recent and older video generation models (examples to check, not a closed list: Wan 2.x, HunyuanVideo, LTX-Video, CogVideoX, Mochi, Open-Sora, SkyReels, plus any newer releases since mid-2026). For each: licence and whether commercial use is allowed, parameter count, supported resolution/fps/clip length, text-to-video vs image-to-video, and the serving harness (ComfyUI, diffusers, vendor repo, vLLM-style servers, etc.). WP1 gate adds a **licence matrix** (commercial use, revenue/user cap, territory exclusions, output ownership, attribution) and a **harness maturity** column (last commit, open-issue trend).
+
+**FR2 GPU mapping.** Fixed candidate set: RTX 4090, RTX 5090, L40S, A100 40/80 GB, H100, H200, B200, and AMD MI300X (flag ROCm support gaps). Consumer GPUs on community clouds are flagged for terms-of-service and data-privacy limits. For each model and a standard target (see FR4), give VRAM needed at fp16/bf16, fp8 and quantised variants where they exist; the smallest GPU that works and the recommended one; measured generation time per clip with the benchmark's GPU named. Reject any benchmark that does not state steps, resolution, precision and offload settings. If only a different GPU is benchmarked, scale it and mark the result as an inference with a stated error band of ±30–50%.
+
+**FR3 Pricing.** Hourly GPU prices from Indian providers (examples to check: E2E Networks, Yotta, Tata Communications / Neysa, Hyperstack-style India regions, any IndiaAI-mission subsidised compute) and from global providers (RunPod, Lambda, Vast.ai, Modal, Replicate, AWS/GCP/Azure) as a sanity check. Record on-demand and spot/interruptible prices separately. Convert to INR with the rate and date stated; state whether GST (18%) is included. **Eligibility rule:** a provider can appear in the ranking only if it has a verifiable public price or a dated quote; otherwise it is listed as "not publicly listed" and excluded from ranking. Also record availability (multi-GPU nodes, quota).
+
+**FR4 Cost model.** Cost per **accepted** video = GPU hourly price x (generation seconds / 3600) x (1 / utilisation) x (1 / acceptance rate) + amortised model-load cost + storage + egress + idle floor. Scenarios are fully defined (duration, fps, resolution, steps, T2V vs I2V) and each model carries a quality-tier label (distilled few-step vs full-step) with the judging method stated (VBench or side-by-side; say so if no benchmark exists):
+- S1: 5 s, 24 fps, 720p, T2V
+- S2: 5 s, 24 fps, 1080p, T2V
+- S3: 10 s, 24 fps, 720p, T2V
+- S4: 5 s, 24 fps, 720p, I2V
+- Sensitivities: utilisation 100% / 60% / 30%; acceptance rate 100% / 50% / 25%; warm vs cold start; always-on VM vs serverless per-second.
+- A TCO table adds weights storage (50–100+ GB), egress, and engineer time at a stated INR/hour rate.
+- **API baseline:** at least 6 hosted providers priced per second of video at matching resolution, dated (examples: Veo, Sora, Runway, Kling, Luma, Hailuo/MiniMax, Seedance), plus hosted open-weights endpoints (fal.ai, Replicate) as a separate row, since they share the model but remove ops.
+
+**FR5 Break-even.** State the monthly video volume where self-hosting beats the hosted-API baseline, per recommendation.
+
+**FR6 Prune.** Every finding that lacks a source, relies on a single marketing claim, or cannot be reproduced is deleted or demoted to "unverified" and excluded from the recommendations.
+
+**FR7 Peer review.** At least two reviewer passes through `claude -p`, run as a protocol: (a) a peer given the raw questions and sources only, not my draft, who re-derives the key numbers; (b) a reviewer who attacks method and conclusions; at least one pass uses a different model tier from the author. Output is saved verbatim in `05-review-log.md`, each objection marked resolved or open. "Changes the ranking" is mechanical: re-run `cost_model.py` with the objection's value and check whether the top-5 order flips.
+
+**FR8 Top 5.** `RECOMMENDATIONS.md` opens with a one-line **verdict**: self-host, hosted open-weights endpoint, or closed API. It then ranks exactly five options, of which at least one must be a non-self-host baseline. Each states: model, harness, GPU, provider, cost per accepted video for S1 to S4 in INR and USD, break-even monthly volume, main risk, confidence (low / medium / high), and what would prove it wrong. A one-page summary supports a 10-minute read.
+
+**FR9 Follow-up.** The top 3 get a proposed paid benchmark run (steps, settings, expected spend) as the mandatory next step before any commitment. It is not run in this task.
+
+**Time box:** WP1 1.5 h, WP2 2 h, WP3 1.5 h, WP4 1 h, WP5 1 h, WP6 1 h.
+
+## 5. Quality bar (applies to every output)
+
+An insight counts only if it:
+1. is non-obvious;
+2. has evidence, with each claim marked fact, inference or opinion, and numbers given as ranges;
+3. ends with a "so what";
+4. holds at realistic scale (not just one lucky benchmark);
+5. names the cheapest experiment that would disprove it.
+
+## 6. Constraints and assumptions
+
+- Prices and model releases change quickly. Anything captured is dated, and the date is part of the claim.
+- Today is 2026-11-20; training knowledge may be out of date, so web sources win over memory.
+- Indian-provider prices may only be available on request or behind login; if so, record "not publicly listed" instead of guessing.
+- No spending on cloud GPUs in this task. All numbers come from published benchmarks and price pages. A small paid benchmark run is a proposed follow-up, not part of this task.
+
+## 7. Acceptance criteria
+
+- [ ] All six work-package files exist in this folder.
+- [ ] `cost_model.py` runs and reproduces every cost figure in `04-cost-model.md`.
+- [ ] No unsourced numbers in `RECOMMENDATIONS.md`.
+- [ ] Two reviewer passes logged; no open objection that changes the ranking.
+- [ ] Top 5 delivered with cost per video in INR and USD.
+
+## 8. Open questions
+
+1. Is the target use case short social clips, or longer cinematic output? (Assumed: short clips, S1 to S3 above.)
+2. Is a text-to-video-only model enough, or do image-to-video and consistency across shots matter?
+3. Is commercial licensing a hard requirement? (Assumed: yes, so non-commercial licences are flagged and ranked below.)
+4. Is data residency in India a requirement or only a price preference? (Assumed: preference.)
+
+=== COST MODEL OUTPUT ===
+# 04 Cost model (generated by `cost_model.py` v2; do not edit by hand)
+
+S1 = 5 s, 24 fps, 720p, T2V. USD/INR 93.0 (F, 2026-11-20). GST 18% added to Indian providers (O: usually claimable as input credit). Base utilisation 60%, acceptance 50% (both O; same acceptance applied to APIs). Cost per ACCEPTED video = price x (gen s + overhead) / 3600 / utilisation / acceptance. Low/high pair the best/worst price with the best/worst time.
+
+## Ranked by mid case, cost per accepted S1 video
+
+| # | option | kind | low | mid | high | rank @low / @high | evidence | licence |
+|---|---|---|---|---|---|---|---|---|
+| 1 | HunyuanVideo 1.5 distilled on RTX 4090, RunPod | self-host | $0.06 (Rs6) | $0.25 (Rs23) | $0.41 (Rs38) | 1 / 2 | price F / time I | Tencent Community: no EU/UK/KR, 100M MAU cap |
+| 2 | LTX-2.x fp8+offload on RTX 5090, RunPod | self-host | $0.08 (Rs7) | $0.29 (Rs27) | $0.90 (Rs84) | 2 / 8 | price F / time I | LTX Community: free <$10M revenue; keep watermark |
+| 3 | Wan 2.2 5B on fal.ai (hosted open) | api | $0.30 (Rs28) | $0.30 (Rs28) | $0.30 (Rs28) | 6 / 1 | F | n/a (hosted) |
+| 4 | LTX-2.x on H100, Modal serverless | self-host | $0.29 (Rs27) | $0.44 (Rs41) | $0.88 (Rs82) | 5 / 7 | price F / time I | LTX Community: free <$10M revenue; keep watermark |
+| 5 | Wan2.2 TI2V-5B on RTX 4090, RunPod | self-host | $0.17 (Rs16) | $0.44 (Rs41) | $0.58 (Rs54) | 3 / 4 | price F / time F | Apache 2.0 |
+| 6 | MiniMax Hailuo 2.3 (closed API, 768p) | api | $0.47 (Rs44) | $0.47 (Rs44) | $0.47 (Rs44) | 8 / 3 | F | n/a (hosted) |
+| 7 | LTX-2.x on H100, E2E dedicated | self-host | $0.25 (Rs24) | $0.52 (Rs49) | $1.31 (Rs122) | 4 / 10 | price F / time I | LTX Community: free <$10M revenue; keep watermark |
+| 8 | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | api | $0.60 (Rs56) | $0.70 (Rs65) | $0.80 (Rs74) | 9 / 6 | F | n/a (hosted) |
+| 9 | Wan 2.2 A14B on fal.ai (hosted open, same model) | api | $0.40 (Rs37) | $0.80 (Rs74) | $0.80 (Rs74) | 7 / 5 | F | n/a (hosted) |
+| 10 | Veo 3.1 Fast via fal.ai (closed, silent) | api | $1.00 (Rs93) | $1.00 (Rs93) | $1.50 (Rs140) | 10 / 11 | F | n/a (hosted) |
+| 11 | Kling 3.0 Pro via fal.ai (closed, silent) | api | $1.12 (Rs104) | $1.12 (Rs104) | $1.68 (Rs156) | 11 / 12 | F | n/a (hosted) |
+| 12 | Runway Gen-4.5 (closed) | api | $1.20 (Rs112) | $1.20 (Rs112) | $1.20 (Rs112) | 12 / 9 | F | n/a (hosted) |
+| 13 | Wan2.2 A14B on H100 PCIe, RunPod | self-host | $1.92 (Rs178) | $3.21 (Rs299) | $4.01 (Rs373) | 13 / 13 | price F / time F | Apache 2.0 |
+| 14 | Wan2.2 A14B on H100, E2E dedicated | self-host | $4.36 (Rs405) | $4.54 (Rs422) | $5.45 (Rs507) | 14 / 14 | price F / time F | Apache 2.0 |
+| 15 | Wan2.2 A14B on Yotta H100 VM (India) | self-host | $5.03 (Rs468) | $7.29 (Rs678) | $8.75 (Rs814) | 15 / 15 | price F / time F | Apache 2.0 |
+| n/r | Wan2.2 A14B on IndiaAI-subsidised H100 | self-host | $0.67 (Rs62) | $0.95 (Rs89) | $1.90 (Rs177) | - | price V / time F | Apache 2.0 |
+| n/r | Veo 3.1 Lite (closed) - UNVERIFIED | api | $0.30 (Rs28) | $0.40 (Rs37) | $0.50 (Rs46) | - | V | n/a (hosted) |
+
+**Reading the rank columns:** an option whose rank swings by more than 3 places between low and high is not a robust pick on cost alone.
+
+## Utilisation x acceptance sensitivity, USD per accepted S1 video (mid price, mid time)
+
+| option | u100% a100% | u100% a50% | u100% a25% | u60% a100% | u60% a50% | u60% a25% | u30% a100% | u30% a50% | u30% a25% |
+|---|---|---|---|---|---|---|---|---|---|
+| LTX-2.x on H100, E2E dedicated | 0.16 | 0.31 | 0.63 | 0.26 | 0.52 | 1.05 | 0.52 | 1.05 | 2.09 |
+| LTX-2.x on H100, Modal serverless | 0.22 | 0.44 | 0.88 | 0.22 | 0.44 | 0.88 | 0.22 | 0.44 | 0.88 |
+| LTX-2.x fp8+offload on RTX 5090, RunPod | 0.09 | 0.17 | 0.35 | 0.14 | 0.29 | 0.58 | 0.29 | 0.58 | 1.16 |
+| Wan2.2 A14B on H100 PCIe, RunPod | 0.96 | 1.93 | 3.85 | 1.61 | 3.21 | 6.42 | 3.21 | 6.42 | 12.84 |
+| Wan2.2 A14B on H100, E2E dedicated | 1.36 | 2.72 | 5.45 | 2.27 | 4.54 | 9.08 | 4.54 | 9.08 | 18.15 |
+| Wan2.2 TI2V-5B on RTX 4090, RunPod | 0.13 | 0.26 | 0.53 | 0.22 | 0.44 | 0.88 | 0.44 | 0.88 | 1.76 |
+| HunyuanVideo 1.5 distilled on RTX 4090, RunPod | 0.07 | 0.15 | 0.30 | 0.12 | 0.25 | 0.49 | 0.25 | 0.49 | 0.99 |
+| Wan2.2 A14B on Yotta H100 VM (India) | 2.19 | 4.37 | 8.75 | 3.64 | 7.29 | 14.58 | 7.29 | 14.58 | 29.16 |
+| Wan2.2 A14B on IndiaAI-subsidised H100 | 0.29 | 0.57 | 1.14 | 0.48 | 0.95 | 1.91 | 0.95 | 1.91 | 3.81 |
+
+(Modal serverless ignores the utilisation columns: it is pinned at 90% by assumption.)
+
+## Break-even: always-on box vs hosted API, accepted videos per month (mid case)
+
+| self-host option | vs API | break-even /mo | capacity at 100% busy | verdict |
+|---|---|---|---|---|
+| LTX-2.x on H100, E2E dedicated | Wan 2.2 A14B on fal.ai (hosted open, same model) | 4,296 | 10,950 | wins above 4,296/mo (39% of capacity) |
+| LTX-2.x on H100, E2E dedicated | Wan 2.2 5B on fal.ai (hosted open) | n/a | 10,950 | never wins, API cheaper even at full load |
+| LTX-2.x on H100, E2E dedicated | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | 4,910 | 10,950 | wins above 4,910/mo (45% of capacity) |
+| LTX-2.x on H100, E2E dedicated | Veo 3.1 Fast via fal.ai (closed, silent) | 3,437 | 10,950 | wins above 3,437/mo (31% of capacity) |
+| LTX-2.x fp8+offload on RTX 5090, RunPod | Wan 2.2 A14B on fal.ai (hosted open, same model) | 949 | 4,380 | wins above 949/mo (22% of capacity) |
+| LTX-2.x fp8+offload on RTX 5090, RunPod | Wan 2.2 5B on fal.ai (hosted open) | 2,531 | 4,380 | wins above 2,531/mo (58% of capacity) |
+| LTX-2.x fp8+offload on RTX 5090, RunPod | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | 1,085 | 4,380 | wins above 1,085/mo (25% of capacity) |
+| LTX-2.x fp8+offload on RTX 5090, RunPod | Veo 3.1 Fast via fal.ai (closed, silent) | 759 | 4,380 | wins above 759/mo (17% of capacity) |
+| Wan2.2 A14B on H100 PCIe, RunPod | Wan 2.2 A14B on fal.ai (hosted open, same model) | n/a | 1,095 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100 PCIe, RunPod | Wan 2.2 5B on fal.ai (hosted open) | n/a | 1,095 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100 PCIe, RunPod | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | n/a | 1,095 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100 PCIe, RunPod | Veo 3.1 Fast via fal.ai (closed, silent) | n/a | 1,095 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100, E2E dedicated | Wan 2.2 A14B on fal.ai (hosted open, same model) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100, E2E dedicated | Wan 2.2 5B on fal.ai (hosted open) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100, E2E dedicated | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on H100, E2E dedicated | Veo 3.1 Fast via fal.ai (closed, silent) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 TI2V-5B on RTX 4090, RunPod | Wan 2.2 A14B on fal.ai (hosted open, same model) | 812 | 2,456 | wins above 812/mo (33% of capacity) |
+| Wan2.2 TI2V-5B on RTX 4090, RunPod | Wan 2.2 5B on fal.ai (hosted open) | 2,166 | 2,456 | wins above 2,166/mo (88% of capacity) |
+| Wan2.2 TI2V-5B on RTX 4090, RunPod | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | 928 | 2,456 | wins above 928/mo (38% of capacity) |
+| Wan2.2 TI2V-5B on RTX 4090, RunPod | Veo 3.1 Fast via fal.ai (closed, silent) | 650 | 2,456 | wins above 650/mo (26% of capacity) |
+| HunyuanVideo 1.5 distilled on RTX 4090, RunPod | Wan 2.2 A14B on fal.ai (hosted open, same model) | 812 | 4,380 | wins above 812/mo (19% of capacity) |
+| HunyuanVideo 1.5 distilled on RTX 4090, RunPod | Wan 2.2 5B on fal.ai (hosted open) | 2,166 | 4,380 | wins above 2,166/mo (49% of capacity) |
+| HunyuanVideo 1.5 distilled on RTX 4090, RunPod | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | 928 | 4,380 | wins above 928/mo (21% of capacity) |
+| HunyuanVideo 1.5 distilled on RTX 4090, RunPod | Veo 3.1 Fast via fal.ai (closed, silent) | 650 | 4,380 | wins above 650/mo (15% of capacity) |
+| Wan2.2 A14B on Yotta H100 VM (India) | Wan 2.2 A14B on fal.ai (hosted open, same model) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on Yotta H100 VM (India) | Wan 2.2 5B on fal.ai (hosted open) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on Yotta H100 VM (India) | LTX-2.3 Pro on fal.ai (hosted open, 1080p) | n/a | 1,262 | never wins, API cheaper even at full load |
+| Wan2.2 A14B on Yotta H100 VM (India) | Veo 3.1 Fast via fal.ai (closed, silent) | n/a | 1,262 | never wins, API cheaper even at full load |
+
+## Evidence notes
+
+- **LTX-2.x on H100, E2E dedicated** (price `F`, time `I`): NO primary timing exists (peer A). Low = vendor '18x faster than Wan2.2 14B' applied to measured 1041 s; mid/high are haircuts (O).
+- **LTX-2.x on H100, Modal serverless** (price `F`, time `I`): per-second billing, scale to zero; 60 s cold-start/model-load per job (O); same unverified gen time as above.
+- **LTX-2.x fp8+offload on RTX 5090, RunPod** (price `F`, time `I`): fp8-cast with CPU/disk offload is supported but NO official VRAM or timing figure (peer A); scaled 2-6x slower than H100 (O).
+- **Wan2.2 A14B on H100 PCIe, RunPod** (price `F`, time `F`): official README: 1041.5 s on one H100/H800, 59.8 GB peak; PCIe assumed up to 40% slower (O). Price = community / secure.
+- **Wan2.2 A14B on H100, E2E dedicated** (price `F`, time `F`): official README 1041.5 s.
+- **Wan2.2 TI2V-5B on RTX 4090, RunPod** (price `F`, time `F`): official table 534.7 s on one 4090 with offload; high = other settings (O). Price = community / secure.
+- **HunyuanVideo 1.5 distilled on RTX 4090, RunPod** (price `F`, time `I`): Tencent '75 s on a 4090' is the 480p step-distilled model (peer A); 720p scaled 2.5-6x (O).
+- **Wan2.2 A14B on Yotta H100 VM (India)** (price `F`, time `F`): Rs596/hr 1xH100 VM; Rs428/GPU only on 8x bare metal, term unknown.
+- **Wan2.2 A14B on IndiaAI-subsidised H100** (price `V`, time `F`): rate card NOT readable (peer B); news figures only; approval required -> excluded from ranking (FR3).
+- **Wan 2.2 A14B on fal.ai (hosted open, same model)** (`F`): $0.08/s at 720p, $0.04/s at 480p; fal page says model removed 2027-01-04 (platform risk).
+- **Wan 2.2 5B on fal.ai (hosted open)** (`F`): $0.15 per video up to 5 s at 720p.
+- **LTX-2.3 Pro on fal.ai (hosted open, 1080p)** (`F`): 1080p only; page conflicts between $0.06 and $0.08; 1080p is a higher tier than S1, so this is an upper bound for S1.
+- **MiniMax Hailuo 2.3 (closed API, 768p)** (`F`): 768p, 6 s clip; MiniMax's own price page.
+- **Veo 3.1 Fast via fal.ai (closed, silent)** (`F`): $0.10/s silent, $0.15/s with audio.
+- **Kling 3.0 Pro via fal.ai (closed, silent)** (`F`): $0.112/s silent, $0.168 with audio.
+- **Runway Gen-4.5 (closed)** (`F`): 12 credits/s at $0.01/credit.
+- **Veo 3.1 Lite (closed) - UNVERIFIED** (`V`): aggregator-only; Google pages unreadable; excluded from ranking.
+
+=== PEER A (models and timings) ===
+# Self-hostable open-weights video generation models, as of 2026-11-20
+
+Wan 2.2 and HunyuanVideo 1.5 are the most practical to self-host today. Wan 2.2's TI2V-5B is the only model here with a vendor-measured 5 s 720p time on a single consumer GPU: 534.7 s on an RTX 4090. HunyuanVideo 1.5 fits in about 14 GB with offloading. LTX-2.5 is probably the strongest open model, but Lightricks publishes no single-GPU timing and no official VRAM figure. Nothing newer than Wan 2.2 has open weights from Alibaba.
+
+## 1. Model list
+
+| Model | Weights? | Primary source |
+|---|---|---|
+| **Wan 2.2** (T2V/I2V-A14B, TI2V-5B, S2V-14B, Animate-14B) | Yes, Jul–Nov 2025 | [github.com/Wan-Video/Wan2.2](https://github.com/Wan-Video/Wan2.2) |
+| Wan2.2-Animate-2-14B, Wan-Dancer-14B | Yes, Jul–Aug 2026 (animation and dance models, not general T2V) | [HF Wan-AI](https://huggingface.co/Wan-AI) |
+| **Wan 2.5 / 2.6 / 2.7 / 3.0** | **No.** None of the 27 repos in the Wan-AI HF org and none of the 6 repos in the Wan-Video GitHub org is 2.5 or later | [HF Wan-AI](https://huggingface.co/Wan-AI), [GitHub Wan-Video](https://github.com/Wan-Video) |
+| HunyuanVideo 1.5 (8.3B) | Yes, 2025-11-21. No 2.0 found | [HF tencent/HunyuanVideo-1.5](https://huggingface.co/tencent/HunyuanVideo-1.5) |
+| LTX-2 (19B), LTX-2.3 (22B), **LTX-2.5** (22B, licence dated 2026-08-11) | Yes | [github.com/Lightricks/LTX-2](https://github.com/Lightricks/LTX-2) |
+| Kandinsky 5.0 Video (2B Lite / 19B Pro), **6.0** (3B Lite / 29B Pro, gated) | Yes | [HF kandinskylab](https://huggingface.co/kandinskylab) |
+| SkyReels V2 (1.3B/14B), V3 (14B/19B, Jan 2026) | Yes | [SkyReels-V2](https://github.com/SkyworkAI/SkyReels-V2) |
+| MiniMax H3 (33B, CFG-distilled; 2K upscaler not released) | Yes, Aug 2026 | [HF MiniMax-H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) |
+| LingBot-Video (30B-A3B MoE and 1.3B, Apache-2.0) | Yes, 2026-07-09 | [HF robbyant](https://huggingface.co/robbyant/lingbot-video-moe-30b-a3b) |
+| CogVideoX1.5-5B, Mochi 1 (10B), Open-Sora 2.0 (11B) | Yes, but these are 2024–25 releases and now trail the newer models | HF/GitHub cards |
+
+## 2. The five most relevant models
+
+| | Wan2.2 TI2V-5B | Wan2.2 T2V/I2V-A14B | HunyuanVideo 1.5 | LTX-2.5 | Kandinsky 6.0 Pro |
+|---|---|---|---|---|---|
+| **Licence** | Apache 2.0, commercial use OK | Apache 2.0 | Tencent Hunyuan Community License: **not licensed in the EU, UK or South Korea**; a separate licence is needed above 100M MAU; outputs may not be used to improve other models | LTX-2.x Community License: free for companies under **$10M** annual revenue, paid licence at or above it; watermarking must be kept | MIT (HF tag), gated access |
+| **Params** | 5B dense | 27B MoE, 14B active | 8.3B | about 22B (from filenames), plus a Gemma 4 12B text encoder | 29B |
+| **Resolution / fps / length** | 1280×704 at 24 fps, about 5 s | 480P and 720P | 480p/720p (1080p with the SR model), 121 frames at 24 fps | Up to 4K (DFR), 24 fps, 121-frame examples, with synced audio | 5 s, with super-resolution to 1080p and 44 kHz audio |
+| **VRAM (official)** | "at least 24GB VRAM (e.g, RTX 4090)" with offload; peak 22.9 GB | "at least 80GB VRAM"; peak 59.8 GB at 720p | "Minimum GPU Memory: 14 GB (with model offloading enabled)" | No figure. fp8-cast plus CPU/disk offload is supported; nvfp4 needs Blackwell; the bf16 download is about 66 GiB | Not stated (CPU offload used in the example) |
+| **Measured 5 s 720p** | **534.7 s on 1× RTX 4090** (vendor table; settings include offload, model dtype conversion and T5 on CPU) | **1041.5 s on 1× H100/H800; 155.1 s on 8×** (vendor; peak 59.8 GB) | No 720p figure readable. Vendor says "a single RTX 4090 can generate videos within 75 seconds", but that is for the **480p** step-distilled model at 8–12 steps | None verified. Secondary coverage reports 6.8 s for a 10 s clip on **2× GB200**; I could not confirm this in a Lightricks source | None found |
+
+Notes on the table:
+- Neither Wan table states the step count or precision. The README only says "Without specific optimization, TI2V-5B can generate a 5-second 720P video in under 9 minutes on a single consumer-grade GPU".
+- For comparison, CogVideoX1.5's card gives "Single H100: ~550 seconds (5-second video)" at 50 steps in BF16, at 1360×768 and 16 fps.
+
+Sources: Wan figures come from [the README](https://github.com/Wan-Video/Wan2.2) and its [efficiency chart](https://github.com/Wan-Video/Wan2.2/blob/main/assets/comp_effic.png), which I downloaded and read. HunyuanVideo figures come from [the HF card](https://huggingface.co/tencent/HunyuanVideo-1.5) and [LICENSE](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5/blob/main/LICENSE). LTX figures come from [the HF card](https://huggingface.co/Lightricks/LTX-2.5) and [LICENSE-2_x](https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x). Kandinsky figures come from [the HF card](https://huggingface.co/kandinskylab/Kandinsky-6.0-Pro-5s-Diffusers).
+
+## 3. Where sources conflict
+
+- **Wan 2.6 open weights:** [Vibedex](https://vibedex.ai/blog/wan-26-review-2026) and [Venice](https://venice.ai/models/wan-2-6) say the weights are released. Alibaba's HF and GitHub orgs contain no such repo. Treat the claim as false.
+- **LTX licence:** some blogs call it Apache 2.0. Only the *code* is Apache 2.0; the weights use the Community License with the $10M threshold. LTX-2 and LTX-2.3 use an older licence (LICENSE-2) that adds liquidated damages of "double the amount that would otherwise have been paid".
+- **LTX VRAM:** third-party claims range from 8 GB to 80 GB. Lightricks' own on-premise blog reportedly says 32 GB minimum (fp8) and 80 GB recommended, but that page failed to load for me, so this is unconfirmed.
+- **HunyuanVideo timing:** a summary site gives "28.33 s for 50 steps" on 8×H800 alongside "~2.0 s/step". Those two numbers contradict each other. The official chart is an image I could not retrieve.
+- **HunyuanVideo VRAM:** Tencent says 14 GB minimum; the community tool Wan2GP says 6 GB.
+- **Parameter counts:** CogVideoX "1.5-5B" is tagged 6B on HF. Wan-Animate-2 is named 14B but its Diffusers repo is tagged 16B.
+
+## Confidence and gaps
+
+**High confidence:**
+- No Wan 2.5–3.0 weights exist.
+- The Wan 2.2 timing and memory figures.
+- The licence terms for Wan, HunyuanVideo and LTX, all read from the licence files.
+- The HunyuanVideo 14 GB minimum.
+
+**Gaps:**
+1. **No primary single-GPU 720p timing for HunyuanVideo 1.5, LTX-2.5 or Kandinsky 6.0.** HunyuanVideo's speed chart is an image; the URL I tried returned an error. Lightricks' optimization doc says explicitly "no absolute timings or VRAM figures".
+2. The Wan table does not state step count or precision. bf16 with the default sampler is likely, but that is not confirmed.
+3. I did not read the licences for SkyReels V2/V3, MiniMax H3 (whose application form covers the US, EU, UK and South Korea), or the CogVideoX LICENSE file.
+4. Separate bf16, fp8 and quantised VRAM figures are not published by any of these vendors. The only fp8 or quantised numbers are community figures, which I left out.
+5. I saw only the 10 most recently updated of the 204 repos in Tencent's HF org. My search for "HunyuanVideo" in repo names found nothing newer than 1.5.
+
+**Practical takeaway:**
+- **24 GB card:** Wan2.2 TI2V-5B (about 9 min per clip) or HunyuanVideo 1.5 (with offload).
+- **80 GB card:** Wan2.2-A14B (about 17 min on one H100, about 2.6 min on 8).
+- **LTX-2.5:** plan on an 80 GB GPU until you benchmark it yourself.
+- **Before shipping:** check the licence territory restrictions (HunyuanVideo excludes the EU, UK and South Korea) and the revenue threshold (LTX).
+
+=== PEER B (prices) ===
+# GPU rental and video-API prices, 20 Nov 2026
+
+Pages were read on 2026-11-20. A dash (—) means the page didn't say. Most providers only show a "$" sign, which I've taken to mean USD, and most don't say whether tax is included.
+
+## Part 1: GPU hourly prices
+
+| Provider | GPU | Price | Unit / type | Region | Tax | Source / quote |
+|---|---|---|---|---|---|---|
+| E2E Networks | H100 / H200 / L40S / A100 80GB | $3.99 / $5.29 / $1.20 / $2.10 | per GPU-hr, on-demand | — | **excl.**: "do not include taxes" | e2enetworks.com/pricing: "NVIDIA H200 \| 141 \| 30 \| 375 \| $5.29". The table is in USD even though the title says "from ₹30/hr" |
+| Yotta Shakti | 1×H100 VM | ₹596 | per hr, on-demand | — | — | shakticloud.ai/pricing: "VM – 1 x H100 On Demand \| … \| ₹ 596" |
+| Yotta Shakti | 1×L40S VM; 8×H100 bare metal; 8×H100 SLURM | ₹302; ₹428/GPU; ₹386/GPU | per hr; term for bare metal and SLURM not stated | — | — | same page. No H200 listed |
+| Neysa | H100 / H200 / L40S | $4.39 / $4.72 / $1.95 | "Starts at … / hour"; not labelled on-demand | — | — | neysa.ai/pricing. No A100 listed |
+| JarvisLabs | H100 / H200 / A100 80GB | on-demand $3.49 / $4.59 / $1.49; spot $1.54 / $2.29 / $0.89 | per GPU-hr, billed per second | — | — | jarvislabs.ai/pricing. INR toggle **not readable**; no L40S |
+| IndiaAI compute portal | — | **not readable** | — | — | — | indiaai.gov.in and AIKosh pages had no rate card |
+| RunPod | H100 SXM / H100 PCIe | Secure $4.39 / $2.89; Community from $2.69 / $1.99 | per hr, billed per second | 30+ regions | — | runpod.io/pricing ("Updated November 12, 2026"): "H100 PCIe at $2.89/hr on Secure Cloud, or from $1.99/hr on Community Cloud" |
+| RunPod | A100 80GB PCIe / SXM | Secure $2.09 / $2.19; Community $1.19 / $1.39 | same | | | same |
+| RunPod | L40S / RTX 4090 / RTX 5090 | Secure $1.09 / $0.89 / $1.39; Community $0.79 / $0.34 / $0.69 | same | | | page data: "Community Cloud $0.34/hr, Secure Cloud $0.89/hr" (4090) |
+| Lambda | H100 SXM; A100 80GB; B200 | $4.59–4.89; $3.19; $7.69–7.99 | per GPU-hr, on-demand | — | **excl.**: "* Plus applicable sales tax/VAT/GST" | lambda.com/pricing (lambda.ai redirects there) |
+| Vast.ai (median of live offers, single GPU, on-demand) | H100 SXM / A100 SXM4 / RTX 4090 / RTX 5090 / L40S | $2.40 / $0.85 / $0.48 / $0.64 / $0.80 | per hr, marketplace | mixed | — | **I computed these.** The pricing page itself is not readable. Source: console.vast.ai/api/v0/bundles at 07:40 UTC. Number of offers: 5 / 27 / 64 / 64 / 9 |
+| Modal | H100 / H200 / A100 80GB / L40S | $0.001097 / $0.001261 / $0.000694 / $0.000542 per second (≈ $3.95 / $4.54 / $2.50 / $1.95 per hr) | per second, on-demand | — | — | modal.com/pricing: "Nvidia H100 SXM5 $0.001097 / sec" |
+| AWS | p5.48xlarge (8×H100) | on-demand **not readable** on AWS's own pages. Capacity Block: $47.757/instance-hr ($5.97 per GPU) | Capacity Block, not on-demand | us-east-1 and Mumbai, same price | — | aws.amazon.com/ec2/capacityblocks/pricing. Vantage (a third-party price tracker): "$55.040 On Demand", region not named |
+| GCP | a3-highgpu-8g | **not readable** | — | — | — | cloud.google.com/compute/gpus-pricing |
+| Azure | ND96isr H100 v5 | **not readable** on Azure's own page. Vantage: $98.32/hr on-demand, $18.17 spot | per VM-hr (8 GPUs) | region not named | — | instances.vantage.sh |
+
+## Part 2: Hosted video APIs (USD per second of output)
+
+| Model | 720p | 1080p | Source | Quote |
+|---|---|---|---|---|
+| Veo 3.1 (Google's own pages) | **not readable** | **not readable** | ai.google.dev now redirects to aistudio.google.com and lists no Veo rows; the Vertex AI page came back empty | — |
+| Veo 3.1 Standard, via fal.ai | $0.20 silent / $0.40 with audio | same | fal.ai/models/fal-ai/veo3.1 | "720p / 1080p \| $0.20/s \| $0.40/s" |
+| Veo 3.1 Fast, via fal.ai | $0.10 silent / $0.15 with audio | same | same | "$0.10/s \| $0.15/s" |
+| Veo 3.1 / 3.1 Fast, via Runway | $0.20 / $0.40; $0.10 / $0.15 | not tiered | docs.dev.runwayml.com/guides/pricing | "veo3.1 … 40 credits per second" at "$0.01 per credit" |
+| Veo 3 (not 3.1), Veo Lite | not found | | | |
+| Runway Gen-4 Turbo / Gen-4.5 / Aleph 2 | $0.05 / $0.12 / $0.28 | not tiered | Runway docs | "gen4.5: 12 credits per second" |
+| Kling (own site) | **not readable** (page is an empty shell) | | kling.ai/dev/pricing | — |
+| Kling 2.6 Pro / 3.0 Pro, via fal.ai | $0.07 / $0.112 silent; $0.14 / $0.168 with audio | resolution not stated | fal.ai | "$0.07 (audio off) or $0.14 (audio on)" |
+| Luma Ray 3.2 | 20 credits/s | 80 credits/s | lumalabs.ai/api/pricing | "T2V/I2V (5s) \| 20 \| 50 \| 100 \| 400". **The $ value of a credit is not on the page.** If 1 credit = $0.003 (my inference), that is $0.06 and $0.24 |
+| MiniMax Hailuo 2.3 / 02 | $0.047 at 768p (6s clip) | $0.082 ($0.49 per 6s clip) | platform.minimax.io/docs/guides/pricing ("All prices are in USD") | "$0.49 per 1080P, 6s video" |
+| MiniMax H3 / H3-Lite | $0.08 / $0.04 at 768p | H3 at 2K: $0.13 | same | — |
+| Seedance (BytePlus, ByteDance's own platform) | **not readable** | **not readable** | docs.byteplus.com (page dated "Last updated: November 19, 2026"; table not rendered) | — |
+| Seedance 1.0 Pro, via fal.ai | — | about $0.124 (≈$0.62 per 5s clip) | fal.ai | "Each 1080p 5 second video costs roughly $0.62" |
+| Wan 2.2 A14B (open weights), fal.ai | $0.08 (480p: $0.04) | no 1080p tier | fal.ai | "$0.08 per video second for 720p". Page says the model is removed 4 Jan 2027 |
+| Wan 2.2 5B, fal.ai | $0.15 per ≤5s 720p video | — | fal.ai | "$0.15 per video" |
+| LTX-2.3 Pro, fal.ai | no 720p tier | **$0.08 or $0.06** (page conflicts) | fal.ai/models/fal-ai/ltx-2.3/text-to-video | see Conflicts |
+| HunyuanVideo, Replicate | about $2.55 per run (4×H100, about 7 min) | — | replicate.com/tencent/hunyuan-video | "costs approximately $2.55 to run". fal.ai pages return 404 |
+| Wan 2.2 / LTX-2 Pro, Replicate | **not readable** | | | |
+
+For comparison with self-hosting, serverless GPU prices: Replicate H100 $5.49/hr, A100 80GB $5.04/hr, L40S $3.51/hr. fal.ai H100 $4.50/hr.
+
+## Part 3: USD to INR
+
+| Source | Rate | Timestamp |
+|---|---|---|
+| XE (mid-market) | 92.9477 | "Nov 20, 2026, 06:58 UTC" |
+| open.er-api.com (data from exchangerate-api.com) | 93.3727 | "Fri, 20 Nov 2026 00:02:32 +0000" |
+| RBI / FBIL (official reference rates) | **not readable** | — |
+
+Use about ₹93/$. On that basis, Yotta's ₹596 for one H100 VM is about $6.40/hr, and E2E's $3.99 is about ₹371/hr before 18% GST.
+
+## Conflicts between sources
+- **LTX-2.3 on fal.ai:** the page header says $0.08/s at 1080p, but the table on the same page says $0.06/s.
+- **USD to INR:** the two sources are 0.42 INR apart. XE's figure is also below the 7-day low printed on its own page (93.30).
+- **E2E:** the page title says "from ₹30/hr", but the price table is in USD.
+- **Neysa:** the hourly "starts at" prices don't match the monthly reserved figures on a 730-hour month.
+- **Yotta:** a one-GPU H100 VM is ₹596/hr, while H100 bare metal is ₹428 per GPU. The page doesn't say which commitment term applies to the bare-metal rate.
+- **Lambda:** H100 shows four prices ($4.59–4.89), and the tables don't say which cluster size each price belongs to.
+
+## Confidence and gaps
+- **High confidence:** RunPod, Modal, Lambda, E2E, JarvisLabs, Runway, MiniMax, and the fal.ai Wan and Veo pages. These were read verbatim on the providers' own pages, or on fal.ai's own pages for fal.ai models.
+- **Medium confidence:**
+  - Yotta: the page came back truncated.
+  - Vast.ai medians: I computed them myself, and the H100 (5 offers) and L40S (9 offers) samples are small.
+  - Luma: converting credits to dollars is my inference.
+- **Gaps (not readable):**
+  - On-demand H100 prices on AWS, GCP and Azure's own pages.
+  - The IndiaAI rate card.
+  - Google's own Veo prices, Veo 3 and Lite tiers.
+  - Kling's and Seedance's own price pages.
+  - Replicate's Wan 2.2 and LTX prices; LTX-2 and HunyuanVideo on fal.ai (404).
+  - JarvisLabs INR prices.
+  - The official RBI rate.
+- Almost no page states the region or a price date. GST/tax is stated only by E2E and Lambda, both excluding it.
+- **Comparing self-hosting with APIs:** a 1080p clip from an open-weights model on one H100 typically takes minutes (HunyuanVideo on Replicate takes about 7 minutes on 4×H100). Hosted per-second prices of $0.05–$0.40 are therefore usually cheaper than renting a GPU unless it is kept busy. **This is an estimate; I did not benchmark it.**
