@@ -1,6 +1,6 @@
 # Anatomy Explorer roadmap
 
-Updated 2026-11-18. This is the single forward plan for the anatomy app. `README.md` covers operation; the manifests record what is actually shipped; `ATTRIBUTION.md` records source terms. Update this file as milestones are verified rather than creating parallel planning documents.
+Updated 2026-11-18; moved into `docs/plans/` on 2026-11-23. This is the master plan for the anatomy app. Plans for single features live beside it and are listed in [README.md](README.md). The [master guide](../master-guide.md) explains how the app works, `public/models/*-manifest.json` records what is actually shipped, and `public/models/ATTRIBUTION.md` records source terms. Update this file as milestones are verified.
 
 ## Latest implementation update
 
