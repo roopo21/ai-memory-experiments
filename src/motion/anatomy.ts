@@ -548,8 +548,6 @@ export function reachArm(
     if (best.cost > 0.5 && span > 0) {
       for (let psi = -span; psi <= span; psi += 10) {
         const trial = solve(psi)
-        if ((globalThis as { __armDebug?: boolean }).__armDebug)
-          console.log('psi', psi, 'cost', trial.cost.toFixed(2), 'pron', trial.pronation.toFixed(0))
         if (trial.cost < best.cost) best = trial
       }
     }
