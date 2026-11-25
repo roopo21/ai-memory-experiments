@@ -1,0 +1,292 @@
+import { Euler, Quaternion, Vector3 } from 'three'
+import type { Pose, Leg } from '../../../studio/choreography/types'
+import { scores, type AuthoredId } from '../../../studio/choreography'
+import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
+import { palmOrientation } from '../handOrientation'
+import { lowestHand } from './ground'
+import { palmPad } from '../anchors'
+import { placeHand } from './contacts'
+const rad = Math.PI / 180,
+  V = (x = 0, y = 0, z = 0) => new Vector3(x, y, z),
+  X = V(1, 0, 0)
+const rot = (degrees: number) => new Quaternion().setFromAxisAngle(X, degrees * rad)
+const at = (r: MovementRig, i: number) => r.bones[i].getWorldPosition(V())
+const swing = (r: MovementRig, i: number, dir: Vector3) => {
+  const a = r.bones[i],
+    b = r.bones[i + 1],
+    q = a.getWorldQuaternion(new Quaternion()),
+    from = at(r, i + 1).sub(at(r, i))
+  worldRotation(
+    a,
+    new Quaternion().setFromUnitVectors(from.normalize(), dir.normalize()).multiply(q),
+  )
+  b.updateWorldMatrix(false, true)
+}
+function supportFoot(r: MovementRig, i: number, level = 0) {
+  const sign = i === 12 ? 1 : -1,
+    ankle = at(r, i + 2)
+  const goal = V(ankle.x, level + 0.064, ankle.z)
+  const pole = at(r, i + 1).add(V(sign * 0.015, 0.03, 0.25))
+  solveLimb(r, i, i + 1, i + 2, goal, pole)
+  worldRotation(r.bones[i + 2], rot(0))
+}
+const singleLeg = new Set<AuthoredId>([
+  'leg-swings-front',
+  'leg-swings-side',
+  'hip-circles',
+  'standing-quad',
+  'standing-figure-four',
+  'standing-hamstring-step',
+  'standing-shin',
+  'wall-toes-up-calf',
+  'toes-on-wall',
+])
+function kneel(r: MovementRig, p: Pose, id: AuthoredId) {
+  const posture = scores[id].posture,
+    legs = posture === 'split' ? [15] : posture === 'halfKneel' ? [12] : [12, 15]
+  let low = Infinity
+  for (const i of legs) {
+    const sign = i === 12 ? 1 : -1,
+      l: Leg = (i === 12 ? p.leg : p.other) ?? [],
+      hip = l[0] ?? 0,
+      spread = l[1] ?? 0
+    const direction = V(
+      sign * Math.sin(spread * rad),
+      -Math.cos(hip * rad) * Math.cos(spread * rad),
+      Math.sin(hip * rad) * Math.cos(spread * rad),
+    )
+    // On hands and knees the thigh descends from an already horizontal pelvis.
+    if (posture === 'allFours')
+      direction.set(
+        sign * Math.sin(spread * rad),
+        -Math.cos((hip - 90) * rad) * Math.cos(spread * rad),
+        Math.sin((hip - 90) * rad) * Math.cos(spread * rad),
+      )
+    swing(r, i, direction)
+    const uprightShin = id === 'couch-stretch' || id === 'half-kneeling-quad'
+    if (uprightShin)
+      swing(
+        r,
+        i + 1,
+        V(0, Math.sin(((l[2] ?? 120) - 90) * rad), -Math.cos(((l[2] ?? 120) - 90) * rad)),
+      )
+    else swing(r, i + 1, V(sign * Math.sin((l[4] ?? 0) * rad) * 0.55, 0.032, -1))
+    worldRotation(r.bones[i + 2], rot(uprightShin ? 120 : id === 'toes-tucked-kneel' ? 92 : 161))
+    low = Math.min(low, at(r, i + 1).y)
+  }
+  r.root.position.y += 0.052 - low
+  r.root.updateMatrixWorld(true)
+  if (legs.length === 1) supportFoot(r, legs[0] === 12 ? 15 : 12)
+}
+function forearms(r: MovementRig, id: AuthoredId) {
+  for (const arm of [6, 9]) {
+    const s = arm === 6 ? 1 : -1,
+      origin = at(r, arm),
+      length = r.rest[arm + 1].length()
+    const y = Math.max(-length + 0.0001, 0.04 - origin.y),
+      z = Math.sqrt(Math.max(0, length * length - y * y))
+    swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : -0.4)))
+    swing(r, arm + 1, V(s * -0.08, -0.035, 1))
+    worldRotation(r.bones[arm + 2], palmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
+  }
+}
+const hookFeet = new Set<AuthoredId>([
+  'suboccipital-nod',
+  'supine-hip-internal-rotation',
+  'pelvic-tilts',
+  'knee-rolls',
+  'reclined-butterfly',
+  'roller-chest-opener',
+  'thoracic-extension-roller',
+  'supine-overhead-stick',
+])
+export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
+  const posture = scores[id].posture
+  if (id === 'childs-pose' || id === 'childs-pose-side-reach') {
+    const lean = p.pelvis?.[0] ?? 0
+    r.root.quaternion.premultiply(rot(lean * 0.65))
+    r.root.updateMatrixWorld(true)
+  }
+  if (id === 'scorpion' || id === 'prone-chest-stretch') {
+    // Pelvic rotation lifts the working hip. Supporting arms stay on the ground.
+    if (id === 'scorpion') {
+      worldRotation(r.bones[3], rot(90))
+      r.root.updateMatrixWorld(true)
+    }
+    for (const arm of id === 'scorpion' ? [6, 9] : [6]) {
+      const s = arm === 6 ? 1 : -1
+      swing(r, arm, V(s, -0.12, 0))
+      swing(r, arm + 1, V(s, -0.1, 0.02))
+      worldRotation(r.bones[arm + 2], palmOrientation(s, V(s, 0, 0.03), V(0, -1, 0)))
+    }
+  }
+  if (id === 'frog' || id === 'puppy-pose') {
+    r.root.quaternion.premultiply(rot(id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : 25))
+    r.root.updateMatrixWorld(true)
+  }
+  if (id === 'downward-dog') {
+    const lift = Math.min(1, (p.shift?.[1] ?? 0) / 0.28)
+    r.root.quaternion.copy(rot(86 + 48 * lift))
+    r.root.position.set(0, 0.48 + 0.31 * lift, 0.02 - 0.17 * lift)
+    r.root.updateMatrixWorld(true)
+    for (const i of [12, 15]) {
+      const s = i === 12 ? 1 : -1,
+        goal = V(s * 0.105, 0.088 - 0.024 * lift, -0.4)
+      solveLimb(r, i, i + 1, i + 2, goal, V(s * 0.13, 0.05 + lift * 0.42, 0.16))
+      worldRotation(r.bones[i + 2], rot((1 - lift) * 143))
+    }
+  } else if (id === 'adductor-rock-back') {
+    const hip = at(r, 12)
+    swing(r, 12, V(0.9, -0.22, 0.2))
+    swing(r, 13, V(0.94, -0.11, 0.1))
+    worldRotation(r.bones[14], rot(0))
+    swing(r, 15, V(-0.04, -0.95, 0.16))
+    swing(r, 16, V(0, 0.035, -1))
+    worldRotation(r.bones[17], rot(160))
+    r.root.position.y += 0.052 - at(r, 16).y
+    r.root.position.x += hip.x - at(r, 12).x
+    r.root.updateMatrixWorld(true)
+  } else if (['halfKneel', 'split', 'kneel', 'heelSit', 'allFours'].includes(posture))
+    kneel(r, p, id)
+  else if (posture === 'pigeon') {
+    const fold = (p.spine?.[0] ?? 0) / 42
+    r.root.position.y = 0.21 - 0.04 * fold
+    r.root.updateMatrixWorld(true)
+    swing(r, 12, V(0.41, -0.28, 0.8))
+    swing(r, 13, V(-0.86, -0.03, -0.37))
+    worldRotation(r.bones[14], new Quaternion().setFromEuler(new Euler(0.03, -1.18, 1.06, 'YXZ')))
+    swing(r, 15, V(-0.08, -0.24, -1))
+    swing(r, 16, V(0, -0.075, -1))
+    worldRotation(r.bones[17], rot(163))
+  } else if (posture === 'stand' || posture === 'lunge' || posture === 'squat') {
+    if (id === 'inchworm' || id === 'step-heel-drop' || id === 'bar-hang') return
+    const planted = singleLeg.has(id) ? [15] : [12, 15]
+    // Plant flat soles first, then bend the supporting knee to accept the weight shift.
+    for (const i of planted) worldRotation(r.bones[i + 2], rot(0))
+    const drop = Math.max(...planted.map((i) => at(r, i + 2).y))
+    r.root.position.y += 0.064 - drop
+    r.root.updateMatrixWorld(true)
+    for (const i of planted) supportFoot(r, i)
+    if (id === 'standing-hamstring-step') supportFoot(r, 12, 0.16)
+  } else if (posture === 'supine') {
+    if (hookFeet.has(id) || (id === 'supine-figure-four' && (p.other?.[0] ?? 0) < 70)) {
+      const legs = id === 'supine-figure-four' && (p.leg?.[4] ?? 0) > 0 ? [15] : [12, 15]
+      for (const i of legs) supportFoot(r, i)
+    }
+  } else if (posture === 'chair' || posture === 'figureFour') {
+    for (const i of [12, 15]) {
+      const l = i === 12 ? p.leg : p.other
+      if ((l?.[2] ?? 82) > 73 && Math.abs(l?.[1] ?? 0) < 15 && Math.abs(l?.[3] ?? 0) < 9)
+        supportFoot(r, i)
+    }
+  }
+  if (id === 'seated-reverse-reach') {
+    r.root.position.y = 0.145
+    r.root.updateMatrixWorld(true)
+    for (const i of [12, 15]) {
+      const s = i === 12 ? 1 : -1
+      solveLimb(r, i, i + 1, i + 2, V(s * 0.12, 0.064, 0.58), V(s * 0.13, 0.54, 0.34))
+      worldRotation(r.bones[i + 2], rot(0))
+    }
+  }
+  if (id === 'kneeling-lat-bench') {
+    for (const arm of [6, 9]) {
+      const s = arm === 6 ? 1 : -1,
+        origin = at(r, arm),
+        len = r.rest[arm + 1].length(),
+        dy = Math.max(-len + 0.0001, Math.min(len - 0.0001, 0.419 - origin.y))
+      swing(r, arm, V(s * 0.012, dy, Math.sqrt(Math.max(0.00001, len * len - dy * dy))))
+      swing(r, arm + 1, V(0, 0.9, -0.3))
+    }
+  }
+  if (id === 'frog' || id === 'sphinx') forearms(r, id)
+}
+// When the torso rolls or lies down, free fingers and elbows can meet the floor
+// before the pelvis. Reposition the arm so the body's weight stays on its support.
+export function clearFloorArms(r: MovementRig, id: AuthoredId) {
+  if (
+    ![
+      'supine',
+      'side',
+      'prone',
+      'floorSeat',
+      'longSit',
+      'straddle',
+      'butterfly',
+      'heelSit',
+      'pigeon',
+    ].includes(scores[id].posture)
+  )
+    return
+  for (const s of [1, -1]) {
+    const arm = s === 1 ? 6 : 9
+    for (let pass = 0; pass < 2; pass++) {
+      r.root.updateMatrixWorld(true)
+      const below = 0.002 - lowestHand(r, s),
+        elbow = at(r, arm + 1)
+      if (below < 0.001 && elbow.y >= 0.036) break
+      const palm = r.bones[arm + 2].localToWorld(palmPad(s))
+      palm.y += Math.max(0, below)
+      placeHand(r, id, palm.toArray(), s)
+    }
+  }
+}
+export function floorHands(r: MovementRig, id: AuthoredId, p: Pose) {
+  if (id === 'frog' || id === 'sphinx') return
+  const { posture } = scores[id]
+  if (id === 'downward-dog') {
+    placeHand(r, id, ['floor', 0.005, -0.007, 0.09], 1)
+    placeHand(r, id, ['floor', -0.005, -0.007, 0.09], -1)
+  } else if ((id === 'childs-pose' && p.pelvis) || id === 'puppy-pose') {
+    const goal = (s: number) => {
+      const hand = at(r, s === 1 ? 8 : 11)
+      return ['floor', hand.x - s * 0.2, -0.006, hand.z + 0.06 - 0.49] as const
+    }
+    placeHand(r, id, goal(1), 1)
+    placeHand(r, id, goal(-1), -1)
+  } else if (posture === 'allFours') {
+    for (const s of [1, -1]) if ((s === 1 ? p.ga : p.gb) === 'floor') placeHand(r, id, 'floor', s)
+  }
+}
+
+export type FootMark = { joint: number; ankle: Vector3 }
+export function standingMarks(r: MovementRig, id: AuthoredId) {
+  const marks: FootMark[] = [],
+    posture = scores[id].posture
+  if (
+    !['stand', 'squat', 'lunge'].includes(posture) ||
+    ['inchworm', 'step-heel-drop', 'bar-hang'].includes(id)
+  )
+    return marks
+  for (const i of singleLeg.has(id) ? [15] : [12, 15]) {
+    const ankle = at(r, i + 2)
+    ankle.y = 0.064
+    marks.push({ joint: i, ankle })
+  }
+  if (id === 'standing-hamstring-step') {
+    const ankle = at(r, 14)
+    ankle.y = 0.224
+    marks.push({ joint: 12, ankle })
+  }
+  return marks
+}
+export function lockStandingFeet(r: MovementRig, marks: FootMark[]) {
+  if (!marks.length) return
+  r.root.updateMatrixWorld(true)
+  let lower = 0
+  for (const { joint: i, ankle } of marks) {
+    const hip = at(r, i),
+      range = r.rest[i + 1].length() + r.rest[i + 2].length() - 0.0001
+    const span = Math.hypot(hip.x - ankle.x, hip.z - ankle.z)
+    const cap = ankle.y + Math.sqrt(Math.max(0, range * range - span * span))
+    lower = Math.min(lower, cap - hip.y)
+  }
+  r.root.position.y += lower
+  r.root.updateMatrixWorld(true)
+  for (const { joint: i, ankle } of marks) {
+    const sign = i === 12 ? 1 : -1,
+      pole = at(r, i + 1).add(V(sign * 0.016, 0, 0.36))
+    solveLimb(r, i, i + 1, i + 2, ankle, pole)
+    worldRotation(r.bones[i + 2], rot(0))
+  }
+}

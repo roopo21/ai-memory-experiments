@@ -134,17 +134,17 @@ Where this lives: everything is in `src/guides/`. The exercises themselves are p
 
 ## 10. Making the body move
 
-The body has an invisible stick-figure skeleton inside it, with 20 joints: hips, back, neck, head, shoulders, arms, legs, hands and feet. That stick figure is called a **rig**. When a joint turns, every surface tied to it turns too, like a puppet on strings. Bones are tied to exactly one joint each, so they never bend like rubber.
+The body has an invisible stick-figure skeleton inside it. The original 20 joints move the hips, back, neck, head, shoulders, arms, legs, hands and feet. The studio also moves the jaw and the little bones in each finger and toe. The full rig has 79 joints. That stick figure is called a **rig**. When a joint turns, every surface tied to it turns too, like a puppet on strings. Bones are tied to exactly one joint each, so they never bend like rubber.
 
-The three movements are written as maths, not filmed. When hands or feet must stay planted on the floor, a trick called **inverse kinematics** works out the elbows and knees for us.
+The three Explore movements and the exercise demonstrations are computed one frame at a time. When hands or feet must stay planted on the floor, a trick called **inverse kinematics** works out the elbows and knees for us.
 
-There is a whole lesson on this: [animation-and-rigs.md](animation-and-rigs.md). It also explains how the rig can power exercise pose pictures next.
+Each of the 189 guide cards can open the moving skeleton. Choose a named phase to see one pose or play the clip to follow the movement. See the [animation lesson](animation-and-rigs.md) and [recording guide](reference/motion-studio.md).
 
 Where this lives: `src/motion/`.
 
 ## 11. The robots that check our work
 
-`npm run check` builds the app and runs nine checks. If any fails, nothing should ship.
+`npm run check` builds the app and runs the atlas, guide and rig checks. If any fails, nothing should ship.
 
 | Check            | What it makes sure of                                                                 |
 | ---------------- | ------------------------------------------------------------------------------------- |

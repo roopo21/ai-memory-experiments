@@ -1,6 +1,10 @@
 # Anatomy Explorer roadmap
 
-Updated 2026-11-18; moved into `docs/plans/` on 2026-11-23. This is the master plan for the anatomy app. Plans for single features live beside it and are listed in [README.md](README.md). The [master guide](../master-guide.md) explains how the app works, `public/models/*-manifest.json` records what is actually shipped, and `public/models/ATTRIBUTION.md` records source terms. Update this file as milestones are verified.
+Updated 2026-11-23. This is the master plan for the anatomy app. Plans for single features live beside it and are listed in [README.md](README.md). The [master guide](../master-guide.md) explains how the app works, `public/models/*-manifest.json` records what is actually shipped, and `public/models/ATTRIBUTION.md` records source terms. Update this file as milestones are verified.
+
+## Motion studio
+
+All 163 stretches and 26 nerve glides now open on the recordable atlas skeleton. Character design is paused while work focuses on anatomy. Clover and the atlas use the same 79 joints, including a movable jaw, fingers and toes. Each guide has named phases and the library has automated mesh, playback and browser checks. Clinical sign-off and physical-device testing remain open. See the [studio guide](../reference/motion-studio.md) and [rig PRD](3d-rig.md).
 
 ## Latest implementation update
 
@@ -17,7 +21,7 @@ The body-area-to-stretch flow shipped on 2026-11-18, together with the same flow
 Still open before this content can be called reviewed:
 
 - Clinical review of every entry, covering targets, dose and contraindications, with a named review record. Until then the content stays labelled as education only.
-- A pose visual per exercise, as an illustration or animation. Today the visual is the highlighted target tissue, not the body position.
+- Review the 189 authored demonstrations against their written instructions with a physiotherapist and test recording on physical phones.
 - Source review dates in the card, such as June 2022 for the AAOS carpal tunnel handout and April 2024 for its radial tunnel handout, plus scheduled link checks.
 - A usability test of whether people find a relevant stretch without anatomical names. Plain-language aliases such as "back of thigh" or "tingling in the hand" are the likely fix.
 - Symptom-based entry points and red-flag screening for nerve glides before any condition-specific advice.

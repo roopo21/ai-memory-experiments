@@ -55,3 +55,9 @@ Notes:
 | `nerves-excluded.json`       | `select:nerves`   | Z-Anatomy nodes left out, with their triangle counts       |
 | `source-transform.json`      | pinned            | The one transform from source millimetres to viewer metres |
 | `zanatomy-registration.json` | `register:nerves` | The fitted transform that places the nerves on this body   |
+
+## Motion studio characters and contact data
+
+Run `npm run build:studio-assets` after changing the atlas bind pose or Clover. The first step locates the jaw hinge and joints of the fingers and toes on the registered skeleton. The next builds Clover's mesh, colours and skin weights directly around those joints. The final two steps sample the extreme vertices of the atlas, performer and highlighted tissues for floor contact. These outputs live under `src/motion/` and load with the studio. The exercise choreography lives under `src/studio/choreography/`.
+
+See the [motion studio guide](../docs/reference/motion-studio.md) for recording and verification.

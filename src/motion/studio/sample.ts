@@ -1,0 +1,154 @@
+import { sampleGuide } from './guides/sampleGuide'
+import { hasScore } from '../../studio/choreography'
+import { basis, palmOrientation } from './handOrientation'
+import { Euler, Quaternion, Vector3 } from 'three'
+import { palmPad, toePad, applyPins } from './anchors'
+import { indexOfJoint, joints, type Joint, type Triple } from '../joints'
+import {
+  restPose,
+  sampleMovement,
+  solveLimb,
+  worldRotation,
+  type MovementRig,
+} from '../movementRig'
+import { clips, type ClipId, type Side } from '../../studio/clips'
+import type { Project } from '../../studio/project'
+
+const rad = Math.PI / 180
+const V = (x: number, y: number, z: number) => new Vector3(x, y, z)
+const Q = (degrees: number) => new Quaternion().setFromAxisAngle(V(1, 0, 0), degrees * rad)
+const clamp = (v: number) => Math.min(1, Math.max(0, v))
+const ease = (v: number) => {
+  const u = clamp(v)
+  return u * u * (3 - 2 * u)
+}
+const rep = (f: number) => ease(1 - Math.abs(2 * f - 1))
+export const chair = { width: 0.46, depth: 0.37, z: -0.15 }
+// Bones and clothing meet supports at different depths while the shared joints stay in place.
+export const supports = (human: boolean) => ({
+  seat: human ? 0.37 : 0.415,
+  mat: human ? 0.014 : 0.052,
+  head: human ? 0.027 : 0.061,
+})
+const sides = [1, -1] as const
+export const thighGrip = (side: number) => V(side * 0.038, -0.245, -0.044)
+function handOn(r: MovementRig, side: number, at: Vector3, q: Quaternion, pole: Vector3) {
+  const arm = side === 1 ? 6 : 9
+  solveLimb(r, arm, arm + 1, arm + 2, at.clone().sub(palmPad(side).applyQuaternion(q)), pole)
+  // Anchor forearm roll to the thumb side of the planted hand. A half-angle twist can
+  // switch branches at 180 degrees even while both the wrist and elbow remain stationary.
+  const lower = r.bones[arm + 1],
+    hand = r.bones[arm + 2]
+  const axis = hand.getWorldPosition(new Vector3()).sub(lower.getWorldPosition(new Vector3()))
+  const lateral = V(side, 0, 0)
+  const orientation = basis(axis, lateral.clone().applyQuaternion(q)).multiply(
+    basis(r.rest[arm + 2].clone(), lateral).invert(),
+  )
+  worldRotation(lower, orientation)
+  worldRotation(hand, q)
+}
+function footOn(r: MovementRig, side: number, ankle: Vector3, pole: Vector3) {
+  const thigh = side === 1 ? 12 : 15
+  solveLimb(r, thigh, thigh + 1, thigh + 2, ankle, pole)
+  worldRotation(r.bones[thigh + 2], new Quaternion())
+}
+function pushUp(r: MovementRig, t: number) {
+  const depth = t <= 1.8 ? ease(t / 1.8) : 1 - ease((t - 1.8) / 1.95)
+  const body = Q(75 + 14 * depth),
+    foot = Q(70)
+  const ankle = V(0.08, 0, -0.68).sub(toePad().applyQuaternion(foot))
+  r.root.position.copy(ankle).sub(V(0.08, -0.815, 0.01).applyQuaternion(body))
+  r.root.quaternion.copy(body)
+  r.root.updateMatrixWorld(true)
+  for (const side of sides) {
+    worldRotation(r.bones[side === 1 ? 14 : 17], foot)
+    const q = palmOrientation(side, V(0.09 * side, 0, 1), V(0, -1, 0))
+    handOn(r, side, V(side * 0.225, 0, 0.54), q, V(side * 0.38, 0.32, 0.05))
+  }
+}
+function hamstring(r: MovementRig, t: number, which: Side) {
+  const s = which === 'left' ? 1 : -1,
+    active = s === 1 ? 12 : 15
+  const extend = ease(t / 2.5) * (1 - ease((t - 5.5) / 2.5))
+  r.root.position.set(0, 0.123, -0.06)
+  r.root.quaternion.copy(Q(-90))
+  r.bones[active].rotation.x = (-116 - 7 * extend) * rad
+  r.bones[active + 1].rotation.x = (80 - 59 * extend) * rad
+  r.root.updateMatrixWorld(true)
+  footOn(r, -s, V(-s * 0.11, 0.064, 0.53), V(-s * 0.15, 0.63, 0.45))
+  for (const side of sides) {
+    const anchor = r.bones[active].localToWorld(thighGrip(side))
+    const q = palmOrientation(side, V(-side * 0.65, 0.35, 0.78), V(-side * 0.4, 0.1, -0.75))
+    handOn(r, side, anchor, q, V(side * 0.42, 0.22, -0.28))
+  }
+}
+function slider(r: MovementRig, t: number, which: Side) {
+  const s = which === 'left' ? 1 : -1
+  const f = t < 2.75 ? ease(t / 2.75) : 1 - ease((t - 2.75) / 3.25)
+  r.root.position.set(0, 0.535, -0.2)
+  r.bones[4].rotation.x = (11 - 24 * f) * rad
+  r.bones[5].rotation.x = (8 - 18 * f) * rad
+  for (const side of sides) {
+    const leg = side === 1 ? 12 : 15
+    r.bones[leg].rotation.x = -80 * rad
+    r.bones[leg + 1].rotation.x = (80 - (s === side ? 61 * f : 0)) * rad
+    r.root.updateMatrixWorld(true)
+    if (s === side) worldRotation(r.bones[leg + 2], Q(-32 * f * f))
+    else footOn(r, side, V(side * 0.095, 0.064, 0.285), V(side * 0.11, 0.48, 0.65))
+    const palm = V(side * 0.115, 0.478, 0.0)
+    handOn(
+      r,
+      side,
+      palm,
+      palmOrientation(side, V(0, 0, 1), V(0, -1, 0)),
+      V(side * 0.31, 0.53, -0.28),
+    )
+  }
+}
+const eulerQ = (v: Triple | undefined) =>
+  new Quaternion().setFromEuler(new Euler(...((v ?? [0, 0, 0]).map((n) => n * rad) as Triple)))
+function custom(r: MovementRig, p: Project, t: number) {
+  const end = p.frames.findIndex((f) => f.time >= t),
+    b = p.frames[end < 0 ? p.frames.length - 1 : end],
+    a = p.frames[Math.max(0, (end < 0 ? p.frames.length - 1 : end) - 1)]
+  const f = b.time === a.time ? 0 : ease((t - a.time) / (b.time - a.time))
+  r.root.position.add(new Vector3(...a.root).lerp(new Vector3(...b.root), f))
+  for (const [key] of joints)
+    r.bones[indexOfJoint[key]].quaternion
+      .copy(eulerQ(a.angles[key]))
+      .slerp(eulerQ(b.angles[key]), f)
+  if (p.pins?.length) {
+    r.root.updateMatrixWorld(true)
+    applyPins(r, p.pins, t)
+  }
+  if (p.plantFeet) {
+    r.root.updateMatrixWorld(true)
+    for (const side of sides)
+      footOn(r, side, V(side * 0.08, 0.065, 0.07), V(side * 0.13, 0.46, 0.8))
+  }
+}
+export function sampleStudio(r: MovementRig, id: ClipId, time: number, side: Side, p: Project) {
+  const duration = id === 'custom' ? p.frames.at(-1)!.time : clips[id].seconds
+  const t = Number.isFinite(time) ? Math.max(0, Math.min(duration, time)) : 0
+  restPose(r)
+  if (id === 'push-up') pushUp(r, t)
+  else if (id === 'supine-hamstring') hamstring(r, t, side)
+  else if (id === 'sciatic-slider-seated') slider(r, t, side)
+  else if (id === 'squat') {
+    const f = rep(t / duration)
+    r.root.position.add(V(0, -0.001 - 0.32 * f, -0.18 * f))
+    r.bones[1].rotation.x = 0.19 * f
+    r.bones[2].rotation.x = 0.16 * f
+    r.root.updateMatrixWorld(true)
+    for (const s of sides) {
+      footOn(r, s, V(s * 0.115, 0.065, 0.07), V(s * 0.18, 0.47, 0.55))
+      r.bones[s === 1 ? 6 : 9].rotation.x = -1.37 * f
+    }
+  } else if (id === 'curl') {
+    r.bones[indexOfJoint[(side + 'Forearm') as Joint]].rotation.x = -1.95 * rep(t / duration)
+  } else if (id === 'custom') custom(r, p, t)
+  else if (hasScore(id)) sampleGuide(r, id, t, side)
+  else sampleMovement(r, id, t)
+  r.root.updateMatrixWorld(true)
+  r.skeleton.update()
+}

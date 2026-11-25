@@ -12,33 +12,14 @@ import {
   Sphere,
   Mesh,
 } from 'three'
+import { distalBindings, digitTips } from './distalJoints'
+import { joints } from './joints'
 import type { Structure } from '../anatomy/catalogue'
 
 export type BodyAction = 'idle' | 'wheel' | 'moonwalk' | 'cartwheel'
 export const CARTWHEEL_SECONDS = 3.7
 const V = (x: number, y: number, z: number) => new Vector3(x, y, z)
-const defs = [
-  ['pelvis', -1, V(0, 0.88, 0.06)],
-  ['lumbar', 0, V(0, 0.97, 0.07)],
-  ['spine', 1, V(0, 1.1, 0.07)],
-  ['chest', 2, V(0, 1.26, 0.07)],
-  ['neck', 3, V(0, 1.41, 0.075)],
-  ['head', 4, V(0, 1.49, 0.075)],
-  ['leftArm', 18, V(0.17, 1.33, 0.075)],
-  ['leftForearm', 6, V(0.226, 1.05, 0.08)],
-  ['leftHand', 7, V(0.25, 0.83, 0.09)],
-  ['rightArm', 19, V(-0.17, 1.33, 0.075)],
-  ['rightForearm', 9, V(-0.226, 1.05, 0.08)],
-  ['rightHand', 10, V(-0.25, 0.83, 0.09)],
-  ['leftThigh', 0, V(0.09, 0.82, 0.075)],
-  ['leftShin', 12, V(0.08, 0.405, 0.075)],
-  ['leftFoot', 13, V(0.08, 0.065, 0.07)],
-  ['rightThigh', 0, V(-0.09, 0.82, 0.075)],
-  ['rightShin', 15, V(-0.08, 0.405, 0.075)],
-  ['rightFoot', 16, V(-0.08, 0.065, 0.07)],
-  ['leftShoulder', 3, V(0.04, 1.34, 0.09)],
-  ['rightShoulder', 3, V(-0.04, 1.34, 0.09)],
-] as const
+const defs = joints.map(([name, parent, point]) => [name, parent, new Vector3(...point)] as const)
 const ends = [
   defs[1][2],
   defs[2][2],
@@ -61,6 +42,19 @@ const ends = [
   defs[6][2],
   defs[9][2],
 ]
+
+const handDigits = defs
+  .map(([name], i) =>
+    /Thumb|Index|Middle|Ring|Little/.test(name) && !name.includes('Toe') ? i : -1,
+  )
+  .filter((i) => i >= 0)
+const feetDigits = defs.map(([name], i) => (name.includes('Toe') ? i : -1)).filter((i) => i >= 0)
+for (let i = 20; i < defs.length; i++) {
+  const [name, , at] = defs[i],
+    child = defs.find(([, parent]) => parent === i),
+    tip = digitTips[name.slice(0, -1) as keyof typeof digitTips]
+  ends[i] = child?.[2] ?? (tip ? new Vector3(...tip) : at.clone().add(V(0, -0.04, 0.04)))
+}
 
 export function createMovementRig() {
   const bones = defs.map(([name]) => {
@@ -90,13 +84,13 @@ function createPoseBuffers(bones: Bone[]) {
     rotations: bones.map(() => new Quaternion()),
   }
 }
-function restPose(rig: MovementRig) {
+export function restPose(rig: MovementRig) {
   rig.bones.forEach((b, i) => {
     b.position.copy(rig.rest[i])
     b.quaternion.identity()
   })
 }
-function worldRotation(bone: Bone, rotation: Quaternion) {
+export function worldRotation(bone: Bone, rotation: Quaternion) {
   const parent = bone.parent?.getWorldQuaternion(new Quaternion()) ?? new Quaternion()
   bone.quaternion.copy(parent.invert().multiply(rotation))
   bone.updateWorldMatrix(false, true)
@@ -124,20 +118,26 @@ export function solveLimb(
   const direction = goal.clone().sub(origin)
   const l1 = rig.rest[lower].length(),
     l2 = rig.rest[end].length()
-  const distance = Math.max(0.001, Math.min(direction.length(), l1 + l2 - 0.00001))
+  const length = direction.length()
+  const distance = Math.max(Math.abs(l1 - l2) + 1e-5, Math.min(length, l1 + l2 - 1e-5))
+  if (length < 1e-8) direction.copy(rig.rest[lower])
   direction.normalize()
-  const across = pole
-    .clone()
-    .sub(origin)
-    .addScaledVector(direction, -pole.clone().sub(origin).dot(direction))
-    .normalize()
+  const projected = origin.clone().addScaledVector(direction, distance)
+  const across = pole.clone().sub(origin)
+  across.addScaledVector(direction, -across.dot(direction))
+  if (across.lengthSq() < 1e-12) {
+    across.set(0, 0, 1)
+    if (Math.abs(direction.z) > 0.9) across.set(0, 1, 0)
+    across.addScaledVector(direction, -across.dot(direction))
+  }
+  across.normalize()
   const along = (l1 * l1 - l2 * l2 + distance * distance) / (2 * distance)
   const joint = origin
     .clone()
     .addScaledVector(direction, along)
     .addScaledVector(across, Math.sqrt(Math.max(0, l1 * l1 - along * along)))
   aim(a, rig.rest[lower], joint.clone().sub(origin))
-  aim(b, rig.rest[end], goal.clone().sub(b.getWorldPosition(new Vector3())))
+  aim(b, rig.rest[end], projected.sub(b.getWorldPosition(new Vector3())))
 }
 const qx = (angle: number) => new Quaternion().setFromAxisAngle(V(1, 0, 0), angle)
 const qy = (angle: number) => new Quaternion().setFromAxisAngle(V(0, 1, 0), angle)
@@ -263,10 +263,27 @@ export function sampleMovement(rig: MovementRig, action: BodyAction, time: numbe
         side === 1
           ? ease((travel - 0.1) / 0.16) * (1 - ease((travel - 0.49) / 0.18))
           : ease((travel - 0.27) / 0.16) * (1 - ease((travel - 0.7) / 0.18))
-      const rotation = b[hand]
-        .getWorldQuaternion(new Quaternion())
-        .slerp(plantedHand((-side * Math.PI) / 2), contact)
-      orientHand(rig, hand - 1, hand, rotation)
+      if (contact > 0) {
+        // During the full revolution a shortest-path slerp can change direction halfway
+        // through a planted hand. Compose the authored local quaternions in their
+        // continuous hemisphere, then follow the same arc throughout this contact.
+        const inherited = new Quaternion()
+        for (let i: number = hand; i >= 0; i = joints[i][1]) inherited.premultiply(b[i].quaternion)
+        const target = plantedHand((-side * Math.PI) / 2)
+        const sign = side === 1 ? 1 : -1
+        const angle = Math.acos(Math.max(-1, Math.min(1, inherited.dot(target) * sign)))
+        const a = angle < 1e-7 ? 1 - contact : Math.sin((1 - contact) * angle) / Math.sin(angle)
+        const d = sign * (angle < 1e-7 ? contact : Math.sin(contact * angle) / Math.sin(angle))
+        worldRotation(
+          b[hand],
+          new Quaternion(
+            a * inherited.x + d * target.x,
+            a * inherited.y + d * target.y,
+            a * inherited.z + d * target.z,
+            a * inherited.w + d * target.w,
+          ).normalize(),
+        )
+      }
     }
     plantCartwheel(rig)
   }
@@ -318,6 +335,7 @@ export function advanceMovement(
 }
 
 function rigidJoint(s: Structure, center: Vector3) {
+  if (distalBindings[s.meshName] !== undefined) return distalBindings[s.meshName]
   const name = s.displayName.toLowerCase(),
     left = name.includes('left') || (!name.includes('right') && center.x >= 0)
   if (s.region === 'Feet') return left ? 14 : 17
@@ -391,6 +409,10 @@ export function skinAnatomyMesh(mesh: Mesh, structure: Structure | undefined, ri
   )
   const positive = candidates(structure, 1),
     negative = candidates(structure, -1)
+  const upperLimb = positive.includes(8),
+    digits = upperLimb ? handDigits : feetDigits
+  const leftDistal = [...positive, ...digits.filter((i) => defs[i][0].startsWith('left'))]
+  const rightDistal = [...negative, ...digits.filter((i) => defs[i][0].startsWith('right'))]
   const nearest = new Int16Array(4),
     distances = new Float64Array(4),
     influence = new Float64Array(4)
@@ -429,8 +451,13 @@ export function skinAnatomyMesh(mesh: Mesh, structure: Structure | undefined, ri
     if (trunk) {
       const region = structure?.region
       if (region === 'Head' || region === 'Cranial nerves') {
+        const jaw = /masseter|pterygoid|temporalis|digastric|mylohyoid/.test(name)
+          ? 0.9 * ease((1.54 - y) / 0.075)
+          : 0
         indices[i * 4] = 5
-        weights[i * 4] = 1
+        indices[i * 4 + 1] = 20
+        weights[i * 4] = 1 - jaw
+        weights[i * 4 + 1] = jaw
         continue
       }
       const [first, second, blend] = trunkInfluences(y)
@@ -449,7 +476,9 @@ export function skinAnatomyMesh(mesh: Mesh, structure: Structure | undefined, ri
       continue
     }
     distances.fill(Infinity)
-    for (const bone of x >= 0 ? positive : negative) {
+    const atDigits = upperLimb ? y < 0.815 : y < 0.08 && z > 0.13
+    const branch = atDigits ? (x >= 0 ? leftDistal : rightDistal) : x >= 0 ? positive : negative
+    for (const bone of branch) {
       const distance = segmentDistance(x, y, z, bone)
       for (let j = 0; j < 4; j++)
         if (distance < distances[j]) {
@@ -464,7 +493,9 @@ export function skinAnatomyMesh(mesh: Mesh, structure: Structure | undefined, ri
     }
     let total = 0
     for (let j = 0; j < 4; j++) {
-      influence[j] = Number.isFinite(distances[j]) ? 1 / (distances[j] + 0.0006) ** 2 : 0
+      influence[j] = Number.isFinite(distances[j])
+        ? 1 / (distances[j] + (atDigits ? 0.00007 : 0.0006)) ** 2
+        : 0
       total += influence[j]
     }
     for (let j = 0; j < 4; j++) {

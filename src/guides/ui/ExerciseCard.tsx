@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import type { ClipId } from '../../studio/clips'
+import { enterStudio } from '../../studio/navigation'
 import { Crosshair, Lightbulb, TriangleAlert, X } from 'lucide-react'
 import { groupById, GUIDE_LABEL } from '../library/groups'
 import { referenceById } from '../library/references'
@@ -106,6 +108,13 @@ export default function ExerciseCard() {
         )}
       </div>
 
+      <button
+        type="button"
+        className="mt-3 rounded-lg border border-white/20 px-3 py-2 text-xs"
+        onClick={() => enterStudio(id as ClipId)}
+      >
+        Preview movement in studio
+      </button>
       <h3 className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted)]">
         How to do it
       </h3>
