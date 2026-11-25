@@ -7,6 +7,8 @@ import {
   SphereGeometry,
   Vector3,
 } from 'three'
+import { makeGuideChair } from '../../../studio/props/chair'
+import { makeBand } from '../../../studio/props/band'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import { palmPad } from '../anchors'
 import type { MovementRig } from '../../movementRig'
@@ -78,8 +80,9 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
     if (back) box(x, y + 0.31, z - d / 2 + 0.015, w, 0.19, 0.034, wood)
   }
   if (gear.has('chair')) {
-    if (seated) table(0, human ? 0.372 : 0.407, -0.19, 0.43, 0.36, true)
-    else table(-s * 0.34, 0.46, 0.33, 0.41, 0.33, true)
+    const chair = makeGuideChair(id, side, human)
+    root.add(chair.root)
+    dispose.push(chair.dispose)
   }
   if (gear.has('table')) {
     const top = fixturePoint(id, 'table', 1)
@@ -186,23 +189,10 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
     )
   }
   if (gear.has('footStrap') || gear.has('quadStrap')) {
-    const heel = gear.has('quadStrap')
-    const at = (k: number) => r.bones[leg].localToWorld(V(k * 0.041, -0.043, heel ? -0.018 : 0.132))
-    for (const k of [-1, 1])
-      rod(
-        () => hand(k),
-        () => at(k),
-        0.007,
-        gold,
-        true,
-      )
-    rod(
-      () => at(1),
-      () => at(-1),
-      0.009,
-      gold,
-      true,
-    )
+    const band = makeBand(r, r.bones[leg], s, gear.has('quadStrap'), id === 'strap-itb')
+    root.add(band.root)
+    updates.push(band.update)
+    dispose.push(band.dispose)
   }
   return {
     root,

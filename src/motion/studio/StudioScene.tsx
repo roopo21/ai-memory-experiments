@@ -13,6 +13,7 @@ import { pinHere } from './anchors'
 import { editableCopy, checkCustomMotion } from './author'
 import { chair, supports, sampleStudio } from './sample'
 import { scores, hasScore } from '../../studio/choreography'
+import { makeChair } from '../../studio/props/chair'
 import { guideEquipment } from './guides/equipment'
 import { joints } from '../joints'
 import { makeFigure, selectSurfaces } from './figure'
@@ -334,37 +335,12 @@ function Camera() {
 }
 function Chair({ support }: { support: number }) {
   const top = support === supports(true).seat ? support : 0.356
-  const wood = '#987d60',
-    frame = '#47535a'
-  return (
-    <group>
-      <mesh position={[0, top - 0.018, chair.z]} castShadow receiveShadow>
-        <boxGeometry args={[chair.width, 0.036, chair.depth]} />
-        <meshStandardMaterial color={wood} />
-      </mesh>
-      {support > top && (
-        <mesh position={[0, (support + top) / 2, -0.2]} castShadow receiveShadow>
-          <boxGeometry args={[0.12, support - top, 0.066]} />
-          <meshStandardMaterial color="#486665" />
-        </mesh>
-      )}
-      <mesh position={[0, 0.68, chair.z - 0.17]} castShadow>
-        <boxGeometry args={[chair.width, 0.27, 0.033]} />
-        <meshStandardMaterial color={wood} />
-      </mesh>
-      {[-0.2, 0.2].flatMap((x) =>
-        [-0.14, 0.14].map((z) => {
-          const h = z < 0 ? 0.81 : top
-          return (
-            <mesh key={x + '/' + z} position={[x, h / 2, chair.z + z]} castShadow>
-              <boxGeometry args={[0.025, h, 0.025]} />
-              <meshStandardMaterial color={frame} />
-            </mesh>
-          )
-        }),
-      )}
-    </group>
+  const model = useMemo(
+    () => makeChair(chair.width, chair.depth, top, support - top),
+    [top, support],
   )
+  useLayoutEffect(() => () => model.dispose(), [model])
+  return <primitive object={model.root} position-z={chair.z} dispose={null} />
 }
 function Supports({
   prop,
