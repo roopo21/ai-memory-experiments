@@ -92,7 +92,7 @@ function anatomyAssets(): Plugin {
         )
         // Parses the hash like src/state/hashState.ts, before any other script runs.
         const pickPreviews =
-          `(function(){var s=${JSON.stringify(sets)};` +
+          `(function(){if(new URLSearchParams(location.search).has('studio'))return;var s=${JSON.stringify(sets)};` +
           `var m=new URLSearchParams(location.hash.slice(1)).get('mode');(` +
           `({}).hasOwnProperty.call(s,m)?s[m]:s.explore).forEach(function(u){var l=document.createElement('link');` +
           `l.rel='preload';l.as='fetch';l.crossOrigin='anonymous';l.href=u;document.head.appendChild(l)})})()`

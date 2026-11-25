@@ -1,4 +1,4 @@
-import { Component, Suspense, useEffect, useMemo, type ReactNode } from 'react'
+import { Component, lazy, Suspense, useEffect, useMemo, type ReactNode } from 'react'
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { mountedLayerSources, structureByMesh, type LayerSource } from '../anatomy/catalogue'
@@ -132,7 +132,23 @@ function Stage() {
   )
 }
 
-export default function Scene({ motionEnabled = true }: { motionEnabled?: boolean }) {
+const StudioScene = lazy(() => import('../motion/studio/StudioScene'))
+export default function Scene({
+  motionEnabled = true,
+  studio = false,
+}: {
+  motionEnabled?: boolean
+  studio?: boolean
+}) {
+  return studio ? (
+    <Suspense fallback={null}>
+      <StudioScene />
+    </Suspense>
+  ) : (
+    <AtlasScene motionEnabled={motionEnabled} />
+  )
+}
+function AtlasScene({ motionEnabled }: { motionEnabled: boolean }) {
   const layers = useAnatomyStore((s) => s.layers)
   const selected = useAnatomyStore((s) => s.selectedMesh)
   const detail = selected ? structureByMesh.get(selected) : null

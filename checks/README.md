@@ -13,4 +13,8 @@ Automated checks. `npm run check` builds the app, then runs every one of these. 
 | `check:previews` | `check-previews.ts` | Previews match their layers, stay in place, and each mode's first paint stays under 2.5 MB      |
 | `check:pose`     | `check-pose.ts`     | Movements: floor contacts, head clearance, rigid bones, landing and return to the standing pose |
 
-Checks import app code from `src/` directly and run in Node with `tsx`, so they need no browser.
+The build also runs `check:studio` for deterministic pose, contact, project-file, state and decoded-mesh checks. `npm run check:studio:surfaces` samples every pilot at 60 Hz on both anatomy tiers and the human. `npm run check:studio:browser` starts a local server and tests the visible controls and recorder in Chrome.
+
+The Node checks import app code from `src/` directly and run in Node with `tsx`, so they need no browser.
+
+All guide IDs, both sides and named phases are covered by `check:studio`. `check:studio:geometry` compares the animated geometry against the floor. `check:studio:library` captures visible changes on the anatomy stage for every guide and writes a per-movement report. `render:guides` uses the same browser check and also encodes and verifies anatomy MP4 files. See the [studio guide](../docs/reference/motion-studio.md).

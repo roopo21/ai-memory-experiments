@@ -81,7 +81,9 @@ Motion recorded on one skeleton can be moved onto a different skeleton. This is 
 
 The project already has a working rig. It lives in `src/motion/`.
 
-**A 20-bone stick figure, built in code.** `movementRig.ts` places 20 bones in metres: pelvis, lower back, mid back, chest, neck, head, two shoulders, two upper arms, two forearms, two hands, two thighs, two shins and two feet. The bones themselves are cheap, but surfaces are only tied to them the first time you press a movement, so normal browsing pays nothing extra.
+**The core 20 bones, built in code.** `movementRig.ts` uses 20 main joints in metres: pelvis, lower back, mid back, chest, neck, head, two shoulders, two upper arms, two forearms, two hands, two thighs, two shins and two feet. The bones themselves are cheap, but surfaces are only tied to them the first time you press a movement, so normal browsing pays nothing extra.
+
+The exercise rig extends those 20 with 59 joints for the jaw, fingers and toes. Clover and the source anatomy share all 79. A tendon glide can bend just the finger joints while the wrist stays steady. The [studio guide](reference/motion-studio.md) shows how to open and film any guide.
 
 **Moves written as maths.** Each movement is a function of time. Ask "where is every joint 1.2 seconds into the cartwheel?" and it answers. There are no recorded clips and no clip files. The moves are the yoga backbend (a held full wheel), the moonwalk (a looping slide) and the cartwheel (3.7 seconds, then an upright landing).
 
@@ -103,24 +105,15 @@ The project already has a working rig. It lives in `src/motion/`.
 
 ## Part 4. How to use this to build more
 
-### 4.1 A pose picture for every exercise
+### 4.1 See a pose on the skeleton
 
-The roadmap's biggest open item is showing the body position of each stretch, not just the target muscle. The rig makes this natural. Each exercise could carry a small **pose spec**: joint turns plus where hands and feet must be. Here is a sketch of the idea, not real code yet:
+Open **Supine hamstring stretch**, choose **Preview movement in studio**, then select **Straighten and hold**. The knee opens while the hands follow the back of the moving thigh. The other foot stays planted. Drag the timeline backward and the same joints retrace the same path.
 
-```ts
-// Sketch: a pose is a few joint turns plus planted contacts, solved with the existing IK.
-const supineHamstring = {
-  start: 'lying on back',
-  joints: { rightThigh: { bendForward: 80 }, rightShin: { bend: 0 } },
-  contacts: { leftFoot: 'floor', rightHand: 'behind right thigh' },
-}
-```
+Every stretch now has a demonstration. An author gives each movement a starting posture and names the positions it should pass through. The rig fills in the frames between them. Find the guide by its ID under `src/studio/choreography/`; the two original demonstration guides use the contact solvers in `src/motion/studio/sample.ts`.
 
-The app would ease the body from standing into that pose and keep the target muscles lit. A plan for exactly this, `pose-visuals/PLAN.md`, sits on the unmerged `gpu-research` branch. It was written against an older commit and assumes the anatomy has no rig. `main` now has one, so the plan's specs could drive the real body, not only a separate mannequin. See [plans/README.md](plans/README.md).
+### 4.2 See a nerve glide move
 
-### 4.2 Nerve glides as two-key loops
-
-A nerve **slider** moves between two positions, such as "knee straight, head up" and "knee bent, head down". That is a two-keyframe loop. Each glide could play as a slow loop on the real body, with the nerve lit up.
+Open **Seated sciatic slider**. As the foot moves forward, the head lifts. As the knee bends again, the head nods. Both ends move on the same timeline. Other guides need more stages. In the median-nerve hand sequence, you can pause separately when the fingers open, the wrist extends, the thumb opens and the palm turns. Cyan marks the guide’s selected nerve.
 
 ### 4.3 A stretch meter
 

@@ -2,15 +2,16 @@
 
 Every plan for this project lives in this folder, one file per plan.
 
-| Plan                     | Status | What it covers                                                                  |
-| ------------------------ | ------ | ------------------------------------------------------------------------------- |
-| [roadmap.md](roadmap.md) | Active | The master plan: milestones, performance budgets, coverage, review, female body |
+| Plan                     | Status        | What it covers                                                                     |
+| ------------------------ | ------------- | ---------------------------------------------------------------------------------- |
+| [roadmap.md](roadmap.md) | Active        | The master plan: milestones, performance budgets, coverage, review, female body    |
+| [3d-rig.md](3d-rig.md)   | Local library | Exercise motion on the anatomy rig, a matched human view, authoring and validation |
 
 ## Plans not on `main` yet
 
 Two related plans were written on the `gpu-research` branch and have not been merged. Move them here when that branch lands.
 
-- `pose-visuals/PLAN.md` proposes a pose spec for each of the 189 exercises, shown live in the exercise card. It was written against commit `835925a` and assumes the anatomy has no rig. `main` now has a 20-bone skinned rig in `src/motion/`, so revisit its mannequin decision first. See [../animation-and-rigs.md](../animation-and-rigs.md), part 4.
+- `pose-visuals/PLAN.md` proposes a pose spec for each of the 189 exercises, shown live in the exercise card. It predates the skinned rig. The [3D rig PRD](3d-rig.md) picks up its authoring and validation work using the actual anatomy body for the pilot.
 - `video-pilot/PILOT.md` describes a small pilot of 96 generated exercise clips before any large run.
 
 ## Adding a plan

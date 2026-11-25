@@ -4,6 +4,7 @@ import { useAnatomyStore } from './state/useAnatomyStore'
 import DetailCard from './ui/DetailCard'
 import ExerciseCard from './guides/ui/ExerciseCard'
 import SidePanel from './ui/SidePanel'
+import { enterStudio } from './studio/navigation'
 import Tooltip from './ui/Tooltip'
 
 // The 3D stack (three + r3f + drei) is a separate chunk so the shell paints immediately.
@@ -30,7 +31,25 @@ const PILL = {
   glide: `Nerve glides · ${library.glide.length} glides`,
 }
 
+const Studio = lazy(() => import('./studio/Studio'))
 export default function App() {
+  const [route, setRoute] = useState(() => location.search)
+  useEffect(() => {
+    const changed = () => setRoute(location.search)
+    window.addEventListener('popstate', changed)
+    return () => window.removeEventListener('popstate', changed)
+  }, [])
+  if (new URLSearchParams(route).has('studio'))
+    return (
+      <Suspense fallback={<ChunkLoading />}>
+        <Studio key={route}>
+          <Scene studio />
+        </Studio>
+      </Suspense>
+    )
+  return <Atlas />
+}
+function Atlas() {
   const mode = useAnatomyStore((s) => s.mode)
   const bodyAction = useAnatomyStore((s) => s.bodyAction)
   const setBodyAction = useAnatomyStore((s) => s.setBodyAction)
@@ -99,6 +118,13 @@ export default function App() {
                 {label}
               </button>
             ))}
+            <button
+              type="button"
+              onClick={() => enterStudio('push-up')}
+              className="glass rounded-full border border-[var(--accent)]/50 px-3 py-2 text-xs text-[var(--accent)]"
+            >
+              Motion studio
+            </button>
             {bodyAction !== 'idle' && (
               <button
                 type="button"
