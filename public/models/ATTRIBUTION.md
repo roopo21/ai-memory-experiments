@@ -14,6 +14,8 @@ Changes: selected source bones, teeth, muscles and tendons; converted millimetre
 
 See `skeleton-manifest.json` and `muscles-manifest.json` for source URLs, checksums, geometry counts, output sizes and coverage limitations. These are source-derived surfaces, not an independently reviewed anatomy atlas. Additional source-derived cardiovascular, respiratory, digestive, urinary and nervous selections are included under `organs/`. Their detail exports remove eight of 3,522,988 source triangles during compression; regional overviews use the same simplification settings as muscles. See `organs-manifest.json` for their source provenance and output counts. Female anatomy is not included.
 
+Muscle preview GLBs omit source materials. The viewer applies a neutral material and colors the muscles identified by each exercise.
+
 ## Nervous system extension
 
 BodyParts3D - The Database Center for Life Science - CC-BY-SA 2.1 Japan.

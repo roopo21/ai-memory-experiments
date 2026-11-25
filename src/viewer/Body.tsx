@@ -188,7 +188,11 @@ function BodyView({
       )
         moving = true
       else mat.opacity = t.opacity
-      mat.depthWrite = mat.opacity > 0.85
+      const focus = guide?.role === 'primary' || guide?.role === 'secondary'
+      // Draw deep exercise targets through the surrounding muscle, including thin nerve branches.
+      m.renderOrder = focus ? (guide?.role === 'primary' ? 3 : 2) : 1
+      mat.depthTest = !focus
+      mat.depthWrite = !focus && mat.opacity > 0.85
       m.visible = t.visible || mat.opacity > 0.01
       m.raycast = t.pickable ? rt.raycast : noRaycast
     }

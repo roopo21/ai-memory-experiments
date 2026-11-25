@@ -11,7 +11,7 @@ import {
 } from '../src/guides/library/groups'
 import { referenceById, references } from '../src/guides/library/references'
 import type { GuideKind } from '../src/guides/library/types'
-import { computeTarget } from '../src/viewer/appearance'
+import { computeTarget, MUSCLE } from '../src/viewer/appearance'
 import { guideScene } from '../src/guides/highlight'
 import { library, rankExercises, viewFor } from '../src/guides/exercises'
 import { useAnatomyStore as store } from '../src/state/useAnatomyStore'
@@ -168,6 +168,9 @@ const ghost = computeTarget(
     exercise: true,
   }),
 )
+assert.equal(ghost.color, MUSCLE)
+assert.equal(ghost.opacity, 1)
+assert.equal(ghost.emissive, 0)
 assert.equal(
   ghost.pickable,
   false,
@@ -209,7 +212,11 @@ assert.equal(s().mode, 'glide')
 assert.deepEqual(s().guideGroups, ['sciatic'])
 assert.equal(s().activeExercise, 'sciatic-slider-seated')
 assert(
-  s().layers.nervous.visible && !s().layers.muscular.visible && s().layers.skeletal.opacity < 1,
+  s().layers.nervous.visible &&
+    s().layers.muscular.visible &&
+    s().layers.muscular.opacity > 0 &&
+    s().layers.muscular.opacity < 1 &&
+    s().layers.skeletal.opacity < 1,
 )
 s().setMode('explore')
 assert.equal(s().mode, 'explore')

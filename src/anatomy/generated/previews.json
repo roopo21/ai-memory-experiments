@@ -46,6 +46,14 @@
     ],
     "glide": [
       "/models/male-skeleton.glb",
+      "/models/muscles/upper-limbs.glb",
+      "/models/muscles/abdomen-and-pelvis.glb",
+      "/models/muscles/neck.glb",
+      "/models/muscles/back.glb",
+      "/models/muscles/lower-limbs.glb",
+      "/models/muscles/other-muscle-structures.glb",
+      "/models/muscles/head.glb",
+      "/models/muscles/thorax.glb",
       "/models/organs/nervous.glb",
       "/models/nerves/cranial-nerves.glb",
       "/models/nerves/lower-limb-nerves.glb",
@@ -65,7 +73,7 @@
     },
     "/models/muscles/upper-limbs.glb": {
       "url": "/models/preview/muscles/upper-limbs.glb",
-      "bytes": 238312,
+      "bytes": 219384,
       "triangles": 39628,
       "sourceBytes": 2508348,
       "sourceTriangles": 611220,
@@ -73,7 +81,7 @@
     },
     "/models/muscles/abdomen-and-pelvis.glb": {
       "url": "/models/preview/muscles/abdomen-and-pelvis.glb",
-      "bytes": 105504,
+      "bytes": 101588,
       "triangles": 25708,
       "sourceBytes": 1443108,
       "sourceTriangles": 397020,
@@ -81,7 +89,7 @@
     },
     "/models/muscles/neck.glb": {
       "url": "/models/preview/muscles/neck.glb",
-      "bytes": 85884,
+      "bytes": 78056,
       "triangles": 12514,
       "sourceBytes": 847844,
       "sourceTriangles": 200350,
@@ -89,7 +97,7 @@
     },
     "/models/muscles/back.glb": {
       "url": "/models/preview/muscles/back.glb",
-      "bytes": 139124,
+      "bytes": 129664,
       "triangles": 25176,
       "sourceBytes": 1697520,
       "sourceTriangles": 419910,
@@ -97,7 +105,7 @@
     },
     "/models/muscles/lower-limbs.glb": {
       "url": "/models/preview/muscles/lower-limbs.glb",
-      "bytes": 261580,
+      "bytes": 241012,
       "triangles": 44264,
       "sourceBytes": 2917608,
       "sourceTriangles": 724272,
@@ -105,7 +113,7 @@
     },
     "/models/muscles/other-muscle-structures.glb": {
       "url": "/models/preview/muscles/other-muscle-structures.glb",
-      "bytes": 5468,
+      "bytes": 5132,
       "triangles": 960,
       "sourceBytes": 21812,
       "sourceTriangles": 4668,
@@ -113,7 +121,7 @@
     },
     "/models/muscles/head.glb": {
       "url": "/models/preview/muscles/head.glb",
-      "bytes": 127120,
+      "bytes": 118640,
       "triangles": 22798,
       "sourceBytes": 1406284,
       "sourceTriangles": 342818,
@@ -121,7 +129,7 @@
     },
     "/models/muscles/thorax.glb": {
       "url": "/models/preview/muscles/thorax.glb",
-      "bytes": 71124,
+      "bytes": 69652,
       "triangles": 17974,
       "sourceBytes": 1130720,
       "sourceTriangles": 300232,

@@ -308,7 +308,7 @@ function Workspace({ children }: { children: ReactNode }) {
               </button>
             ))}
           </div>
-          {(figure === 'anatomy' || figure === 'pair') && primary.length > 0 && (
+          {primary.length > 0 && (
             <div className={'studio-legend ' + kind}>
               {[primary, secondary].map(
                 (ids, i) =>
@@ -324,18 +324,16 @@ function Workspace({ children }: { children: ReactNode }) {
               )}
             </div>
           )}
-          {figure !== 'human' && (
-            <label className="studio-check">
-              <input
-                type="checkbox"
-                checked={detail}
-                onChange={(e) =>
-                  useStudio.setState({ detail: e.target.checked, ready: false, playing: false })
-                }
-              />{' '}
-              Full-resolution anatomy
-            </label>
-          )}
+          <label className="studio-check">
+            <input
+              type="checkbox"
+              checked={detail}
+              onChange={(e) =>
+                useStudio.setState({ detail: e.target.checked, ready: false, playing: false })
+              }
+            />{' '}
+            Full-resolution anatomy
+          </label>
         </div>
         <div className="studio-fields">
           <h2>Camera</h2>

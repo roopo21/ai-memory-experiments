@@ -15,7 +15,7 @@ import { chair, supports, sampleStudio } from './sample'
 import { scores, hasScore } from '../../studio/choreography'
 import { guideEquipment } from './guides/equipment'
 import { joints } from '../joints'
-import { makeFigure, selectSurfaces } from './figure'
+import { addPerformer, makeFigure, selectSurfaces } from './figure'
 
 const capture = new URLSearchParams(location.search).get('capture') === '1'
 declare global {
@@ -47,24 +47,27 @@ function Actor() {
     [id, figure, side, target, base],
   )
   const urls = useMemo(() => {
-    if (figure === 'human') return [performerUrl]
     const files = selection.urls.map((u) => assetUrl(detail ? u : (previewUrlOf(u) ?? u)))
-    return figure === 'pair' ? [...files, performerUrl] : files
+    return figure === 'pair' || figure === 'human' ? [...files, performerUrl] : files
   }, [figure, selection, detail])
   const assets = useGLTF(urls, DRACO_PATH)
   const built = useMemo(() => {
     const scenes = assets.map((a) => a.scene)
-    if (figure !== 'pair') return makeFigure(scenes, rig, figure, selection)
-    const atlas = makeFigure(scenes.slice(0, -1), rig, 'anatomy', selection),
-      human = makeFigure(scenes.slice(-1), rig, 'human', selection)
-    atlas.root.traverse((o) => o.layers.set(1))
-    human.root.traverse((o) => o.layers.set(2))
-    const root = new Group().add(atlas.root, human.root)
+    if (figure !== 'pair' && figure !== 'human') return makeFigure(scenes, rig, figure, selection)
+    const atlas = makeFigure(scenes.slice(0, -1), rig, figure, selection)
+    const human = figure === 'pair' ? atlas.root.clone(true) : atlas.root
+    const disposeShell = addPerformer(human, scenes[scenes.length - 1], rig)
+    const root = new Group().add(human)
+    if (figure === 'pair') {
+      atlas.root.traverse((o) => o.layers.set(1))
+      human.traverse((o) => o.layers.set(2))
+      root.add(atlas.root)
+    }
     return {
       root,
       dispose() {
         atlas.dispose()
-        human.dispose()
+        disposeShell()
       },
     }
   }, [assets, rig, figure, selection])

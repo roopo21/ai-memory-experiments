@@ -101,8 +101,11 @@ function simplifyWithinDrift(doc: Document, prim: Primitive) {
   keptOriginal++
 }
 
-async function buildPreview(source: Buffer): Promise<Buffer> {
+async function buildPreview(source: Buffer, muscleLayer: boolean): Promise<Buffer> {
   const doc = await io.readBinary(new Uint8Array(source))
+  // Muscle surfaces get per-exercise materials in both viewers. Omitting their source
+  // materials keeps the combined nerve-and-muscle first paint inside the preview budget.
+  if (muscleLayer) for (const material of doc.getRoot().listMaterials()) material.dispose()
   await doc.transform(weld())
   for (const mesh of doc.getRoot().listMeshes())
     for (const prim of mesh.listPrimitives()) simplifyWithinDrift(doc, prim)
@@ -135,7 +138,7 @@ const previews: Record<
 if (!dry) rmSync('public/models/preview', { recursive: true, force: true })
 for (const layer of layerSources) {
   const source = readFileSync(`public${layer.url}`)
-  const preview = await buildPreview(source)
+  const preview = await buildPreview(source, layer.systems.includes('muscular'))
   const sourceDoc = parseGlb(source, layer.url)
   const previewDoc = parseGlb(preview, previewUrlFor(layer.url))
   const kept = new Set(meshNames(previewDoc))
