@@ -65,7 +65,7 @@ export default function StructureBrowser() {
           aria-label="Browse system"
           value={system}
           onChange={(e) => setSystem(e.target.value as SystemId)}
-          className="mt-1 w-full rounded-lg bg-slate-900 p-2"
+          className="mt-1 w-full rounded-lg bg-[var(--control)] p-2"
         >
           {systems.map((s) => (
             <option key={s.id} value={s.id}>
@@ -86,7 +86,7 @@ export default function StructureBrowser() {
           aria-label="Muscle region"
           value={muscleRegion ?? ''}
           onChange={(e) => setRegion(e.target.value || null)}
-          className="mt-1 w-full rounded-lg border border-white/15 bg-slate-900 p-2 text-sm text-white"
+          className="mt-1 w-full rounded-lg border border-white/15 bg-[var(--control)] p-2 text-sm text-white"
         >
           <option value="">All regions</option>
           {muscleChunks.map((c) => (

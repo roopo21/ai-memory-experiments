@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from 'react'
+import { theme } from '../../theme'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { Grid, OrbitControls, useGLTF } from '@react-three/drei'
 import { Group, OrthographicCamera, Vector3 } from 'three'
 import type { OrbitControls as Orbit } from 'three-stdlib'
 import performerUrl from './assets/performer.glb?url'
@@ -449,8 +450,8 @@ export default function StudioScene() {
         powerPreference: 'high-performance',
       }}
     >
-      <color attach="background" args={['#334349']} />
-      <hemisphereLight args={['#f2fbff', '#b4a08c', 1.45]} />
+      <color attach="background" args={[theme.stage]} />
+      <hemisphereLight args={[theme.sky, theme.bounce, 1.3]} />
       <directionalLight
         position={[2.8, 4.5, 3]}
         intensity={2.1}
@@ -463,7 +464,7 @@ export default function StudioScene() {
         shadow-camera-top={2}
         shadow-camera-bottom={-2}
       />
-      <directionalLight position={[-3, 2, -2]} intensity={1.15} color="#cee3ff" />
+      <directionalLight position={[-3, 2, -2]} intensity={1.15} color={theme.rim} />
       <mesh
         visible={!detailBackdrop}
         rotation={[-Math.PI / 2, 0, 0]}
@@ -471,8 +472,23 @@ export default function StudioScene() {
         receiveShadow
       >
         <planeGeometry args={[200, 200]} />
-        <meshStandardMaterial color="#47595c" roughness={1} />
+        <meshStandardMaterial color={theme.floor} roughness={1} />
       </mesh>
+      {!detailBackdrop && (
+        <Grid
+          args={[8, 8]}
+          position={[0, -0.003, 0]}
+          cellSize={0.25}
+          sectionSize={1}
+          cellColor={theme.grid}
+          sectionColor={theme.grid}
+          cellThickness={0.35}
+          sectionThickness={0.6}
+          fadeFrom={0}
+          fadeDistance={3.5}
+          fadeStrength={1.5}
+        />
+      )}
       {prop &&
         (figure === 'pair' ? (
           <>

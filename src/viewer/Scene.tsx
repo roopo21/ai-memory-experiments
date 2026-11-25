@@ -1,4 +1,5 @@
 import { Component, lazy, Suspense, useEffect, useMemo, type ReactNode } from 'react'
+import { theme } from '../theme'
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { mountedLayerSources, structureByMesh, type LayerSource } from '../anatomy/catalogue'
@@ -38,7 +39,7 @@ class ModelBoundary extends Component<
 
 const Alert = ({ children }: { children: ReactNode }) => (
   <Html center>
-    <p role="alert" className="rounded bg-slate-900 p-3 text-white">
+    <p role="alert" className="rounded bg-[var(--panel)] p-3 text-white">
       {children}
     </p>
   </Html>
@@ -117,16 +118,16 @@ function Stage() {
   return (
     <>
       <ambientLight intensity={0.55} />
-      <hemisphereLight args={['#bcd4ff', '#1a2030', 0.7]} />
+      <hemisphereLight args={[theme.sky, theme.bounce, 0.65]} />
       <directionalLight position={[3, 4, 5]} intensity={2.2} />
-      <directionalLight position={[-4, 2, -3]} intensity={1.1} color="#6fb8ff" />
+      <directionalLight position={[-4, 2, -3]} intensity={1.1} color={theme.rim} />
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.002, 0]}>
         <ringGeometry args={[0.9, 0.905, 96]} />
-        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.16} />
+        <meshBasicMaterial color={theme.grid} transparent opacity={0.82} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.004, 0]}>
         <circleGeometry args={[0.9, 64]} />
-        <meshBasicMaterial color="#5fd4f4" transparent opacity={0.06} />
+        <meshBasicMaterial color={theme.floor} transparent opacity={0.55} />
       </mesh>
     </>
   )

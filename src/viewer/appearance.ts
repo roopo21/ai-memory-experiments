@@ -1,3 +1,4 @@
+import { theme } from '../theme'
 import { systemById, type Structure, type SystemId } from '../anatomy/catalogue'
 import type { GuideKind } from '../guides/library/types'
 import type { LayerState } from '../state/useAnatomyStore'
@@ -23,8 +24,8 @@ export const GUIDE_PALETTE: Record<
   GuideKind,
   { base: string; primary: string; secondary: string; hover: string }
 > = {
-  stretch: { base: '#a6534c', primary: '#ffb347', secondary: '#f07a5a', hover: '#d4806a' },
-  glide: { base: '#e8cf72', primary: '#5fd4f4', secondary: '#7c9dff', hover: '#fff2b0' },
+  stretch: { base: '#a6534c', primary: theme.muscle, secondary: '#f07a5a', hover: '#d4806a' },
+  glide: { base: '#e8cf72', primary: theme.nerve, secondary: '#7c9dff', hover: '#fff2b0' },
 }
 
 const MUSCLE = '#a6534c'
