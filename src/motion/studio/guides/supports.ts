@@ -2,6 +2,7 @@ import { Euler, Quaternion, Vector3 } from 'three'
 import type { Pose, Leg } from '../../../studio/choreography/types'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
+import { legFrame, turn, type Side } from '../../anatomy'
 import { ANKLE_Y } from '../../joints'
 import { palmOrientation } from '../handOrientation'
 import { lowestHand } from './ground'
@@ -72,7 +73,14 @@ function kneel(r: MovementRig, p: Pose, id: AuthoredId) {
         V(0, Math.sin(((l[2] ?? 120) - 90) * rad), -Math.cos(((l[2] ?? 120) - 90) * rad)),
       )
     else swing(r, i + 1, V(sign * Math.sin((l[4] ?? 0) * rad) * 0.55, 0.032, -1))
-    worldRotation(r.bones[i + 2], rot(uprightShin ? 120 : id === 'toes-tucked-kneel' ? 92 : 161))
+    // The ankle points the foot: about 50 degrees with the instep on the floor, less against a
+    // wall, and dorsiflexed with the toes turned under.
+    const foot = r.bones[i + 2],
+      side = sign as Side
+    foot.quaternion.copy(
+      turn(legFrame(side).ankleAxis, uprightShin ? 38 : id === 'toes-tucked-kneel' ? -12 : 50),
+    )
+    foot.updateMatrixWorld(true)
     low = Math.min(low, at(r, i + 1).y)
   }
   r.root.position.y += 0.052 - low
@@ -86,7 +94,8 @@ function forearms(r: MovementRig, id: AuthoredId) {
       length = r.rest[arm + 1].length()
     const y = Math.max(-length + 0.0001, 0.04 - origin.y),
       z = Math.sqrt(Math.max(0, length * length - y * y))
-    swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : -0.4)))
+    // Elbows under or just ahead of the shoulders.
+    swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : 0.12)))
     swing(r, arm + 1, V(s * -0.08, -0.035, 1))
     worldRotation(r.bones[arm + 2], palmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
   }
@@ -105,7 +114,7 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
   const posture = scores[id].posture
   if (id === 'childs-pose' || id === 'childs-pose-side-reach') {
     const lean = p.pelvis?.[0] ?? 0
-    r.root.quaternion.premultiply(rot(lean * 0.65))
+    r.root.quaternion.premultiply(rot(lean * 0.45))
     r.root.updateMatrixWorld(true)
   }
   if (id === 'scorpion' || id === 'prone-chest-stretch') {
@@ -138,8 +147,8 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     }
   } else if (id === 'adductor-rock-back') {
     const hip = at(r, 12)
-    swing(r, 12, V(0.9, -0.22, 0.2))
-    swing(r, 13, V(0.94, -0.11, 0.1))
+    swing(r, 12, V(0.74, -0.62, 0.15))
+    swing(r, 13, V(0.78, -0.58, 0.1))
     worldRotation(r.bones[14], rot(0))
     swing(r, 15, V(-0.04, -0.95, 0.16))
     swing(r, 16, V(0, 0.035, -1))
@@ -151,10 +160,12 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     kneel(r, p, id)
   else if (posture === 'pigeon') {
     const fold = (p.spine?.[0] ?? 0) / 42
-    r.root.position.y = 0.21 - 0.04 * fold
+    // The pelvis tips forward over the front leg so the back hip extends only as far as it can.
+    r.root.quaternion.premultiply(rot(42))
+    r.root.position.y = 0.25 - 0.04 * fold
     r.root.updateMatrixWorld(true)
-    swing(r, 12, V(0.41, -0.28, 0.8))
-    swing(r, 13, V(-0.86, -0.03, -0.37))
+    swing(r, 12, V(0.58, -0.3, 0.72))
+    swing(r, 13, V(-0.5, -0.05, -0.62))
     worldRotation(r.bones[14], new Quaternion().setFromEuler(new Euler(0.03, -1.18, 1.06, 'YXZ')))
     swing(r, 15, V(-0.08, -0.24, -1))
     swing(r, 16, V(0, -0.075, -1))
@@ -196,8 +207,13 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
         origin = at(r, arm),
         len = r.rest[arm + 1].length(),
         dy = Math.max(-len + 0.0001, Math.min(len - 0.0001, 0.419 - origin.y))
-      swing(r, arm, V(s * 0.012, dy, Math.sqrt(Math.max(0.00001, len * len - dy * dy))))
-      swing(r, arm + 1, V(0, 0.9, -0.3))
+      const upper = V(s * 0.012, dy, Math.sqrt(Math.max(0.00001, len * len - dy * dy)))
+      swing(r, arm, upper.clone())
+      // The forearms rise from the elbows; bending them further brings the hands to the neck.
+      const bend = ((p.a?.[2] ?? 90) * Math.PI) / 180
+      swing(r, arm + 1, upper.normalize().applyAxisAngle(V(-1, 0, 0), bend))
+      // Hands together above the elbows, palms facing.
+      worldRotation(r.bones[arm + 2], palmOrientation(s, V(-s * 0.15, 1, -0.2), V(-s, 0, 0)))
     }
   }
   if (id === 'frog' || id === 'sphinx') forearms(r, id)

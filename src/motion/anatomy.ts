@@ -111,6 +111,20 @@ export function wristAngles(s: Side, q: Quaternion) {
   const reference = turn(b.extensionAxis, extension).multiply(turn(b.radialAxis, radial))
   return { extension, radial, twist: twistAbout(reference.invert().multiply(q), b.handLong) }
 }
+/**
+ * Plantarflexion and eversion of a foot's local rotation: the inverse of `setLeg`'s
+ * turn(ankle, plantarflexion)·turn(eversion axis, eversion). The remainder is any turn of the foot
+ * the ankle cannot make (abduction about the leg), which the knee or hip must supply.
+ */
+export function ankleAngles(s: Side, q: Quaternion) {
+  const b = legBind[s],
+    end = b.footLong.clone().applyQuaternion(q)
+  const plantarflexion = signedAngle(b.footLong, end, b.ankleAxis),
+    afterAnkle = turn(b.ankleAxis, plantarflexion).invert().multiply(q),
+    eversion = twistAbout(afterAnkle, b.eversionAxis)
+  const residual = turn(b.eversionAxis, eversion).invert().multiply(afterAnkle)
+  return { plantarflexion, eversion, residual }
+}
 /** Axial rotation of the humerus (external positive), from its orientation in the thorax. */
 export function humeralRotation(s: Side, humerus: Quaternion) {
   const b = armBind[s],
@@ -409,7 +423,12 @@ export function reachArm(
       lower = r.rest[j.hand],
       l1 = upper.length(),
       l2 = lower.length()
-    const dist = clamp(target.length(), Math.abs(l1 - l2) + 1e-4, l1 + l2 - 1e-4),
+    // The arm is longest with the elbow at anatomical zero, not with its pivots in a line.
+    const longest = upper
+        .clone()
+        .add(lower.clone().applyQuaternion(turn(b.elbowAxis, -b.elbow)))
+        .length(),
+      dist = clamp(target.length(), Math.abs(l1 - l2) + 1e-4, Math.min(l1 + l2 - 1e-4, longest)),
       n = target.clone().normalize(),
       w = n.clone().multiplyScalar(dist)
     const along = (l1 * l1 - l2 * l2 + dist * dist) / (2 * dist),
@@ -460,7 +479,7 @@ export function reachArm(
           elevation = b.humerus.clone().applyQuaternion(humerus).angleTo(DOWN) * R2D,
           rotation = humeralRotation(s, humerus)
         const rotationOver =
-          elevation < 150 ? Math.max(0, rotation - 95) + Math.max(0, -88 - rotation) : 0
+          elevation < 135 ? Math.max(0, rotation - 95) + Math.max(0, -88 - rotation) : 0
         const overflow =
           Math.abs(twist) +
           Math.abs(ext - extension) +
@@ -493,6 +512,8 @@ export function reachArm(
     if (best.cost > 0.5 && span > 0) {
       for (let psi = -span; psi <= span; psi += 10) {
         const trial = solve(psi)
+        if ((globalThis as { __armDebug?: boolean }).__armDebug)
+          console.log('psi', psi, 'cost', trial.cost.toFixed(2), 'pron', trial.pronation.toFixed(0))
         if (trial.cost < best.cost) best = trial
       }
     }
@@ -533,7 +554,7 @@ export function articulateArm(r: MovementRig, s: Side) {
   return reachArm(r, s, wrist, hand, elbow, { search: 150 })
 }
 
-const LEG_RANGE = { tibial: 25, plantar: [-28, 50], eversion: [-30, 20] } as const
+const LEG_RANGE = { tibial: 25, plantar: [-44, 60], eversion: [-34, 22] } as const
 /**
  * Place the ankle at `ankle` with the foot at world orientation `foot`, the knee a hinge with a
  * little tibial rotation once flexed, and the knee swinging toward `pole`.
@@ -585,16 +606,31 @@ export function reachLeg(
     )
     const thigh = align.clone().multiply(turn(f0, branch.rho)),
       hinge = turn(b.kneeAxis, branch.phi)
-    // Tibial rotation absorbs foot twist, more freely as the knee bends.
+    // What the ankle cannot do (turning the foot about the leg) comes from tibial rotation,
+    // more freely as the knee bends; any rest makes this swing of the knee costly.
     const allowance = LEG_RANGE.tibial * clamp(branch.phi / 70, 0, 1)
-    let footLocal = thigh.clone().multiply(hinge).invert().multiply(want)
-    const twist = twistAbout(footLocal, t0),
-      tibial = clamp(twist, -allowance, allowance),
+    const first = ankleAngles(s, thigh.clone().multiply(hinge).invert().multiply(want))
+    const tibial = clamp(twistAbout(first.residual, t0), -allowance, allowance),
       shinQ = hinge.multiply(turn(t0, tibial))
-    footLocal = thigh.clone().multiply(shinQ).invert().multiply(want)
-    const rest = twistAbout(footLocal, t0)
-    footLocal = swingOf(footLocal, t0)
-    const cost = rest * rest + Math.max(0, -branch.phi - 6) ** 2 * 4 + (psi / 30) ** 2
+    const ankle = ankleAngles(s, thigh.clone().multiply(shinQ).invert().multiply(want))
+    const pf = clamp(ankle.plantarflexion, LEG_RANGE.plantar[0], LEG_RANGE.plantar[1]),
+      ev = clamp(ankle.eversion, LEG_RANGE.eversion[0], LEG_RANGE.eversion[1])
+    const footLocal = turn(b.ankleAxis, pf).multiply(turn(b.eversionAxis, ev))
+    const rest =
+      2 * Math.acos(clamp(Math.abs(ankle.residual.w), 0, 1)) * R2D +
+      Math.abs(pf - ankle.plantarflexion) +
+      Math.abs(ev - ankle.eversion)
+    // The femur may not roll past its rotation range to make the foot fit.
+    const femur = b.femur.clone().applyQuaternion(thigh),
+      flexion = Math.atan2(femur.z, -femur.y) * R2D,
+      abduction = Math.asin(clamp(s * femur.x, -1, 1)) * R2D,
+      reference = turn(new Vector3(-1, 0, 0), flexion).multiply(
+        turn(new Vector3(0, 0, s), abduction),
+      ),
+      rotation = s * twistAbout(reference.invert().multiply(thigh), b.femur.clone().negate())
+    const rotationOver = Math.max(0, rotation - 75) + Math.max(0, -52 - rotation)
+    const cost =
+      rest * rest + Math.max(0, -branch.phi - 6) ** 2 * 4 + rotationOver ** 2 + (psi / 30) ** 2
     return { thigh, shin: shinQ, foot: footLocal, cost }
   }
   let best = solve(0)
@@ -649,7 +685,7 @@ export function measure(r: MovementRig): Angles {
     out[k + 'shoulder.elevation'] = dir.angleTo(DOWN) * R2D
     out[k + 'shoulder.plane'] = Math.atan2(dir.z, s * dir.x) * R2D
     // Axial rotation has no stable reference near full elevation (Codman's paradox).
-    if (out[k + 'shoulder.elevation'] < 150)
+    if (out[k + 'shoulder.elevation'] < 135)
       out[k + 'shoulder.rotation'] = humeralRotation(s, humerus)
     const girdle = r.bones[j.girdle].quaternion
     out[k + 'girdle.elevation'] = s * twistAbout(girdle, new Vector3(0, 0, 1))
@@ -683,16 +719,21 @@ export function measure(r: MovementRig): Angles {
       femur = l.femur.clone().applyQuaternion(thigh)
     out[k + 'hip.flexion'] = Math.atan2(femur.z, -femur.y) * R2D
     out[k + 'hip.abduction'] = Math.asin(clamp(s * femur.x, -1, 1)) * R2D
-    const femurRef = new Quaternion().setFromUnitVectors(l.femur, femur)
+    // Hip rotation in the joint convention the guides are authored in (flexion, then abduction,
+    // then rotation about the femur), not against the shortest swing.
+    const reference = turn(new Vector3(-1, 0, 0), out[k + 'hip.flexion']).multiply(
+      turn(new Vector3(0, 0, s), out[k + 'hip.abduction']),
+    )
     out[k + 'hip.rotation'] =
-      s * twistAbout(femurRef.invert().multiply(thigh), l.femur.clone().negate())
+      s * twistAbout(reference.invert().multiply(thigh), l.femur.clone().negate())
     const shin = r.bones[j.shin].quaternion
-    out[k + 'knee.flexion'] = twistAbout(shin, l.kneeAxis)
-    out[k + 'knee.rotation'] = twistAbout(shin, l.tibia)
-    const foot = r.bones[j.foot].quaternion
-    out[k + 'ankle.plantarflexion'] = twistAbout(foot, l.ankleAxis)
-    out[k + 'ankle.eversion'] = twistAbout(swingOf(foot, l.ankleAxis), l.eversionAxis)
-    out[k + 'ankle.twist'] = twistAbout(foot, l.tibia)
+    const kneeFlexion = twistAbout(shin, l.kneeAxis)
+    out[k + 'knee.flexion'] = kneeFlexion
+    out[k + 'knee.rotation'] = twistAbout(turn(l.kneeAxis, -kneeFlexion).multiply(shin), l.tibia)
+    const ankle = ankleAngles(s, r.bones[j.foot].quaternion)
+    out[k + 'ankle.plantarflexion'] = ankle.plantarflexion
+    out[k + 'ankle.eversion'] = ankle.eversion
+    out[k + 'ankle.twist'] = 2 * Math.acos(clamp(Math.abs(ankle.residual.w), 0, 1)) * R2D
     out[k + 'toe.mtp'] = twistAbout(
       r.bones[indexOfJoint[(side + 'ToeBig1') as Joint]].quaternion,
       vec(digitAxes[side + 'ToeBig1'].flex),
@@ -726,7 +767,8 @@ export const LIMITS: Record<string, readonly [number, number]> = {
   'shoulder.rotation': [-95, 100],
   'girdle.elevation': [-14, 32],
   'girdle.retraction': [-22, 22],
-  'elbow.flexion': [-8, 152],
+  // Full passive flexion stops when the forearm meets the upper arm, about 150 to 155 degrees.
+  'elbow.flexion': [-10, 155],
   'forearm.pronation': [-8, 172],
   'forearm.offAxis': [0, 3],
   'wrist.extension': [-88, 90],
@@ -746,17 +788,23 @@ export const LIMITS: Record<string, readonly [number, number]> = {
   'little.mcp': [-45, 95],
   'little.pip': [-8, 110],
   'little.dip': [-15, 90],
-  'hip.flexion': [-32, 138],
-  'hip.abduction': [-35, 55],
-  'hip.rotation': [-50, 70],
-  'knee.flexion': [-6, 160],
+  // Passive hip flexion with the knee bent reaches about 150 when the thigh meets the trunk.
+  'hip.flexion': [-36, 152],
+  'hip.abduction': [-45, 55],
+  // With the hip flexed, passive external rotation reaches about 75 degrees (figure-four, pigeon).
+  'hip.rotation': [-55, 78],
+  // Kneeling back onto the heels takes the knee to about 160 to 165 degrees.
+  'knee.flexion': [-6, 165],
   'knee.rotation': [-30, 30],
-  'ankle.plantarflexion': [-32, 55],
+  // A deep squat with the heels down needs up to 45 degrees of dorsiflexion; kneeling, 60 of plantarflexion.
+  'ankle.plantarflexion': [-46, 62],
   'ankle.eversion': [-38, 25],
-  'ankle.twist': [-12, 12],
+  'ankle.twist': [0, 8],
   'toe.mtp': [-80, 45],
-  'trunk.flexion': [-40, 100],
-  'trunk.rotation': [-50, 50],
+  // Thoracolumbar extension in a prone press-up reaches about 40 to 45 degrees.
+  'trunk.flexion': [-45, 100],
+  // Thoracic and lumbar rotation together reach about 60 degrees with the pelvis fixed.
+  'trunk.rotation': [-60, 60],
   'trunk.lateral': [-42, 42],
   'neck.flexion': [-75, 65],
   'neck.rotation': [-82, 82],

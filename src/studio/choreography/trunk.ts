@@ -1,14 +1,35 @@
-import { stretch as st, sequence as seq, both, type Recipe, type Arm, type Leg } from './types'
-const across: Arm = [0, 83, 4],
-  raised: Arm = [158, 8, 5],
+import {
+  stretch as st,
+  sequence as seq,
+  both,
+  grip,
+  open,
+  type Aim,
+  type Recipe,
+  type Arm,
+  type Leg,
+} from './types'
+/** Arm angles: flexion, abduction, elbow, pronation (0 palm forward, 90 thumb up), wrist, rotation. */
+// Arms out to the sides on the floor, palms up.
+const across: Arm = [0, 85, 8, 5],
+  // Arms overhead, palms facing each other.
+  raised: Arm = [160, 8, 6, 90],
   bent: Leg = [47, 0, 89],
   hug: Leg = [115, 7, 98]
+// Palms on the back of the pelvis, fingers pointing down.
+const palmsOnHips = (s: number): Aim => [[-s * 0.35, -1, 0], [0, 0, 1], 'pelvis', 'palm']
+// Hand on the floor behind for support, fingers pointing away.
+const floorBehind = (s: number): Aim => [
+  [s * 0.15, 0, -1],
+  [0, -1, 0],
+]
 export const trunk = {
   'childs-pose': st(
     'heelSit',
-    { leg: [78, 8, 141], other: [78, 8, 141], a: [75, 8, 8], b: [75, 8, 8] },
+    // Knees slightly apart so the trunk settles between the thighs, buttocks toward the heels.
+    { leg: [68, 8, 150], other: [68, 8, 150], a: [75, 8, 8], b: [75, 8, 8] },
     'Fold over the thighs and reach forward',
-    { pelvis: [43, 0, 0], spine: [30, 0, 0], a: raised, b: raised, breath: 1 },
+    { pelvis: [48, 0, 0], spine: [44, 0, 0], neck: [12, 0, 0], a: raised, b: raised, breath: 1 },
     both,
   ),
   'childs-pose-side-reach': st(
@@ -19,15 +40,16 @@ export const trunk = {
   ),
   'kneeling-lat-bench': st(
     'kneel',
-    { spine: [42, 0, 0], a: [98, 10, 65], b: [98, 10, 65] },
-    'Sit back and let the chest sink',
+    // Elbows on the bench, forearms up and hands together.
+    { spine: [42, 0, 0], a: [98, 10, 80], b: [98, 10, 80] },
+    'Sit back and let the chest sink between the arms',
     {
-      pelvis: [28, 0, 0],
-      spine: [36, 0, 0],
-      leg: [47, 0, 125],
-      other: [47, 0, 125],
-      a: [134, 9, 95],
-      b: [134, 9, 95],
+      pelvis: [48, 0, 0],
+      spine: [34, 0, 0],
+      leg: [66, 0, 148],
+      other: [66, 0, 148],
+      a: [160, 9, 120],
+      b: [160, 9, 120],
     },
     { both: true, gear: ['lowBench'] },
   ),
@@ -52,7 +74,7 @@ export const trunk = {
   ),
   'bar-hang': st(
     'stand',
-    { ga: 'bar', gb: 'bar', a: [151, 8, 12], b: [151, 8, 12] },
+    { ga: 'bar', gb: 'bar', a: [165, 8, 8, 150], b: [165, 8, 8, 150], f: grip, g: grip },
     'Lengthen beneath the bar with toes supported',
     { shift: [0, -0.035, 0], shoulders: [13, 0], leg: [3, 0, 9, 13], other: [3, 0, 9, 13] },
     { both: true, gear: ['bar'] },
@@ -65,13 +87,27 @@ export const trunk = {
     both,
   ),
   'upper-back-hug': st(
-    'stand',
-    { ga: 'gripFront', gb: 'gripFront' },
+    'chair',
+    {
+      ga: ['gripFront', 0, 0.12, 0.12],
+      gb: ['gripFront', 0, 0.12, 0.12],
+      // Fingers interlaced with the palms facing the body.
+      ha: [
+        [-1, 0.15, 0.2],
+        [0, 0, -1],
+      ],
+      hb: [
+        [1, 0.15, 0.2],
+        [0, 0, -1],
+      ],
+      f: [40, 50, 25],
+      g: [40, 50, 25],
+    },
     'Round the back and push the joined hands away',
     {
-      ga: ['gripFront', 0, 0.15, 0.14],
-      gb: ['gripFront', 0, 0.15, 0.14],
-      spine: [24, 0, 0],
+      ga: ['gripFront', 0, 0.14, 0.24],
+      gb: ['gripFront', 0, 0.14, 0.24],
+      spine: [26, 0, 0],
       neck: [15, 0, 0],
       shoulders: [0, -14],
     },
@@ -86,9 +122,17 @@ export const trunk = {
   ),
   'thread-the-needle': st(
     'allFours',
-    { gb: 'floor', a: [84, 3, 4] },
-    'Thread the arm beneath the supporting arm',
-    { a: [77, -68, 5, 8], spine: [4, -55, 10], neck: [-5, -40, 8], pelvis: [9, 0, 0] },
+    { gb: 'floor', ga: 'floor' },
+    'Thread the arm beneath the other, shoulder and head to the floor',
+    {
+      // The back of the threading hand slides along the floor, palm up.
+      ga: [-0.42, 0.009, 0.37],
+      ha: [[-1, 0, 0.05], [0, 1, 0], 'world', 'back'],
+      f: [10, 18, 10],
+      spine: [20, -58, 12],
+      neck: [4, -30, 12],
+      pelvis: [44, 0, 0],
+    },
   ),
   'cat-cow': seq(
     'allFours',
@@ -150,9 +194,9 @@ export const trunk = {
     'side',
     { leg: [85, 0, 85], other: [85, 0, 85], a: [88, 0, 4], b: [88, 0, 4] },
     'Open the top arm and follow the hand',
-    { a: [-12, 83, 4], spine: [0, 64, 0], neck: [0, 38, 0] },
+    { a: [-12, 83, 4], spine: [0, 55, 0], neck: [0, 38, 0] },
   ),
-  'all-fours-thoracic-rotation': seq('allFours', { ga: 'nape', gb: 'floor' }, [
+  'all-fours-thoracic-rotation': seq('allFours', { ga: 'occiput', gb: 'floor' }, [
     ['Bring the elbow toward the opposite wrist', { spine: [5, -34, 0], neck: [10, -17, 0] }],
     ['Turn the elbow up', { spine: [-5, 49, 0], neck: [-7, 27, 0] }],
   ]),
@@ -160,7 +204,7 @@ export const trunk = {
     'prone',
     { ga: 'floor', gb: 'floor', a: [-9, 12, 89], b: [-9, 12, 89] },
     'Press up while the pelvis stays down',
-    { spine: [-42, 0, 0], neck: [-16, 0, 0] },
+    { spine: [-38, 0, 0], neck: [-14, 0, 0] },
     both,
   ),
   sphinx: st(
@@ -172,21 +216,22 @@ export const trunk = {
   ),
   'standing-back-bend': st(
     'stand',
-    { ga: 'backHip', gb: 'backHip' },
+    { ga: 'backHip', gb: 'backHip', ha: palmsOnHips(1), hb: palmsOnHips(-1) },
     'Lift the chest and lean back',
     { spine: [-29, 0, 0], neck: [6, 0, 0], shift: [0, 0, 0.032] },
     both,
   ),
   'full-body-reach': st(
     'supine',
-    { a: [149, 8, 6], b: [149, 8, 6] },
+    // Arms overhead resting on the floor, palms up.
+    { a: [168, 10, 8, 20], b: [168, 10, 8, 20] },
     'Lengthen fingers and toes in opposite directions',
     {
-      a: [169, 5, 2],
-      b: [169, 5, 2],
+      a: [176, 6, 2, 20],
+      b: [176, 6, 2, 20],
       leg: [0, 1, 0, 20],
       other: [0, 1, 0, 20],
-      shoulders: [12, 0],
+      shoulders: [6, 0],
       breath: 1,
     },
     both,
@@ -226,8 +271,17 @@ export const trunk = {
     { leg: [80, -41, 95, 12, -16], pelvis: [0, -29, 0], spine: [0, 21, 0], neck: [0, 41, 0] },
   ),
   'seated-rotation': seq('longSit', {}, [
-    ['Cross the bent leg', { leg: [94, -18, 94, 0, 12], ga: 'backHip', gb: 'Aknee' }],
-    ['Rotate toward the knee', { spine: [0, 38, 0], neck: [0, 22, 0] }],
+    [
+      'Cross the bent leg, hand behind for support',
+      {
+        leg: [94, -18, 94, 0, 12],
+        ga: ['floor', 0.02, 0, -0.78],
+        ha: floorBehind(1),
+        gb: 'Aknee',
+        f: open,
+      },
+    ],
+    ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [0, 26, 0] }],
   ]),
   'straddle-side-bend': st('straddle', { a: raised }, 'Reach over the opposite straight leg', {
     spine: [11, -8, -32],

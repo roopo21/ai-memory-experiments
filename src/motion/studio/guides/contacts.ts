@@ -1,12 +1,12 @@
 import { palmOrientation } from '../handOrientation'
 import { Quaternion, Vector3 } from 'three'
-import type { Aim, AimFrame, Fingers, Mark, Reach } from '../../../studio/choreography/types'
+import type { Aim, AimFrame, Fingers, Mark, Point, Reach } from '../../../studio/choreography/types'
 import type { AuthoredId } from '../../../studio/choreography'
 import { scores } from '../../../studio/choreography'
-import { indexOfJoint, joints, local, type Joint } from '../../joints'
+import { indexOfJoint, joints, local, ULNA, type Joint } from '../../joints'
 import { digitTips } from '../../distalJoints'
 import { oldLocal } from '../../oldPivots'
-import { reachArm, vec, type Side } from '../../anatomy'
+import { armFrame, reachArm, turn, vec, type Side } from '../../anatomy'
 import { limbFrames } from '../../limbFrames'
 import type { MovementRig } from '../../movementRig'
 import { palmPad } from '../anchors'
@@ -64,7 +64,7 @@ export function aimOrientation(r: MovementRig, s: number, aim: Aim) {
 type Part = 'head' | 'jaw' | 'trunk' | 'back' | 'limb' | 'hand' | 'foot' | 'surface'
 /** Body part touched by each mark, and the bone whose surface the palm rests on. */
 function partOf(mark: Mark): Part {
-  if (['nape', 'crown', 'ear', 'eye'].includes(mark)) return 'head'
+  if (['nape', 'crown', 'occiput', 'ear', 'eye'].includes(mark)) return 'head'
   if (mark === 'jaw') return 'jaw'
   if (['collar', 'shoulder', 'chest', 'belly', 'prayer', 'gripFront'].includes(mark)) return 'trunk'
   if (['back', 'backHip', 'handsBehind'].includes(mark)) return 'back'
@@ -135,10 +135,20 @@ function defaultOrientation(r: MovementRig, mark: Mark, bone: number, s: number,
   if (palm.lengthSq() < 1e-8) palm.set(0, 0, -1)
   palm.normalize()
   let fingers: Vector3
-  if (part === 'head' || part === 'trunk') fingers = V(-s, mark === 'collar' ? -0.4 : 0.25, 0)
+  // On the chest the hand lies flat, fingers up and in; on the head they point toward the midline.
+  if (part === 'trunk') fingers = V(-s * 0.9, 1, 0.15)
+  else if (part === 'head') fingers = V(-s, 0.25, 0)
   else if (part === 'jaw') fingers = V(-s * 0.3, 0.4, 0.6)
-  else if (part === 'back') fingers = V(-s * 0.4, -1, 0)
-  else if (part === 'hand') fingers = V(0, 1, 0)
+  else if (part === 'back') {
+    // An arm behind the back rests the back of its hand on the body, palm turned out.
+    if (mark !== 'handsBehind')
+      return palmOrientation(
+        s,
+        V(-s * 0.8, 0.5, 0).applyQuaternion(frame),
+        V(0, 0, -1).applyQuaternion(frame),
+      )
+    fingers = V(-s * 0.4, -1, 0)
+  } else if (part === 'hand') fingers = V(0, 1, 0)
   else {
     // Wrap the fingers round the limb.
     const axis = r.bones[bone].getWorldPosition(V()).sub(boneAxisPoint(r, bone, goal))
@@ -183,6 +193,7 @@ function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
   const markOffsets: Partial<Record<Mark, [number, number, number, number]>> = {
     nape: [4, s * 0.045, 0.005, -0.032],
     crown: [5, s * 0.05, 0.152, 0.016],
+    occiput: [5, s * 0.045, 0.045, -0.105],
     collar: [3, s * 0.027, 0.077, 0.092],
     jaw: [20, s * 0.026, -0.046, 0.071],
     ear: [5, 0.079, 0.048, 0.015],
@@ -266,15 +277,39 @@ export function placeHand(
   reach: Reach | undefined,
   s: number,
   aim?: Aim | Quaternion,
+  elbowAim?: Point,
 ) {
   if (!reach || reach === 'free') return
   const arm = s === 1 ? 6 : 9,
     root = r.root
   const { goal, mark } = goalOf(r, id, reach, s)
-  const q = aim instanceof Quaternion ? aim.clone() : contactOrientation(r, id, reach, s, aim)
+  let q = aim instanceof Quaternion ? aim.clone() : contactOrientation(r, id, reach, s, aim)
   const posture = scores[id].posture
-  const elbow = r.bones[arm + 1].getWorldPosition(V())
-  const preferred = elbow.clone().add(V(s * 0.12, -0.035, -0.035).applyQuaternion(root.quaternion))
+  const elbow = r.bones[arm + 1].getWorldPosition(V()),
+    shoulder = r.bones[arm].getWorldPosition(V()),
+    part = mark ? partOf(mark) : 'surface'
+  // Where the elbow naturally points for each kind of contact, in the body's own frame: down and a
+  // little out for the face and chest, out to the side behind the head, back for behind the back.
+  const away =
+    part === 'head'
+      ? mark === 'ear' || mark === 'eye'
+        ? V(s * 0.4, 0, -0.02)
+        : V(s * 0.35, 0.04, 0.08)
+      : part === 'jaw' || part === 'trunk'
+        ? V(s * 0.18, -0.3, 0.06)
+        : part === 'back'
+          ? V(s * 0.24, -0.22, -0.2)
+          : undefined
+  const chest = r.bones[3].getWorldQuaternion(new Quaternion())
+  const preferred = elbowAim
+    ? shoulder.clone().add(
+        V(...elbowAim)
+          .multiplyScalar(0.3)
+          .applyQuaternion(chest),
+      )
+    : away
+      ? shoulder.clone().add(away.applyQuaternion(chest))
+      : elbow.clone().add(V(s * 0.12, -0.035, -0.035).applyQuaternion(root.quaternion))
   // A hand under the head needs a lateral elbow, not an elbow below the floor.
   if (
     [
@@ -292,7 +327,39 @@ export function placeHand(
     preferred.y = Math.max(0.155, preferred.y)
     if (posture === 'supine' && mark === 'nape') preferred.copy(V(s * 0.35, 0.17, goal.z + 0.12))
   }
-  const offset = touchPoint(r, id, mark, s, Array.isArray(aim) ? aim[3] : undefined)
-  reachArm(r, (s === 1 ? 1 : -1) as Side, goal.clone().sub(offset.applyQuaternion(q)), q, preferred)
+  const backOfHand = mark === 'back' || mark === 'backHip' ? 'back' : undefined
+  const offset = touchPoint(r, id, mark, s, (Array.isArray(aim) ? aim[3] : undefined) ?? backOfHand)
+  const side = (s === 1 ? 1 : -1) as Side,
+    solve = (hand: Quaternion) =>
+      reachArm(r, side, goal.clone().sub(offset.clone().applyQuaternion(hand)), hand, preferred, {
+        // An authored elbow direction chooses the route; only search near it.
+        search: elbowAim ? 50 : 150,
+      })
+  // A palm resting on the body may lie at any angle about its own normal. Without an authored
+  // aim, keep the turn that the arm reaches most comfortably.
+  if (!aim && mark && part !== 'surface' && mark !== 'eye') {
+    const normal = armFrame(side).palmar.clone().applyQuaternion(q),
+      bones = [s === 1 ? 18 : 19, arm, arm + 1, arm + 2, s === 1 ? ULNA.left : ULNA.right]
+    const saved = bones.map((i) => r.bones[i].quaternion.clone())
+    let best = { cost: Infinity, spin: 0 }
+    for (let spin = -90; spin <= 90; spin += 15) {
+      bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
+      r.root.updateMatrixWorld(true)
+      const trial = turn(normal, spin).multiply(q),
+        cost = (solve(trial)?.cost ?? Infinity) + (spin / 90) ** 2 * 0.5
+      if (cost < best.cost) best = { cost, spin }
+    }
+    bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
+    r.root.updateMatrixWorld(true)
+    q = turn(normal, best.spin).multiply(q)
+  }
+  solve(q)
+}
+/** The bone a contact moves with, or −1 for a fixture in the world. */
+export function contactBone(r: MovementRig, id: AuthoredId, reach: Reach | undefined, s: number) {
+  if (!reach || reach === 'free') return -1
+  const mark = markOf(reach)
+  if (!mark || partOf(mark) === 'surface') return -1
+  return goalOf(r, id, reach, s).bone
 }
 export const digit = (name: string) => indexOfJoint[name as Joint]

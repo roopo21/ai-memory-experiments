@@ -40,7 +40,8 @@ export const hipLeg = {
   ),
   'half-kneeling-quad': st(
     'halfKneel',
-    { leg: [-8, 0, 118], ga: 'Aheel' },
+    // The hand reaches back round the outside of the ankle, elbow behind the body.
+    { leg: [-8, 0, 118], ga: 'Aheel', ea: [0.35, -0.3, -0.9], f: [45, 58, 30, 0, 45] },
     'Draw the heel in and ease the hip forward',
     { leg: [-20, 0, 139, 12], pelvis: [-7, 0, 0], shift: [0, 0, 0.04] },
   ),
@@ -58,13 +59,18 @@ export const hipLeg = {
       { ga: 'floor', leg: [70, 0, 18, -14], spine: [43, 0, 0], shift: [0, 0, -0.1] },
     ],
   ]),
-  'supine-figure-four': seq('supine', { leg: bent, other: bent }, [
-    ['Cross the ankle over the opposite knee', { leg: crossed }],
-    [
-      'Draw both legs toward the chest',
-      { leg: [112, 33, 105, 0, 56], other: [100, 0, 94], ga: 'Bthigh', gb: 'Bthigh' },
-    ],
-  ]),
+  'supine-figure-four': {
+    ...seq('supine', { leg: bent, other: bent }, [
+      // Angles found so the ankle rests on the front of the other thigh just above the knee.
+      ['Cross the ankle over the opposite knee', { leg: [105, 10, 125, 10, 30] }],
+      [
+        'Draw both legs toward the chest',
+        { leg: [130, 30, 125, 10, 60], other: [100, 0, 94], ga: 'Bthigh', gb: 'Bthigh' },
+      ],
+    ]),
+    // A static stretch: hold the drawn-in position before letting go.
+    hold: true,
+  },
   'seated-figure-four': st('figureFour', { ga: 'Aknee' }, 'Hinge forward over the crossed leg', {
     spine: [34, 0, 0],
     neck: [5, 0, 0],
@@ -76,12 +82,17 @@ export const hipLeg = {
     { other: [44, 0, 61], leg: [112, 37, 106, 0, 54], spine: [26, 0, 0], shift: [0, -0.09, -0.04] },
     { gear: ['table'] },
   ),
-  pigeon: st('pigeon', { ga: 'floor', gb: 'floor' }, 'Lower the hips over the folded front shin', {
-    leg: [100, 32, 108, 0, 43],
-    other: [-35, 2, 8, 36],
-    spine: [42, 0, 0],
-    shift: [0, -0.055, 0.045],
-  }),
+  pigeon: st(
+    'pigeon',
+    { ga: 'floor', gb: 'floor', spine: [-22, 0, 0] },
+    'Lower the hips over the folded front shin',
+    {
+      leg: [100, 32, 108, 0, 43],
+      other: [-35, 2, 8, 36],
+      spine: [42, 0, 0],
+      shift: [0, -0.055, 0.045],
+    },
+  ),
   'knee-to-opposite-shoulder': st(
     'supine',
     { leg: [87, 0, 91], gb: 'Aknee', ga: 'Ashin' },
@@ -96,13 +107,13 @@ export const hipLeg = {
   ),
   'ninety-ninety': st(
     'floorSeat',
-    { leg: [91, 21, 90, 0, 63], other: [37, 66, 92, 0, -47] },
+    { leg: [91, 21, 90, 0, 60], other: [40, 52, 92, 0, -45] },
     'Square the chest and hinge over the front shin',
     { spine: [35, 15, 3], ga: 'ownShin' },
   ),
   'lying-leg-crossover': seq('supine', { a: [0, 86, 2], b: [0, 86, 2] }, [
     ['Lift the straight leg', { leg: [78, 0, 6] }],
-    ['Lower it across the body', { leg: [77, -59, 8], pelvis: [0, -20, 0], spine: [0, 16, 0] }],
+    ['Lower it across the body', { leg: [80, -42, 8], pelvis: [0, -32, 0], spine: [0, 24, 0] }],
   ]),
   'standing-itb': st(
     'stand',

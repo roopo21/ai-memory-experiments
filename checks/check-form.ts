@@ -16,7 +16,7 @@ import { parseArgs } from 'node:util'
 import { createMovementRig } from '../src/motion/movementRig'
 import { limitFor, measure } from '../src/motion/anatomy'
 import { clips, type Side } from '../src/studio/clips'
-import { scores, type AuthoredId } from '../src/studio/choreography'
+import { type AuthoredId } from '../src/studio/choreography'
 import { sampleStudio } from '../src/motion/studio/sample'
 import { newProject } from '../src/studio/project'
 
@@ -25,7 +25,11 @@ const { values } = parseArgs({
 })
 const r = createMovementRig(),
   project = newProject()
-const ids = (values.only?.split(',') ?? Object.keys(scores)) as AuthoredId[]
+// Every stretch and nerve glide, including the two whose motion is written by hand.
+const ids = (values.only?.split(',') ??
+  Object.entries(clips)
+    .filter(([, c]) => c.guide)
+    .map(([id]) => id)) as AuthoredId[]
 type Extreme = { min: number; max: number; minAt: number; maxAt: number }
 const report: Record<string, Record<string, Extreme>> = {}
 const failures: string[] = []

@@ -48,6 +48,7 @@ export type Mark =
   | 'seat'
   | 'nape'
   | 'crown'
+  | 'occiput'
   | 'collar'
   | 'jaw'
   | 'ear'
@@ -147,6 +148,11 @@ export type Pose = {
   /** Hand orientation for the contact in `ga` / `gb`. Without it each mark has a default. */
   ha?: Aim
   hb?: Aim
+  /** Direction the elbow points from the shoulder, in the chest's frame, for a contact hand. */
+  ea?: Point
+  eb?: Point
+  /** Upper neck (head on the atlas) separately from the lower neck, for a chin tuck. */
+  head?: Point
   f?: Fingers
   g?: Fingers
   toes?: Point

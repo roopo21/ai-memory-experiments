@@ -3,6 +3,7 @@ import { digitTips } from '../../distalJoints'
 import { ANKLE_Y, indexOfJoint, joints } from '../../joints'
 import { oldLocal } from '../../oldPivots'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
+import { legFrame, turn } from '../../anatomy'
 import { palmPad, toePad } from '../anchors'
 import { palmOrientation } from '../handOrientation'
 import { scores, type AuthoredId } from '../../../studio/choreography'
@@ -37,22 +38,21 @@ export function pinch(r: MovementRig) {
   }
 }
 export function crossedAnkle(r: MovementRig, id: AuthoredId, p: Pose) {
-  if (
-    scores[id].posture !== 'figureFour' &&
-    id !== 'standing-figure-four' &&
-    !(id === 'supine-figure-four' && p.leg?.[4])
-  )
-    return
+  // Lying, the crossed leg is authored directly so the ankle rests on the other thigh.
+  if (scores[id].posture !== 'figureFour' && id !== 'standing-figure-four') return
+  void p
   const ankle = r.bones[15].localToWorld(
     r.rest[16]
       .clone()
       .multiplyScalar(0.87)
       .add(V(0.005, 0, 0.067)),
   )
-  const q = r.bones[14].getWorldQuaternion(new Quaternion()),
-    hip = r.bones[12].getWorldPosition(V())
-  solveLimb(r, 12, 13, 14, ankle, hip.add(V(0.55, 0.04, 0.32).applyQuaternion(r.root.quaternion)))
-  worldRotation(r.bones[14], q)
+  const hip = r.bones[12].getWorldPosition(V())
+  // The knee drops out to the side so the hip opens with abduction, not only rotation.
+  solveLimb(r, 12, 13, 14, ankle, hip.add(V(0.65, -0.18, 0.24).applyQuaternion(r.root.quaternion)))
+  // The crossed foot rests relaxed on the thigh, slightly pointed.
+  r.bones[14].quaternion.copy(turn(legFrame(1).ankleAxis, 18))
+  r.bones[14].updateMatrixWorld(true)
 }
 export function equipmentPose(r: MovementRig, id: AuthoredId, p: Pose) {
   if (id === 'golf-ball-roll') {
@@ -107,7 +107,15 @@ export function inchworm(r: MovementRig, stage: number) {
       ankle = plank
         ? V(s * 0.09, 0, z).sub(toePad(s).applyQuaternion(foot))
         : V(s * 0.09, ANKLE_Y, z)
-    solveLimb(r, i, i + 1, i + 2, ankle, V(s * 0.12, 0.45, baseZ + 0.37))
+    // Knees face the floor in the plank and forward in the fold.
+    solveLimb(
+      r,
+      i,
+      i + 1,
+      i + 2,
+      ankle,
+      plank ? V(s * 0.1, -0.6, z + 0.2) : V(s * 0.12, 0.45, z + 0.6),
+    )
     worldRotation(r.bones[i + 2], foot)
     const arm = i === 12 ? 6 : 9,
       hand = palmOrientation(s, V(s * 0.04, 0, 1), V(0, -1, 0))

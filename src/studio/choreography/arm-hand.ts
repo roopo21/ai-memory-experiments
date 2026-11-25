@@ -32,7 +32,7 @@ export const armHand = {
   'wall-biceps': st(
     'stand',
     {
-      ga: ['post', 0.06, 0.2, -0.44],
+      ga: ['post', 0.03, 0.2, -0.42],
       // Palm flat on the wall behind, fingers pointing back.
       ha: [
         [0, 0, -1],

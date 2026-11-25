@@ -1,6 +1,6 @@
 import type { Leg, Pose, Posture } from '../../../studio/choreography/types'
 const sit: Leg = [82, 0, 82],
-  long: Leg = [88, 1, 3],
+  long: Leg = [88, 1, 5],
   folded: Leg = [76, 42, 108, 0, 54],
   rear: Leg = [-5, 2, 89, 28],
   front: Leg = [78, 2, 83]

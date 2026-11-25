@@ -5,7 +5,7 @@ import { Euler, Quaternion, Vector3 } from 'three'
 import { palmPad, toePad, applyPins } from './anchors'
 import { ANKLE_Y, indexOfJoint, joints, pivot, type Joint, type Triple } from '../joints'
 import { oldLocal } from '../oldPivots'
-import { followUlna } from '../anatomy'
+import { articulateArm, articulateLeg, followUlna } from '../anatomy'
 import {
   restPose,
   sampleMovement,
@@ -152,8 +152,15 @@ export function sampleStudio(r: MovementRig, id: ClipId, time: number, side: Sid
   } else if (id === 'custom') custom(r, p, t)
   else if (hasScore(id)) sampleGuide(r, id, t, side)
   else sampleMovement(r, id, t)
-  // Poses that turn the forearm directly still need the ulna to hinge with it.
-  if (!hasScore(id)) followUlna(r)
+  // The hand-written presets solve hands and feet directly; make each limb anatomical around
+  // them. Other movements only need the ulna to hinge with the forearm.
+  if (['push-up', 'supine-hamstring', 'sciatic-slider-seated', 'squat', 'curl'].includes(id)) {
+    r.root.updateMatrixWorld(true)
+    for (const s of [1, -1] as const) {
+      articulateArm(r, s)
+      articulateLeg(r, s)
+    }
+  } else if (!hasScore(id)) followUlna(r)
   r.root.updateMatrixWorld(true)
   r.skeleton.update()
 }

@@ -173,7 +173,7 @@ export const nerve = {
   'ulnar-tensioner': seq(
     'stand',
     // The OK sign: thumb and index tips together.
-    { f: [0, 0, 0, 4, 56, 0, 75] },
+    { f: [0, 0, 0, 4, 56, 0, 58] },
     [
       ['Raise the arm and turn the hand over', { a: [10, 80, 90, 120, 30, 60] }],
       [

@@ -73,8 +73,13 @@ function poseAt(r: MovementRig, id: AuthoredId, frame: Pose, phase: number) {
     [3, 0.26],
   ])
     r.bones[j].quaternion.copy(trunk(p.spine, share))
-  r.bones[4].quaternion.copy(trunk(p.neck, 0.57))
-  r.bones[5].quaternion.copy(trunk(p.neck, 0.43))
+  if (p.head) {
+    r.bones[4].quaternion.copy(trunk(p.neck, 1))
+    r.bones[5].quaternion.copy(trunk(p.head, 1))
+  } else {
+    r.bones[4].quaternion.copy(trunk(p.neck, 0.57))
+    r.bones[5].quaternion.copy(trunk(p.neck, 0.43))
+  }
   r.bones[20].quaternion.copy(Q(p.jaw?.[0], p.jaw?.[1]))
   for (const s of sides) {
     const act = s === 1,
@@ -98,8 +103,8 @@ function poseAt(r: MovementRig, id: AuthoredId, frame: Pose, phase: number) {
   groundGuide(r, id, true)
   r.root.updateMatrixWorld(true)
   equipmentPose(r, id, p)
-  placeHand(r, id, p.ga, 1, p.ha)
-  placeHand(r, id, p.gb, -1, p.hb)
+  placeHand(r, id, p.ga, 1, p.ha, p.ea)
+  placeHand(r, id, p.gb, -1, p.hb, p.eb)
   floorHands(r, id, p)
   clearFloorArms(r, id)
 }
@@ -120,6 +125,8 @@ type Key = {
   feet: Effector[]
   reach: (Reach | undefined)[]
   aims: (Aim | undefined)[]
+  elbows: (Point | undefined)[]
+  pose: Pose
 }
 const cache = new Map<AuthoredId, Key[]>()
 const feet = new Map<AuthoredId, FootMark[]>()
@@ -138,7 +145,8 @@ function keysFor(id: AuthoredId) {
     if (!f.time) feet.set(id, standingMarks(r, id))
     // Beats accumulate, so each frame's pose already carries every contact still in force.
     const reach = [f.pose.ga, f.pose.gb],
-      aims = [f.pose.ha, f.pose.hb]
+      aims = [f.pose.ha, f.pose.hb],
+      elbows = [f.pose.ea, f.pose.eb]
     return {
       time: f.time,
       root: r.root.position.clone(),
@@ -147,6 +155,8 @@ function keysFor(id: AuthoredId) {
       feet: sides.map((s) => effector(r, limb(s).foot)),
       reach,
       aims,
+      elbows,
+      pose: f.pose,
     }
   })
   r.skeleton.dispose()
@@ -166,8 +176,14 @@ function blendReach(a: Reach, b: Reach, f: number): Reach {
   const mark = contactKind(a)
   return mark === 'point' ? v : [mark as Mark, v[0], v[1], v[2]]
 }
-const planted = (a: Effector, b: Effector, height: number) =>
-  a.at.distanceTo(b.at) < 0.02 && Math.max(a.at.y, b.at.y) < height
+const grounded = (a: Effector, b: Effector, height: number) => Math.max(a.at.y, b.at.y) < height
+/** Slide a planted point, or lift it a little in a step when it travels. */
+const stepTo = (a: Effector, b: Effector, f: number) => {
+  const at = a.at.clone().lerp(b.at, f),
+    travel = a.at.distanceTo(b.at)
+  if (travel > 0.02) at.y += Math.min(0.05, travel * 0.15) * Math.sin(Math.PI * f)
+  return at
+}
 export function sampleGuide(r: MovementRig, id: AuthoredId, time: number, side: Side) {
   const keys = keysFor(id),
     i = keys.findIndex((k) => k.time >= time),
@@ -180,7 +196,9 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, time: number, side: 
     r.bones[j].quaternion.slerpQuaternions(a.rotations[j], b.rotations[j], f)
   cycleAt(r, id, time)
   lockStandingFeet(r, feet.get(id)!)
-  if (id === 'standing-figure-four') crossedAnkle(r, id, {})
+  // A crossed ankle stays on the opposite thigh between beats.
+  if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
+    crossedAnkle(r, id, a.pose)
   groundGuide(r, id)
   r.root.updateMatrixWorld(true)
   if (f > 0 && f < 1) holdContacts(r, id, a, b, f)
@@ -215,30 +233,33 @@ function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number)
           contactOrientation(r, id, reach, s, b.aims[n]),
           f,
         )
-      placeHand(r, id, reach, s, q)
+      placeHand(r, id, reach, s, q, a.elbows[n] ?? b.elbows[n])
       return
     }
-    // A palm planted on the floor in both beats stays where it was put.
-    if (planted(a.hands[n], b.hands[n], 0.06)) {
+    // A palm on the floor in both beats stays down, or walks along the floor between them.
+    if (grounded(a.hands[n], b.hands[n], 0.06)) {
       const j = limb(s)
       reachArm(
         r,
         s,
-        a.hands[n].at.clone().lerp(b.hands[n].at, f),
+        stepTo(a.hands[n], b.hands[n], f),
         r.bones[j.hand].getWorldQuaternion(new Quaternion()),
         r.bones[j.fore].getWorldPosition(new Vector3()),
       )
     }
   })
-  if (posture === 'stand' || posture === 'lunge' || posture === 'squat') return
+  // Standing feet are locked to their floor marks already; the inchworm walks them instead.
+  if ((posture === 'stand' || posture === 'lunge' || posture === 'squat') && id !== 'inchworm')
+    return
   sides.forEach((s, n) => {
-    // A foot on the floor in both beats keeps its place; it may still turn, as in a cycle.
-    if (!planted(a.feet[n], b.feet[n], ANKLE_Y + 0.03)) return
+    // A foot on the floor in both beats keeps its place or steps along the floor; it may still
+    // turn, as in a cycle.
+    if (!grounded(a.feet[n], b.feet[n], ANKLE_Y + 0.03)) return
     const j = limb(s)
     reachLeg(
       r,
       s,
-      a.feet[n].at.clone().lerp(b.feet[n].at, f),
+      stepTo(a.feet[n], b.feet[n], f),
       r.bones[j.foot].getWorldQuaternion(new Quaternion()),
       r.bones[j.shin].getWorldPosition(new Vector3()),
     )
