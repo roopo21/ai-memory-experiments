@@ -19,16 +19,27 @@ export interface GuideStyle {
   exercise: boolean
 }
 
-/** Highlight colours per guide: warm on red muscle, cool on yellow nerves. */
+export const MUSCLE = '#84868b'
+export const GLIDE_MUSCLE_OPACITY = 0.22
+
+/** Target colours are shared by atlas guides and the motion studio. */
 export const GUIDE_PALETTE: Record<
   GuideKind,
   { base: string; primary: string; secondary: string; hover: string }
 > = {
-  stretch: { base: '#a6534c', primary: theme.muscle, secondary: '#f07a5a', hover: '#d4806a' },
-  glide: { base: '#e8cf72', primary: theme.nerve, secondary: '#7c9dff', hover: '#fff2b0' },
+  stretch: {
+    base: MUSCLE,
+    primary: theme.muscle,
+    secondary: theme['muscle-secondary'],
+    hover: '#b3b5b9',
+  },
+  glide: {
+    base: '#a1a4aa',
+    primary: theme.nerve,
+    secondary: theme['nerve-secondary'],
+    hover: '#bddfe3',
+  },
 }
-
-const MUSCLE = '#a6534c'
 
 /** Visibility and picking share the same opacity rule, including selected meshes. */
 export function computeTarget(
@@ -75,10 +86,18 @@ function guideTarget(t: Target, guide: GuideStyle): Target {
     case 'hover':
       return shown(palette.hover, t.opacity, 0.12)
     case 'member':
-      return shown(palette.base, guide.selection ? t.opacity * 0.45 : t.opacity, 0)
+      return shown(
+        palette.base,
+        guide.kind === 'glide' && guide.selection ? t.opacity * 0.45 : t.opacity,
+        0,
+      )
     case 'other':
       return {
-        ...shown(palette.base, t.opacity * (guide.exercise ? 0.06 : 0.12), 0),
+        ...shown(
+          palette.base,
+          guide.kind === 'stretch' ? t.opacity : t.opacity * (guide.exercise ? 0.06 : 0.12),
+          0,
+        ),
         pickable: false,
       }
   }

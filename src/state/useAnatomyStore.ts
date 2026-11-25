@@ -10,6 +10,8 @@ import { groupById, groupsByMesh, meshesOf } from '../guides/library/groups'
 import type { GroupView, GuideKind, GuideMode } from '../guides/library/types'
 import { exerciseById, exerciseMeshes, viewFor } from '../guides/exercises'
 
+import { GLIDE_MUSCLE_OPACITY } from '../viewer/appearance'
+
 export interface LayerState {
   visible: boolean
   opacity: number
@@ -26,13 +28,14 @@ const defaultLayers = () =>
     systems.map((s) => [s.id, { visible: DEFAULT_VISIBLE_SYSTEMS.includes(s.id), opacity: 1 }]),
   ) as Record<SystemId, LayerState>
 
-/** Stretches show muscle over bone. Glides show nerves inside a ghosted skeleton. */
+/** Stretches show muscle over bone. Glides show nerves inside translucent muscle and bone. */
 export const guideLayers = (kind: GuideKind) =>
   Object.fromEntries(
     systems.map((s) => {
       if (s.id === 'skeletal') return [s.id, { visible: true, opacity: kind === 'glide' ? 0.3 : 1 }]
-      const own = kind === 'stretch' ? 'muscular' : 'nervous'
-      return [s.id, { visible: s.id === own, opacity: 1 }]
+      if (s.id === 'muscular')
+        return [s.id, { visible: true, opacity: kind === 'glide' ? GLIDE_MUSCLE_OPACITY : 1 }]
+      return [s.id, { visible: kind === 'glide' && s.id === 'nervous', opacity: 1 }]
     }),
   ) as Record<SystemId, LayerState>
 
