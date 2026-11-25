@@ -402,9 +402,11 @@ interface ArmSolution {
 /**
  * How widely a limb solve may look. Beats search the full swing of the elbow or knee and every
  * way the forearm can turn; between beats a `local` solve stays near the interpolated pose, so the
- * limb cannot jump to another solution from one frame to the next.
+ * limb cannot jump to another solution from one frame to the next. `stay` keeps the full search but
+ * still prefers the solution nearest the incoming pose when several fit equally well, as a
+ * straight limb's roll does.
  */
-export type SolveOptions = { search?: number; local?: boolean }
+export type SolveOptions = { search?: number; local?: boolean; stay?: boolean }
 /**
  * Place the wrist at `wrist` with the hand at world orientation `hand`, keeping the elbow a
  * hinge, the forearm turning only about its pronation axis and the wrist without axial twist.
@@ -477,7 +479,7 @@ export function reachArm(
           twoAxis(h0, b.elbowAxis, v, forearm).map((x) => ({ ...x, flex: x.phi + b.elbow })),
           -10,
           165,
-          options.local
+          options.local || options.stay
             ? (x) => align.clone().multiply(turn(h0, x.rho)).angleTo(incoming)
             : undefined,
         )
@@ -508,9 +510,10 @@ export function reachArm(
           Math.abs(rad - radial) +
           Math.max(0, -branch.flex - 8)
         // Between beats the arm keeps close to where the interpolated pose has it.
-        const drift = options.local
-          ? ((arm.angleTo(incoming) * R2D) / 3) ** 2 + ((pronation - start) / 8) ** 2
-          : 0
+        const drift =
+          options.local || options.stay
+            ? ((arm.angleTo(incoming) * R2D) / 3) ** 2 + ((pronation - start) / 8) ** 2
+            : 0
         best = {
           arm,
           fore,
@@ -734,7 +737,9 @@ export function reachLeg(
       twoAxis(f0, b.kneeAxis, lower, shin).map((x) => ({ ...x, flex: x.phi })),
       -8,
       165,
-      options.local ? (x) => align.clone().multiply(turn(f0, x.rho)).angleTo(incoming) : undefined,
+      options.local || options.stay
+        ? (x) => align.clone().multiply(turn(f0, x.rho)).angleTo(incoming)
+        : undefined,
     )
     const thigh = align.clone().multiply(turn(f0, branch.rho)),
       hinge = turn(b.kneeAxis, branch.phi)
@@ -762,7 +767,7 @@ export function reachLeg(
       rotation = s * twistAbout(reference.invert().multiply(thigh), b.femur.clone().negate())
     const rotationOver = Math.max(0, rotation - 75) + Math.max(0, -52 - rotation)
     // Between beats the thigh keeps close to where the interpolated pose has it.
-    const drift = options.local ? ((thigh.angleTo(incoming) * R2D) / 4) ** 2 : 0
+    const drift = options.local || options.stay ? ((thigh.angleTo(incoming) * R2D) / 4) ** 2 : 0
     // A straight leg hardly fixes the roll of the femur; leave it near neutral unless the foot
     // asks for more.
     const cost =
@@ -793,14 +798,30 @@ export function articulateLeg(r: MovementRig, s: Side, local = false) {
   // that can hold its foot. Re-solving it would only let a nearly straight knee pick a new roll.
   if (local && isHinged(r, s)) return
   r.root.updateMatrixWorld(true)
-  return reachLeg(
-    r,
-    s,
-    worldP(r, j.foot),
-    worldQ(r, j.foot),
-    worldP(r, j.shin),
-    local ? { local } : { search: 60 },
-  )
+  const ankle = worldP(r, j.foot),
+    foot = worldQ(r, j.foot),
+    knee = worldP(r, j.shin)
+  if (!local) return reachLeg(r, s, ankle, foot, knee, { search: 60 })
+  const saved = [j.thigh, j.shin, j.foot].map((i) => r.bones[i].quaternion.clone())
+  const result = reachLeg(r, s, ankle, foot, knee, { local })
+  r.root.updateMatrixWorld(true)
+  // A nearly straight leg turns its whole foot by swivelling at the hip, further than a local
+  // solve may stray. When the foot has not kept its turn, solve again with the full swivel.
+  if (worldQ(r, j.foot).angleTo(foot) * R2D <= 3) return result
+  const kept = [j.thigh, j.shin, j.foot].map((i) => r.bones[i].quaternion.clone())
+  saved.forEach((q, k) => r.bones[[j.thigh, j.shin, j.foot][k]].quaternion.copy(q))
+  r.root.updateMatrixWorld(true)
+  const full = reachLeg(r, s, ankle, foot, knee, { search: 60, stay: true })
+  r.root.updateMatrixWorld(true)
+  if (worldQ(r, j.foot).angleTo(foot) * R2D < 3) return full
+  // Neither holds it exactly; keep whichever turned the foot least.
+  const fullTurn = worldQ(r, j.foot).angleTo(foot)
+  kept.forEach((q, k) => r.bones[[j.thigh, j.shin, j.foot][k]].quaternion.copy(q))
+  r.root.updateMatrixWorld(true)
+  if (worldQ(r, j.foot).angleTo(foot) <= fullTurn) return result
+  saved.forEach((q, k) => r.bones[[j.thigh, j.shin, j.foot][k]].quaternion.copy(q))
+  r.root.updateMatrixWorld(true)
+  return reachLeg(r, s, ankle, foot, knee, { search: 60, stay: true })
 }
 
 /** Make the ulna follow the hinge part of the forearm, for poses that set the forearm directly. */

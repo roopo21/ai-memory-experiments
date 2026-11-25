@@ -127,7 +127,10 @@ export function inchworm(r: MovementRig, stage: number) {
         V(s * 0.2, stage === 3 ? -0.5 : 0, 1),
         V(0, -1, stage === 3 ? 0.5 : 0),
       )
-    const goal = V(s * 0.2, 0.002, stage === 1 ? 0.335 : 1.08).sub(palmPad(s).applyQuaternion(hand))
+    // With the heel of the hand lifted in the fold, the palm rides above the floor on the fingers.
+    const goal = V(s * 0.2, stage === 3 ? 0.062 : 0.002, stage === 1 ? 0.335 : 1.08).sub(
+      palmPad(s).applyQuaternion(hand),
+    )
     solveLimb(r, arm, arm + 1, arm + 2, goal, V(s * 0.34, 0.3, baseZ + 0.23))
     worldRotation(r.bones[arm + 2], hand)
   }

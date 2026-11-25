@@ -7,7 +7,7 @@ import type { Aim, Mark, Pose, Point, Reach } from '../../../studio/choreography
 import { contactBone, contactShape, markOf, placeHand } from './contacts'
 import { crossedAnkle, pinch, equipmentPose, inchworm } from './precision'
 import { cycleAt } from './cycles'
-import { groundGuide } from './ground'
+import { groundGuide, lowestHandBone } from './ground'
 import {
   prepareSupports,
   clearFloorArms,
@@ -200,7 +200,9 @@ function keysFor(id: AuthoredId) {
     // either side of a beat arrive at exactly the pose stored for it.
     for (let pass = 0; pass < 2; pass++) {
       const key = capture()
-      holdContacts(r, id, key, key, 0)
+      holdFeet(r, id, key, key, 0)
+      holdHands(r, id, key, key, 0)
+      clearFloorHands(r)
       articulate(r, true)
     }
     const key = capture()
@@ -257,16 +259,22 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   // A crossed ankle stays on the opposite thigh between beats.
   if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
     crossedAnkle(r, id, a.pose)
-  groundGuide(
-    r,
-    id,
-    false,
-    sides.map((_, n) => onSurface(a.reach[n]) || onSurface(b.reach[n])),
-  )
-  r.root.updateMatrixWorld(true)
+  // The legs take their final anatomical shape before the body rests on the floor, so a limit that
+  // turns a foot, such as the end of ankle dorsiflexion in a deep squat, is felt by the grounding.
+  for (const s of sides) articulateLeg(r, s, true)
   // Arriving at a beat is that beat, contacts and all, so a take ends exactly where it began.
-  if (f === 1) holdContacts(r, id, b, b, 0)
-  else holdContacts(r, id, a, b, f)
+  const [from, to, along] = f === 1 ? [b, b, 0] : [a, b, f]
+  const planted = sides.map((_, n) => onSurface(a.reach[n]) || onSurface(b.reach[n]))
+  r.root.updateMatrixWorld(true)
+  groundGuide(r, id, false, planted)
+  r.root.updateMatrixWorld(true)
+  // Planted feet keep their marks; holding them can sink a heel or toe a few millimetres, so the
+  // body is rested on the floor once more before the hands take their holds.
+  holdFeet(r, id, from, to, along)
+  groundGuide(r, id, false, planted)
+  r.root.updateMatrixWorld(true)
+  holdHands(r, id, from, to, along)
+  clearFloorHands(r)
   articulate(r, true)
   if (side === 'right' && !scores[id].both) {
     // Reflect the authored performance once. The tiny bilateral differences in the scanned
@@ -283,11 +291,10 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   }
 }
 /**
- * Between beats, a hand that keeps the same contact stays on it, and a planted hand or foot stays
- * planted, instead of drifting while the joints interpolate.
+ * Between beats, a hand that keeps the same contact stays on it, and a planted hand stays planted,
+ * instead of drifting while the joints interpolate.
  */
-function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
-  const posture = scores[id].posture
+function holdHands(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
   sides.forEach((s, n) => {
     const reachA = a.reach[n],
       reachB = b.reach[n],
@@ -315,6 +322,32 @@ function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number)
       )
     }
   })
+}
+/**
+ * A hand never sinks into the floor. Where its bones would cross it, the whole hand lifts just
+ * enough that its fingers and palm rest on it, so a hand sweeping low or pitched forward touches
+ * down on its fingertips instead of passing through. The hand keeps its turn; the arm bends to
+ * carry it.
+ */
+function clearFloorHands(r: MovementRig) {
+  r.root.updateMatrixWorld(true)
+  for (const s of sides) {
+    const below = 0.001 - lowestHandBone(r, s)
+    if (below <= 0) continue
+    const j = limb(s)
+    reachArm(
+      r,
+      s,
+      r.bones[j.hand].getWorldPosition(new Vector3()).add(new Vector3(0, below, 0)),
+      r.bones[j.hand].getWorldQuaternion(new Quaternion()),
+      r.bones[j.fore].getWorldPosition(new Vector3()),
+      { local: true },
+    )
+  }
+}
+/** A planted foot stays planted, or steps along the floor, as the joints interpolate. */
+function holdFeet(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
+  const posture = scores[id].posture
   // Standing feet are locked to their floor marks already; the inchworm walks them instead.
   if ((posture === 'stand' || posture === 'lunge' || posture === 'squat') && id !== 'inchworm')
     return

@@ -25,6 +25,7 @@ const rig = createMovementRig(),
         ? indexOfJoint[name.replace('right', 'left') as Joint]
         : i,
   )
+const performer = await from('src/motion/studio/assets/performer.glb', true)
 const result: Record<string, number[][]> = {},
   pv = previews.previews as Record<string, { url: string }>
 for (const id of Object.keys(scores) as AuthoredId[]) {
@@ -33,9 +34,14 @@ for (const id of Object.keys(scores) as AuthoredId[]) {
   for (const side of (score.both ? ['left'] : ['left', 'right']) as ('left' | 'right')[]) {
     const selection = selectSurfaces(id, 'anatomy', side)
     const files = new Set(selection.urls.slice(1).flatMap((url) => [url, pv[url]?.url ?? url]))
-    const meshes = (await Promise.all([...files].map((url) => from('public' + url))))
-      .flat()
-      .filter((m) => m.name && selection.selected.has(m.name))
+    // The performer's skin blends between bones, so near a bent neck it reaches below any rigid
+    // bone; its vertices are witnesses too.
+    const meshes = [
+      ...(await Promise.all([...files].map((url) => from('public' + url))))
+        .flat()
+        .filter((m) => m.name && selection.selected.has(m.name)),
+      ...performer,
+    ]
     const times = score.frames.flatMap((f, i) =>
       i
         ? [0.25, 0.5, 0.75, 1].map(

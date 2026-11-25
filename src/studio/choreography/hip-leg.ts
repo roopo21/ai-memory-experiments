@@ -1,4 +1,13 @@
-import { stretch as st, sequence as seq, both, feet, instep, type Leg, type Recipe } from './types'
+import {
+  stretch as st,
+  sequence as seq,
+  both,
+  feet,
+  instep,
+  type Leg,
+  type Recipe,
+  onFloor,
+} from './types'
 const crossed: Leg = [87, 31, 99, 0, 56],
   upright: Leg = [94, 0, 88],
   wide: Leg = [5, 27, 6],
@@ -146,7 +155,14 @@ export const hipLeg = {
   }),
   frog: st(
     'allFours',
-    { leg: [83, 39, 88, 0, 39], other: [83, 39, 88, 0, 39], a: [85, 9, 84], b: [85, 9, 84] },
+    {
+      leg: [83, 39, 88, 0, 39],
+      other: [83, 39, 88, 0, 39],
+      a: [85, 9, 84],
+      b: [85, 9, 84],
+      f: onFloor,
+      g: onFloor,
+    },
     'Lower onto forearms and rock back',
     {
       leg: [108, 45, 93, 0, 43],

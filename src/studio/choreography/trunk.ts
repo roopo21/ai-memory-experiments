@@ -8,6 +8,7 @@ import {
   type Recipe,
   type Arm,
   type Leg,
+  onFloor,
 } from './types'
 /** Arm angles: flexion, abduction, elbow, pronation (0 palm forward, 90 thumb up), wrist, rotation. */
 // Arms out to the sides on the floor, palms up.
@@ -81,7 +82,7 @@ export const trunk = {
   ),
   'puppy-pose': st(
     'allFours',
-    { a: [100, 5, 3], b: [100, 5, 3] },
+    { a: [100, 5, 3], b: [100, 5, 3], f: onFloor, g: onFloor },
     'Walk the palms out and lower the chest',
     { spine: [-23, 0, 0], pelvis: [17, 0, 0], a: [147, 8, 4], b: [147, 8, 4], neck: [8, 0, 0] },
     both,
@@ -209,7 +210,7 @@ export const trunk = {
   ),
   sphinx: st(
     'prone',
-    { a: [15, 6, 77], b: [15, 6, 77] },
+    { a: [15, 6, 77], b: [15, 6, 77], f: onFloor, g: onFloor },
     'Prop on the forearms and lengthen the chest',
     { spine: [-31, 0, 0], neck: [-12, 0, 0], breath: 1 },
     both,

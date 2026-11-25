@@ -123,9 +123,10 @@ export const armHand = {
   'all-fours-wrist-extensor': st(
     'allFours',
     {
-      ga: 'floor',
-      gb: 'floor',
-      // Backs of the hands on the floor, fingers toward the knees.
+      // Backs of the hands on the floor, fingers toward the knees. The extensor tendons stand a
+      // finger's width proud of the bones, so the contact sits that far above the floor.
+      ga: ['floor', 0, 0.012, 0],
+      gb: ['floor', 0, 0.012, 0],
       ha: [[-0.1, 0, -1], [0, 1, 0], 'world', 'back'],
       hb: [[0.1, 0, -1], [0, 1, 0], 'world', 'back'],
       f: [10, 20, 10],

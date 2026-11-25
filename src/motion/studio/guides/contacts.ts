@@ -1,5 +1,6 @@
 import { flatPalmOrientation, palmOrientation } from '../handOrientation'
 import { Quaternion, Vector3 } from 'three'
+import { onFloor } from '../../../studio/choreography/types'
 import type { Aim, AimFrame, Fingers, Mark, Point, Reach } from '../../../studio/choreography/types'
 import type { AuthoredId } from '../../../studio/choreography'
 import { scores } from '../../../studio/choreography'
@@ -88,21 +89,12 @@ function partOf(mark: Mark): Part {
   return 'limb'
 }
 /** The finger shape a hand takes for a contact, unless the guide gives one. */
-/**
- * Fingers spread on a floor, seat or wall: the metacarpals dip toward the knuckles, so the fingers
- * extend a little at the knuckles to lie along the surface, with the tips pressing lightly. The
- * thumb stays in the plane of the palm; opening it away from the palm would push it into the floor.
- */
-export const FLAT_ON_SURFACE: Fingers = {
-  // The ulnar knuckles sit lower in the palm's arch, so those fingers extend a little more.
-  mcp: [-8, -8, -10, -12],
-  pip: [4, 4, 4, 4],
-  dip: [2, 2, 2, 2],
-  spread: 10,
-  // Drawn back level with the palm and out to the side, measured against the palm's contact plane.
-  thumb: [-10, -22, 0, 5, 5],
-}
+export const FLAT_ON_SURFACE = onFloor
+/** A bare point at floor height: a hand put down on the floor rather than held in the air. */
+const onTheFloor = (reach: Reach | undefined) =>
+  Array.isArray(reach) && typeof reach[0] === 'number' && reach[1] < 0.12
 export function contactShape(reach: Reach | undefined): Fingers | undefined {
+  if (onTheFloor(reach)) return FLAT_ON_SURFACE
   const mark = markOf(reach)
   if (!mark || mark === 'free') return undefined
   // A hand resting on the thigh drapes rather than grips.
@@ -281,6 +273,8 @@ export function contactOrientation(
   // A palm pressed on a floor, seat, table or wall lies flat whatever way it is aimed.
   if (aim) return aimOrientation(r, s, aim, flatOn(mark) && aim[3] !== 'back' && aim[3] !== 'tips')
   if (mark) return defaultOrientation(r, mark, bone, s, goal)
+  // A hand put down on the floor lies flat, fingers forward, whatever it hung like before.
+  if (onTheFloor(reach)) return flatPalmOrientation(s, V(s * 0.06, 0, 1), V(0, -1, 0))
   return worldQ(r, s === 1 ? 8 : 11)
 }
 /** The point of the hand that touches: fingertips for light touches, otherwise the palm. */

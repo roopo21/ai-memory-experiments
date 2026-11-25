@@ -215,6 +215,20 @@ export const feet = { focus: 'foot' } as const
  * so the arm reaches straight back and takes it palm forward, fingers down and a little inward.
  */
 export const instep: Aim = [[-0.3, -1, 0], [0, 0, 1], 'chest']
+/**
+ * Fingers spread on a floor, seat or wall: the metacarpals dip toward the knuckles, so the fingers
+ * extend a little at the knuckles to lie along the surface, with the tips pressing lightly. The
+ * thumb stays in the plane of the palm; opening it away from the palm would push it into the floor.
+ */
+export const onFloor: Fingers = {
+  // The ulnar knuckles sit lower in the palm's arch, so those fingers extend a little more.
+  mcp: [-8, -8, -10, -12],
+  pip: [4, 4, 4, 4],
+  dip: [2, 2, 2, 2],
+  spread: 10,
+  // Drawn back level with the palm and out to the side, measured against the palm's contact plane.
+  thumb: [-10, -22, 0, 5, 5],
+}
 export const open: Fingers = [0, 0, 0, 4, 0, 6],
   /** Palm and fingers flat on a surface. */
   flat: Fingers = [0, 4, 2, 6, 0, 14],
