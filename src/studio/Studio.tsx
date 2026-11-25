@@ -209,7 +209,7 @@ function Workspace({ children }: { children: ReactNode }) {
   return (
     <main
       className={'studio' + (clean ? ' studio-clean' : '')}
-      aria-label="Motion studio"
+      aria-label="Motion Lab"
       data-ready={ready}
       data-clean={clean}
       data-recording={recording}
@@ -218,7 +218,7 @@ function Workspace({ children }: { children: ReactNode }) {
         <button onClick={leaveStudio}>
           <ArrowLeft size={15} /> Anatomy Explorer
         </button>
-        <h1>Motion studio</h1>
+        <h1>Motion Lab</h1>
       </header>
       <div
         ref={stage}

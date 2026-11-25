@@ -24,7 +24,7 @@ try {
   await page.goto(url + '/#mode=stretch&parts=hamstrings&exercise=supine-hamstring', {
     waitUntil: 'domcontentloaded',
   })
-  await button('Preview movement in studio').click()
+  await button('Preview in Motion Lab').click()
   await ready()
   await still()
   assert.equal(await page.getByLabel('Clip', { exact: true }).inputValue(), 'supine-hamstring')
@@ -58,9 +58,9 @@ try {
   await page.keyboard.press('Escape')
   await page.waitForSelector('[data-clean=false]')
   await button('Anatomy Explorer').click()
-  await button('Preview movement in studio').waitFor()
+  await button('Preview in Motion Lab').waitFor()
   assert(page.url().includes('exercise=supine-hamstring') && !page.url().includes('studio='))
-  await button('Preview movement in studio').click()
+  await button('Preview in Motion Lab').click()
   await ready()
   await selectClip('push-up')
   await ready()

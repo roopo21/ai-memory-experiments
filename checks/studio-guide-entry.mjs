@@ -17,7 +17,7 @@ try {
       const h = new URLSearchParams({ mode: kind, parts: g.primary[0], exercise: g.id })
       await page.goto(url + '/#' + h, { waitUntil: 'commit' })
       const card = page.getByRole('region', { name: g.name + ' instructions', exact: true })
-      await card.getByRole('button', { name: 'Preview movement in studio' }).click()
+      await card.getByRole('button', { name: 'Preview in Motion Lab' }).click()
       await page.waitForSelector('main[data-ready=true]')
       assert.equal(await page.getByLabel('Clip', { exact: true }).inputValue(), g.id)
       assert.equal(
