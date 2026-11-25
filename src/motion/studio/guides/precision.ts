@@ -5,7 +5,7 @@ import { oldLocal } from '../../oldPivots'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
 import { legFrame, turn } from '../../anatomy'
 import { palmPad, toePad } from '../anchors'
-import { palmOrientation } from '../handOrientation'
+import { flatPalmOrientation } from '../handOrientation'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import type { Pose } from '../../../studio/choreography/types'
 const V = (x = 0, y = 0, z = 0) => new Vector3(x, y, z)
@@ -40,7 +40,6 @@ export function pinch(r: MovementRig) {
 export function crossedAnkle(r: MovementRig, id: AuthoredId, p: Pose) {
   // Lying, the crossed leg is authored directly so the ankle rests on the other thigh.
   if (scores[id].posture !== 'figureFour' && id !== 'standing-figure-four') return
-  void p
   const ankle = r.bones[15].localToWorld(
     r.rest[16]
       .clone()
@@ -50,8 +49,11 @@ export function crossedAnkle(r: MovementRig, id: AuthoredId, p: Pose) {
   const hip = r.bones[12].getWorldPosition(V())
   // The knee drops out to the side so the hip opens with abduction, not only rotation.
   solveLimb(r, 12, 13, 14, ankle, hip.add(V(0.65, -0.18, 0.24).applyQuaternion(r.root.quaternion)))
-  // The crossed foot rests relaxed on the thigh, slightly pointed.
-  r.bones[14].quaternion.copy(turn(legFrame(1).ankleAxis, 18))
+  // The crossed foot rests relaxed on the thigh, slightly pointed, unless the guide moves it.
+  const f = legFrame(1)
+  r.bones[14].quaternion
+    .copy(turn(f.ankleAxis, p.leg?.[3] ?? 18))
+    .multiply(turn(f.eversionAxis, p.leg?.[5] ?? 0))
   r.bones[14].updateMatrixWorld(true)
 }
 export function equipmentPose(r: MovementRig, id: AuthoredId, p: Pose) {
@@ -118,7 +120,13 @@ export function inchworm(r: MovementRig, stage: number) {
     )
     worldRotation(r.bones[i + 2], foot)
     const arm = i === 12 ? 6 : 9,
-      hand = palmOrientation(s, V(s * 0.04, 0, 1), V(0, -1, 0))
+      // Fingers turned a little out, which the forearm reaches without full pronation. Once the
+      // feet have walked in, the shoulders pass over the hands and the heels of the hands lift.
+      hand = flatPalmOrientation(
+        s,
+        V(s * 0.2, stage === 3 ? -0.5 : 0, 1),
+        V(0, -1, stage === 3 ? 0.5 : 0),
+      )
     const goal = V(s * 0.2, 0.002, stage === 1 ? 0.335 : 1.08).sub(palmPad(s).applyQuaternion(hand))
     solveLimb(r, arm, arm + 1, arm + 2, goal, V(s * 0.34, 0.3, baseZ + 0.23))
     worldRotation(r.bones[arm + 2], hand)

@@ -1,12 +1,12 @@
-import { palmOrientation } from '../handOrientation'
+import { flatPalmOrientation, palmOrientation } from '../handOrientation'
 import { Quaternion, Vector3 } from 'three'
 import type { Aim, AimFrame, Fingers, Mark, Point, Reach } from '../../../studio/choreography/types'
 import type { AuthoredId } from '../../../studio/choreography'
 import { scores } from '../../../studio/choreography'
-import { indexOfJoint, joints, local, ULNA, type Joint } from '../../joints'
+import { indexOfJoint, joints, local, type Joint } from '../../joints'
 import { digitTips } from '../../distalJoints'
 import { oldLocal } from '../../oldPivots'
-import { armFrame, reachArm, turn, vec, type Side } from '../../anatomy'
+import { reachPalm, vec, type Side } from '../../anatomy'
 import { limbFrames } from '../../limbFrames'
 import type { MovementRig } from '../../movementRig'
 import { palmPad } from '../anchors'
@@ -21,7 +21,19 @@ export function fixturePoint(id: AuthoredId, mark: Mark, s: number) {
     seated = posture === 'chair' || posture === 'figureFour'
   switch (mark) {
     case 'floor':
-      return V(s * 0.2, 0.009, posture === 'prone' ? 0.4 : posture === 'pigeon' ? 0.33 : 0.49)
+      // On all fours and in pigeon the hands sit under the shoulders, so a flat palm needs no
+      // more wrist extension than the wrist has.
+      return V(
+        s * 0.2,
+        0.009,
+        posture === 'prone'
+          ? 0.4
+          : posture === 'pigeon'
+            ? 0.46
+            : posture === 'allFours'
+              ? 0.55
+              : 0.49,
+      )
     case 'seat':
       // The side edge of the seat, beside the hip.
       return V(s * 0.235, 0.395, -0.16)
@@ -56,10 +68,11 @@ const FRAME_BONE: Record<AimFrame, number> = {
   Ashin: 13,
   Afoot: 14,
 }
-export function aimOrientation(r: MovementRig, s: number, aim: Aim) {
+export function aimOrientation(r: MovementRig, s: number, aim: Aim, flat = false) {
   const frame = aim[2] ?? 'world',
-    q = frame === 'world' ? new Quaternion() : worldQ(r, FRAME_BONE[frame])
-  return palmOrientation(s, V(...aim[0]).applyQuaternion(q), V(...aim[1]).applyQuaternion(q))
+    q = frame === 'world' ? new Quaternion() : worldQ(r, FRAME_BONE[frame]),
+    orient = flat ? flatPalmOrientation : palmOrientation
+  return orient(s, V(...aim[0]).applyQuaternion(q), V(...aim[1]).applyQuaternion(q))
 }
 type Part = 'head' | 'jaw' | 'trunk' | 'back' | 'limb' | 'hand' | 'foot' | 'surface'
 /** Body part touched by each mark, and the bone whose surface the palm rests on. */
@@ -69,15 +82,31 @@ function partOf(mark: Mark): Part {
   if (['collar', 'shoulder', 'chest', 'belly', 'prayer', 'gripFront'].includes(mark)) return 'trunk'
   if (['back', 'backHip', 'handsBehind'].includes(mark)) return 'back'
   if (['Apalm', 'Aback', 'Athumb', 'Afingers'].includes(mark)) return 'hand'
-  if (['Aheel', 'Bheel', 'Atoe', 'ownToe', 'innerFoot'].includes(mark)) return 'foot'
+  if (['Aheel', 'Ainstep', 'Bheel', 'Atoe', 'ownToe', 'innerFoot'].includes(mark)) return 'foot'
   if (['floor', 'table', 'seat', 'wall', 'door', 'post', 'bar', 'free'].includes(mark))
     return 'surface'
   return 'limb'
 }
 /** The finger shape a hand takes for a contact, unless the guide gives one. */
+/**
+ * Fingers spread on a floor, seat or wall: the metacarpals dip toward the knuckles, so the fingers
+ * extend a little at the knuckles to lie along the surface, with the tips pressing lightly. The
+ * thumb stays in the plane of the palm; opening it away from the palm would push it into the floor.
+ */
+export const FLAT_ON_SURFACE: Fingers = {
+  // The ulnar knuckles sit lower in the palm's arch, so those fingers extend a little more.
+  mcp: [-8, -8, -10, -12],
+  pip: [4, 4, 4, 4],
+  dip: [2, 2, 2, 2],
+  spread: 10,
+  // Drawn back level with the palm and out to the side, measured against the palm's contact plane.
+  thumb: [-10, -22, 0, 5, 5],
+}
 export function contactShape(reach: Reach | undefined): Fingers | undefined {
   const mark = markOf(reach)
   if (!mark || mark === 'free') return undefined
+  // A hand resting on the thigh drapes rather than grips.
+  if (mark === 'ownThigh') return [12, 16, 8, 4, 10, 8]
   switch (partOf(mark)) {
     case 'head':
       return mark === 'eye' ? undefined : [12, 18, 10, 6, 10, 8]
@@ -93,9 +122,11 @@ export function contactShape(reach: Reach | undefined): Fingers | undefined {
     case 'hand':
       return [6, 10, 6, 0, 10, 6]
     case 'surface':
-      return mark === 'bar' ? [62, 72, 40, 0, 55] : [2, 6, 4, 10, 0, 18]
+      return mark === 'bar' ? [62, 72, 40, 0, 55] : FLAT_ON_SURFACE
   }
 }
+/** Fixtures a palm presses flat against; a bar is gripped instead. */
+const flatOn = (mark: Mark | undefined) => !!mark && partOf(mark) === 'surface' && mark !== 'bar'
 export const markOf = (reach: Reach | undefined): Mark | undefined =>
   reach === undefined
     ? undefined
@@ -119,10 +150,10 @@ function defaultOrientation(r: MovementRig, mark: Mark, bone: number, s: number,
   const part = partOf(mark)
   if (part === 'surface') {
     if (mark === 'floor' || mark === 'table' || mark === 'seat')
-      return palmOrientation(s, V(s * 0.06, 0, 1), V(0, -1, 0))
-    if (mark === 'post') return palmOrientation(s, V(0, 1, 0), V(s, 0, 0))
+      return flatPalmOrientation(s, V(s * 0.06, 0, 1), V(0, -1, 0))
+    if (mark === 'post') return flatPalmOrientation(s, V(0, 1, 0), V(s, 0, 0))
     if (mark === 'bar') return palmOrientation(s, V(0, 1, 0), V(0, 0, 1))
-    return palmOrientation(s, V(s * 0.05, 1, 0), V(0, 0, 1))
+    return flatPalmOrientation(s, V(s * 0.05, 1, 0), V(0, 0, 1))
   }
   const frame = worldQ(r, bone)
   let centre: Vector3
@@ -211,12 +242,16 @@ function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
     Athigh: [12, s * 0.032, -0.245, -0.044],
     Ashin: [13, s * 0.026, -0.074, 0.027],
     Aheel: [14, 0, -0.018, -0.036],
+    // The front of the ankle, where a quadriceps stretch holds the foot, on the performer's skin.
+    Ainstep: [14, -0.005, 0.006, 0.024],
     Atoe: [indexOfJoint.leftToeBig1, -0.005, 0, 0.008],
     Aknee: [13, s * 0.012, 0, 0.043],
     Bthigh: [15, s * 0.031, -0.23, -0.046],
     Bshin: [16, s * 0.026, -0.055, 0.022],
     Bheel: [17, 0, -0.015, -0.028],
     ownKnee: [leg + 1, 0, 0.015, 0.036],
+    // The front of the upper thigh, where a hanging hand rests, measured on the performer's skin.
+    ownThigh: [leg, -s * 0.012, -0.12, 0.072],
     ownShin: [leg + 1, 0, -0.19, 0.032],
     ownToe: [leg + 2, 0, -0.028, 0.145],
     innerFoot: [leg + 2, -s * 0.04, 0, 0.09],
@@ -243,7 +278,8 @@ export function contactOrientation(
   aim?: Aim,
 ) {
   const { goal, mark, bone } = goalOf(r, id, reach, s)
-  if (aim) return aimOrientation(r, s, aim)
+  // A palm pressed on a floor, seat, table or wall lies flat whatever way it is aimed.
+  if (aim) return aimOrientation(r, s, aim, flatOn(mark) && aim[3] !== 'back' && aim[3] !== 'tips')
   if (mark) return defaultOrientation(r, mark, bone, s, goal)
   return worldQ(r, s === 1 ? 8 : 11)
 }
@@ -278,6 +314,8 @@ export function placeHand(
   s: number,
   aim?: Aim | Quaternion,
   elbowAim?: Point,
+  local = false,
+  before?: Quaternion,
 ) {
   if (!reach || reach === 'free') return
   const arm = s === 1 ? 6 : 9,
@@ -301,17 +339,21 @@ export function placeHand(
           ? V(s * 0.24, -0.22, -0.2)
           : undefined
   const chest = r.bones[3].getWorldQuaternion(new Quaternion())
-  const preferred = elbowAim
-    ? shoulder.clone().add(
-        V(...elbowAim)
-          .multiplyScalar(0.3)
-          .applyQuaternion(chest),
-      )
-    : away
-      ? shoulder.clone().add(away.applyQuaternion(chest))
-      : elbow.clone().add(V(s * 0.12, -0.035, -0.035).applyQuaternion(root.quaternion))
+  // Between beats the elbow stays where the interpolated pose has it.
+  const preferred = local
+    ? elbow.clone()
+    : elbowAim
+      ? shoulder.clone().add(
+          V(...elbowAim)
+            .multiplyScalar(0.3)
+            .applyQuaternion(chest),
+        )
+      : away
+        ? shoulder.clone().add(away.applyQuaternion(chest))
+        : elbow.clone().add(V(s * 0.12, -0.035, -0.035).applyQuaternion(root.quaternion))
   // A hand under the head needs a lateral elbow, not an elbow below the floor.
   if (
+    !local &&
     [
       'supine',
       'prone',
@@ -329,31 +371,43 @@ export function placeHand(
   }
   const backOfHand = mark === 'back' || mark === 'backHip' ? 'back' : undefined
   const offset = touchPoint(r, id, mark, s, (Array.isArray(aim) ? aim[3] : undefined) ?? backOfHand)
-  const side = (s === 1 ? 1 : -1) as Side,
-    solve = (hand: Quaternion) =>
-      reachArm(r, side, goal.clone().sub(offset.clone().applyQuaternion(hand)), hand, preferred, {
-        // An authored elbow direction chooses the route; only search near it.
-        search: elbowAim ? 50 : 150,
-      })
   // A palm resting on the body may lie at any angle about its own normal. Without an authored
-  // aim, keep the turn that the arm reaches most comfortably.
-  if (!aim && mark && part !== 'surface' && mark !== 'eye') {
-    const normal = armFrame(side).palmar.clone().applyQuaternion(q),
-      bones = [s === 1 ? 18 : 19, arm, arm + 1, arm + 2, s === 1 ? ULNA.left : ULNA.right]
-    const saved = bones.map((i) => r.bones[i].quaternion.clone())
-    let best = { cost: Infinity, spin: 0 }
-    for (let spin = -90; spin <= 90; spin += 15) {
-      bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
-      r.root.updateMatrixWorld(true)
-      const trial = turn(normal, spin).multiply(q),
-        cost = (solve(trial)?.cost ?? Infinity) + (spin / 90) ** 2 * 0.5
-      if (cost < best.cost) best = { cost, spin }
-    }
-    bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
-    r.root.updateMatrixWorld(true)
-    q = turn(normal, best.spin).multiply(q)
-  }
-  solve(q)
+  // aim, keep the turn that the arm reaches most comfortably. An authored elbow direction chooses
+  // the route, so only search near it.
+  // `before` is how the hand sat on this contact in the previous beat, on the contact's bone.
+  const bone = contactBone(r, id, reach, s),
+    prefer = before && (bone < 0 ? before : worldQ(r, bone).multiply(before))
+  reachPalm(r, (s === 1 ? 1 : -1) as Side, goal, q, offset, preferred, {
+    spin: !local && !aim && mark && part !== 'surface' && mark !== 'eye' ? 90 : 0,
+    search: local ? undefined : elbowAim ? 50 : 150,
+    local,
+    prefer,
+  })
+}
+/** How far the touching point of the hand lies from its contact, in metres; 0 for a free hand. */
+export function contactGap(
+  r: MovementRig,
+  id: AuthoredId,
+  reach: Reach | undefined,
+  s: number,
+  aim?: Aim,
+) {
+  const points = contactPoints(r, id, reach, s, aim)
+  return points ? points[0].distanceTo(points[1]) : 0
+}
+/** The contact's goal and the hand's touching point, or nothing for a free hand. */
+export function contactPoints(
+  r: MovementRig,
+  id: AuthoredId,
+  reach: Reach | undefined,
+  s: number,
+  aim?: Aim,
+) {
+  if (!reach || reach === 'free') return
+  const { goal, mark } = goalOf(r, id, reach, s)
+  const backOfHand = mark === 'back' || mark === 'backHip' ? 'back' : undefined
+  const offset = touchPoint(r, id, mark, s, aim?.[3] ?? backOfHand)
+  return [goal, r.bones[s === 1 ? 8 : 11].localToWorld(offset)] as const
 }
 /** The bone a contact moves with, or −1 for a fixture in the world. */
 export function contactBone(r: MovementRig, id: AuthoredId, reach: Reach | undefined, s: number) {

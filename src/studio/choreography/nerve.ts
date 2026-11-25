@@ -3,6 +3,7 @@ import {
   open,
   fist,
   softFist,
+  instep,
   hands,
   type Aim,
   type Fingers,
@@ -45,8 +46,6 @@ const sideUp = (elbow: number, wrist: number) => [0, 80, elbow, 10, wrist, 80] a
 const sideDown = (elbow: number, wrist: number) => [0, 88, elbow, 92, wrist, 0] as const
 // Palm on the side of the head over the ear, fingers up and back.
 const toEar: Aim = [[0, 1, -0.45], [-1, 0, -0.1], 'head']
-// The OK mask: fingers down the cheek, palm toward the face, the ring of thumb and index at the eye.
-const mask: Aim = [[0.1, -1, 0.2], [-0.25, 0, -1], 'head']
 export const nerve = {
   'plexus-shoulder-slider': seq('chair', { a: [0, 8, 10], f: [10, 14, 8] }, [
     ['Lower the shoulder and tilt the head toward it', { shoulders: [-12, 0], neck: [0, 0, 18] }],
@@ -178,7 +177,9 @@ export const nerve = {
       ['Raise the arm and turn the hand over', { a: [10, 80, 90, 120, 30, 60] }],
       [
         'Bring the circle to the eye, elbow out to the side',
-        { a: [15, 88, 128, 140, 40, 70], ga: 'eye', ha: mask, shoulders: [-5, 0] },
+        // The arm's own angles bring the circle to the eye; holding it there by contact would
+        // turn the shoulder past its range.
+        { a: [15, 88, 128, 140, 40, 70], shoulders: [-5, 0] },
       ],
       ['Lower the arm and straighten the elbow', { a: [0, 10, 12], ga: 'free', f: open }],
     ],
@@ -256,20 +257,20 @@ export const nerve = {
   ]),
   'femoral-slider-side-lying': seq(
     'side',
-    // Top leg bent with the hand at the ankle; the bottom knee hugged to the chest.
-    { leg: [-2, 1, 112], other: [90, 0, 92], ga: 'Aheel', gb: 'Bshin' },
+    // Top leg bent with the hand on the top of the foot; the bottom knee hugged to the chest.
+    { leg: [-2, 1, 148], other: [90, 0, 92], ga: 'Ainstep', ha: instep, gb: 'Bshin' },
     [
-      ['Draw the top thigh back and look up', { leg: [-18, 0, 115], neck: [-20, 0, 0] }],
-      ['Bring the thigh forward and tuck the chin', { leg: [18, 0, 102], neck: [20, 0, 0] }],
+      ['Draw the top thigh back and look up', { leg: [-18, 0, 150], neck: [-20, 0, 0] }],
+      ['Bring the thigh forward and tuck the chin', { leg: [18, 0, 145], neck: [20, 0, 0] }],
     ],
   ),
   'femoral-tensioner-side-lying': seq(
     'side',
-    { leg: [-2, 1, 112], other: [90, 0, 92], ga: 'Aheel', gb: 'Bshin' },
+    { leg: [-2, 1, 148], other: [90, 0, 92], ga: 'Ainstep', ha: instep, gb: 'Bshin' },
     [
       ['Tuck the chin', { neck: [20, 0, 0] }],
-      ['Draw the top thigh back to a mild pull', { leg: [-16, 0, 114] }],
-      ['Let the thigh come forward', { leg: [14, 0, 101], neck: [0, 0, 0] }],
+      ['Draw the top thigh back to a mild pull', { leg: [-16, 0, 150] }],
+      ['Let the thigh come forward', { leg: [14, 0, 145], neck: [0, 0, 0] }],
     ],
   ),
   'tibial-slider-seated': seq('chair', { leg: heelDown }, [

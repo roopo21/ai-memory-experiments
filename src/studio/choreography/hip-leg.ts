@@ -1,9 +1,10 @@
-import { stretch as st, sequence as seq, both, feet, type Leg, type Recipe } from './types'
+import { stretch as st, sequence as seq, both, feet, instep, type Leg, type Recipe } from './types'
 const crossed: Leg = [87, 31, 99, 0, 56],
   upright: Leg = [94, 0, 88],
   wide: Leg = [5, 27, 6],
   raised: Leg = [89, 0, 5],
-  heel: Leg = [41, 3, 5, -14],
+  // Seated at chair height a straight leg reaches the floor at about 61 degrees of hip flexion.
+  heel: Leg = [61, 3, 4, -14],
   bent: Leg = [45, 0, 88]
 export const hipLeg = {
   'kneeling-hip-flexor': st('halfKneel', {}, 'Tuck the pelvis and move forward', {
@@ -40,16 +41,17 @@ export const hipLeg = {
   ),
   'half-kneeling-quad': st(
     'halfKneel',
-    // The hand reaches back round the outside of the ankle, elbow behind the body.
-    { leg: [-8, 0, 118], ga: 'Aheel', ea: [0.35, -0.3, -0.9], f: [45, 58, 30, 0, 45] },
+    // The hand reaches back to the front of the ankle with the heel already drawn up.
+    { leg: [-8, 0, 148], ga: 'Ainstep', ha: instep, f: [45, 58, 30, 0, 45] },
     'Draw the heel in and ease the hip forward',
-    { leg: [-20, 0, 139, 12], pelvis: [-7, 0, 0], shift: [0, 0, 0.04] },
+    { leg: [-18, 0, 155, 12], pelvis: [-7, 0, 0], shift: [0, 0, 0.04] },
   ),
   'low-lunge': st(
     'halfKneel',
-    { ga: 'floor', gb: 'floor', spine: [37, 0, 0] },
+    // An upright trunk over the hips, hands resting on the thighs.
+    { ga: 'ownThigh', gb: 'ownThigh', spine: [6, 0, 0] },
     'Slide the back knee away and sink forward',
-    { leg: [-35, 2, 86], other: [99, 5, 100], spine: [23, 0, 0], shift: [0, -0.06, 0.06] },
+    { leg: [-35, 2, 86], other: [99, 5, 100], spine: [2, 0, 0], shift: [0, -0.06, 0.06] },
   ),
   'lunge-with-rotation': seq('split', { ga: 'floor', gb: 'floor', spine: [45, 0, 0] }, [
     ['Lower the near elbow', { a: [62, -6, 91], ga: 'free', spine: [59, -13, 0] }],
@@ -71,7 +73,8 @@ export const hipLeg = {
     // A static stretch: hold the drawn-in position before letting go.
     hold: true,
   },
-  'seated-figure-four': st('figureFour', { ga: 'Aknee' }, 'Hinge forward over the crossed leg', {
+  // Seated, the crossed knee and shin lie beyond a relaxed arm's reach; the arms hang free.
+  'seated-figure-four': st('figureFour', {}, 'Hinge forward over the crossed leg', {
     spine: [34, 0, 0],
     neck: [5, 0, 0],
   }),
@@ -84,14 +87,20 @@ export const hipLeg = {
   ),
   pigeon: st(
     'pigeon',
-    { ga: 'floor', gb: 'floor', spine: [-22, 0, 0] },
-    'Lower the hips over the folded front shin',
+    // Front hip flexed, opened and turned out with the shin angled across; back leg long behind,
+    // instep down. Upright on the hands first, then folding over the front shin.
     {
-      leg: [100, 32, 108, 0, 43],
-      other: [-35, 2, 8, 36],
-      spine: [42, 0, 0],
-      shift: [0, -0.055, 0.045],
+      // The front foot is flexed, as yoga teachers cue, to keep the knee comfortable.
+      leg: [108, 30, 125, 0, 72],
+      other: [-30, -14, 6, 48],
+      spine: [-14, 0, 0],
+      // The pelvis rolls down toward the front leg, as it does when the front hip settles.
+      pelvis: [0, -15, 22],
+      ga: 'floor',
+      gb: 'floor',
     },
+    'Lower the hips and fold forward over the front shin',
+    { spine: [30, 0, 0], neck: [12, 0, 0] },
   ),
   'knee-to-opposite-shoulder': st(
     'supine',
@@ -101,7 +110,7 @@ export const hipLeg = {
   ),
   'cross-legged-fold': st(
     'floorSeat',
-    { leg: [83, 36, 111, 0, 51], other: [79, 39, 119, 0, 57] },
+    { leg: [89, 42, 140, 48, 72, -9], other: [108, 36, 124, 60, 54, -27] },
     'Walk the hands forward over the crossed shins',
     { spine: [43, 0, 0], ga: [0.18, 0.035, 0.44], gb: [-0.18, 0.035, 0.44] },
   ),
@@ -151,7 +160,7 @@ export const hipLeg = {
     'butterfly',
     { ga: 'ownShin', gb: 'ownShin' },
     'Hinge over the soles of the feet',
-    { spine: [32, 0, 0], leg: [75, 48, 104, 0, 56], other: [75, 48, 104, 0, 56] },
+    { spine: [32, 0, 0] },
     both,
   ),
   'side-lunge': st(
@@ -242,16 +251,16 @@ export const hipLeg = {
   ),
   'standing-quad': st(
     'stand',
-    { leg: [-2, 1, 106], ga: 'Aheel', gb: 'table' },
+    { leg: [3, 1, 153], spine: [-5, 0, 0], ga: 'Ainstep', ha: instep, gb: 'table' },
     'Bring the heel toward the seat',
-    { leg: [-9, 1, 133, 9] },
+    { leg: [-1, 1, 160, 10] },
     { gear: ['chair'] },
   ),
   'side-lying-quad': st(
     'side',
-    { other: [46, 0, 66], leg: [1, 0, 103], ga: 'Aheel' },
+    { other: [46, 0, 66], leg: [0, 0, 145], ga: 'Ainstep', ha: instep },
     'Guide the top thigh slightly back',
-    { leg: [-17, 0, 129, 12] },
+    { leg: [-14, 0, 155, 12] },
   ),
   'prone-quad-strap': st(
     'prone',
@@ -274,9 +283,10 @@ export const hipLeg = {
     { leg: [91, 0, 3], shift: [0, 0, 0.045] },
     { gear: ['door'] },
   ),
-  'chair-hamstring': st('chair', { leg: heel, ga: 'ownShin' }, 'Hinge over the straight leg', {
-    spine: [38, 0, 0],
-    leg: [42, 3, 4, -19],
+  // The hand rests on the thigh of the straight leg through the hinge.
+  'chair-hamstring': st('chair', { leg: heel, ga: 'ownThigh' }, 'Hinge over the straight leg', {
+    spine: [48, 0, 0],
+    leg: [61, 3, 4, -19],
   }),
   'standing-hamstring-step': st(
     'stand',
@@ -294,7 +304,8 @@ export const hipLeg = {
   ),
   'single-leg-seated-hamstring': st(
     'longSit',
-    { other: [79, 40, 114, 0, 52] },
+    // The bent leg's sole rests against the inner thigh of the straight one.
+    { other: [97, 43, 136, 54, 65, 9] },
     'Face the straight leg and reach toward the foot',
     { spine: [44, 10, 6], ga: 'ownToe', gb: 'Ashin' },
   ),
@@ -328,9 +339,14 @@ export const hipLeg = {
   ),
   'half-split': st(
     'split',
-    { leg: [64, 0, 13, -16], other: [-2, 0, 94], ga: 'floor', gb: 'floor' },
+    // Hands rest on the thighs as the trunk hinges over the front leg.
+    { leg: [64, 0, 13, -16], other: [-2, 0, 94], ga: 'ownThigh', gb: 'ownThigh' },
     'Shift back and hinge over the front heel',
-    { leg: [76, 0, 6, -17], spine: [38, 0, 0], shift: [0, 0, -0.075] },
+    {
+      leg: [76, 0, 6, -17],
+      spine: [38, 0, 0],
+      shift: [0, 0, -0.075],
+    },
   ),
   'active-knee-extension': st(
     'supine',
@@ -440,9 +456,10 @@ export const hipLeg = {
     { leg: [-19, 0, 32, 46], other: [12, 0, 19], shift: [0, -0.04, 0] },
     { gear: ['sideWall'] },
   ),
+  // The far hand guides the toes; the crossed shin lies beyond the near hand's reach.
   'seated-ankle-point': st(
     'figureFour',
-    { ga: 'Ashin', gb: 'Atoe' },
+    { gb: 'Atoe' },
     'Guide the ankle and toes down',
     { leg: [87, 31, 99, 34, 56], toes: [22, 0, 0] },
     feet,
@@ -451,7 +468,7 @@ export const hipLeg = {
     'figureFour',
     { gb: 'Atoe' },
     'Point and turn the sole toward the face',
-    { leg: [87, 31, 99, 26, 56, -22] },
+    { leg: [87, 31, 99, 26, 56, -16] },
     feet,
   ),
   'seated-tibialis-posterior': st(
@@ -497,8 +514,9 @@ export const hipLeg = {
       other: [0, 0, 91, 6],
       toes: [-54, 0, 0],
       otherToes: [-54, 0, 0],
-      ga: 'floor',
-      gb: 'floor',
+      // Hands rest on the thighs, kneeling up and sitting back alike.
+      ga: 'ownThigh',
+      gb: 'ownThigh',
     },
     'Sit toward the heels with toes tucked',
     { leg: [55, 0, 137, 4], other: [55, 0, 137, 4], spine: [23, 0, 0] },

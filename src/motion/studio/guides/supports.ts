@@ -1,10 +1,10 @@
-import { Euler, Quaternion, Vector3 } from 'three'
+import { Quaternion, Vector3 } from 'three'
 import type { Pose, Leg } from '../../../studio/choreography/types'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
 import { legFrame, turn, type Side } from '../../anatomy'
 import { ANKLE_Y } from '../../joints'
-import { palmOrientation } from '../handOrientation'
+import { flatPalmOrientation, palmOrientation } from '../handOrientation'
 import { lowestHand } from './ground'
 import { palmPad } from '../anchors'
 import { placeHand } from './contacts'
@@ -97,7 +97,7 @@ function forearms(r: MovementRig, id: AuthoredId) {
     // Elbows under or just ahead of the shoulders.
     swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : 0.12)))
     swing(r, arm + 1, V(s * -0.08, -0.035, 1))
-    worldRotation(r.bones[arm + 2], palmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
+    worldRotation(r.bones[arm + 2], flatPalmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
   }
 }
 const hookFeet = new Set<AuthoredId>([
@@ -127,7 +127,7 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
       const s = arm === 6 ? 1 : -1
       swing(r, arm, V(s, -0.12, 0))
       swing(r, arm + 1, V(s, -0.1, 0.02))
-      worldRotation(r.bones[arm + 2], palmOrientation(s, V(s, 0, 0.03), V(0, -1, 0)))
+      worldRotation(r.bones[arm + 2], flatPalmOrientation(s, V(s, 0, 0.03), V(0, -1, 0)))
     }
   }
   if (id === 'frog' || id === 'puppy-pose') {
@@ -159,17 +159,11 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
   } else if (['halfKneel', 'split', 'kneel', 'heelSit', 'allFours'].includes(posture))
     kneel(r, p, id)
   else if (posture === 'pigeon') {
-    const fold = (p.spine?.[0] ?? 0) / 42
-    // The pelvis tips forward over the front leg so the back hip extends only as far as it can.
-    r.root.quaternion.premultiply(rot(42))
-    r.root.position.y = 0.25 - 0.04 * fold
+    // The legs are posed in the pelvis frame by the guide. The pelvis tips well forward so the
+    // back thigh lies along the floor with only about 35 degrees of hip extension; the lumbar
+    // spine extends to bring the chest back up over the hands.
+    r.root.quaternion.premultiply(rot(40))
     r.root.updateMatrixWorld(true)
-    swing(r, 12, V(0.58, -0.3, 0.72))
-    swing(r, 13, V(-0.5, -0.05, -0.62))
-    worldRotation(r.bones[14], new Quaternion().setFromEuler(new Euler(0.03, -1.18, 1.06, 'YXZ')))
-    swing(r, 15, V(-0.08, -0.24, -1))
-    swing(r, 16, V(0, -0.075, -1))
-    worldRotation(r.bones[17], rot(163))
   } else if (posture === 'stand' || posture === 'lunge' || posture === 'squat') {
     if (id === 'inchworm' || id === 'step-heel-drop' || id === 'bar-hang') return
     const planted = singleLeg.has(id) ? [15] : [12, 15]

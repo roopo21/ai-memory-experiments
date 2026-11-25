@@ -376,15 +376,20 @@ function twoAxis(k: Vector3, e: Vector3, v: Vector3, x: Vector3) {
  * Of the two solutions for a hinge, keep one that bends the right way; when both do (a nearly
  * straight limb), keep the one that rolls the proximal bone least.
  */
+/**
+ * The valid branch with the least roll, or, when `near` scores the branches, the valid one it
+ * scores lowest. A nearly straight limb satisfies both branches; between beats the one nearest
+ * the interpolated pose keeps the limb from flipping.
+ */
 function pickBranch<T extends { rho: number; flex: number }>(
   branches: T[],
   lo: number,
   hi: number,
+  near?: (b: T) => number,
 ) {
   const valid = (b: T) => b.flex > lo && b.flex < hi
-  return [...branches].sort(
-    (p, q) => Number(valid(q)) - Number(valid(p)) || Math.abs(wrap(p.rho)) - Math.abs(wrap(q.rho)),
-  )[0]
+  const score = near ?? ((b: T) => Math.abs(wrap(b.rho)))
+  return [...branches].sort((p, q) => Number(valid(q)) - Number(valid(p)) || score(p) - score(q))[0]
 }
 interface ArmSolution {
   arm: Quaternion
@@ -394,6 +399,12 @@ interface ArmSolution {
   cost: number
   pronation: number
 }
+/**
+ * How widely a limb solve may look. Beats search the full swing of the elbow or knee and every
+ * way the forearm can turn; between beats a `local` solve stays near the interpolated pose, so the
+ * limb cannot jump to another solution from one frame to the next.
+ */
+export type SolveOptions = { search?: number; local?: boolean }
 /**
  * Place the wrist at `wrist` with the hand at world orientation `hand`, keeping the elbow a
  * hinge, the forearm turning only about its pronation axis and the wrist without axial twist.
@@ -406,12 +417,14 @@ export function reachArm(
   wrist: Vector3,
   hand: Quaternion,
   pole: Vector3,
-  options: { search?: number } = {},
+  options: SolveOptions = {},
 ) {
   const j = limb(s),
     b = armBind[s],
-    [shrug, retract] = shrugOf(r, s)
+    [shrug, retract] = shrugOf(r, s),
+    incoming = r.bones[j.arm].quaternion.clone()
   r.root.updateMatrixWorld(true)
+  let longestReach = Infinity
   for (let pass = 0; pass < 2; pass++) {
     const parent = worldQ(r, j.girdle),
       inverse = parent.clone().invert(),
@@ -431,6 +444,7 @@ export function reachArm(
       dist = clamp(target.length(), Math.abs(l1 - l2) + 1e-4, Math.min(l1 + l2 - 1e-4, longest)),
       n = target.clone().normalize(),
       w = n.clone().multiplyScalar(dist)
+    longestReach = longest
     const along = (l1 * l1 - l2 * l2 + dist * dist) / (2 * dist),
       radius = Math.sqrt(Math.max(0, l1 * l1 - along * along)),
       centre = n.clone().multiplyScalar(along)
@@ -451,7 +465,11 @@ export function reachArm(
         .addScaledVector(e2, radius * Math.sin(psi * D2R))
       const align = new Quaternion().setFromUnitVectors(h0, elbow.clone().normalize()),
         forearm = w.clone().sub(elbow).applyQuaternion(align.clone().invert())
-      let pronation = clamp(from, ARM_RANGE.pronation[0], ARM_RANGE.pronation[1]),
+      // Between beats the forearm turns on from where it is; it cannot swing to the far end of
+      // its range within a frame.
+      const lowest = Math.max(ARM_RANGE.pronation[0], options.local ? start - 15 : -Infinity),
+        highest = Math.min(ARM_RANGE.pronation[1], options.local ? start + 15 : Infinity)
+      let pronation = clamp(from, lowest, highest),
         best: ArmSolution | undefined
       for (let it = 0; it < 7; it++) {
         const v = lower.clone().applyQuaternion(turn(b.pronationAxis, pronation))
@@ -459,18 +477,22 @@ export function reachArm(
           twoAxis(h0, b.elbowAxis, v, forearm).map((x) => ({ ...x, flex: x.phi + b.elbow })),
           -10,
           165,
+          options.local
+            ? (x) => align.clone().multiply(turn(h0, x.rho)).angleTo(incoming)
+            : undefined,
         )
         const arm = align.clone().multiply(turn(h0, branch.rho)),
           ulna = turn(b.elbowAxis, branch.phi),
           fore = ulna.clone().multiply(turn(b.pronationAxis, pronation))
         const wristLocal = arm.clone().multiply(fore).invert().multiply(want)
-        const twist = twistAbout(wristLocal, b.handLong)
+        // Measure twist against the extension-then-deviation turn the wrist is rebuilt from, so
+        // that what the forearm takes up is exactly what the wrist cannot.
+        const { extension, radial, twist } = wristAngles(s, wristLocal)
         if (it < 6) {
-          pronation = clamp(pronation + s * twist, ARM_RANGE.pronation[0], ARM_RANGE.pronation[1])
+          pronation = clamp(pronation + s * twist, lowest, highest)
           continue
         }
         // Remove any twist the forearm could not take, then keep the wrist within its range.
-        const { extension, radial } = wristAngles(s, wristLocal)
         const ext = clamp(extension, ARM_RANGE.extension[0], ARM_RANGE.extension[1]),
           rad = clamp(radial, ARM_RANGE.radial[0], ARM_RANGE.radial[1])
         const handLocal = turn(b.extensionAxis, ext).multiply(turn(b.radialAxis, rad))
@@ -484,15 +506,26 @@ export function reachArm(
           Math.abs(twist) +
           Math.abs(ext - extension) +
           Math.abs(rad - radial) +
-          Math.max(0, -branch.flex - 8) +
-          rotationOver
+          Math.max(0, -branch.flex - 8)
+        // Between beats the arm keeps close to where the interpolated pose has it.
+        const drift = options.local
+          ? ((arm.angleTo(incoming) * R2D) / 3) ** 2 + ((pronation - start) / 8) ** 2
+          : 0
         best = {
           arm,
           fore,
           ulna,
           hand: handLocal,
           pronation,
-          cost: overflow * overflow + (psi / 25) ** 2 + (rotation / 90) ** 2 * 0.25,
+          // Out of reach between beats, the hand lags its target rather than the arm leaping to
+          // another solution.
+          // The shoulder stops at its rotation range, between beats too; the hand gives first.
+          cost:
+            (options.local ? overflow * 2 : overflow * overflow) +
+            (rotationOver * 3) ** 2 +
+            (psi / 25) ** 2 +
+            (rotation / 90) ** 2 * 0.25 +
+            drift,
         }
       }
       return best!
@@ -500,7 +533,7 @@ export function reachArm(
     // The forearm can reach a hand orientation by turning either way; try both ends and neutral.
     const solve = (psi: number) => {
       let found = solveFrom(psi, start)
-      if (found.cost > 0.5)
+      if (found.cost > 0.5 && !options.local)
         for (const from of [0, 85, 165]) {
           const trial = solveFrom(psi, from)
           if (trial.cost < found.cost) found = trial
@@ -508,7 +541,7 @@ export function reachArm(
       return found
     }
     let best = solve(0)
-    const span = options.search ?? 150
+    const span = options.search ?? (options.local ? 30 : 150)
     if (best.cost > 0.5 && span > 0) {
       for (let psi = -span; psi <= span; psi += 10) {
         const trial = solve(psi)
@@ -522,8 +555,31 @@ export function reachArm(
       // Scapular rhythm depends on the solved elevation; re-solve once with the girdle moved.
       const humerus = girdle.clone().multiply(best.arm),
         elevation = b.humerus.clone().applyQuaternion(humerus).angleTo(DOWN) * R2D
-      girdle.copy(girdleRotation(s, shrug + scapularRhythm(elevation), retract))
-      r.bones[j.girdle].updateMatrixWorld(true)
+      // Reaching past arm's length slides the shoulder blade forward round the ribs: take the
+      // least protraction that brings the wrist within reach. The girdle may already be
+      // protracted, by the guide or an earlier solve, so only what is left of its 22 degree
+      // range is available.
+      const elevate = shrug + scapularRhythm(elevation),
+        reach = longestReach - 0.004,
+        room = clamp(retract + 22, 0, 22)
+      const gap = (protract: number) => {
+        girdle.copy(girdleRotation(s, elevate, retract - protract))
+        r.bones[j.girdle].updateMatrixWorld(true)
+        return wrist.distanceTo(worldP(r, j.arm)) - reach
+      }
+      let protract = 0
+      if (room > 0 && gap(0) > 0 && gap(room) < gap(0)) {
+        let lo = 0,
+          hi = room
+        if (gap(hi) < 0)
+          for (let k = 0; k < 14; k++) {
+            const mid = (lo + hi) / 2
+            if (gap(mid) > 0) lo = mid
+            else hi = mid
+          }
+        protract = hi
+      }
+      gap(protract)
       continue
     }
     r.bones[j.arm].quaternion.copy(best.arm)
@@ -544,17 +600,91 @@ function shrugOf(r: MovementRig, s: Side): [number, number] {
   return [s * e.z * R2D - scapularRhythm(elevation), s * e.y * R2D]
 }
 
-/** Hold the hand where it is, but make the arm anatomical: hinge elbow, pronation, no wrist twist. */
-export function articulateArm(r: MovementRig, s: Side) {
+/**
+ * Put a point of the hand (`pad`, in the hand's frame) on `contact` with the palm facing as in
+ * `hand`. A palm resting on a surface may lie at any angle about its own normal; when `spin` is
+ * set, the turn the arm reaches most comfortably within that many degrees is kept.
+ */
+export function reachPalm(
+  r: MovementRig,
+  s: Side,
+  contact: Vector3,
+  hand: Quaternion,
+  pad: Vector3,
+  pole: Vector3,
+  options: SolveOptions & { spin?: number; prefer?: Quaternion } = {},
+) {
+  const j = limb(s),
+    { search, local } = options,
+    solve = (q: Quaternion) =>
+      reachArm(r, s, contact.clone().sub(pad.clone().applyQuaternion(q)), q, pole, {
+        search,
+        local,
+      })
+  let q = hand.clone()
+  const span = options.spin ?? 0
+  if (span > 0) {
+    const normal = armBind[s].palmar.clone().applyQuaternion(hand),
+      bones = [j.girdle, j.arm, j.fore, j.hand, j.ulna]
+    const saved = bones.map((i) => r.bones[i].quaternion.clone())
+    let best = { cost: Infinity, spin: 0 }
+    for (let spin = -span; spin <= span; spin += 15) {
+      bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
+      r.root.updateMatrixWorld(true)
+      const turned = turn(normal, spin).multiply(hand)
+      // A hand already resting on this contact in the beat before keeps its turn.
+      const keep = options.prefer ? ((turned.angleTo(options.prefer) * R2D) / 30) ** 2 : 0
+      const cost = (solve(turned)?.cost ?? Infinity) + (spin / 90) ** 2 * 0.5 + keep
+      if (cost < best.cost) best = { cost, spin }
+    }
+    bones.forEach((i, k) => r.bones[i].quaternion.copy(saved[k]))
+    r.root.updateMatrixWorld(true)
+    q = turn(normal, best.spin).multiply(hand)
+  }
+  let found = solve(q)
+  // Where the wrist could not turn the hand all the way, the pad lands off the contact. Aim the
+  // wrist again from the orientation the hand actually reached.
+  for (let k = 0; k < 3; k++) {
+    const reached = worldQ(r, j.hand),
+      wrist = contact.clone().sub(pad.clone().applyQuaternion(reached))
+    if (wrist.distanceTo(worldP(r, j.hand)) < 2e-4) break
+    found = reachArm(r, s, wrist, q, pole, { search, local }) ?? found
+  }
+  return found
+}
+/**
+ * Hold the hand where it is, but make the arm anatomical: hinge elbow, pronation, no wrist twist.
+ * A `local` pass keeps the elbow and forearm near where they already are.
+ */
+export function articulateArm(r: MovementRig, s: Side, local = false) {
   const j = limb(s)
   r.root.updateMatrixWorld(true)
   const wrist = worldP(r, j.hand),
-    hand = worldQ(r, j.hand),
-    elbow = worldP(r, j.fore)
-  return reachArm(r, s, wrist, hand, elbow, { search: 150 })
+    hand = worldQ(r, j.hand)
+  return reachArm(r, s, wrist, hand, worldP(r, j.fore), local ? { local } : { search: 150 })
 }
 
 const LEG_RANGE = { tibial: 25, plantar: [-44, 60], eversion: [-34, 22] } as const
+/** The knee turns only about its axis and the tibia, and the ankle can make the foot's turn. */
+export function isHinged(r: MovementRig, s: Side) {
+  const j = limb(s),
+    b = legBind[s],
+    shin = r.bones[j.shin].quaternion
+  const flexion = twistAbout(shin, b.kneeAxis),
+    rest = turn(b.kneeAxis, -flexion).multiply(shin),
+    tibial = twistAbout(rest, b.tibia),
+    varus = turn(b.tibia, -tibial).multiply(rest)
+  const off = (q: Quaternion) => 2 * Math.acos(clamp(Math.abs(q.w), 0, 1)) * R2D,
+    ankle = ankleAngles(s, r.bones[j.foot].quaternion)
+  return (
+    off(varus) < 1.5 &&
+    off(ankle.residual) < 1.5 &&
+    ankle.plantarflexion > LEG_RANGE.plantar[0] - 0.5 &&
+    ankle.plantarflexion < LEG_RANGE.plantar[1] + 0.5 &&
+    ankle.eversion > LEG_RANGE.eversion[0] - 0.5 &&
+    ankle.eversion < LEG_RANGE.eversion[1] + 0.5
+  )
+}
 /**
  * Place the ankle at `ankle` with the foot at world orientation `foot`, the knee a hinge with a
  * little tibial rotation once flexed, and the knee swinging toward `pole`.
@@ -565,10 +695,11 @@ export function reachLeg(
   ankle: Vector3,
   foot: Quaternion,
   pole: Vector3,
-  options: { search?: number } = {},
+  options: SolveOptions = {},
 ) {
   const j = limb(s),
-    b = legBind[s]
+    b = legBind[s],
+    incoming = r.bones[j.thigh].quaternion.clone()
   r.root.updateMatrixWorld(true)
   const parent = worldQ(r, 0),
     inverse = parent.clone().invert(),
@@ -603,6 +734,7 @@ export function reachLeg(
       twoAxis(f0, b.kneeAxis, lower, shin).map((x) => ({ ...x, flex: x.phi })),
       -8,
       165,
+      options.local ? (x) => align.clone().multiply(turn(f0, x.rho)).angleTo(incoming) : undefined,
     )
     const thigh = align.clone().multiply(turn(f0, branch.rho)),
       hinge = turn(b.kneeAxis, branch.phi)
@@ -629,12 +761,21 @@ export function reachLeg(
       ),
       rotation = s * twistAbout(reference.invert().multiply(thigh), b.femur.clone().negate())
     const rotationOver = Math.max(0, rotation - 75) + Math.max(0, -52 - rotation)
+    // Between beats the thigh keeps close to where the interpolated pose has it.
+    const drift = options.local ? ((thigh.angleTo(incoming) * R2D) / 4) ** 2 : 0
+    // A straight leg hardly fixes the roll of the femur; leave it near neutral unless the foot
+    // asks for more.
     const cost =
-      rest * rest + Math.max(0, -branch.phi - 6) ** 2 * 4 + rotationOver ** 2 + (psi / 30) ** 2
+      rest * rest +
+      Math.max(0, -branch.phi - 6) ** 2 * 4 +
+      rotationOver ** 2 +
+      (rotation / 45) ** 2 * 0.5 +
+      (psi / 30) ** 2 +
+      drift
     return { thigh, shin: shinQ, foot: footLocal, cost }
   }
   let best = solve(0)
-  const span = options.search ?? 90
+  const span = options.search ?? (options.local ? 24 : 90)
   if (best.cost > 0.5 && span > 0)
     for (let psi = -span; psi <= span; psi += 6) {
       const trial = solve(psi)
@@ -646,10 +787,20 @@ export function reachLeg(
   r.bones[j.thigh].updateMatrixWorld(true)
   return best
 }
-export function articulateLeg(r: MovementRig, s: Side) {
+export function articulateLeg(r: MovementRig, s: Side, local = false) {
   const j = limb(s)
+  // Between beats a leg interpolated from two anatomical beats is already a hinge with an ankle
+  // that can hold its foot. Re-solving it would only let a nearly straight knee pick a new roll.
+  if (local && isHinged(r, s)) return
   r.root.updateMatrixWorld(true)
-  return reachLeg(r, s, worldP(r, j.foot), worldQ(r, j.foot), worldP(r, j.shin), { search: 60 })
+  return reachLeg(
+    r,
+    s,
+    worldP(r, j.foot),
+    worldQ(r, j.foot),
+    worldP(r, j.shin),
+    local ? { local } : { search: 60 },
+  )
 }
 
 /** Make the ulna follow the hinge part of the forearm, for poses that set the forearm directly. */
@@ -729,7 +880,9 @@ export function measure(r: MovementRig): Angles {
     const shin = r.bones[j.shin].quaternion
     const kneeFlexion = twistAbout(shin, l.kneeAxis)
     out[k + 'knee.flexion'] = kneeFlexion
-    out[k + 'knee.rotation'] = twistAbout(turn(l.kneeAxis, -kneeFlexion).multiply(shin), l.tibia)
+    // External rotation of the tibia is positive on both sides, as at the hip.
+    out[k + 'knee.rotation'] =
+      s * twistAbout(turn(l.kneeAxis, -kneeFlexion).multiply(shin), l.tibia.clone().negate())
     const ankle = ankleAngles(s, r.bones[j.foot].quaternion)
     out[k + 'ankle.plantarflexion'] = ankle.plantarflexion
     out[k + 'ankle.eversion'] = ankle.eversion

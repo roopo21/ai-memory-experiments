@@ -7,9 +7,15 @@ import { selectSurfaces } from '../../src/motion/studio/figure'
 import { sampleStudio } from '../../src/motion/studio/sample'
 import { createMovementRig } from '../../src/motion/movementRig'
 import { joints, indexOfJoint, type Joint } from '../../src/motion/joints'
-import { lowestSurface } from '../../src/motion/studio/guides/ground'
+import { lowestBody } from '../../src/motion/studio/guides/ground'
 import { newProject } from '../../src/studio/project'
 import { format } from 'prettier'
+const handJoints = new Set(
+  joints
+    .map(([name], i) => [name, i] as const)
+    .filter(([name]) => /Hand|Thumb|Index|Middle|Ring|Little/.test(name) && !name.includes('Toe'))
+    .map(([, i]) => i),
+)
 const rig = createMovementRig(),
   p = newProject(),
   pairs = joints.map(([name], i) =>
@@ -40,11 +46,16 @@ for (const id of Object.keys(scores) as AuthoredId[]) {
     for (const t of times) {
       sampleStudio(rig, id, t, side, p)
       const m = rig.skeleton.boneMatrices!,
-        bound = lowestSurface(rig)
+        // Grounding measures the body without the hands, so witnesses are sought against it too.
+        bound = lowestBody(rig)
       for (const { coords, indices, weights } of meshes) {
         let best = bound + 0.002,
           row = -1
         for (let n = 0, k = 0; n < coords.length; n += 3, k += 4) {
+          // Hands rest where their contacts put them; their tissue never lifts the body.
+          let largest = k
+          for (let j = k; j < k + 4; j++) if (weights[j] > weights[largest]) largest = j
+          if (handJoints.has(indices[largest])) continue
           const x = coords[n],
             y = coords[n + 1],
             z = coords[n + 2]

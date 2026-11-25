@@ -4,7 +4,7 @@ import { ANKLE_Y, indexOfJoint, joints, type Joint } from '../../joints'
 import type { Side } from '../../../studio/clips'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import type { Aim, Mark, Pose, Point, Reach } from '../../../studio/choreography/types'
-import { contactOrientation, contactShape, markOf, placeHand } from './contacts'
+import { contactBone, contactShape, markOf, placeHand } from './contacts'
 import { crossedAnkle, pinch, equipmentPose, inchworm } from './precision'
 import { cycleAt } from './cycles'
 import { groundGuide } from './ground'
@@ -19,6 +19,7 @@ import {
 import { postures } from './postures'
 import {
   articulateArm,
+  isHinged,
   articulateLeg,
   handShape,
   limb,
@@ -55,7 +56,13 @@ const hinged = new Set([
   'split',
 ])
 const sides = [1, -1] as const
-function poseAt(r: MovementRig, id: AuthoredId, frame: Pose, phase: number) {
+function poseAt(
+  r: MovementRig,
+  id: AuthoredId,
+  frame: Pose,
+  phase: number,
+  before: (Quaternion | undefined)[] = [],
+) {
   const score = scores[id],
     base = postures[score.posture],
     p = { ...base.pose, ...frame },
@@ -103,16 +110,19 @@ function poseAt(r: MovementRig, id: AuthoredId, frame: Pose, phase: number) {
   groundGuide(r, id, true)
   r.root.updateMatrixWorld(true)
   equipmentPose(r, id, p)
-  placeHand(r, id, p.ga, 1, p.ha, p.ea)
-  placeHand(r, id, p.gb, -1, p.hb, p.eb)
+  placeHand(r, id, p.ga, 1, p.ha, p.ea, false, before[0])
+  placeHand(r, id, p.gb, -1, p.hb, p.eb, false, before[1])
   floorHands(r, id, p)
   clearFloorArms(r, id)
 }
-/** Make every limb anatomical while keeping each hand and foot exactly where it is. */
-function articulate(r: MovementRig) {
+/**
+ * Make every limb anatomical while keeping each hand and foot exactly where it is. Between beats
+ * the solve stays local, so the limbs follow the interpolated pose without jumping.
+ */
+function articulate(r: MovementRig, local = false) {
   for (const s of sides) {
-    articulateArm(r, s)
-    articulateLeg(r, s)
+    articulateArm(r, s, local)
+    articulateLeg(r, s, local)
   }
   r.root.updateMatrixWorld(true)
 }
@@ -123,12 +133,21 @@ type Key = {
   rotations: Quaternion[]
   hands: Effector[]
   feet: Effector[]
+  /** Each hand's orientation on the bone it holds, or in the world on a fixture. */
+  held: Quaternion[]
   reach: (Reach | undefined)[]
   aims: (Aim | undefined)[]
   elbows: (Point | undefined)[]
   pose: Pose
 }
 const cache = new Map<AuthoredId, Key[]>()
+/** A hand's world orientation as seen from `bone`, or the world when the bone is −1. */
+function heldOn(r: MovementRig, bone: number, s: 1 | -1) {
+  const hand = r.bones[limb(s).hand].getWorldQuaternion(new Quaternion())
+  return bone < 0
+    ? hand
+    : r.bones[bone].getWorldQuaternion(new Quaternion()).invert().multiply(hand)
+}
 const feet = new Map<AuthoredId, FootMark[]>()
 const effector = (r: MovementRig, i: number): Effector => ({
   at: r.bones[i].getWorldPosition(new Vector3()),
@@ -139,29 +158,66 @@ function keysFor(id: AuthoredId) {
   if (cached) return cached
   const r = createMovementRig(),
     score = scores[id]
-  const keys = score.frames.map((f, phase) => {
-    poseAt(r, id, f.pose, phase)
+  const keys: Key[] = [],
+    solved = new Map<string, Key>()
+  score.frames.forEach((f, phase) => {
+    // A beat that repeats an earlier pose, such as the return to the start, arrives exactly
+    // where that pose was, so a repeated take has no seam. The inchworm's stages travel.
+    const same = id === 'inchworm' ? undefined : solved.get(JSON.stringify(f.pose))
+    if (same) {
+      keys.push({ ...same, time: f.time })
+      return
+    }
+    // A hand that stays on the same contact as in the previous beat keeps its turn on it.
+    const last = keys.at(-1),
+      before = sides.map((_, n) =>
+        last &&
+        contactKind(last.reach[n]) &&
+        contactKind(last.reach[n]) === contactKind([f.pose.ga, f.pose.gb][n])
+          ? last.held[n]
+          : undefined,
+      )
+    poseAt(r, id, f.pose, phase, before)
     articulate(r)
     if (!f.time) feet.set(id, standingMarks(r, id))
     // Beats accumulate, so each frame's pose already carries every contact still in force.
     const reach = [f.pose.ga, f.pose.gb],
       aims = [f.pose.ha, f.pose.hb],
       elbows = [f.pose.ea, f.pose.eb]
-    return {
+    const capture = (): Key => ({
       time: f.time,
       root: r.root.position.clone(),
       rotations: r.bones.map((b) => b.quaternion.clone()),
       hands: sides.map((s) => effector(r, limb(s).hand)),
       feet: sides.map((s) => effector(r, limb(s).foot)),
+      held: sides.map((s, n) => heldOn(r, contactBone(r, id, reach[n], s), s)),
       reach,
       aims,
       elbows,
       pose: f.pose,
+    })
+    // Settle the beat through the same local pass every frame between beats runs, so the frames
+    // either side of a beat arrive at exactly the pose stored for it.
+    for (let pass = 0; pass < 2; pass++) {
+      const key = capture()
+      holdContacts(r, id, key, key, 0)
+      articulate(r, true)
     }
+    const key = capture()
+    keys.push(key)
+    solved.set(JSON.stringify(f.pose), key)
   })
   r.skeleton.dispose()
   cache.set(id, keys)
   return keys
+}
+/** Whether a hand's contact is a floor, seat, table, wall or post, or a bare point on the floor. */
+const onSurface = (reach: Reach | undefined) => {
+  const kind = contactKind(reach)
+  if (kind === 'point') return (reach as readonly number[])[1] < 0.1
+  return (
+    kind !== undefined && ['floor', 'seat', 'table', 'wall', 'door', 'post', 'bar'].includes(kind)
+  )
 }
 /** The mark a contact uses, `point` for a bare coordinate, or nothing for a free hand. */
 const contactKind = (reach: Reach | undefined): Mark | 'point' | undefined =>
@@ -184,8 +240,10 @@ const stepTo = (a: Effector, b: Effector, f: number) => {
   if (travel > 0.02) at.y += Math.min(0.05, travel * 0.15) * Math.sin(Math.PI * f)
   return at
 }
-export function sampleGuide(r: MovementRig, id: AuthoredId, time: number, side: Side) {
+export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
   const keys = keysFor(id),
+    // A take that returns to its first beat ends on exactly that pose.
+    time = at >= keys.at(-1)!.time && keys.at(-1)!.rotations === keys[0].rotations ? 0 : at,
     i = keys.findIndex((k) => k.time >= time),
     a = keys[Math.max(0, i - 1)],
     b = keys[i < 0 ? keys.length - 1 : i]
@@ -199,10 +257,17 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, time: number, side: 
   // A crossed ankle stays on the opposite thigh between beats.
   if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
     crossedAnkle(r, id, a.pose)
-  groundGuide(r, id)
+  groundGuide(
+    r,
+    id,
+    false,
+    sides.map((_, n) => onSurface(a.reach[n]) || onSurface(b.reach[n])),
+  )
   r.root.updateMatrixWorld(true)
-  if (f > 0 && f < 1) holdContacts(r, id, a, b, f)
-  articulate(r)
+  // Arriving at a beat is that beat, contacts and all, so a take ends exactly where it began.
+  if (f === 1) holdContacts(r, id, b, b, 0)
+  else holdContacts(r, id, a, b, f)
+  articulate(r, true)
   if (side === 'right' && !scores[id].both) {
     // Reflect the authored performance once. The tiny bilateral differences in the scanned
     // bind anatomy remain visible. Contact solves and phase timing stay on the same branch.
@@ -228,12 +293,13 @@ function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number)
       reachB = b.reach[n],
       mark = contactKind(reachA)
     if (mark && mark === contactKind(reachB)) {
+      // Keep the hand turned on its contact as both beats had it, including any turn about the
+      // palm that the beats chose for comfort.
       const reach = blendReach(reachA!, reachB!, f),
-        q = contactOrientation(r, id, reach, s, a.aims[n]).slerp(
-          contactOrientation(r, id, reach, s, b.aims[n]),
-          f,
-        )
-      placeHand(r, id, reach, s, q, a.elbows[n] ?? b.elbows[n])
+        bone = contactBone(r, id, reach, s),
+        q = a.held[n].clone().slerp(b.held[n], f)
+      if (bone >= 0) q.premultiply(r.bones[bone].getWorldQuaternion(new Quaternion()))
+      placeHand(r, id, reach, s, q, a.elbows[n] ?? b.elbows[n], true)
       return
     }
     // A palm on the floor in both beats stays down, or walks along the floor between them.
@@ -245,6 +311,7 @@ function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number)
         stepTo(a.hands[n], b.hands[n], f),
         r.bones[j.hand].getWorldQuaternion(new Quaternion()),
         r.bones[j.fore].getWorldPosition(new Vector3()),
+        { local: true },
       )
     }
   })
@@ -255,13 +322,18 @@ function holdContacts(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number)
     // A foot on the floor in both beats keeps its place or steps along the floor; it may still
     // turn, as in a cycle.
     if (!grounded(a.feet[n], b.feet[n], ANKLE_Y + 0.03)) return
-    const j = limb(s)
+    const j = limb(s),
+      at = stepTo(a.feet[n], b.feet[n], f)
+    // A planted foot already on its mark needs no new solve; a straight leg would only roll.
+    if (at.distanceTo(r.bones[j.foot].getWorldPosition(new Vector3())) < 0.004 && isHinged(r, s))
+      return
     reachLeg(
       r,
       s,
-      stepTo(a.feet[n], b.feet[n], f),
+      at,
       r.bones[j.foot].getWorldQuaternion(new Quaternion()),
       r.bones[j.shin].getWorldPosition(new Vector3()),
+      { local: true },
     )
   })
 }

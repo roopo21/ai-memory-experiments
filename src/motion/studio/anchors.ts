@@ -36,14 +36,26 @@ export function pinHere(
   point: Pin['point'],
 ): Pin {
   const bone = r.bones[indexOfJoint[limb]],
-    v = landmark(r, { limb, point })
-  if (space !== 'world') r.bones[indexOfJoint[space]].worldToLocal(v)
+    v = landmark(r, { limb, point }),
+    q = bone.getWorldQuaternion(new Quaternion())
+  if (space === 'world')
+    return {
+      limb,
+      space,
+      point,
+      at: v.toArray() as Triple,
+      rotation: q.toArray() as Pin['rotation'],
+    }
+  const parent = r.bones[indexOfJoint[space]]
+  parent.worldToLocal(v)
+  q.premultiply(parent.getWorldQuaternion(new Quaternion()).invert())
   return {
     limb,
     space,
     point,
     at: v.toArray() as Triple,
-    rotation: bone.getWorldQuaternion(new Quaternion()).toArray() as Pin['rotation'],
+    rotation: q.toArray() as Pin['rotation'],
+    relative: true,
   }
 }
 export function applyPins(r: MovementRig, pins: Pin[], t: number) {
@@ -55,6 +67,8 @@ export function applyPins(r: MovementRig, pins: Pin[], t: number) {
       const end = indexOfJoint[p.limb],
         [a, b, c] = r.bones.slice(end - 2, end + 1),
         q = new Quaternion(...p.rotation)
+      if (p.relative && p.space !== 'world')
+        q.premultiply(r.bones[indexOfJoint[p.space]].getWorldQuaternion(new Quaternion()))
       const target = destination(r, p).sub(offset(p.limb, p.point).applyQuaternion(q))
       const [start, bend, tip] = [a, b, c].map((bone) => bone.getWorldPosition(new Vector3()))
       if (weight < 1) {

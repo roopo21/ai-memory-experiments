@@ -343,7 +343,7 @@ export const neckShoulder = {
   'single-arm-wall-pec': st(
     'stand',
     {
-      ga: ['post', 0.06, 0.2, -0.44],
+      ga: ['post', 0.06, 0.2, -0.53],
       ha: [
         [0, 0, -1],
         [1, 0, 0],
@@ -351,7 +351,7 @@ export const neckShoulder = {
       f: open,
     },
     'Turn the body away from the straight arm',
-    { spine: [0, -32, 0], pelvis: [0, -8, 0] },
+    { spine: [0, -16, 0], pelvis: [0, -4, 0] },
     { gear: ['sideWall'] },
   ),
   'hands-behind-head-opener': st(

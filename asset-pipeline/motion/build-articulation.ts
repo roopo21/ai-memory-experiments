@@ -214,6 +214,29 @@ for (const side of ['left', 'right'] as const) {
       .addScaledVector(handLong, -m2.clone().sub(m5).dot(handLong))
       .normalize(),
     palmar = handLong.clone().cross(radial).multiplyScalar(s).normalize()
+  // A palm laid flat rests on the heel of the hand (the pisiform and trapezium ridges) and on the
+  // metacarpal heads. The heel stands further from the bony axis, so the surface dips toward the
+  // fingers.
+  const depth = (p: Vector3) => p.clone().sub(wrist).dot(palmar),
+    reach = (p: Vector3) => p.clone().sub(wrist).dot(handLong)
+  const palmarMost = (points: Vector3[]) =>
+    points.reduce((b, p) => (depth(p) > depth(b) ? p : b), points[0])
+  const handHeel = palmarMost(at(side + ' pisiform').points)
+    .add(palmarMost(at(side + ' trapezium').points))
+    .multiplyScalar(0.5)
+  const knuckles = mean(
+    ['second', 'third', 'fourth', 'fifth'].map((n) => {
+      const points = at(side + ' ' + n + ' metacarpal bone').points,
+        far = Math.max(...points.map(reach))
+      return palmarMost(points.filter((p) => reach(p) > far - 0.014))
+    }),
+  )
+  const palmSurfaceLong = knuckles
+      .clone()
+      .sub(handHeel)
+      .addScaledVector(radial, -knuckles.clone().sub(handHeel).dot(radial))
+      .normalize(),
+    palmSurface = palmSurfaceLong.clone().cross(radial).multiplyScalar(s).normalize()
   // Hip: femoral head. Knee: both posterior condyles. Ankle: talar dome.
   const femur = at(side + ' femur'),
     fTop = Math.max(...femur.points.map((p) => p.y)),
@@ -269,6 +292,9 @@ for (const side of ['left', 'right'] as const) {
     palmar: array(palmar),
     radial: array(radial),
     palmCentre: array(m3.clone().lerp(wrist, 0.45).addScaledVector(palmar, 0.016)),
+    // Along and out of the plane a flat palm rests in.
+    palmSurfaceLong: array(palmSurfaceLong),
+    palmSurface: array(palmSurface),
     hip: array(hip),
     knee: array(knee),
     kneeAxis: array(lateral.center.clone().sub(medial.center).normalize().multiplyScalar(s)),

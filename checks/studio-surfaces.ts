@@ -77,6 +77,10 @@ for (const tier of ['preview', 'full', 'human']) {
             if (Math.abs(x) < 0.17 && z >= -0.91 && z <= -0.61) props[2] = Math.min(y, props[2])
             if (Math.abs(x) < 0.06 && z >= -0.233 && z <= -0.167) props[3] = Math.min(props[3], y)
             const joint = indices[largest]
+            // The performer's hands are rigid mittens with the fingers curled as scanned, so a
+            // flat palm presses its baked fingertips into the floor. The anatomy tiers, whose
+            // fingers articulate, carry the hand-contact checks.
+            if (human && (joint === 8 || joint === 11)) continue
             mins[joint] = Math.min(mins[joint], y)
           }
         // Contact patches include every articulated finger or toe descending from the wrist or ankle.
@@ -104,7 +108,8 @@ for (const tier of ['preview', 'full', 'human']) {
               ' mm',
           )
         }
-        if (id === 'push-up') for (const i of [8, 11, 14, 17]) contact(mins[i], 0, joints[i][0])
+        if (id === 'push-up')
+          for (const i of human ? [14, 17] : [8, 11, 14, 17]) contact(mins[i], 0, joints[i][0])
         if (id === 'supine-hamstring') {
           contact(props[1], h.mat, 'back')
           contact(props[2], h.head, 'head')

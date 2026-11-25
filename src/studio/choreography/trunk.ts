@@ -227,8 +227,9 @@ export const trunk = {
     { a: [168, 10, 8, 20], b: [168, 10, 8, 20] },
     'Lengthen fingers and toes in opposite directions',
     {
-      a: [176, 6, 2, 20],
-      b: [176, 6, 2, 20],
+      // The elbows stay soft rather than locked.
+      a: [176, 6, 8, 20],
+      b: [176, 6, 8, 20],
       leg: [0, 1, 0, 20],
       other: [0, 1, 0, 20],
       shoulders: [6, 0],
@@ -274,7 +275,8 @@ export const trunk = {
     [
       'Cross the bent leg, hand behind for support',
       {
-        leg: [94, -18, 94, 0, 12],
+        // The knee drawn up with the foot planted beside the other knee.
+        leg: [137, -16, 106, 35, 3, 14],
         ga: ['floor', 0.02, 0, -0.78],
         ha: floorBehind(1),
         gb: 'Aknee',
@@ -362,7 +364,7 @@ export const trunk = {
   ),
   'modified-seat-side-straddle': seq(
     'straddle',
-    { leg: [89, 35, 3], other: [80, 36, 110, 0, 37] },
+    { leg: [89, 35, 3], other: [97, 43, 136, 54, 65, 9] },
     [
       ['Hinge toward the straight leg', { spine: [37, 23, 18], ga: 'ownShin' }],
       ['Round toward the knee', { spine: [56, 23, 19], neck: [24, 0, 0] }],

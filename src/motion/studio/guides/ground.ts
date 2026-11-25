@@ -30,15 +30,33 @@ const hands = ['left', 'right'].map((side) =>
       !joints[i][0].includes('Toe'),
   ),
 )
+// Everything but the hands: hands on a surface are put there by their contacts, and their skin
+// near a deeply extended wrist must not lift the whole body.
+const body = all.filter((i) => !hands[0].includes(i) && !hands[1].includes(i))
 export const lowestHand = (r: MovementRig, s: number) => lowestOn(r, hands[s === 1 ? 0 : 1])
+/** The lowest point of everything but the hands, which grounding leaves to their contacts. */
+export const lowestBody = (r: MovementRig) => lowestOn(r, body)
 export const lowestSurface = (r: MovementRig, lowerOnly = false) =>
   lowestOn(r, lowerOnly ? base : all)
-export function groundGuide(r: MovementRig, id: AuthoredId, lowerOnly = false) {
+/**
+ * Rest the body on the floor. A hand planted on a surface is placed by its contact and does not
+ * lift the body; any other hand still keeps the body clear of the floor.
+ */
+export function groundGuide(
+  r: MovementRig,
+  id: AuthoredId,
+  lowerOnly = false,
+  planted: readonly boolean[] = [true, true],
+) {
   const score = scores[id],
     p = score.posture,
     gear = score.gear ?? []
   r.root.updateMatrixWorld(true)
-  let low = lowestSurface(r, lowerOnly)
+  let low = lowerOnly ? lowestSurface(r, true) : lowestBody(r)
+  if (!lowerOnly)
+    planted.forEach((down, n) => {
+      if (!down) low = Math.min(low, lowestOn(r, hands[n]))
+    })
   const points = (tissues as Partial<Record<AuthoredId, number[][]>>)[id]
   if (points && !lowerOnly)
     for (const point of points) {

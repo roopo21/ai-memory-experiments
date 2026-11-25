@@ -10,8 +10,13 @@ export interface Pin {
   from?: number
   until?: number
   at: Triple
-  /** World orientation as x, y, z, w. */
+  /** Orientation as x, y, z, w: in the world, or in `space` when `relative` is set. */
   rotation: [number, number, number, number]
+  /**
+   * A hand holding a thigh turns with it. Older motions stored body-space pins in world
+   * orientation, so the flag keeps them as they were saved.
+   */
+  relative?: true
 }
 export function readPins(input: unknown, duration: number): Pin[] | undefined {
   if (input === undefined) return
@@ -43,6 +48,8 @@ export function readPins(input: unknown, duration: number): Pin[] | undefined {
       Math.abs(Math.hypot(...p.rotation) - 1) > 1e-5
     )
       throw Error('Invalid anchor orientation.')
+    if (p.relative !== undefined && (p.relative !== true || p.space === 'world'))
+      throw Error('Only a body-space anchor can turn with its parent.')
     const from = p.from ?? 0,
       until = p.until ?? duration
     if (
@@ -61,6 +68,7 @@ export function readPins(input: unknown, duration: number): Pin[] | undefined {
       point: p.point,
       at: [...p.at] as Triple,
       rotation: [...p.rotation] as Pin['rotation'],
+      ...(p.relative ? { relative: true as const } : {}),
     }
   })
 }

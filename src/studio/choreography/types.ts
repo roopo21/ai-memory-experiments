@@ -67,12 +67,14 @@ export type Mark =
   | 'Athigh'
   | 'Ashin'
   | 'Aheel'
+  | 'Ainstep'
   | 'Atoe'
   | 'Bthigh'
   | 'Bshin'
   | 'Bheel'
   | 'Aknee'
   | 'ownKnee'
+  | 'ownThigh'
   | 'ownShin'
   | 'ownToe'
   | 'floor'
@@ -208,6 +210,11 @@ export const both = { both: true } as const
 export const hands = { focus: 'hand' } as const
 export const feet = { focus: 'foot' } as const
 /** Fingers straight and slightly spread, the thumb resting open. */
+/**
+ * A quadriceps hold behind the body: with the knee deeply bent the front of the ankle faces back,
+ * so the arm reaches straight back and takes it palm forward, fingers down and a little inward.
+ */
+export const instep: Aim = [[-0.3, -1, 0], [0, 0, 1], 'chest']
 export const open: Fingers = [0, 0, 0, 4, 0, 6],
   /** Palm and fingers flat on a surface. */
   flat: Fingers = [0, 4, 2, 6, 0, 14],

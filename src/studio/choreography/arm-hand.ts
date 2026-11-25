@@ -41,7 +41,7 @@ export const armHand = {
       f: flat,
     },
     'Turn the chest away from the straight arm',
-    { spine: [0, -30, 0], pelvis: [0, -8, 0] },
+    { spine: [0, -26, 0], pelvis: [0, -7, 0] },
     { gear: ['sideWall'] },
   ),
   'wrist-flexor-stretch': st(
@@ -187,8 +187,14 @@ export const armHand = {
   ),
   'thumb-pull-back': st(
     'chair',
-    // Hand held out palm up; the other hand draws the thumb back and away from the palm.
-    { a: [25, 6, 80, 12], f: open, gb: 'Athumb' },
+    // Hand held out palm up; the other hand takes the thumb from above, palm down and fingers
+    // wrapping it, and draws it back and away from the palm.
+    {
+      a: [25, 6, 80, 12],
+      f: open,
+      gb: 'Athumb',
+      hb: [[1, -0.2, 0.2], [0, -1, 0], 'chest'],
+    },
     'Draw the thumb back and away from the palm',
     { f: [0, 4, 2, 4, -6, 48] },
     hands,
