@@ -437,7 +437,7 @@ export default function StudioScene() {
     )
   return (
     <Canvas
-      aria-label="Motion studio stage"
+      aria-label="Motion Lab stage"
       orthographic
       frameloop="demand"
       shadows

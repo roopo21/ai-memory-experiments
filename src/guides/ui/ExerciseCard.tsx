@@ -113,7 +113,7 @@ export default function ExerciseCard() {
         className="mt-3 rounded-lg border border-white/20 px-3 py-2 text-xs"
         onClick={() => enterStudio(id as ClipId)}
       >
-        Preview movement in studio
+        Preview in Motion Lab
       </button>
       <h3 className="mt-4 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted)]">
         How to do it
