@@ -47,7 +47,7 @@ Notes:
 | ---------------------------- | ----------------- | ---------------------------------------------------------- |
 | `skeleton-selection.json`    | hand-pinned       | BodyParts3D structures in the skeleton                     |
 | `muscles-selection.json`     | `select:muscles`  | BodyParts3D structures in the muscle layer                 |
-| `organs-selection.json`      | `select:organs`   | BodyParts3D structures in the five inside systems          |
+| `organs-selection.json`      | `select:organs`   | BodyParts3D nervous system structures                      |
 | `organs-shared.json`         | `select:organs`   | Structures that belong to more than one system             |
 | `organs-unavailable.json`    | `select:organs`   | Wanted structures the source does not have                 |
 | `source-mesh-ids.json`       | pinned            | Mesh ids available in the pinned BodyParts3D mirror        |

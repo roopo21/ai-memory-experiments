@@ -1,11 +1,14 @@
 import type { ClipId } from './clips'
 let opener: HTMLElement | null = null
-export function enterStudio(id: ClipId) {
-  opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
+export function studioUrl(id: ClipId) {
   const url = new URL(location.href)
   url.searchParams.set('studio', id)
   url.searchParams.set('figure', 'anatomy')
-  history.pushState({ studioEntry: true }, '', url)
+  return url
+}
+export function enterStudio(id: ClipId) {
+  opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
+  history.pushState({ studioEntry: true }, '', studioUrl(id))
   window.dispatchEvent(new PopStateEvent('popstate'))
 }
 export function leaveStudio() {
@@ -20,6 +23,8 @@ export function leaveStudio() {
   opener = null
   if (label)
     requestAnimationFrame(() =>
-      [...document.querySelectorAll('button')].find((b) => b.textContent === label)?.focus(),
+      [...document.querySelectorAll<HTMLElement>('button, a[href]')]
+        .find((b) => b.textContent === label)
+        ?.focus(),
     )
 }

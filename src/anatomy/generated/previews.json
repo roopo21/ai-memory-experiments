@@ -135,38 +135,6 @@
       "sourceTriangles": 300232,
       "sourceSha256": "2946fa5f107c5e32278d9f1f46a748405a96eba8c667bb5c72e4c04a0ecf25aa"
     },
-    "/models/organs/cardiovascular.glb": {
-      "url": "/models/preview/organs/cardiovascular.glb",
-      "bytes": 134040,
-      "triangles": 21578,
-      "sourceBytes": 754096,
-      "sourceTriangles": 174010,
-      "sourceSha256": "92974319ecd27a594c328d03ec8a0ac981f9a010105c6b42e9dd0c1d585565ea"
-    },
-    "/models/organs/respiratory.glb": {
-      "url": "/models/preview/organs/respiratory.glb",
-      "bytes": 34988,
-      "triangles": 6576,
-      "sourceBytes": 410136,
-      "sourceTriangles": 101606,
-      "sourceSha256": "5ec5c1c4ed2a5afd1b3d8811bbeec21f26c63a4da623f14f225a20df128d2813"
-    },
-    "/models/organs/digestive.glb": {
-      "url": "/models/preview/organs/digestive.glb",
-      "bytes": 40660,
-      "triangles": 7856,
-      "sourceBytes": 384756,
-      "sourceTriangles": 98640,
-      "sourceSha256": "054f38766094948e5c19ebae96d8604ce242b5bbe73dfc757a260c843d16f92e"
-    },
-    "/models/organs/urinary.glb": {
-      "url": "/models/preview/organs/urinary.glb",
-      "bytes": 11128,
-      "triangles": 1670,
-      "sourceBytes": 56984,
-      "sourceTriangles": 12968,
-      "sourceSha256": "7aa984d2b01a039c9723a96ba71a1e474aeb0b383ee9774cfcad9fa3d1798711"
-    },
     "/models/organs/nervous.glb": {
       "url": "/models/preview/organs/nervous.glb",
       "bytes": 234352,

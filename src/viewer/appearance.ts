@@ -1,3 +1,4 @@
+import { theme } from '../theme'
 import { systemById, type Structure, type SystemId } from '../anatomy/catalogue'
 import type { GuideKind } from '../guides/library/types'
 import type { LayerState } from '../state/useAnatomyStore'
@@ -26,8 +27,18 @@ export const GUIDE_PALETTE: Record<
   GuideKind,
   { base: string; primary: string; secondary: string; hover: string }
 > = {
-  stretch: { base: MUSCLE, primary: '#ffbb38', secondary: '#cf6b47', hover: '#b3b5b9' },
-  glide: { base: '#a1a4aa', primary: '#42dada', secondary: '#a4adee', hover: '#bddfe3' },
+  stretch: {
+    base: MUSCLE,
+    primary: theme.muscle,
+    secondary: theme['muscle-secondary'],
+    hover: '#b3b5b9',
+  },
+  glide: {
+    base: '#a1a4aa',
+    primary: theme.nerve,
+    secondary: theme['nerve-secondary'],
+    hover: '#bddfe3',
+  },
 }
 
 /** Visibility and picking share the same opacity rule, including selected meshes. */

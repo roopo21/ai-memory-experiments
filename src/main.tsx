@@ -1,8 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import { theme } from './theme'
 import App from './App'
 import { syncHash } from './state/hashState'
+
+for (const [name, color] of Object.entries(theme)) {
+  document.documentElement.style.setProperty(`--${name}`, color)
+}
 
 syncHash()
 

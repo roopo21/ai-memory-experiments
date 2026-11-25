@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs'
 import { Scene, Mesh, MeshStandardMaterial, Box3, Vector3 } from 'three'
 import transform from '../data/source-transform.json'
 import { compressGlb } from '../shared/compress-glb'
@@ -6,6 +6,12 @@ import { readGlb, triangleCount } from '../shared/glb'
 import { loadSourceMesh, exportGlb, type SourceFile } from '../shared/source-geometry'
 const manifest = JSON.parse(readFileSync('assets-src/organs/manifest.json', 'utf8'))
 const files = manifest.files as (SourceFile & { region: string; systems: string[] })[]
+if (
+  !files.length ||
+  files.some((row) => row.systems.length !== 1 || row.systems[0] !== 'nervous')
+) {
+  throw new Error('Refresh the nervous system sources with npm run fetch:organs before building.')
+}
 const structures: object[] = []
 const chunks: {
   region: string
@@ -17,6 +23,7 @@ const chunks: {
   bytes: number
 }[] = []
 const exports: { id: string; triangles: number; bytes: number }[] = []
+rmSync('public/models/organs', { recursive: true, force: true })
 mkdirSync('public/models/organs/detail', { recursive: true })
 for (const region of [...new Set(files.map((f) => f.region))]) {
   const scene = new Scene()
@@ -89,11 +96,11 @@ const report = {
   bytes: chunks.reduce((n, c) => n + c.bytes, 0),
   transform,
   coverage:
-    'Available terminal source structures across five system selections. Supporting bones and skeletal muscles remain in their existing layers.',
+    'Available terminal source structures from the nervous system. Supporting bones and skeletal muscles remain in their existing layers.',
   limitations: [
     'No independent review of organ relationships or anatomical accuracy.',
     'Source groups may contain more than one structure; no synthetic splitting.',
-    'Coverage is limited to available source surfaces; peripheral nerves and complete vessel trees are not included.',
+    'Coverage is limited to available source surfaces; peripheral nerves are imported separately.',
   ],
 }
 writeFileSync(

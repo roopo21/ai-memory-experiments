@@ -4,7 +4,7 @@ Instructions for AI coding agents, and anyone else, working in this repository. 
 
 ## What this is
 
-A browser app showing a source-derived 3D male body: 1,141 selectable bones, muscles, organs and nerves. It has three modes, Explore, Stretches and Nerve glides, plus rigged movements. It is React, TypeScript, three.js through @react-three/fiber, Zustand and Tailwind, built with Vite. It is live at https://vrisha-anatomy.netlify.app. Read [docs/master-guide.md](docs/master-guide.md) for how it works.
+A browser app showing a source-derived 3D male body: 1,046 selectable skeletal, muscular and nervous system structures. It has three modes, Explore, Stretches and Nerve glides, plus rigged movements. It is React, TypeScript, three.js through @react-three/fiber, Zustand and Tailwind, built with Vite. It is live at https://vrisha-anatomy.netlify.app. Read [docs/master-guide.md](docs/master-guide.md) for how it works.
 
 ## Folder map
 
