@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
+import { systems } from './anatomy/catalogue'
 import { library } from './guides/exercises'
 import { useAnatomyStore } from './state/useAnatomyStore'
 import DetailCard from './ui/DetailCard'
@@ -26,7 +27,7 @@ const ChunkLoading = () => (
 )
 
 const PILL = {
-  explore: 'Male anatomy · 7 systems',
+  explore: `Male anatomy · ${systems.length} systems`,
   stretch: `Stretch guide · ${library.stretch.length} stretches`,
   glide: `Nerve glides · ${library.glide.length} glides`,
 }

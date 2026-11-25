@@ -1,4 +1,4 @@
-"""Select terminal source anatomy for the five additional system layers."""
+"""Select terminal source anatomy for the BodyParts3D nervous system layer."""
 from pathlib import Path
 from collections import defaultdict
 import csv,json
@@ -16,25 +16,14 @@ def leaves(n,path=()):
  return set().union(*(leaves(c,(*path,n)) for c in children[n])) if children[n] else {n}
 children['FMA9704']={'FMA15571','FMA15572'}
 available=set(json.loads((root/'asset-pipeline/data/source-mesh-ids.json').read_text()))
-roots={'cardiovascular':'FMA7161','respiratory':'FMA7158','digestive':'FMA7152','urinary':'FMA7159','nervous':'FMA7157'}
 existing={s['meshName'] for file in ['skeleton','muscles'] for s in json.loads((root/f'src/anatomy/generated/{file}.json').read_text())['structures']}
-rows={};shared={};missing={}
-for system,node in roots.items():
- ids=leaves(node)
- if system=='urinary':ids |= leaves('FMA15900') | leaves('FMA19667')
- if system=='nervous':ids |= leaves('FMA7647')
- if system=='cardiovascular':
-  for ident,name in names.items():
-   if any(word in name for word in ['artery','arteries','vein','vena cava']):ids |= leaves(ident)
- missing[system]=[{"id":i,"name":names[i]} for i in sorted(ids-available)]
- ids &= available
- print(system,len(ids))
- for i in sorted(ids):
-  if i in existing:shared.setdefault(i,[]).append(system);continue
-  if i in rows:rows[i]['systems'].append(system);continue
-  rows[i]={'id':i,'name':names[i],'kind':'source structure','region':system.capitalize(),'systems':[system]}
-(root/'asset-pipeline/data/organs-selection.json').write_text(json.dumps(list(rows.values()),indent=2)+'\n')
-(root/'asset-pipeline/data/organs-shared.json').write_text(json.dumps(shared,indent=2)+'\n')
-print('New',len(rows),'Existing shared',shared)
-
-(root/'asset-pipeline/data/organs-unavailable.json').write_text(json.dumps(missing,indent=2)+'\n')
+ids = leaves('FMA7157') | leaves('FMA7647')
+rows = [
+    {'id': i, 'name': names[i], 'kind': 'source structure', 'region': 'Nervous', 'systems': ['nervous']}
+    for i in sorted((ids & available) - existing)
+]
+shared = {i: ['nervous'] for i in sorted(ids & available & existing)}
+missing = {'nervous': [{'id': i, 'name': names[i]} for i in sorted(ids - available)]}
+for name, data in [('selection', rows), ('shared', shared), ('unavailable', missing)]:
+    (root / f'asset-pipeline/data/organs-{name}.json').write_text(json.dumps(data, indent=2) + '\n')
+print(f'Selected {len(rows)} nervous structures.')

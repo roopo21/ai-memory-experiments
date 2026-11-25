@@ -33,8 +33,7 @@ export default function StructureBrowser() {
         <p className="font-semibold text-[var(--text)]">One body · aligned source anatomy</p>
         <p>
           {skeletonReport.structures} skeletal structures · {muscleReport.structures} muscle/tendon
-          structures · {organReport.structures} organ structures · {nerveReport.structures} nerve
-          structures
+          structures · {organReport.structures + nerveReport.structures} nervous system structures
         </p>
         <details className="mt-2">
           <summary className="cursor-pointer">Coverage and source</summary>
@@ -44,10 +43,9 @@ export default function StructureBrowser() {
           </p>
           <p className="mt-2">
             Muscles: available source structures, including some grouped muscles and tendons.
-            Attachments are not independently reviewed. Five internal systems are available with
-            partial source coverage; vessels are a limited major-vessel selection. The spinal cord,
-            cranial and peripheral nerves come from Z-Anatomy and are registered onto this body by
-            one fitted similarity transform. Female anatomy is not imported.
+            Attachments are not independently reviewed. The spinal cord, cranial and peripheral
+            nerves come from Z-Anatomy and are registered onto this body by one fitted similarity
+            transform. Female anatomy is not imported.
           </p>
           <a
             className="mt-2 block underline"

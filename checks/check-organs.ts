@@ -5,7 +5,7 @@ import transform from '../asset-pipeline/data/source-transform.json'
 import selection from '../asset-pipeline/data/organs-selection.json'
 import { readGlb, meshNames, triangleCount } from '../asset-pipeline/shared/glb'
 import { diffMeshNames } from '../src/viewer/auditMeshes'
-import { systems, type SystemId } from '../src/anatomy/catalogue'
+import { systems, structures, layerSources } from '../src/anatomy/catalogue'
 import { useAnatomyStore as store } from '../src/state/useAnatomyStore'
 const manifest = JSON.parse(readFileSync('public/models/organs-manifest.json', 'utf8'))
 assert.deepEqual(manifest.transform, transform)
@@ -35,26 +35,28 @@ for (const structure of organs.structures) {
       assert(min[1] >= -0.02 && max[1] < 2.2)
     }
 }
-for (const id of [
-  'cardiovascular',
-  'respiratory',
-  'digestive',
-  'urinary',
-  'nervous',
-] as SystemId[]) {
-  store.getState().showSystem(id)
-  assert.deepEqual(
-    systems.filter((s) => store.getState().layers[s.id].visible).map((s) => s.id),
-    [id],
-  )
-  const structure = organs.structures.find((s) => s.systems.includes(id))!
-  assert(structure)
-  store.getState().selectStructure(structure.meshName, { activate: true, focus: true })
-  assert.equal(store.getState().selectedMesh, structure.meshName)
-  store.getState().hideStructure(structure.meshName)
-  assert.equal(store.getState().selectedMesh, null)
+assert.deepEqual(
+  systems.map((s) => s.id),
+  ['skeletal', 'muscular', 'nervous'],
+)
+const ids = new Set(systems.map((s) => s.id))
+for (const entry of [...structures, ...layerSources]) {
+  assert(entry.systems.length > 0 && entry.systems.every((id) => ids.has(id)))
 }
+assert(
+  organs.structures.length > 0 && organs.structures.every((s) => s.systems.join() === 'nervous'),
+)
+store.getState().showSystem('nervous')
+assert.deepEqual(
+  systems.filter((s) => store.getState().layers[s.id].visible).map((s) => s.id),
+  ['nervous'],
+)
+const structure = organs.structures[0]
+store.getState().selectStructure(structure.meshName, { activate: true, focus: true })
+assert.equal(store.getState().selectedMesh, structure.meshName)
+store.getState().hideStructure(structure.meshName)
+assert.equal(store.getState().selectedMesh, null)
 store.getState().reset()
 console.log(
-  `Additional-system checks passed: ${organs.structures.length} structures, five layers, overview/detail assets and shared transform.`,
+  `Additional-system checks passed: ${organs.structures.length} structures, nervous layer, overview/detail assets and shared transform.`,
 )
