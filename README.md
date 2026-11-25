@@ -2,7 +2,7 @@
 
 A see-through 3D human body in the browser, built from published anatomy data. Live at https://vrisha-anatomy.netlify.app.
 
-- **Explore** 1,141 real bones, muscles, organs and nerves. Click any part for its name and facts.
+- **Explore** 1,046 real skeletal, muscular and nervous system structures. Click any part for its name and facts.
 - **Stretches:** pick muscles and get 163 stretches, with the target muscles lit up on the body.
 - **Nerve glides:** pick nerves and get 26 nerve glides the same way.
 - **Motion studio** plays every stretch and nerve glide on the same 79-joint skeleton and clothed character. Edit keyframes, highlight targets and record the stage. See the [motion studio guide](docs/reference/motion-studio.md).

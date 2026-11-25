@@ -33,8 +33,7 @@ export default function StructureBrowser() {
         <p className="font-semibold text-[var(--text)]">One body · aligned source anatomy</p>
         <p>
           {skeletonReport.structures} skeletal structures · {muscleReport.structures} muscle/tendon
-          structures · {organReport.structures} organ structures · {nerveReport.structures} nerve
-          structures
+          structures · {organReport.structures + nerveReport.structures} nervous system structures
         </p>
         <details className="mt-2">
           <summary className="cursor-pointer">Coverage and source</summary>
@@ -44,10 +43,9 @@ export default function StructureBrowser() {
           </p>
           <p className="mt-2">
             Muscles: available source structures, including some grouped muscles and tendons.
-            Attachments are not independently reviewed. Five internal systems are available with
-            partial source coverage; vessels are a limited major-vessel selection. The spinal cord,
-            cranial and peripheral nerves come from Z-Anatomy and are registered onto this body by
-            one fitted similarity transform. Female anatomy is not imported.
+            Attachments are not independently reviewed. The spinal cord, cranial and peripheral
+            nerves come from Z-Anatomy and are registered onto this body by one fitted similarity
+            transform. Female anatomy is not imported.
           </p>
           <a
             className="mt-2 block underline"
@@ -65,7 +63,7 @@ export default function StructureBrowser() {
           aria-label="Browse system"
           value={system}
           onChange={(e) => setSystem(e.target.value as SystemId)}
-          className="mt-1 w-full rounded-lg bg-slate-900 p-2"
+          className="mt-1 w-full rounded-lg bg-[var(--control)] p-2"
         >
           {systems.map((s) => (
             <option key={s.id} value={s.id}>
@@ -86,7 +84,7 @@ export default function StructureBrowser() {
           aria-label="Muscle region"
           value={muscleRegion ?? ''}
           onChange={(e) => setRegion(e.target.value || null)}
-          className="mt-1 w-full rounded-lg border border-white/15 bg-slate-900 p-2 text-sm text-white"
+          className="mt-1 w-full rounded-lg border border-white/15 bg-[var(--control)] p-2 text-sm text-white"
         >
           <option value="">All regions</option>
           {muscleChunks.map((c) => (

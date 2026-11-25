@@ -22,7 +22,7 @@ import {
   togglePlay,
   useStudio,
 } from '../src/studio/store'
-import { structureByMesh } from '../src/anatomy/catalogue'
+import { layerSources, structureByMesh } from '../src/anatomy/catalogue'
 
 const r = createMovementRig(),
   p = newProject(),
@@ -163,7 +163,12 @@ for (const id of [
         (k) => !structureByMesh.get(k)!.displayName.toLowerCase().includes('right'),
       ),
     )
-  assert.equal(selectSurfaces(id, 'bones', 'right').selected.size, 0)
+  for (const figure of ['anatomy', 'bones', 'human', 'pair'] as const) {
+    const view = selectSurfaces(id, figure, 'left')
+    assert.deepEqual(view.selected, sel.selected)
+    for (const layer of layerSources.filter((l) => l.systems.includes('muscular')))
+      assert(view.urls.includes(layer.url), `${figure} is missing ${layer.region} muscles`)
+  }
 }
 sampleStudio(r, 'sciatic-slider-seated', 0, 'left', p)
 const knee0 = world(14),

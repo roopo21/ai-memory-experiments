@@ -1,8 +1,6 @@
 .studio {
-  --line: #303c40;
-  --accent: #96ddce;
-  background: #151d21;
-  color: #edf2ef;
+  background: var(--bg);
+  color: var(--text);
   display: grid;
   grid-template-columns: minmax(0, 1fr) 292px;
   grid-template-rows: 48px minmax(0, 1fr) auto;
@@ -18,14 +16,14 @@
   display: flex;
   align-items: center;
   gap: 22px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   padding: 0 16px;
-  background: #172126;
+  background: var(--panel);
 }
 .studio-header h1 {
   font-size: 16px;
   font-weight: 600;
-  border-left: 1px solid #4b585c;
+  border-left: 1px solid var(--border);
   padding-left: 20px;
 }
 .studio-stage {
@@ -35,7 +33,7 @@
   isolation: isolate;
   outline: none;
   overflow: hidden;
-  background: #334349;
+  background: var(--stage);
 }
 .studio-stage canvas {
   touch-action: none;
@@ -44,7 +42,7 @@
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  background: #172126e8;
+  background: var(--panel);
   padding: 8px 12px;
   border-radius: 5px;
 }
@@ -53,15 +51,15 @@
   grid-row: 2/4;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-left: 1px solid var(--line);
-  background: #192226;
+  border-left: 1px solid var(--border);
+  background: var(--panel);
   scrollbar-width: thin;
 }
 .studio-fields,
 .studio-notes,
 .studio-error {
   padding: 15px 17px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .studio h2 {
   font-size: 15px;
@@ -79,7 +77,7 @@
 .studio label,
 .studio legend {
   font-size: 12px;
-  color: #bfccce;
+  color: var(--muted);
 }
 .studio label:not(.studio-check) {
   display: flex;
@@ -92,8 +90,8 @@
 .studio input:not([type='range'], [type='checkbox'], [type='file']) {
   font: inherit;
   color: inherit;
-  border: 1px solid #425258;
-  background: #232f34;
+  border: 1px solid var(--control-border);
+  background: var(--control);
   border-radius: 5px;
   min-height: 33px;
   padding: 5px 9px;
@@ -106,7 +104,7 @@
   gap: 7px;
 }
 .studio button:hover {
-  background: #334249;
+  background: var(--hover);
 }
 .studio button:disabled {
   opacity: 0.45;
@@ -132,9 +130,9 @@
 .studio button[aria-pressed='true'],
 .studio .studio-primary,
 .studio button.play {
-  background: #a3d8c8;
-  border-color: #a3d8c8;
-  color: #102a26;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
   font-weight: 650;
 }
 .studio .studio-check {
@@ -144,7 +142,7 @@
   gap: 6px;
 }
 .studio input {
-  accent-color: #9bd9c6;
+  accent-color: var(--accent);
   min-width: 0;
 }
 .studio-row {
@@ -157,7 +155,7 @@
 }
 .studio-fields p,
 .studio-notes p {
-  color: #b6c5c7;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -178,21 +176,21 @@
   height: 8px;
   flex: none;
   border-radius: 50%;
-  background: #ffbb38;
+  background: var(--muscle);
 }
 .studio-legend i[data-role='secondary'] {
-  background: #cf6b47;
+  background: var(--muscle-secondary);
 }
 .studio-legend.glide i {
-  background: #42dada;
+  background: var(--nerve);
 }
 .studio-legend.glide i[data-role='secondary'] {
-  background: #a4adee;
+  background: var(--nerve-secondary);
 }
 .studio-notes summary,
 .studio details summary {
   cursor: pointer;
-  color: #bfccce;
+  color: var(--muted);
 }
 .studio-notes a {
   color: var(--accent);
@@ -200,14 +198,14 @@
 }
 .studio-error,
 .studio [role='alert'] {
-  color: #ffca92;
+  color: var(--warning);
 }
 .studio-transport {
   grid-column: 1;
   min-width: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   padding: 10px 16px;
-  background: #1b262a;
+  background: var(--surface);
 }
 .studio-playrow,
 .studio-phases {
@@ -228,7 +226,7 @@
     12px ui-monospace,
     monospace;
   font-variant-numeric: tabular-nums;
-  color: #d4e1e1;
+  color: var(--text);
 }
 .studio-phases {
   flex-wrap: wrap;
@@ -240,11 +238,11 @@
   font-size: 11px;
   background: transparent;
   border-color: transparent;
-  color: #afc2c5;
+  color: var(--muted);
 }
 .studio-phases button[aria-current='step'] {
-  border-color: #51867b;
-  color: #b8e7dc;
+  border-color: var(--control-border);
+  color: var(--text);
 }
 .studio-axes {
   display: grid;
@@ -252,7 +250,7 @@
   gap: 5px;
 }
 .studio .editor {
-  background: #1c282c;
+  background: var(--surface);
 }
 .editor form > button {
   margin-top: 5px;
@@ -296,7 +294,7 @@
     grid-column: 1;
     grid-row: 4;
     border: 0;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--border);
   }
   .studio-transport {
     grid-row: 3;

@@ -12,8 +12,7 @@ export const skeletonReport = skeleton.report
 export const muscleReport = muscles.report
 export const muscleChunks = muscles.chunks
 export type Sex = 'male' | 'female'
-export type SystemId =
-  'skeletal' | 'muscular' | 'cardiovascular' | 'respiratory' | 'digestive' | 'urinary' | 'nervous'
+export type SystemId = 'skeletal' | 'muscular' | 'nervous'
 
 export interface System {
   id: SystemId

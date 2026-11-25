@@ -61,7 +61,7 @@ export default function SystemList() {
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-colors"
                 style={{
                   background: on ? s.color : `${s.color}26`,
-                  color: on ? '#0b0f17' : s.color,
+                  color: on ? 'var(--bg)' : s.color,
                 }}
               >
                 <SystemIcon id={s.id} />

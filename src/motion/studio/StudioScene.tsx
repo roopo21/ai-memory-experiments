@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from 'react'
+import { theme } from '../../theme'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, useGLTF } from '@react-three/drei'
+import { Grid, OrbitControls, useGLTF } from '@react-three/drei'
 import { Group, OrthographicCamera, Vector3 } from 'three'
 import type { OrbitControls as Orbit } from 'three-stdlib'
 import performerUrl from './assets/performer.glb?url'
@@ -16,7 +17,7 @@ import { scores, hasScore } from '../../studio/choreography'
 import { guideEquipment } from './guides/equipment'
 import { joints } from '../joints'
 import { oldLocal } from '../oldPivots'
-import { makeFigure, selectSurfaces } from './figure'
+import { addPerformer, makeFigure, selectSurfaces } from './figure'
 
 const capture = new URLSearchParams(location.search).get('capture') === '1'
 declare global {
@@ -48,24 +49,27 @@ function Actor() {
     [id, figure, side, target, base],
   )
   const urls = useMemo(() => {
-    if (figure === 'human') return [performerUrl]
     const files = selection.urls.map((u) => assetUrl(detail ? u : (previewUrlOf(u) ?? u)))
-    return figure === 'pair' ? [...files, performerUrl] : files
+    return figure === 'pair' || figure === 'human' ? [...files, performerUrl] : files
   }, [figure, selection, detail])
   const assets = useGLTF(urls, DRACO_PATH)
   const built = useMemo(() => {
     const scenes = assets.map((a) => a.scene)
-    if (figure !== 'pair') return makeFigure(scenes, rig, figure, selection)
-    const atlas = makeFigure(scenes.slice(0, -1), rig, 'anatomy', selection),
-      human = makeFigure(scenes.slice(-1), rig, 'human', selection)
-    atlas.root.traverse((o) => o.layers.set(1))
-    human.root.traverse((o) => o.layers.set(2))
-    const root = new Group().add(atlas.root, human.root)
+    if (figure !== 'pair' && figure !== 'human') return makeFigure(scenes, rig, figure, selection)
+    const atlas = makeFigure(scenes.slice(0, -1), rig, figure, selection)
+    const human = figure === 'pair' ? atlas.root.clone(true) : atlas.root
+    const disposeShell = addPerformer(human, scenes[scenes.length - 1], rig)
+    const root = new Group().add(human)
+    if (figure === 'pair') {
+      atlas.root.traverse((o) => o.layers.set(1))
+      human.traverse((o) => o.layers.set(2))
+      root.add(atlas.root)
+    }
     return {
       root,
       dispose() {
         atlas.dispose()
-        human.dispose()
+        disposeShell()
       },
     }
   }, [assets, rig, figure, selection])
@@ -440,7 +444,7 @@ export default function StudioScene() {
     )
   return (
     <Canvas
-      aria-label="Motion studio stage"
+      aria-label="Motion Lab stage"
       orthographic
       frameloop="demand"
       shadows
@@ -453,8 +457,8 @@ export default function StudioScene() {
         powerPreference: 'high-performance',
       }}
     >
-      <color attach="background" args={['#334349']} />
-      <hemisphereLight args={['#f2fbff', '#b4a08c', 1.45]} />
+      <color attach="background" args={[theme.stage]} />
+      <hemisphereLight args={[theme.sky, theme.bounce, 1.3]} />
       <directionalLight
         position={[2.8, 4.5, 3]}
         intensity={2.1}
@@ -467,7 +471,7 @@ export default function StudioScene() {
         shadow-camera-top={2}
         shadow-camera-bottom={-2}
       />
-      <directionalLight position={[-3, 2, -2]} intensity={1.15} color="#cee3ff" />
+      <directionalLight position={[-3, 2, -2]} intensity={1.15} color={theme.rim} />
       <mesh
         visible={!detailBackdrop}
         rotation={[-Math.PI / 2, 0, 0]}
@@ -475,8 +479,23 @@ export default function StudioScene() {
         receiveShadow
       >
         <planeGeometry args={[200, 200]} />
-        <meshStandardMaterial color="#47595c" roughness={1} />
+        <meshStandardMaterial color={theme.floor} roughness={1} />
       </mesh>
+      {!detailBackdrop && (
+        <Grid
+          args={[8, 8]}
+          position={[0, -0.003, 0]}
+          cellSize={0.25}
+          sectionSize={1}
+          cellColor={theme.grid}
+          sectionColor={theme.grid}
+          cellThickness={0.35}
+          sectionThickness={0.6}
+          fadeFrom={0}
+          fadeDistance={3.5}
+          fadeStrength={1.5}
+        />
+      )}
       {prop &&
         (figure === 'pair' ? (
           <>

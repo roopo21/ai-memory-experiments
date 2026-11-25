@@ -153,7 +153,7 @@ export default function GuidePanel({ kind }: { kind: GuideKind }) {
                 >
                   {a}
                   {picked.length > 0 && (
-                    <span className="rounded-full bg-[color:var(--hl)] px-1.5 text-[10px] font-semibold text-slate-900">
+                    <span className="rounded-full bg-[color:var(--hl)] px-1.5 text-[10px] font-semibold text-[var(--bg)]">
                       {picked.length}
                     </span>
                   )}
@@ -174,7 +174,7 @@ export default function GuidePanel({ kind }: { kind: GuideKind }) {
           aria-label="Position"
           value={position}
           onChange={(e) => setPosition(e.target.value as Position | 'any')}
-          className="rounded-lg border border-white/15 bg-slate-900 px-2 py-1.5"
+          className="rounded-lg border border-white/15 bg-[var(--control)] px-2 py-1.5"
         >
           <option value="any">Any position</option>
           {positions.map((p) => (
@@ -187,7 +187,7 @@ export default function GuidePanel({ kind }: { kind: GuideKind }) {
           aria-label="Type"
           value={type}
           onChange={(e) => setType(e.target.value as ExerciseType | 'any')}
-          className="rounded-lg border border-white/15 bg-slate-900 px-2 py-1.5"
+          className="rounded-lg border border-white/15 bg-[var(--control)] px-2 py-1.5"
         >
           <option value="any">Any type</option>
           {TYPES[kind].map((t) => (

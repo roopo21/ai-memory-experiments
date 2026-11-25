@@ -10,7 +10,7 @@ It has three modes, picked with the buttons at the top of the side panel:
 
 | Mode             | What you do                             | What you get                                             |
 | ---------------- | --------------------------------------- | -------------------------------------------------------- |
-| **Explore**      | Click any of 1,141 body parts           | Its name, a description and facts                        |
+| **Explore**      | Click any of 1,046 body parts           | Its name, a description and facts                        |
 | **Stretches**    | Pick muscles on the body or from a list | 163 stretches, best match first, with the muscles lit up |
 | **Nerve glides** | Pick nerves                             | 26 nerve glides, with the nerves lit up                  |
 
@@ -37,7 +37,7 @@ Now join every three nearby dots with a tiny flat paper triangle. Stick enough t
 
 Each surface also gets a **name tag**. The left semitendinosus (a hamstring muscle) is tagged `FMA22359`. That tag is how the app knows what you clicked.
 
-A **GLB file** is a lunchbox that holds the dots, the triangles and the name tags together. The browser opens the lunchbox and draws what is inside. This project ships 666 lunchboxes, about 97 MB in all.
+A **GLB file** is a lunchbox that holds the dots, the triangles and the name tags together. The browser opens the lunchbox and draws what is inside.
 
 ## 4. Where the body parts come from
 
@@ -146,17 +146,17 @@ Where this lives: `src/motion/`.
 
 `npm run check` builds the app and runs the atlas, guide and rig checks. If any fails, nothing should ship.
 
-| Check            | What it makes sure of                                                                 |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| Build            | The code has no type errors and the production site builds                            |
-| `check:models`   | Every catalogue part has a model and every model part is in the catalogue             |
-| `check:skeleton` | Bones sit in the right place, on the right side, with no triangles lost               |
-| `check:viewer`   | Switching systems, search, hiding, picking and the three model sizes behave           |
-| `check:organs`   | The five inside systems are complete and use the same placement recipe                |
-| `check:nerves`   | Nerves line up with the bones and sit on the correct side                             |
-| `check:guides`   | Every exercise targets real groups, cites real sources and ranks sensibly             |
-| `check:previews` | Previews are up to date, still in place, and the first view stays under 2.5 MB        |
-| `check:pose`     | Movements keep hands and feet on the floor, bones rigid and the body back to standing |
+| Check            | What it makes sure of                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| Build            | The code has no type errors and the production site builds                               |
+| `check:models`   | Every catalogue part has a model and every model part is in the catalogue                |
+| `check:skeleton` | Bones sit in the right place, on the right side, with no triangles lost                  |
+| `check:viewer`   | Switching systems, search, hiding, picking and the three model sizes behave              |
+| `check:organs`   | The BodyParts3D nervous structures match the selection and use the same placement recipe |
+| `check:nerves`   | Nerves line up with the bones and sit on the correct side                                |
+| `check:guides`   | Every exercise targets real groups, cites real sources and ranks sensibly                |
+| `check:previews` | Previews are up to date, still in place, and the first view stays under 2.5 MB           |
+| `check:pose`     | Movements keep hands and feet on the floor, bones rigid and the body back to standing    |
 
 More detail is in [../checks/README.md](../checks/README.md).
 

@@ -209,7 +209,7 @@ function Workspace({ children }: { children: ReactNode }) {
   return (
     <main
       className={'studio' + (clean ? ' studio-clean' : '')}
-      aria-label="Motion studio"
+      aria-label="Motion Lab"
       data-ready={ready}
       data-clean={clean}
       data-recording={recording}
@@ -218,7 +218,7 @@ function Workspace({ children }: { children: ReactNode }) {
         <button onClick={leaveStudio}>
           <ArrowLeft size={15} /> Anatomy Explorer
         </button>
-        <h1>Motion studio</h1>
+        <h1>Motion Lab</h1>
       </header>
       <div
         ref={stage}
@@ -308,7 +308,7 @@ function Workspace({ children }: { children: ReactNode }) {
               </button>
             ))}
           </div>
-          {(figure === 'anatomy' || figure === 'pair') && primary.length > 0 && (
+          {primary.length > 0 && (
             <div className={'studio-legend ' + kind}>
               {[primary, secondary].map(
                 (ids, i) =>
@@ -324,18 +324,16 @@ function Workspace({ children }: { children: ReactNode }) {
               )}
             </div>
           )}
-          {figure !== 'human' && (
-            <label className="studio-check">
-              <input
-                type="checkbox"
-                checked={detail}
-                onChange={(e) =>
-                  useStudio.setState({ detail: e.target.checked, ready: false, playing: false })
-                }
-              />{' '}
-              Full-resolution anatomy
-            </label>
-          )}
+          <label className="studio-check">
+            <input
+              type="checkbox"
+              checked={detail}
+              onChange={(e) =>
+                useStudio.setState({ detail: e.target.checked, ready: false, playing: false })
+              }
+            />{' '}
+            Full-resolution anatomy
+          </label>
         </div>
         <div className="studio-fields">
           <h2>Camera</h2>
