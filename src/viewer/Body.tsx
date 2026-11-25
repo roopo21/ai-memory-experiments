@@ -6,6 +6,7 @@ import { damp } from 'maath/easing'
 import { structureByMesh } from '../anatomy/catalogue'
 import { GUIDE_SYSTEM } from '../guides/library/groups'
 import { computeTarget, type GuideStyle } from './appearance'
+import { nerveStroke } from './nerveStroke'
 import { guideScene } from '../guides/highlight'
 import { auditMeshes } from './auditMeshes'
 import { useAnatomyStore } from '../state/useAnatomyStore'
@@ -95,6 +96,8 @@ function BodyView({
         raycast: m.raycast,
         color: new THREE.Color('#8d96a6'),
       } satisfies Runtime
+      if (structureByMesh.get(m.name)?.systems.includes('nervous'))
+        nerveStroke(mat, () => mat.userData.stroke ?? 0)
       if (rigged && rig) {
         m = skinAnatomyMesh(m, structureByMesh.get(m.name), rig)
         ;(m.userData.rt as Runtime).raycast = m.raycast
@@ -191,6 +194,8 @@ function BodyView({
       const focus = guide?.role === 'primary' || guide?.role === 'secondary'
       // Draw deep exercise targets through the surrounding muscle, including thin nerve branches.
       m.renderOrder = focus ? (guide?.role === 'primary' ? 3 : 2) : 1
+      mat.userData.stroke =
+        guide?.kind === 'glide' && focus ? (guide.role === 'primary' ? 2.7 : 1.6) : 0
       mat.depthTest = !focus
       mat.depthWrite = !focus && mat.opacity > 0.85
       m.visible = t.visible || mat.opacity > 0.01

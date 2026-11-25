@@ -6,8 +6,6 @@ import {
   MeshStandardMaterial,
   GreaterDepth,
   SkinnedMesh,
-  Vector2,
-  Vector4,
   type Object3D,
 } from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
@@ -16,6 +14,7 @@ import { meshesOf } from '../../guides/library/groups'
 import { clipInfo, motionTargets, type ClipId, type Figure, type Side } from '../../studio/clips'
 import { skinAnatomyMesh, type MovementRig } from '../movementRig'
 
+import { nerveStroke } from '../../viewer/nerveStroke'
 import { GUIDE_PALETTE, MUSCLE, GLIDE_MUSCLE_OPACITY } from '../../viewer/appearance'
 import type { Project } from '../../studio/project'
 
@@ -59,8 +58,6 @@ export function selectSurfaces(
 }
 // A screen-space stroke keeps thin nerve branches legible in a full-body recording.
 function nerveHighlight(primary: boolean) {
-  const pixel = new Vector2(),
-    viewport = new Vector4()
   const material = new MeshBasicMaterial({
     color: primary ? GUIDE_PALETTE.glide.primary : GUIDE_PALETTE.glide.secondary,
     transparent: true,
@@ -69,22 +66,7 @@ function nerveHighlight(primary: boolean) {
     depthWrite: false,
     toneMapped: false,
   })
-  material.onBeforeCompile = (shader) => {
-    shader.uniforms.strokePixel = { value: pixel }
-    shader.vertexShader =
-      'uniform vec2 strokePixel;\n' +
-      shader.vertexShader.replace(
-        '#include <project_vertex>',
-        `#include <project_vertex>
-    vec2 contour = transformedNormal.xy;
-    gl_Position.xy += contour / max(length(contour), 0.3) * strokePixel * gl_Position.w;`,
-      )
-  }
-  material.onBeforeRender = (renderer) => {
-    renderer.getViewport(viewport)
-    const diameter = primary ? 2.7 : 1.6
-    pixel.set(diameter / Math.max(1, viewport.z), diameter / Math.max(1, viewport.w))
-  }
+  nerveStroke(material, () => (primary ? 2.7 : 1.6))
   return material
 }
 export function makeFigure(
