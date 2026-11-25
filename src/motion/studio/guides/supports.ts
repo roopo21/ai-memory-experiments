@@ -2,6 +2,7 @@ import { Euler, Quaternion, Vector3 } from 'three'
 import type { Pose, Leg } from '../../../studio/choreography/types'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
+import { ANKLE_Y } from '../../joints'
 import { palmOrientation } from '../handOrientation'
 import { lowestHand } from './ground'
 import { palmPad } from '../anchors'
@@ -25,7 +26,7 @@ const swing = (r: MovementRig, i: number, dir: Vector3) => {
 function supportFoot(r: MovementRig, i: number, level = 0) {
   const sign = i === 12 ? 1 : -1,
     ankle = at(r, i + 2)
-  const goal = V(ankle.x, level + 0.064, ankle.z)
+  const goal = V(ankle.x, level + ANKLE_Y, ankle.z)
   const pole = at(r, i + 1).add(V(sign * 0.015, 0.03, 0.25))
   solveLimb(r, i, i + 1, i + 2, goal, pole)
   worldRotation(r.bones[i + 2], rot(0))
@@ -164,7 +165,7 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     // Plant flat soles first, then bend the supporting knee to accept the weight shift.
     for (const i of planted) worldRotation(r.bones[i + 2], rot(0))
     const drop = Math.max(...planted.map((i) => at(r, i + 2).y))
-    r.root.position.y += 0.064 - drop
+    r.root.position.y += ANKLE_Y - drop
     r.root.updateMatrixWorld(true)
     for (const i of planted) supportFoot(r, i)
     if (id === 'standing-hamstring-step') supportFoot(r, 12, 0.16)
@@ -185,7 +186,7 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     r.root.updateMatrixWorld(true)
     for (const i of [12, 15]) {
       const s = i === 12 ? 1 : -1
-      solveLimb(r, i, i + 1, i + 2, V(s * 0.12, 0.064, 0.58), V(s * 0.13, 0.54, 0.34))
+      solveLimb(r, i, i + 1, i + 2, V(s * 0.12, ANKLE_Y, 0.58), V(s * 0.13, 0.54, 0.34))
       worldRotation(r.bones[i + 2], rot(0))
     }
   }
@@ -245,7 +246,8 @@ export function floorHands(r: MovementRig, id: AuthoredId, p: Pose) {
     placeHand(r, id, goal(1), 1)
     placeHand(r, id, goal(-1), -1)
   } else if (posture === 'allFours') {
-    for (const s of [1, -1]) if ((s === 1 ? p.ga : p.gb) === 'floor') placeHand(r, id, 'floor', s)
+    for (const s of [1, -1])
+      if ((s === 1 ? p.ga : p.gb) === 'floor') placeHand(r, id, 'floor', s, s === 1 ? p.ha : p.hb)
   }
 }
 
@@ -260,12 +262,12 @@ export function standingMarks(r: MovementRig, id: AuthoredId) {
     return marks
   for (const i of singleLeg.has(id) ? [15] : [12, 15]) {
     const ankle = at(r, i + 2)
-    ankle.y = 0.064
+    ankle.y = ANKLE_Y
     marks.push({ joint: i, ankle })
   }
   if (id === 'standing-hamstring-step') {
     const ankle = at(r, 14)
-    ankle.y = 0.224
+    ankle.y = 0.16 + ANKLE_Y
     marks.push({ joint: 12, ankle })
   }
   return marks

@@ -1,8 +1,9 @@
 import { Quaternion, Vector3 } from 'three'
 import { digitTips } from '../../distalJoints'
-import { indexOfJoint, joints } from '../../joints'
+import { ANKLE_Y, indexOfJoint, joints } from '../../joints'
+import { oldLocal } from '../../oldPivots'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
-import { toePad } from '../anchors'
+import { palmPad, toePad } from '../anchors'
 import { palmOrientation } from '../handOrientation'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import type { Pose } from '../../../studio/choreography/types'
@@ -20,7 +21,7 @@ export function pinch(r: MovementRig) {
   for (const name of ['Thumb', 'Index'] as const) {
     const end = indexOfJoint[name === 'Thumb' ? 'leftThumb2' : 'leftIndex3']
     const target = hand.localToWorld(
-      V(0.043 + (name === 'Thumb' ? 0.0017 : -0.0017), -0.081, 0.077),
+      oldLocal(8, 0.043 + (name === 'Thumb' ? 0.0017 : -0.0017), -0.081, 0.077),
     )
     for (let sweep = 0; sweep < 14 && tip(r, name).distanceTo(target) > 0.00025; sweep++)
       for (let i = end; i >= end - 2; i--) {
@@ -57,14 +58,14 @@ export function equipmentPose(r: MovementRig, id: AuthoredId, p: Pose) {
   if (id === 'golf-ball-roll') {
     const knee = p.leg?.[2] ?? 76,
       travel = Math.max(0, Math.min(1, (76 - knee) / 19))
-    solveLimb(r, 12, 13, 14, V(0.09, 0.11, 0.4 - 0.17 * travel), V(0.12, 0.48, 0.7))
+    solveLimb(r, 12, 13, 14, V(0.09, 0.045 + ANKLE_Y, 0.4 - 0.17 * travel), V(0.12, 0.48, 0.7))
     worldRotation(r.bones[14], rot(0))
   }
   if (id === 'step-heel-drop') {
     for (const i of [12, 15]) {
       const s = i === 12 ? 1 : -1,
         q = rot(i === 12 ? (p.leg?.[3] ?? 0) : 0)
-      const goal = V(s * 0.085, 0.152, 0.233).sub(toePad().applyQuaternion(q))
+      const goal = V(s * 0.085, 0.152, 0.233).sub(toePad(s).applyQuaternion(q))
       solveLimb(r, i, i + 1, i + 2, goal, V(s * 0.11, 0.51, 0.57))
       worldRotation(r.bones[i + 2], q)
     }
@@ -78,7 +79,7 @@ export function equipmentPose(r: MovementRig, id: AuthoredId, p: Pose) {
         i,
         i + 1,
         i + 2,
-        V(s * 0.19, 0.065, 0.24 + 0.29 * travel),
+        V(s * 0.19, ANKLE_Y, 0.24 + 0.29 * travel),
         V(s * 0.22, 0.49, 0.64),
       )
       worldRotation(r.bones[i + 2], rot(0))
@@ -103,14 +104,14 @@ export function inchworm(r: MovementRig, stage: number) {
     const s = i === 12 ? 1 : -1,
       foot = rot(plank ? 68 : 0),
       z = stand ? 0.72 : -0.12,
-      ankle = plank ? V(s * 0.09, 0, z).sub(toePad().applyQuaternion(foot)) : V(s * 0.09, 0.065, z)
+      ankle = plank
+        ? V(s * 0.09, 0, z).sub(toePad(s).applyQuaternion(foot))
+        : V(s * 0.09, ANKLE_Y, z)
     solveLimb(r, i, i + 1, i + 2, ankle, V(s * 0.12, 0.45, baseZ + 0.37))
     worldRotation(r.bones[i + 2], foot)
     const arm = i === 12 ? 6 : 9,
       hand = palmOrientation(s, V(s * 0.04, 0, 1), V(0, -1, 0))
-    const goal = V(s * 0.2, 0.002, stage === 1 ? 0.335 : 1.08).sub(
-      V(s * 0.012, -0.075, 0.083).applyQuaternion(hand),
-    )
+    const goal = V(s * 0.2, 0.002, stage === 1 ? 0.335 : 1.08).sub(palmPad(s).applyQuaternion(hand))
     solveLimb(r, arm, arm + 1, arm + 2, goal, V(s * 0.34, 0.3, baseZ + 0.23))
     worldRotation(r.bones[arm + 2], hand)
   }

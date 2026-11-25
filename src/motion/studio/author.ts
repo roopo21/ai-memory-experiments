@@ -1,5 +1,6 @@
 import { Euler, Vector3 } from 'three'
-import { joints, type Triple } from '../joints'
+import { joints, pivot, type Triple } from '../joints'
+import { oldLocal } from '../oldPivots'
 import { createMovementRig } from '../movementRig'
 import { clipInfo, type ClipId, type Side } from '../../studio/clips'
 import { newProject, type Project } from '../../studio/project'
@@ -115,7 +116,7 @@ export function checkCustomMotion(p: Project): string {
       [17, -1],
     ]) {
       const ankle = r.bones[index].getWorldPosition(new Vector3())
-      const error = ankle.distanceTo(new Vector3(0.08 * s, 0.065, 0.07))
+      const error = ankle.distanceTo(pivot(s === 1 ? 14 : 17))
       if (p.plantFeet && error > worstSlip) {
         worstSlip = error
         slipTime = t
@@ -123,9 +124,9 @@ export function checkCustomMotion(p: Project): string {
     }
     const minY = Math.min(
       ...r.bones.map((b) => b.getWorldPosition(new Vector3()).y),
-      ...[14, 17].map((i) => r.bones[i].localToWorld(solePad()).y),
+      ...[14, 17].map((i) => r.bones[i].localToWorld(solePad(i === 14 ? 1 : -1)).y),
       ...[8, 11].map(
-        (i) => r.bones[i].localToWorld(new Vector3(i === 8 ? 0.025 : -0.025, -0.156, 0.093)).y,
+        (i) => r.bones[i].localToWorld(oldLocal(i, i === 8 ? 0.025 : -0.025, -0.156, 0.093)).y,
       ),
     )
     if (minY < below) {

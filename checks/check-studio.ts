@@ -5,7 +5,7 @@ import { pinWeight, readPins } from '../src/studio/pins'
 import { groups } from '../src/guides/library/groups'
 import { clips, clipInfo, isClip, type ClipId, type Side } from '../src/studio/clips'
 import { applyCue, newProject, putPose, readProject } from '../src/studio/project'
-import { joints } from '../src/motion/joints'
+import { ANKLE_Y, joints } from '../src/motion/joints'
 import { createMovementRig, solveLimb } from '../src/motion/movementRig'
 import { sampleStudio, thighGrip } from '../src/motion/studio/sample'
 import { palmPad, toePad, landmark, destination } from '../src/motion/studio/anchors'
@@ -70,14 +70,14 @@ for (const id of Object.keys(clips).filter(isClip)) {
           assert(elbow.z < upper.z, 'elbow bends back')
         }
         if (id === 'supine-hamstring')
-          close(world(hand, palmPad(sign)), world(active, thighGrip(sign)), 'thigh grip')
+          close(world(hand, palmPad(sign)), world(active, thighGrip(sign, active)), 'thigh grip')
         if (id === 'squat')
-          close(world(foot), new Vector3(sign * 0.115, 0.065, 0.07), 'squat ankle')
+          close(world(foot), new Vector3(sign * 0.115, ANKLE_Y, 0.07), 'squat ankle')
       }
       if (id === 'supine-hamstring')
-        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.11, 0.064, 0.53), 'resting heel')
+        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.11, ANKLE_Y, 0.53), 'resting heel')
       if (id === 'sciatic-slider-seated')
-        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.095, 0.064, 0.285), 'seated heel')
+        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.095, ANKLE_Y, 0.285), 'seated heel')
     }
     if (!info.travels)
       first.forEach((row, i) =>

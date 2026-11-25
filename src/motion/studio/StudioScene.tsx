@@ -15,6 +15,7 @@ import { chair, supports, sampleStudio } from './sample'
 import { scores, hasScore } from '../../studio/choreography'
 import { guideEquipment } from './guides/equipment'
 import { joints } from '../joints'
+import { oldLocal } from '../oldPivots'
 import { makeFigure, selectSurfaces } from './figure'
 
 const capture = new URLSearchParams(location.search).get('capture') === '1'
@@ -234,7 +235,7 @@ function Camera() {
         [8, -0.17, 0.1],
         [11, -0.17, 0.1],
       ])
-        out.push(r.bones[i].localToWorld(new Vector3(0, y, z)))
+        out.push(r.bones[i].localToWorld(oldLocal(i, 0, y, z)))
     }
     if (id === 'sciatic-slider-seated' || prop === 'chair')
       for (const x of [-0.23, 0.23]) for (const y of [0, 0.84]) out.push(new Vector3(x, y, -0.34))
@@ -266,8 +267,10 @@ function Camera() {
     }
     const sign = clipInfo(original ?? id).unilateral && (originalSide ?? side) === 'right' ? -1 : 1
     const standing = clipInfo(original ?? id).posture === 'standing'
-    const dir =
-      angle === 'Side'
+    const authored = angle === 'Teaching' && hasScore(cameraId) ? scores[cameraId].view : undefined
+    const dir = authored
+      ? [...authored]
+      : angle === 'Side'
         ? [sign, 0.09, 0.015]
         : angle === 'Front'
           ? [0, 0.1, 1]
@@ -280,7 +283,8 @@ function Camera() {
                 : focus === 'face'
                   ? [0.38, 0.09, 2.4]
                   : focus === 'hand'
-                    ? [1.15, 0.95, 2.1]
+                    ? // From the working side, so the wrist and fingers read in profile, clear of the trunk.
+                      [2.3, 0.8, 1.05]
                     : focus === 'foot'
                       ? [1.1, 0.72, 1.65]
                       : standing

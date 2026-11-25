@@ -3,7 +3,9 @@ import { hasScore } from '../../studio/choreography'
 import { basis, palmOrientation } from './handOrientation'
 import { Euler, Quaternion, Vector3 } from 'three'
 import { palmPad, toePad, applyPins } from './anchors'
-import { indexOfJoint, joints, type Joint, type Triple } from '../joints'
+import { ANKLE_Y, indexOfJoint, joints, pivot, type Joint, type Triple } from '../joints'
+import { oldLocal } from '../oldPivots'
+import { followUlna } from '../anatomy'
 import {
   restPose,
   sampleMovement,
@@ -31,7 +33,8 @@ export const supports = (human: boolean) => ({
   head: human ? 0.027 : 0.061,
 })
 const sides = [1, -1] as const
-export const thighGrip = (side: number) => V(side * 0.038, -0.245, -0.044)
+export const thighGrip = (side: number, thigh: number) =>
+  oldLocal(thigh, side * 0.038, -0.245, -0.044)
 function handOn(r: MovementRig, side: number, at: Vector3, q: Quaternion, pole: Vector3) {
   const arm = side === 1 ? 6 : 9
   solveLimb(r, arm, arm + 1, arm + 2, at.clone().sub(palmPad(side).applyQuaternion(q)), pole)
@@ -56,7 +59,7 @@ function pushUp(r: MovementRig, t: number) {
   const depth = t <= 1.8 ? ease(t / 1.8) : 1 - ease((t - 1.8) / 1.95)
   const body = Q(75 + 14 * depth),
     foot = Q(70)
-  const ankle = V(0.08, 0, -0.68).sub(toePad().applyQuaternion(foot))
+  const ankle = V(0.08, 0, -0.68).sub(toePad(1).applyQuaternion(foot))
   r.root.position.copy(ankle).sub(V(0.08, -0.815, 0.01).applyQuaternion(body))
   r.root.quaternion.copy(body)
   r.root.updateMatrixWorld(true)
@@ -75,9 +78,9 @@ function hamstring(r: MovementRig, t: number, which: Side) {
   r.bones[active].rotation.x = (-116 - 7 * extend) * rad
   r.bones[active + 1].rotation.x = (80 - 59 * extend) * rad
   r.root.updateMatrixWorld(true)
-  footOn(r, -s, V(-s * 0.11, 0.064, 0.53), V(-s * 0.15, 0.63, 0.45))
+  footOn(r, -s, V(-s * 0.11, ANKLE_Y, 0.53), V(-s * 0.15, 0.63, 0.45))
   for (const side of sides) {
-    const anchor = r.bones[active].localToWorld(thighGrip(side))
+    const anchor = r.bones[active].localToWorld(thighGrip(side, active))
     const q = palmOrientation(side, V(-side * 0.65, 0.35, 0.78), V(-side * 0.4, 0.1, -0.75))
     handOn(r, side, anchor, q, V(side * 0.42, 0.22, -0.28))
   }
@@ -94,7 +97,7 @@ function slider(r: MovementRig, t: number, which: Side) {
     r.bones[leg + 1].rotation.x = (80 - (s === side ? 61 * f : 0)) * rad
     r.root.updateMatrixWorld(true)
     if (s === side) worldRotation(r.bones[leg + 2], Q(-32 * f * f))
-    else footOn(r, side, V(side * 0.095, 0.064, 0.285), V(side * 0.11, 0.48, 0.65))
+    else footOn(r, side, V(side * 0.095, ANKLE_Y, 0.285), V(side * 0.11, 0.48, 0.65))
     const palm = V(side * 0.115, 0.478, 0.0)
     handOn(
       r,
@@ -124,7 +127,7 @@ function custom(r: MovementRig, p: Project, t: number) {
   if (p.plantFeet) {
     r.root.updateMatrixWorld(true)
     for (const side of sides)
-      footOn(r, side, V(side * 0.08, 0.065, 0.07), V(side * 0.13, 0.46, 0.8))
+      footOn(r, side, pivot(side === 1 ? 14 : 17), V(side * 0.13, 0.46, 0.8))
   }
 }
 export function sampleStudio(r: MovementRig, id: ClipId, time: number, side: Side, p: Project) {
@@ -141,7 +144,7 @@ export function sampleStudio(r: MovementRig, id: ClipId, time: number, side: Sid
     r.bones[2].rotation.x = 0.16 * f
     r.root.updateMatrixWorld(true)
     for (const s of sides) {
-      footOn(r, s, V(s * 0.115, 0.065, 0.07), V(s * 0.18, 0.47, 0.55))
+      footOn(r, s, V(s * 0.115, ANKLE_Y, 0.07), V(s * 0.18, 0.47, 0.55))
       r.bones[s === 1 ? 6 : 9].rotation.x = -1.37 * f
     }
   } else if (id === 'curl') {
@@ -149,6 +152,8 @@ export function sampleStudio(r: MovementRig, id: ClipId, time: number, side: Sid
   } else if (id === 'custom') custom(r, p, t)
   else if (hasScore(id)) sampleGuide(r, id, t, side)
   else sampleMovement(r, id, t)
+  // Poses that turn the forearm directly still need the ulna to hinge with it.
+  if (!hasScore(id)) followUlna(r)
   r.root.updateMatrixWorld(true)
   r.skeleton.update()
 }

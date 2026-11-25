@@ -28,7 +28,8 @@ export const postures: Record<Posture, Base> = {
   pigeon: { y: 0.32, pose: { leg: [92, 26, 101, 0, 43], other: [-30, 3, 8, 37] } },
   allFours: {
     y: 0.5,
-    pitch: 85,
+    // Shoulders over the hands with straight arms sit a little higher than the hips over the knees.
+    pitch: 79,
     pose: { leg: [88, 2, 90, 25], other: [88, 2, 90, 25], a: [81, 2, 5], b: [81, 2, 5] },
   },
   heelSit: { y: 0.23, pose: { leg: [62, 3, 140, 34], other: [62, 3, 140, 34] } },
