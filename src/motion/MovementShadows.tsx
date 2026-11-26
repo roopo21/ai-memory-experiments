@@ -2,6 +2,7 @@ import { useContext, useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { CanvasTexture, Group, Mesh, MeshBasicMaterial, Vector3 } from 'three'
 import { BodyPose } from './LivingBody'
+import { ANKLE_Y } from './joints'
 
 /** Small, soft contact marks keep the animated palms and soles visually grounded. */
 export default function MovementShadows() {
@@ -30,7 +31,7 @@ export default function MovementShadows() {
       parent.worldToLocal(point)
       const mesh = group.current.children[i] as Mesh
       const foot = i < 2
-      const height = Math.max(0, point.y - (foot ? 0.065 : 0.035))
+      const height = Math.max(0, point.y - (foot ? ANKLE_Y : 0.035))
       mesh.position.set(point.x, -0.001, point.z + (foot ? 0.05 : 0))
       const spread = 1 + height * 1.5
       mesh.scale.set((foot ? 0.22 : 0.15) * spread, (foot ? 0.3 : 0.15) * spread, 1)

@@ -8,6 +8,19 @@ import { scores } from '../src/studio/choreography'
 import { selectSurfaces } from '../src/motion/studio/figure'
 import { sampleStudio } from '../src/motion/studio/sample'
 import { newProject } from '../src/studio/project'
+import { joints } from '../src/motion/joints'
+/** Whether a vertex moves mostly with a hand or finger bone. */
+const handJoints = new Set(
+  joints
+    .map(([name], i) => [name, i] as const)
+    .filter(([name]) => /Hand|Thumb|Index|Middle|Ring|Little/.test(name) && !name.includes('Toe'))
+    .map(([, i]) => i),
+)
+const mittenHand = (indices: ArrayLike<number>, weights: ArrayLike<number>, k: number) => {
+  let largest = k
+  for (let a = k; a < k + 4; a++) if (weights[a] > weights[largest]) largest = a
+  return handJoints.has(indices[largest])
+}
 const rig = createMovementRig(),
   proj = newProject(),
   pv = previews.previews as Record<string, { url: string }>,
@@ -48,6 +61,9 @@ for (const tier of ['human', 'preview', 'full']) {
         for (const { coords, indices, weights, name } of surfaces) {
           let m = Infinity
           for (let i = 0, k = 0; i < coords.length; i += 3, k += 4) {
+            // The performer's hands are coarse, with the fingers curled as scanned; a palm laid
+            // flat presses them into the floor. Hands are checked on the anatomy tiers.
+            if (tier === 'human' && mittenHand(indices, weights, k)) continue
             const x = coords[i],
               y = coords[i + 1],
               z = coords[i + 2]

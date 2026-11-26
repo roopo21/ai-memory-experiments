@@ -13,7 +13,9 @@ import {
   Mesh,
 } from 'three'
 import { distalBindings, digitTips } from './distalJoints'
-import { joints } from './joints'
+import { ANKLE_Y, joints, ULNA } from './joints'
+import { followUlna } from './anatomy'
+import { oldLocal } from './oldPivots'
 import type { Structure } from '../anatomy/catalogue'
 
 export type BodyAction = 'idle' | 'wheel' | 'moonwalk' | 'cartwheel'
@@ -186,7 +188,14 @@ export function sampleMovement(rig: MovementRig, action: BodyAction, time: numbe
     for (const side of [1, -1]) {
       const arm = side === 1 ? 6 : 9,
         leg = side === 1 ? 12 : 15
-      solveLimb(rig, leg, leg + 1, leg + 2, V(side * 0.11, 0.065, 0.65), V(side * 0.13, 0.55, 0.85))
+      solveLimb(
+        rig,
+        leg,
+        leg + 1,
+        leg + 2,
+        V(side * 0.11, ANKLE_Y, 0.65),
+        V(side * 0.13, 0.55, 0.85),
+      )
       worldRotation(b[leg + 2], new Quaternion())
       solveLimb(
         rig,
@@ -223,7 +232,7 @@ export function sampleMovement(rig: MovementRig, action: BodyAction, time: numbe
         leg,
         leg + 1,
         leg + 2,
-        V(side * 0.09, 0.065 + 0.065 * toe, 0.075 + z),
+        V(side * 0.09, ANKLE_Y + 0.065 * toe, 0.075 + z),
         V(side * 0.1, 0.4, 0.48),
       )
       worldRotation(b[leg + 2], qx(0.55 * toe))
@@ -287,6 +296,7 @@ export function sampleMovement(rig: MovementRig, action: BodyAction, time: numbe
     }
     plantCartwheel(rig)
   }
+  followUlna(rig)
   rig.root.updateMatrixWorld(true)
 }
 
@@ -295,10 +305,10 @@ function plantCartwheel(rig: MovementRig) {
   rig.root.updateMatrixWorld(true)
   const b = rig.bones
   const tips = [
-    b[8].localToWorld(V(0.03, -0.18, 0.01)),
-    b[11].localToWorld(V(-0.03, -0.18, 0.01)),
-    b[14].localToWorld(V(0, -0.06, 0.04)),
-    b[17].localToWorld(V(0, -0.06, 0.04)),
+    b[8].localToWorld(oldLocal(8, 0.03, -0.18, 0.01)),
+    b[11].localToWorld(oldLocal(11, -0.03, -0.18, 0.01)),
+    b[14].localToWorld(oldLocal(14, 0, -0.06, 0.04)),
+    b[17].localToWorld(oldLocal(17, 0, -0.06, 0.04)),
   ]
   b[0].position.y -= Math.min(...tips.map((p) => p.y))
   rig.root.updateMatrixWorld(true)
@@ -329,6 +339,7 @@ export function advanceMovement(
     )
       moving = true
   })
+  followUlna(rig)
   rig.root.updateMatrixWorld(true)
   if (action === 'cartwheel') plantCartwheel(rig)
   return moving
@@ -343,7 +354,9 @@ function rigidJoint(s: Structure, center: Vector3) {
   if (s.region === 'Hands') return left ? 8 : 11
   if (s.region === 'Shoulders and arms') {
     if (name.includes('humerus')) return left ? 6 : 9
-    if (name.includes('radius') || name.includes('ulna')) return left ? 7 : 10
+    // The ulna only hinges; the radius carries the hand through pronation.
+    if (name.includes('ulna')) return left ? ULNA.left : ULNA.right
+    if (name.includes('radius')) return left ? 7 : 10
     return left ? 18 : 19
   }
   if (s.region === 'Skull and hyoid' || s.region === 'Teeth') return 5

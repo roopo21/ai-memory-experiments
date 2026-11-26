@@ -1,14 +1,27 @@
 import { Quaternion, Vector3 } from 'three'
-import { indexOfJoint, type Triple } from '../joints'
+import { indexOfJoint, local, type Triple } from '../joints'
+import { limbFrames } from '../limbFrames'
 import { solveLimb, worldRotation, type MovementRig } from '../movementRig'
 import { pinWeight } from '../../studio/pins'
 import type { AnchorSpace, EndJoint, Pin } from '../../studio/pins'
 
-export const palmPad = (side: number) => new Vector3(0.012 * side, -0.075, 0.083)
-export const toePad = () => new Vector3(0, -0.046, 0.166)
-export const solePad = () => new Vector3(0, -0.064, 0.04)
-const offset = (limb: EndJoint, point: Pin['point']) =>
-  point === 'palm' ? palmPad(limb === 'leftHand' ? 1 : -1) : point === 'toe' ? toePad() : solePad()
+const frame = (side: number) => (side === 1 ? limbFrames.left : limbFrames.right)
+/** Centre of the palm's soft-tissue surface, over the third metacarpal. */
+export const palmPad = (side: number) => {
+  const p = frame(side).palmCentre
+  return local(side === 1 ? 8 : 11, p[0], p[1], p[2])
+}
+// Plantar landmarks in bind coordinates: under the toe pads, and under the midfoot.
+const TOE = [0.08, 0.019, 0.236] as const,
+  SOLE = [0.08, 0.001, 0.11] as const
+/** The pads of the toes, where the foot meets the floor in a plank. */
+export const toePad = (side = 1) => local(side === 1 ? 14 : 17, side * TOE[0], TOE[1], TOE[2])
+/** The sole under the midfoot, at floor level when standing. */
+export const solePad = (side = 1) => local(side === 1 ? 14 : 17, side * SOLE[0], SOLE[1], SOLE[2])
+const offset = (limb: EndJoint, point: Pin['point']) => {
+  const side = limb.startsWith('left') ? 1 : -1
+  return point === 'palm' ? palmPad(side) : point === 'toe' ? toePad(side) : solePad(side)
+}
 export function landmark(r: MovementRig, p: Pick<Pin, 'limb' | 'point'>) {
   return r.bones[indexOfJoint[p.limb]].localToWorld(offset(p.limb, p.point))
 }
@@ -23,14 +36,26 @@ export function pinHere(
   point: Pin['point'],
 ): Pin {
   const bone = r.bones[indexOfJoint[limb]],
-    v = landmark(r, { limb, point })
-  if (space !== 'world') r.bones[indexOfJoint[space]].worldToLocal(v)
+    v = landmark(r, { limb, point }),
+    q = bone.getWorldQuaternion(new Quaternion())
+  if (space === 'world')
+    return {
+      limb,
+      space,
+      point,
+      at: v.toArray() as Triple,
+      rotation: q.toArray() as Pin['rotation'],
+    }
+  const parent = r.bones[indexOfJoint[space]]
+  parent.worldToLocal(v)
+  q.premultiply(parent.getWorldQuaternion(new Quaternion()).invert())
   return {
     limb,
     space,
     point,
     at: v.toArray() as Triple,
-    rotation: bone.getWorldQuaternion(new Quaternion()).toArray() as Pin['rotation'],
+    rotation: q.toArray() as Pin['rotation'],
+    relative: true,
   }
 }
 export function applyPins(r: MovementRig, pins: Pin[], t: number) {
@@ -42,6 +67,8 @@ export function applyPins(r: MovementRig, pins: Pin[], t: number) {
       const end = indexOfJoint[p.limb],
         [a, b, c] = r.bones.slice(end - 2, end + 1),
         q = new Quaternion(...p.rotation)
+      if (p.relative && p.space !== 'world')
+        q.premultiply(r.bones[indexOfJoint[p.space]].getWorldQuaternion(new Quaternion()))
       const target = destination(r, p).sub(offset(p.limb, p.point).applyQuaternion(q))
       const [start, bend, tip] = [a, b, c].map((bone) => bone.getWorldPosition(new Vector3()))
       if (weight < 1) {

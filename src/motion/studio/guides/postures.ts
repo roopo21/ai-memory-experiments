@@ -1,7 +1,13 @@
 import type { Leg, Pose, Posture } from '../../../studio/choreography/types'
 const sit: Leg = [82, 0, 82],
-  long: Leg = [88, 1, 3],
-  folded: Leg = [76, 42, 108, 0, 54],
+  long: Leg = [88, 1, 5],
+  // Seated on the floor with an upright pelvis the hips sit 10 cm up, so a folded leg keeps its
+  // knee low and its ankle on the floor: these were solved from the foot placements.
+  // An easy cross-legged seat: one foot tucked near the midline, the other just in front of it.
+  folded: Leg = [89, 42, 140, 48, 72, -9],
+  foldedFront: Leg = [108, 36, 124, 60, 54, -27],
+  // Soles together a forearm's length in front of the hips, knees out and low.
+  butterflyLeg: Leg = [94, 55, 133, 35, 69, 4],
   rear: Leg = [-5, 2, 89, 28],
   front: Leg = [78, 2, 83]
 type Base = { y: number; z?: number; pitch?: number; pose: Pose }
@@ -10,10 +16,11 @@ export const postures: Record<Posture, Base> = {
   lunge: { y: 0.84, pose: { leg: [-16, 2, 8, 8], other: [28, 2, 36] } },
   chair: { y: 0.535, z: -0.2, pose: { leg: sit, other: sit } },
   figureFour: { y: 0.535, z: -0.2, pose: { leg: [87, 31, 99, 0, 56], other: sit } },
-  floorSeat: { y: 0.16, pose: { leg: folded, other: folded } },
+  floorSeat: { y: 0.16, pose: { leg: folded, other: foldedFront } },
   longSit: { y: 0.16, pose: { leg: long, other: long } },
-  straddle: { y: 0.16, pose: { leg: [86, 36, 3], other: [86, 36, 3] } },
-  butterfly: { y: 0.16, pose: { leg: folded, other: folded } },
+  // Knees a touch soft, as straddle cues allow, so the legs keep a clear hinge.
+  straddle: { y: 0.16, pose: { leg: [86, 36, 5], other: [86, 36, 5] } },
+  butterfly: { y: 0.16, pose: { leg: butterflyLeg, other: butterflyLeg } },
   supine: { y: 0.125, z: -0.06, pitch: -90, pose: { a: [0, 12, 3], b: [0, 12, 3] } },
   prone: {
     y: 0.16,
@@ -25,10 +32,11 @@ export const postures: Record<Posture, Base> = {
   halfKneel: { y: 0.5, pose: { leg: rear, other: front } },
   split: { y: 0.5, pose: { leg: front, other: rear } },
   squat: { y: 0.78, pose: { leg: [25, 12, 35], other: [25, 12, 35] } },
-  pigeon: { y: 0.32, pose: { leg: [92, 26, 101, 0, 43], other: [-30, 3, 8, 37] } },
+  pigeon: { y: 0.24, pose: { leg: [108, 30, 125, 0, 72], other: [-30, -14, 6, 48] } },
   allFours: {
     y: 0.5,
-    pitch: 85,
+    // Shoulders over the hands with straight arms sit a little higher than the hips over the knees.
+    pitch: 79,
     pose: { leg: [88, 2, 90, 25], other: [88, 2, 90, 25], a: [81, 2, 5], b: [81, 2, 5] },
   },
   heelSit: { y: 0.23, pose: { leg: [62, 3, 140, 34], other: [62, 3, 140, 34] } },

@@ -1,6 +1,8 @@
 import tissues from './tissue-contacts.json'
 import cloud from './contact-cloud.json'
-import { joints } from '../../joints'
+import { Vector3 } from 'three'
+import { indexOfJoint, joints, local, type Joint } from '../../joints'
+import { digitTips } from '../../distalJoints'
 import type { MovementRig } from '../../movementRig'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 const samples = cloud.map((row, i) =>
@@ -30,15 +32,59 @@ const hands = ['left', 'right'].map((side) =>
       !joints[i][0].includes('Toe'),
   ),
 )
+// Everything but the hands: hands on a surface are put there by their contacts, and their skin
+// near a deeply extended wrist must not lift the whole body.
+const body = all.filter((i) => !hands[0].includes(i) && !hands[1].includes(i))
 export const lowestHand = (r: MovementRig, s: number) => lowestOn(r, hands[s === 1 ? 0 : 1])
+// The contact cloud follows the performer's coarse hands, whose fingers rest curled. The skeleton's
+// fingers are measured here instead: the carpus, each knuckle and the pad beyond every fingertip.
+const CARPUS = 0.025,
+  KNUCKLE = 0.016,
+  FINGER_PAD = 0.005
+/** Height of the lowest point of a hand's bones: carpus, knuckles and fingertip pads. */
+export function lowestHandBone(r: MovementRig, s: 1 | -1) {
+  const side = s === 1 ? 'left' : 'right',
+    at = new Vector3()
+  let low = r.bones[indexOfJoint[(side + 'Hand') as Joint]].getWorldPosition(at).y - CARPUS
+  for (const digit of ['Thumb', 'Index', 'Middle', 'Ring', 'Little']) {
+    const count = digit === 'Thumb' ? 2 : 3
+    for (let k = 1; k <= count; k++)
+      low = Math.min(
+        low,
+        r.bones[indexOfJoint[(side + digit + k) as Joint]].getWorldPosition(at).y - KNUCKLE,
+      )
+    const distal = indexOfJoint[(side + digit + count) as Joint],
+      tip = digitTips[(side + digit) as keyof typeof digitTips]
+    low = Math.min(
+      low,
+      r.bones[distal].localToWorld(local(distal, tip[0], tip[1], tip[2])).y - FINGER_PAD,
+    )
+  }
+  return low
+}
+/** The lowest point of everything but the hands, which grounding leaves to their contacts. */
+export const lowestBody = (r: MovementRig) => lowestOn(r, body)
 export const lowestSurface = (r: MovementRig, lowerOnly = false) =>
   lowestOn(r, lowerOnly ? base : all)
-export function groundGuide(r: MovementRig, id: AuthoredId, lowerOnly = false) {
+/**
+ * Rest the body on the floor. A hand planted on a surface is placed by its contact and does not
+ * lift the body; any other hand still keeps the body clear of the floor.
+ */
+export function groundGuide(
+  r: MovementRig,
+  id: AuthoredId,
+  lowerOnly = false,
+  planted: readonly boolean[] = [true, true],
+) {
   const score = scores[id],
     p = score.posture,
     gear = score.gear ?? []
   r.root.updateMatrixWorld(true)
-  let low = lowestSurface(r, lowerOnly)
+  let low = lowerOnly ? lowestSurface(r, true) : lowestBody(r)
+  if (!lowerOnly)
+    planted.forEach((down, n) => {
+      if (!down) low = Math.min(low, lowestOn(r, hands[n]))
+    })
   const points = (tissues as Partial<Record<AuthoredId, number[][]>>)[id]
   if (points && !lowerOnly)
     for (const point of points) {

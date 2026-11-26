@@ -5,9 +5,9 @@ import { pinWeight, readPins } from '../src/studio/pins'
 import { groups } from '../src/guides/library/groups'
 import { clips, clipInfo, isClip, type ClipId, type Side } from '../src/studio/clips'
 import { applyCue, newProject, putPose, readProject } from '../src/studio/project'
-import { joints } from '../src/motion/joints'
+import { ANKLE_Y, joints } from '../src/motion/joints'
 import { createMovementRig, solveLimb } from '../src/motion/movementRig'
-import { sampleStudio, thighGrip } from '../src/motion/studio/sample'
+import { pushUpPalm, sampleStudio, thighGrip } from '../src/motion/studio/sample'
 import { palmPad, toePad, landmark, destination } from '../src/motion/studio/anchors'
 import { checkCustomMotion, editableCopy } from '../src/motion/studio/author'
 import { selectSurfaces } from '../src/motion/studio/figure'
@@ -63,21 +63,24 @@ for (const id of Object.keys(clips).filter(isClip)) {
         const hand = sign === 1 ? 8 : 11,
           foot = sign === 1 ? 14 : 17
         if (id === 'push-up') {
-          close(world(hand, palmPad(sign)), new Vector3(sign * 0.225, 0, 0.54), 'palm')
-          close(world(foot, toePad()), new Vector3(sign * 0.08, 0, -0.68), 'toe')
+          close(world(hand, palmPad(sign)), pushUpPalm(sign), 'palm')
+          close(world(foot, toePad(sign)), new Vector3(sign * 0.08, 0, -0.68), 'toe')
+          // The elbows bend back toward the feet, off the line from shoulder to wrist.
           const upper = world(hand - 2),
-            elbow = world(hand - 1)
-          assert(elbow.z < upper.z, 'elbow bends back')
+            line = world(hand).sub(upper).normalize(),
+            bend = world(hand - 1).sub(upper)
+          bend.addScaledVector(line, -bend.dot(line))
+          assert(bend.z < 0.001, 'elbow bends back ' + bend.z)
         }
         if (id === 'supine-hamstring')
-          close(world(hand, palmPad(sign)), world(active, thighGrip(sign)), 'thigh grip')
+          close(world(hand, palmPad(sign)), world(active, thighGrip(sign, active)), 'thigh grip')
         if (id === 'squat')
-          close(world(foot), new Vector3(sign * 0.115, 0.065, 0.07), 'squat ankle')
+          close(world(foot), new Vector3(sign * 0.115, ANKLE_Y, 0.07), 'squat ankle')
       }
       if (id === 'supine-hamstring')
-        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.11, 0.064, 0.53), 'resting heel')
+        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.11, ANKLE_Y, 0.53), 'resting heel')
       if (id === 'sciatic-slider-seated')
-        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.095, 0.064, 0.285), 'seated heel')
+        close(world(s === 1 ? 17 : 14), new Vector3(-s * 0.095, ANKLE_Y, 0.285), 'seated heel')
     }
     if (!info.travels)
       first.forEach((row, i) =>
@@ -87,7 +90,8 @@ for (const id of Object.keys(clips).filter(isClip)) {
       )
     const middle = info.seconds * 0.47
     sampleStudio(r, id, middle, side, p)
-    const expected = dumped()
+    const expected = dumped(),
+      turned = r.bones.map((b) => b.getWorldQuaternion(new Quaternion()))
     sampleStudio(r, 'cartwheel', 1.37, 'right', p)
     sampleStudio(r, id, middle, side, p)
     assert.deepEqual(dumped(), expected, 'seek is history independent')
@@ -100,11 +104,19 @@ for (const id of Object.keys(clips).filter(isClip)) {
         [12, 15],
         [13, 16],
         [14, 17],
+        [79, 80],
       ]) {
+        // The scanned skeleton is not quite symmetric: its left and right joint centres differ
+        // by up to 2 mm and its fitted elbow axes by 0.7 degrees, so the same deep elbow bend puts
+        // the two wrists up to 6 mm apart. A side mirrored wrongly is off by centimetres and tens
+        // of degrees.
         const pos = new Vector3().setFromMatrixPosition(r.bones[left].matrixWorld)
         pos.x = -pos.x
         const other = new Vector3(expected[right][12], expected[right][13], expected[right][14])
-        compare(pos, other, 'mirrored ' + id + ' ' + left, 0.00001)
+        compare(pos, other, 'mirrored ' + id + ' ' + left, 0.008)
+        const q = r.bones[left].getWorldQuaternion(new Quaternion())
+        const angle = new Quaternion(q.x, -q.y, -q.z, q.w).angleTo(turned[right])
+        assert(angle < 0.035, 'mirrored ' + id + ' ' + left + ' turns ' + angle)
       }
     }
     if (id !== 'custom') {
@@ -122,7 +134,17 @@ for (const id of Object.keys(clips).filter(isClip)) {
       sampleStudio(r, id, time, side, p)
       const want = r.bones.map((b) => b.getWorldPosition(new Vector3()))
       sampleStudio(r, 'custom', time, side, copy)
-      want.forEach((v, i) => compare(world(i), v, 'editable ' + id + ' ' + joints[i][0], 0.0001))
+      // The copy re-solves its anchored limbs with the editor's pin solver, so allow a millimetre.
+      // A pin holds a planted hand exactly as it was set, where the anatomical solver may leave it
+      // rolled up to 2.5 degrees at the end of forearm range; the digits then differ by millimetres.
+      want.forEach((v, i) =>
+        compare(
+          world(i),
+          v,
+          'editable ' + id + ' ' + joints[i][0],
+          i >= 21 && i < 79 ? 0.004 : 0.001,
+        ),
+      )
     }
   }
 }
