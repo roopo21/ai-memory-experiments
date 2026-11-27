@@ -40,7 +40,7 @@ export function makeGuideChair(id: AuthoredId, side: Side, human: boolean) {
 
   const lift = chairLift(id, side)
   const z = -0.19 - Math.min(lift, 0.19)
-  const grip = human && score.setup.ga === 'seat' ? fixturePoint(id, 'seat', sign) : undefined
+  const grip = score.setup.ga === 'seat' ? fixturePoint(id, 'seat', sign) : undefined
   if (grip) grip.z -= z
   const chair = makeChair(0.43, 0.36, (human ? 0.372 : 0.407) + lift, 0, grip)
   chair.root.position.z = z
@@ -75,6 +75,7 @@ export function makeChair(
     const mesh = part(new CylinderGeometry(radius, radius, direction.length(), 16), material)
     mesh.position.copy(a).lerp(b, 0.5)
     mesh.quaternion.setFromUnitVectors(up, direction.normalize())
+    return mesh
   }
   const rear = -depth / 2
   cushion(width, 0.042, depth, 0.019).position.y = height - 0.021
@@ -90,10 +91,11 @@ export function makeChair(
   back.rotation.x = -0.09
   const v = (x: number, y: number, z: number) => new Vector3(x, y, z)
   if (grip) {
-    const y = grip.y - 0.009
+    const y = grip.y
     for (const dz of [-0.06, 0.06])
       tube(v(grip.x * 0.94, height - 0.018, grip.z + dz), v(grip.x, y, grip.z + dz), 0.009)
-    tube(v(grip.x, y, grip.z - 0.06), v(grip.x, y, grip.z + 0.06), 0.009)
+    tube(v(grip.x, y, grip.z - 0.06), v(grip.x, y, grip.z + 0.06), 0.009).name =
+      grip.x > 0 ? 'left-grip-shaft' : 'right-grip-shaft'
   }
   for (const side of [-1, 1]) {
     const x = side * (width / 2 - 0.032)

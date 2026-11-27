@@ -1,6 +1,6 @@
 import { sampleGuide } from './guides/sampleGuide'
 import { hasScore } from '../../studio/choreography'
-import { basis, flatPalmOrientation, palmOrientation } from './handOrientation'
+import { flatPalmOrientation, palmOrientation } from './handOrientation'
 import { Euler, Quaternion, Vector3 } from 'three'
 import { palmPad, toePad, applyPins } from './anchors'
 import { ANKLE_Y, indexOfJoint, joints, pivot, type Triple } from '../joints'
@@ -46,21 +46,6 @@ export const supports = (human: boolean) => ({
 const sides = [1, -1] as const
 // Behind the middle of the thigh, where both arms reach with the elbows nearly straight.
 export const thighGrip = (side: number, thigh: number) => oldLocal(thigh, side * 0.04, -0.17, -0.05)
-function handOn(r: MovementRig, side: number, at: Vector3, q: Quaternion, pole: Vector3) {
-  const arm = side === 1 ? 6 : 9
-  solveLimb(r, arm, arm + 1, arm + 2, at.clone().sub(palmPad(side).applyQuaternion(q)), pole)
-  // Anchor forearm roll to the thumb side of the planted hand. A half-angle twist can
-  // switch branches at 180 degrees even while both the wrist and elbow remain stationary.
-  const lower = r.bones[arm + 1],
-    hand = r.bones[arm + 2]
-  const axis = hand.getWorldPosition(new Vector3()).sub(lower.getWorldPosition(new Vector3()))
-  const lateral = V(side, 0, 0)
-  const orientation = basis(axis, lateral.clone().applyQuaternion(q)).multiply(
-    basis(r.rest[arm + 2].clone(), lateral).invert(),
-  )
-  worldRotation(lower, orientation)
-  worldRotation(hand, q)
-}
 function footOn(r: MovementRig, side: number, ankle: Vector3, pole: Vector3) {
   const thigh = side === 1 ? 12 : 15
   solveLimb(r, thigh, thigh + 1, thigh + 2, ankle, pole)
@@ -134,9 +119,10 @@ function hamstring(r: MovementRig, t: number, which: Side) {
     })
   }
   legs(ease(t / 2.5) * (1 - ease((t - 5.5) / 2.5)))
-  sides.forEach((side, k) =>
-    reachPalm(r, side, grip(side), thigh().multiply(held[which]![k]), palmPad(side), pole(side)),
-  )
+  sides.forEach((side, k) => {
+    setHand(r, side, handShape([34, 42, 22, 2, 26]))
+    reachPalm(r, side, grip(side), thigh().multiply(held[which]![k]), palmPad(side), pole(side))
+  })
 }
 function slider(r: MovementRig, t: number, which: Side) {
   const s = which === 'left' ? 1 : -1
@@ -152,15 +138,12 @@ function slider(r: MovementRig, t: number, which: Side) {
     r.root.updateMatrixWorld(true)
     if (s === side) worldRotation(r.bones[leg + 2], Q(-32 * f * f))
     else footOn(r, side, V(side * 0.095, ANKLE_Y, 0.285), V(side * 0.11, 0.48, 0.65))
-    const palm = V(side * 0.115, 0.478, 0.0)
-    setHand(r, side, handShape(FLAT_ON_SURFACE))
-    handOn(
-      r,
-      side,
-      palm,
-      flatPalmOrientation(side, V(0, 0, 1), V(0, -1, 0)),
-      V(side * 0.31, 0.53, -0.28),
-    )
+    // The hand drapes over the front-lateral thigh, with the forearm reaching
+    // forward and the fingers dropping over its side.
+    const target = r.bones[leg].localToWorld(V(side * 0.055, -0.12, 0.062))
+    setHand(r, side, handShape([18, 22, 12, 3, 12]))
+    const q = palmOrientation(side, V(-side * 0.25, -0.8, 1), V(-side, -0.55, 0))
+    reachPalm(r, side, target, q, palmPad(side), V(side * 0.21, 0.65, -0.17))
   }
 }
 const eulerQ = (v: Triple | undefined) =>

@@ -280,7 +280,15 @@ export const open: Fingers = [0, 0, 0, 4, 0, 6],
     spread: 0,
     thumb: [10, 18, 10, 20, 14],
   },
-  /** Fingers wrapped round a strap, towel or bar. */
+  /** A fabric loop bears inside the middle joints. The thumb steadies the outside. */
+  loopGrip: Fingers = {
+    mcp: [26, 30, 34, 38],
+    pip: [89, 92, 94, 96],
+    dip: [54, 58, 62, 64],
+    spread: 1,
+    thumb: [20, 22, 18, 23, 18],
+  },
+  /** Fingers wrapped round a towel, stick or bar. */
   grip: Fingers = {
     mcp: [55, 60, 64, 68],
     pip: [78, 82, 84, 84],
