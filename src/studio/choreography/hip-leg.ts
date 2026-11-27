@@ -28,24 +28,24 @@ const nineSet: Pose = {
   other: nineBack,
   pelvis: [0, -40, 14] as const,
   spine: [0, 0, 0] as const,
-  ga: ['floor', 0.08, -0.009, -0.47] as const,
-  gb: ['floor', 0.1, -0.009, -0.7] as const,
+  ga: 'ownThigh',
+  gb: 'Bthigh',
 }
 const nineSwitch: Pose = {
   leg: nineKnees,
   other: nineKnees,
   pelvis: [0, 0, 0] as const,
   spine: [0, 0, 0] as const,
-  ga: ['floor', 0.02, -0.009, -0.5] as const,
-  gb: ['floor', -0.02, -0.009, -0.5] as const,
+  ga: 'ownKnee',
+  gb: 'ownKnee',
 }
 const nineOther: Pose = {
   leg: nineBack,
   other: nineFront,
   pelvis: [0, 40, -14] as const,
   spine: [0, 0, 0] as const,
-  ga: ['floor', -0.1, -0.009, -0.7] as const,
-  gb: ['floor', -0.08, -0.009, -0.47] as const,
+  ga: 'Bthigh',
+  gb: 'ownThigh',
 }
 export const hipLeg = {
   'kneeling-hip-flexor': st('halfKneel', {}, 'Tuck the pelvis and move forward', {
