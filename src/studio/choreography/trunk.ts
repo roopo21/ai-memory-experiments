@@ -344,9 +344,25 @@ export const trunk = {
   ),
   'deep-squat-hold': st(
     'squat',
-    { ga: 'post', gb: 'post' },
-    'Lower the hips between the heels',
-    { leg: [95, 19, 116], other: [95, 19, 116], spine: [19, 0, 0], breath: 1 },
+    {
+      ga: 'post',
+      gb: 'post',
+      // A handshake grip on the upright: fingers forward, palms toward each other, thumbs up.
+      ha: [[0, 0, 1], [-1, 0, 0], 'world'],
+      hb: [[0, 0, 1], [1, 0, 0], 'world'],
+      leg: [0, 6, 0],
+      other: [0, 6, 0],
+    },
+    'Sit back and down between the heels',
+    // Holding the frame at arm's length lets the hips go back and low as a counterweight: heels
+    // flat, knees over the toes, the spine long and leaning only a little.
+    {
+      leg: [125, 8, 140, -30],
+      other: [125, 8, 140, -30],
+      spine: [14, 0, 0],
+      shift: [0, 0, -0.2],
+      breath: 1,
+    },
     { both: true, gear: ['door'] },
   ),
   'pelvic-floor-breathing': st(

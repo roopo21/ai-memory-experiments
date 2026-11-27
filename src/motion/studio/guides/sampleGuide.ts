@@ -1,5 +1,5 @@
 import { Euler, Quaternion, Vector3 } from 'three'
-import { createMovementRig, restPose, type MovementRig } from '../../movementRig'
+import { createMovementRig, restPose, worldRotation, type MovementRig } from '../../movementRig'
 import { ANKLE_Y, indexOfJoint, joints, type Joint } from '../../joints'
 import type { Side } from '../../../studio/clips'
 import { scores, type AuthoredId } from '../../../studio/choreography'
@@ -7,13 +7,14 @@ import type { Aim, Mark, Pose, Point, Reach } from '../../../studio/choreography
 import { contactBone, contactShape, markOf, placeHand } from './contacts'
 import { crossedAnkle, pinch, equipmentPose, inchworm } from './precision'
 import { cycleAt } from './cycles'
-import { groundGuide, lowestHandBone } from './ground'
+import { groundGuide, lowestHandBone, lowestLegPoint, sitsOnFloor } from './ground'
 import {
   prepareSupports,
   clearFloorArms,
   floorHands,
   standingMarks,
   lockStandingFeet,
+  toeOut,
   type FootMark,
 } from './supports'
 import { postures } from './postures'
@@ -21,6 +22,8 @@ import {
   articulateArm,
   isHinged,
   articulateLeg,
+  hipAngles,
+  hipFromAngles,
   handShape,
   limb,
   reachArm,
@@ -94,7 +97,8 @@ function poseAt(
     const shoulder = act || score.both ? p.shoulders : undefined
     setArm(r, s, (act ? p.a : p.b) ?? [], shoulder)
     setLeg(r, s, (act ? p.leg : p.other) ?? [])
-    if (hinged.has(score.posture) && id !== 'inchworm')
+    // The 90/90 turns its pelvis toward the front shin and its legs turn with it.
+    if (hinged.has(score.posture) && id !== 'inchworm' && id !== 'ninety-ninety')
       r.bones[j.thigh].quaternion.premultiply(pelvis.clone().invert())
     setHand(r, s, handShape((act ? p.f : p.g) ?? contactShape(act ? p.ga : p.gb)))
     setToes(r, s, act ? p.toes : p.otherToes)
@@ -204,6 +208,7 @@ function keysFor(id: AuthoredId) {
       holdHands(r, id, key, key, 0)
       clearFloorHands(r)
       articulate(r, true)
+      clearFloorFeet(r, id)
     }
     const key = capture()
     keys.push(key)
@@ -242,6 +247,44 @@ const stepTo = (a: Effector, b: Effector, f: number) => {
   if (travel > 0.02) at.y += Math.min(0.05, travel * 0.15) * Math.sin(Math.PI * f)
   return at
 }
+/**
+ * Move each hip between two beats by its anatomical angles (flexion, abduction, rotation) instead
+ * of by the shortest arc between two orientations. A hip carried through an arc can pass through
+ * flexion, abduction or rotation far outside what the joint allows even when both beats are in
+ * range, as when the legs swap roles in a 90/90 switch; angles that move straight between two
+ * in-range poses stay in range, and a hip rotates the way a person turns it.
+ */
+/**
+ * Guides whose hips swing far between beats, moved by joint angle instead of shortest arc. The
+ * angle path is only well defined while the hip has real flexion, abduction and rotation to
+ * measure; a straight leg folding forward (the inchworm) has none, and its angles jump. Opt a
+ * guide in only after `check-studio`'s 60 Hz continuity test and `check:form` still pass.
+ */
+const ANGLE_HIPS = new Set<AuthoredId>(['ninety-ninety'])
+function blendHips(r: MovementRig, a: Key, b: Key, f: number) {
+  for (const s of sides) {
+    const j = limb(s).thigh,
+      qa = a.rotations[j],
+      qb = b.rotations[j]
+    if (f <= 0 || f >= 1 || qa.angleTo(qb) < 0.02) continue
+    const A = hipAngles(s, qa),
+      B = hipAngles(s, qb)
+    // Unwrap a flexion that crosses the ±180 seam, and keep the orientation when the angles do
+    // not reproduce it (a thigh pointing straight up has no flexion to speak of).
+    const wrap = (d: number) => d - 360 * Math.round(d / 360)
+    const from = hipFromAngles(s, A.flexion, A.abduction, A.rotation),
+      to = hipFromAngles(s, B.flexion, B.abduction, B.rotation)
+    if (from.angleTo(qa) > 0.01 || to.angleTo(qb) > 0.01) continue
+    r.bones[j].quaternion.copy(
+      hipFromAngles(
+        s,
+        A.flexion + wrap(B.flexion - A.flexion) * f,
+        A.abduction + (B.abduction - A.abduction) * f,
+        A.rotation + wrap(B.rotation - A.rotation) * f,
+      ),
+    )
+  }
+}
 export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
   const keys = keysFor(id),
     // A take that returns to its first beat ends on exactly that pose.
@@ -254,8 +297,9 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   r.root.position.lerpVectors(a.root, b.root, f)
   for (let j = 0; j < joints.length; j++)
     r.bones[j].quaternion.slerpQuaternions(a.rotations[j], b.rotations[j], f)
+  if (ANGLE_HIPS.has(id)) blendHips(r, a, b, f)
   cycleAt(r, id, time)
-  lockStandingFeet(r, feet.get(id)!)
+  lockStandingFeet(r, feet.get(id)!, toeOut(id))
   // A crossed ankle stays on the opposite thigh between beats.
   if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
     crossedAnkle(r, id, a.pose)
@@ -276,6 +320,7 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   holdHands(r, id, from, to, along)
   clearFloorHands(r)
   articulate(r, true)
+  clearFloorFeet(r, id)
   if (side === 'right' && !scores[id].both) {
     // Reflect the authored performance once. The tiny bilateral differences in the scanned
     // bind anatomy remain visible. Contact solves and phase timing stay on the same branch.
@@ -345,9 +390,53 @@ function clearFloorHands(r: MovementRig) {
     )
   }
 }
+/**
+ * A foot never sinks into the floor. A body resting on its pelvis cannot also rest on a heel that
+ * hangs below the floor, so the foot is lifted just enough to touch it and the leg bends to carry
+ * it, the way a hip flexes a little more to bring a straight leg up off the floor.
+ */
+function clearFloorFeet(r: MovementRig, id: AuthoredId) {
+  if (!sitsOnFloor(id, scores[id].posture)) return
+  const x = new Vector3(1, 0, 0)
+  let lift = 0
+  for (const s of sides) {
+    const j = limb(s)
+    // A hip lifts a leg a few degrees to clear the floor, no more; past that the body rests on it.
+    let turned = 0
+    for (let pass = 0; pass < 6; pass++) {
+      r.root.updateMatrixWorld(true)
+      const low = lowestLegPoint(r, s),
+        below = 0.001 - low.y
+      if (below <= 0.0002) break
+      // A turn of the whole leg about the hip's side-to-side axis raises a point by -z per
+      // radian. A leg pointing straight down cannot be raised this way, and is left to the pelvis.
+      const dz = low.z - r.bones[j.thigh].getWorldPosition(new Vector3()).z
+      if (Math.abs(dz) < 0.06) break
+      const angle = Math.max(-0.1 - turned, Math.min(0.1 - turned, -below / dz))
+      turned += angle
+      if (angle === 0) break
+      // The foot keeps its own turn: the ankle takes up the few degrees the leg was raised.
+      const foot = r.bones[j.foot].getWorldQuaternion(new Quaternion())
+      worldRotation(
+        r.bones[j.thigh],
+        new Quaternion()
+          .setFromAxisAngle(x, angle)
+          .multiply(r.bones[j.thigh].getWorldQuaternion(new Quaternion())),
+      )
+      worldRotation(r.bones[j.foot], foot)
+    }
+    r.root.updateMatrixWorld(true)
+    lift = Math.max(lift, 0.001 - lowestLegPoint(r, s).y)
+  }
+  // A leg that hangs straight down cannot be raised by turning it; the body rests on it instead.
+  if (lift > 0.0005) r.root.position.y += lift
+}
 /** A planted foot stays planted, or steps along the floor, as the joints interpolate. */
 function holdFeet(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
   const posture = scores[id].posture
+  // The 90/90 swings both legs through joint angles; pinning feet to straight-line marks would
+  // fight the hips.
+  if (id === 'ninety-ninety') return
   // Standing feet are locked to their floor marks already; the inchworm walks them instead.
   if ((posture === 'stand' || posture === 'lunge' || posture === 'squat') && id !== 'inchworm')
     return

@@ -283,7 +283,10 @@ export function standingMarks(r: MovementRig, id: AuthoredId) {
   }
   return marks
 }
-export function lockStandingFeet(r: MovementRig, marks: FootMark[]) {
+/** Degrees the toes turn out in a stance, where the guide asks for it. */
+const TOE_OUT: Partial<Record<AuthoredId, number>> = { 'deep-squat-hold': 20 }
+export const toeOut = (id: AuthoredId) => TOE_OUT[id] ?? 0
+export function lockStandingFeet(r: MovementRig, marks: FootMark[], out = 0) {
   if (!marks.length) return
   r.root.updateMatrixWorld(true)
   let lower = 0
@@ -298,8 +301,10 @@ export function lockStandingFeet(r: MovementRig, marks: FootMark[]) {
   r.root.updateMatrixWorld(true)
   for (const { joint: i, ankle } of marks) {
     const sign = i === 12 ? 1 : -1,
-      pole = at(r, i + 1).add(V(sign * 0.016, 0, 0.36))
+      yaw = out * rad,
+      // The knee points where the foot does.
+      pole = at(r, i + 1).add(V(sign * (0.016 + 0.36 * Math.sin(yaw)), 0, 0.36 * Math.cos(yaw)))
     solveLimb(r, i, i + 1, i + 2, ankle, pole)
-    worldRotation(r.bones[i + 2], rot(0))
+    worldRotation(r.bones[i + 2], new Quaternion().setFromAxisAngle(V(0, 1, 0), sign * yaw))
   }
 }
