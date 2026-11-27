@@ -51,6 +51,22 @@ floating 4, hold motion 3. The main causes:
   for penetration only.
 - The bare atlas rests on a 12 mm cushion of tissue it cannot draw; four guides rest higher.
 
+## Reaching the floor
+
+`leanToReach` (`sampleGuide.ts`) folds the body until a floor hand is within arm length: spine
+flexion first (up to 38°), then, in postures that hinge at the hips (stand, lunge, split, half
+kneel), the pelvis over the thighs (up to 45°); where the hand is behind the hips it leans back
+instead (up to 12°). The root height stays where the legs put it. With it, `check:hands` no longer
+needs lunge-with-rotation, cat-cow, kneeling-back-extension, all-fours-thoracic-rotation,
+adductor-rock-back and seated-straddle in its pending list, and the pigeon and 90/90 poses were
+re-authored so their hands reach. Four guides stay pending (heel-sit-lean-back,
+seated-reverse-reach, seated-rotation, inchworm): their palms sit 58-240 mm above the floor not
+because the arm is short but because a flat palm behind the body needs more shoulder and wrist
+range than the pose allows; they need a different hand contact (fingertips, fist or forearm) or a
+different exercise pose, a decision for the hands owner and the guide author.
+Weight-bearing wrist extension of 79-86° in the quadruped poses is within normal range for a flat
+palm under a vertical forearm (push-up posture), so it was not reduced.
+
 ## Reference data
 
 No motion-capture data is used. Open datasets such as CMU Mocap (free for any use, no

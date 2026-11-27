@@ -134,7 +134,7 @@ export const hipLeg = {
       // The front foot is flexed, as yoga teachers cue, to keep the knee comfortable.
       leg: [108, 30, 125, 0, 72],
       other: [-30, -14, 6, 48],
-      spine: [-14, 0, 0],
+      spine: [8, 0, 0],
       // The pelvis rolls down toward the front leg, as it does when the front hip settles.
       pelvis: [0, -15, 22],
       ga: 'floor',
@@ -161,7 +161,7 @@ export const hipLeg = {
     [
       [
         'Square the chest and hinge over the front shin',
-        { spine: [34, -22, 0], ga: 'ownShin', gb: 'ownShin' },
+        { spine: [34, -22, 0], ga: 'ownShin', gb: 'ownThigh' },
       ],
       ['Sit tall again', { spine: [0, 0, 0], ga: nineSet.ga, gb: nineSet.gb }],
       ['Lift both knees, feet down, hips a little off the floor', nineSwitch],
