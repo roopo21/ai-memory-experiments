@@ -23,6 +23,7 @@
  */
 import assert from 'node:assert/strict'
 import { readFileSync, writeFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { from } from '../asset-pipeline/motion/geometry'
 import { createMovementRig } from '../src/motion/movementRig'
@@ -90,7 +91,12 @@ const failed = [...failing.keys()]
 const fresh = failed.filter((id) => [...kindsOf.get(id)!].some((k) => !known[id]?.includes(k)))
 if (values['write-known']) {
   const all = Object.fromEntries(failed.sort().map((id) => [id, [...kindsOf.get(id)!].sort()]))
-  writeFileSync(knownFile, JSON.stringify(all, null, 1) + '\n')
+  const { format, resolveConfig } = await import('prettier')
+  const path = fileURLToPath(knownFile)
+  writeFileSync(
+    path,
+    await format(JSON.stringify(all), { ...(await resolveConfig(path)), filepath: path }),
+  )
   console.log('Wrote ' + failed.length + ' known failures.')
   process.exit(0)
 }

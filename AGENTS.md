@@ -40,6 +40,16 @@ Asset rebuild commands and their order are in [asset-pipeline/README.md](asset-p
 8. Plans go in `docs/plans/`, one file per plan, listed in `docs/plans/README.md`. Update `docs/plans/roadmap.md` when a milestone moves.
 9. Deploys are manual and production may differ from `main`. Never deploy unless asked. Follow [docs/reference/deploying.md](docs/reference/deploying.md).
 
+## Skills for exercises and the rig
+
+Any work on an exercise, a Motion Lab clip, a pose, a solver or an artifact that shows the body
+moving must use the skills in `.claude/skills/<name>/SKILL.md` (read the file if your tool has no
+skill loader), in this order: `exercise-authoring` (the whole procedure), `biomechanics-physics`
+(contact, balance, joint ranges, rhythms, smoothness; the numbers live in
+`src/motion/physics/policy.ts`), `motion-qa` (render still frames, never video, and run the checks),
+plus `hand-grip-poses` for hands and `nerve-glide-views` for nerve glides. New exercises must pass
+`npm run check:physics` without joining `checks/physics-known.json`.
+
 ## Testing in a browser
 
 - Guide state is in the URL hash, so a link sets up a scene, such as `#mode=stretch&parts=hamstrings&exercise=supine-hamstring` or `#mode=glide&parts=sciatic`.

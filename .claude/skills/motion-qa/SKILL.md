@@ -15,6 +15,7 @@ npm run check:physics -- --only <id>[,<id>]   # floating, sinking, balance, slid
 npm run check:form -- --only <id>             # 75 joint angles inside normal ranges
 npm run check:studio                          # continuity (< 0.82 rad per 60 Hz frame), mirrors, geometry, physics
 ```
+
 The first failure line names the time in seconds; look at stills at that time.
 
 ## 2. Contact sheets
@@ -23,6 +24,7 @@ The first failure line names the time in seconds; look at stills at that time.
 npm run stills:guides -- --output $TMPDIR/sheets --only deep-squat-hold --angles Side,Front \
   --times 0,1.7,3.2 --width 330 --height 300 --figure human
 ```
+
 - `--figure` is `anatomy` (default), `bones`, `human` or `pair`. Use `human` to judge silhouette and
   grips, `bones` to judge joints, `anatomy` to judge what the guide highlights.
 - `--angles` accepts Teaching, Side, Front, Back, Overhead; list several to stack rows.
@@ -35,15 +37,15 @@ npm run stills:guides -- --output $TMPDIR/sheets --only deep-squat-hold --angles
 
 ## 3. What to look for (stop at the first "no")
 
-| Question | Looks wrong when |
-| --- | --- |
-| Is it supported? | gap between body and floor shadow, shadow far below, a seat with hips in the air, a foot sunk in the floor |
-| Would it fall over? | weight outside the feet with no hands or seat to catch it |
-| Are joints human? | wrist bent back more than ~80, fingers curling backwards, knee bending forwards, elbow past straight, shoulder blade not following the arm |
-| Is the pose the exercise? | wrong leg in front, wrong knee angle for the named position, spine rounded when the text says long |
-| Are limbs crossing? | forearm through thigh, hand through hip, shin through the other shin |
-| Is the motion natural? | stop-start linear ramps, a limb popping between frames, jitter during a hold |
-| Does it match both sides? | right side is a clean mirror of the left (`both` guides change roles instead) |
+| Question                  | Looks wrong when                                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Is it supported?          | gap between body and floor shadow, shadow far below, a seat with hips in the air, a foot sunk in the floor                                 |
+| Would it fall over?       | weight outside the feet with no hands or seat to catch it                                                                                  |
+| Are joints human?         | wrist bent back more than ~80, fingers curling backwards, knee bending forwards, elbow past straight, shoulder blade not following the arm |
+| Is the pose the exercise? | wrong leg in front, wrong knee angle for the named position, spine rounded when the text says long                                         |
+| Are limbs crossing?       | forearm through thigh, hand through hip, shin through the other shin                                                                       |
+| Is the motion natural?    | stop-start linear ramps, a limb popping between frames, jitter during a hold                                                               |
+| Does it match both sides? | right side is a clean mirror of the left (`both` guides change roles instead)                                                              |
 
 Check the **Front** and **Overhead** views for leg azimuths (90/90, pigeon, straddle) and the
 **Side** view for heights, depth and spine curve. A pose that is right from the side can still have

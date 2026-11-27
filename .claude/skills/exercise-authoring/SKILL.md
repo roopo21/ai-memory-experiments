@@ -64,6 +64,7 @@ npx tsx checks/check-form.ts --only <id>
 npm run stills:guides -- --output $TMPDIR/sheets --only <id> --angles Side,Front,Overhead --figure human
 npm run check            # before you call it done; also npm run format:check
 ```
+
 New exercises must pass `check:physics` outright: do not add them to
 `checks/physics-known.json`. If a generated asset depends on the pose (`tissue-contacts.json`),
 rerun `npx tsx asset-pipeline/motion/build-guide-contacts.ts`; never hand-edit generated files.
