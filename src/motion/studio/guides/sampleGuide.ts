@@ -5,7 +5,7 @@ import type { Side } from '../../../studio/clips'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import { grip, loopGrip } from '../../../studio/choreography/types'
 import type { Aim, Mark, Pose, Point, Reach } from '../../../studio/choreography/types'
-import { contactBone, contactShape, markOf, placeHand } from './contacts'
+import { contactBone, contactPoints, contactShape, markOf, placeHand } from './contacts'
 import { crossedAnkle, pinch, equipmentPose, inchworm } from './precision'
 import { fitGuideGrips, refitCarriedShaft } from './grips'
 import { cycleAt } from './cycles'
@@ -129,11 +129,84 @@ function poseAt(
   if (id === 'ulnar-tensioner' && Array.isArray(p.f) && p.f[6]) pinch(r)
   groundGuide(r, id, true)
   r.root.updateMatrixWorld(true)
+  leanToReach(r, id, p)
   equipmentPose(r, id, p)
   placeHand(r, id, p.ga, 1, p.ha, p.ea, false, before[0])
   placeHand(r, id, p.gb, -1, p.hb, p.eb, false, before[1])
   floorHands(r, id, p)
   clearFloorArms(r, id)
+}
+/**
+ * A hand that rests on the floor must be able to get there. Where the shoulder is further from its
+ * mark than the arm is long, the body folds the way a person does: first the spine flexes, then
+ * (in postures that hinge at the hips) the pelvis tips over the thighs, until the palm is in reach
+ * or the joint runs out of range. The root height stays where the legs put it, so the hands
+ * come down to the floor instead of the floor being brought up to the hands.
+ */
+const LEAN = { spine: 38, pelvis: 45, step: 3 }
+function leanToReach(r: MovementRig, id: AuthoredId, p: Pose) {
+  const goals = ([1, -1] as const).flatMap((s) => {
+    const reach = s === 1 ? p.ga : p.gb,
+      aim = s === 1 ? p.ha : p.hb
+    if (!reach || reach === 'free') return []
+    const pts = contactPoints(r, id, reach, s, aim)
+    return pts && pts[0].y < 0.1 ? [{ s, goal: pts[0] }] : []
+  })
+  if (!goals.length) return
+  const arm = (s: number) => (s === 1 ? 6 : 9),
+    length = (s: number) => r.rest[arm(s) + 1].length() + r.rest[arm(s) + 2].length() + 0.04
+  const short = () => {
+    r.root.updateMatrixWorld(true)
+    return Math.max(
+      ...goals.map(
+        ({ s, goal }) =>
+          r.bones[arm(s)].getWorldPosition(new Vector3()).distanceTo(goal) - length(s),
+      ),
+    )
+  }
+  const hinges = ['stand', 'lunge', 'split', 'halfKneel'].includes(scores[id].posture)
+  let gap = short()
+  const turn = (who: 'spine' | 'pelvis', degrees: number) => {
+    const q = new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), degrees * rad)
+    if (who === 'spine')
+      for (const [j, share] of [
+        [1, 0.36],
+        [2, 0.38],
+        [3, 0.26],
+      ] as const)
+        r.bones[j].quaternion.multiply(
+          new Quaternion().setFromAxisAngle(new Vector3(1, 0, 0), degrees * share * rad),
+        )
+    else {
+      // Tip the pelvis over the hips: the thighs keep their place in the world.
+      const thighs = [12, 15].map((i) => r.bones[i].getWorldQuaternion(new Quaternion()))
+      r.root.quaternion.multiply(q)
+      r.root.updateMatrixWorld(true)
+      ;[12, 15].forEach((i, k) => worldRotation(r.bones[i], thighs[k]))
+    }
+  }
+  // Fold forward first; where that only takes the hands further away (hands behind the hips),
+  // lean back instead, as far as the spine extends.
+  for (const who of ['spine', 'pelvis'] as const) {
+    if (who === 'pelvis' && !hinges) break
+    for (const direction of [1, -1]) {
+      if (gap <= 0.004) break
+      const limit = direction > 0 ? LEAN[who] : who === 'spine' ? 12 : 12
+      let total = 0
+      while (gap > 0.004 && total < limit) {
+        turn(who, direction * LEAN.step)
+        total += LEAN.step
+        const next = short()
+        if (next >= gap - 1e-5) {
+          turn(who, -direction * total)
+          total = 0
+          gap = short()
+          break
+        }
+        gap = next
+      }
+    }
+  }
 }
 /**
  * Make every limb anatomical while keeping each hand and foot exactly where it is. Between beats

@@ -132,25 +132,24 @@ for (const id of ids) {
 // Hands that should rest on the floor or a surface: the palm sits flat on it. Where the arm is
 // at the end of its range (straight elbow, or shoulder extension behind the body) and the palm
 // still falls short, the trunk is too high or too far back. That belongs to the body pose (root
-// height, spine, pelvis) rather than to the hand. Those exercises are listed, not hidden, and a new one fails the check.
-const PHYSICS_PENDING = new Set([
-  'lunge-with-rotation',
+// height, spine, pelvis) rather than to the hand. Those exercises are listed, not hidden, and a
+// new one fails the check.
+// Four guides still need a body pose that lets a flat palm meet the floor. The hip hinge and
+// spine lean in `leanToReach` (sampleGuide.ts) fixed the other seven; these four are limited by the
+// hand's own orientation at the end of its wrist and shoulder range, not by arm length.
+const PHYSICS_PENDING = new Set<string>([
   'heel-sit-lean-back',
-  'pigeon',
-  'seated-rotation',
-  'seated-straddle',
-  'adductor-rock-back',
   'seated-reverse-reach',
+  'seated-rotation',
   'inchworm',
-  'cat-cow',
-  'kneeling-back-extension',
-  'all-fours-thoracic-rotation',
 ])
 const PALM_GAP = 0.025
 const floating = new Map<string, number>()
 let planted = 0
 for (const [id, score] of Object.entries(scores))
-  for (const frame of score.frames)
+  for (const frame of process.env.ONLY && !process.env.ONLY.split(',').includes(id)
+    ? []
+    : score.frames)
     for (const sign of [1, -1] as const) {
       const reach = sign === 1 ? frame.pose.ga : frame.pose.gb,
         aim = sign === 1 ? frame.pose.ha : frame.pose.hb
