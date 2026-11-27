@@ -41,6 +41,8 @@ Asset rebuild commands and their order are in [asset-pipeline/README.md](asset-p
 9. Deploys are manual and production may differ from `main`. Never deploy unless asked. Follow [docs/reference/deploying.md](docs/reference/deploying.md).
 10. Any exercise that shows a hand, wrist or grip follows [.claude/skills/hand-grip-poses/SKILL.md](.claude/skills/hand-grip-poses/SKILL.md) and passes `npm run check:hands`.
 
+For new Motion Lab stretches, nerve glides, camera or visibility changes, and stills, follow the [nerve glide views skill](.claude/skills/nerve-glide-views/SKILL.md).
+
 ## Testing in a browser
 
 - Guide state is in the URL hash, so a link sets up a scene, such as `#mode=stretch&parts=hamstrings&exercise=supine-hamstring` or `#mode=glide&parts=sciatic`.

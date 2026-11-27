@@ -4,8 +4,8 @@ import { exerciseById } from '../guides/exercises'
 import type { GuideKind } from '../guides/library/types'
 
 export type Side = 'left' | 'right'
-export type Figure = 'anatomy' | 'human' | 'bones' | 'pair'
-export type Angle = 'Teaching' | 'Side' | 'Front' | 'Back' | 'Overhead'
+export type Figure = 'anatomy' | 'human' | 'bones' | 'pair' | 'muscles'
+export type Angle = 'Teaching' | 'Side' | 'Front' | 'Back' | 'Overhead' | 'Focus'
 export type Phase = readonly [number, string]
 type Clip = {
   name: string

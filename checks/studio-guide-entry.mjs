@@ -22,7 +22,7 @@ try {
       assert.equal(await page.getByLabel('Clip', { exact: true }).inputValue(), g.id)
       assert.equal(
         await page
-          .getByRole('button', { name: 'Targets', exact: true })
+          .getByRole('button', { name: 'Full body', exact: true })
           .getAttribute('aria-pressed'),
         'true',
       )

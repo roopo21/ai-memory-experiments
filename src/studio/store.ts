@@ -42,9 +42,12 @@ export function initialSession(params: URLSearchParams): Session {
   return {
     clip: isClip(id) ? id : 'push-up',
     side: params.get('side') === 'right' ? 'right' : 'left',
-    figure: figure === 'human' || figure === 'bones' || figure === 'pair' ? figure : 'anatomy',
+    figure:
+      figure === 'human' || figure === 'bones' || figure === 'muscles' || figure === 'pair'
+        ? figure
+        : 'anatomy',
     angle:
-      (['Teaching', 'Side', 'Front', 'Back', 'Overhead'] as Angle[]).find(
+      (['Teaching', 'Side', 'Front', 'Back', 'Overhead', 'Focus'] as Angle[]).find(
         (a) => a === params.get('angle'),
       ) ?? 'Teaching',
     detail: params.get('detail') === '1',
