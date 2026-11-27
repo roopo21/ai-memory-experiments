@@ -1,8 +1,8 @@
 # Motion studio
 
-Every stretch and nerve-glide card has a **Preview movement in studio** button. It opens the atlas skeleton with the selected muscles or nerves highlighted. In Explore, **Motion studio** opens the movement picker. Select a clip and press **Play**, or enter its name under **Describe a movement**, such as “Seated sciatic slider with a human and skeleton from the side.” **Targets** shows the source bones and highlighted muscle or nerve surfaces. **Human** shows Clover. Both figures share the same side, timing and camera.
+Every stretch and nerve-glide card has a **Preview movement in studio** button. It opens the atlas skeleton with the selected muscles or nerves highlighted. In Explore, **Motion studio** opens the movement picker. Select a clip and press **Play**, or enter its name under **Describe a movement**, such as “Seated sciatic slider with a human and skeleton from the side.” **Full body** shows the muscles with the guide targets highlighted. For glides, muscles fade over the working region so the underlying bones and cyan nerve are visible. **Skeleton + nerves** shows both systems throughout the body. **Focus muscles only** isolates the target muscles for stretches or the working region’s muscles for glides. **Human** shows Clover. Both figures share the same side, timing and camera.
 
-For a hand, foot or jaw detail, the Teaching camera frames the moving part. Front, Back, Side and Overhead show the whole body. The phase buttons take you to named positions, including the five finger shapes in the tendon-glide sequence.
+For a hand, foot or jaw detail, the Teaching camera frames the moving part. Front, Back, Side and Top show the whole body. Focus region frames the active region, with a whole-body inset for floor contact. The phase buttons take you to named positions, including the five finger shapes in the tendon-glide sequence.
 
 ## Record just the figure
 

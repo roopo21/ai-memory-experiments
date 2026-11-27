@@ -10,7 +10,7 @@ import {
 } from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { layerSources, structureByMesh } from '../../anatomy/catalogue'
-import { glideViews, inGlideRegion } from '../../studio/glideViews'
+import { glideViews, inGlideRegion, targetRegion } from '../../studio/glideViews'
 import { meshesOf } from '../../guides/library/groups'
 import { clipInfo, motionTargets, type ClipId, type Figure, type Side } from '../../studio/clips'
 import { skinAnatomyMesh, type MovementRig } from '../movementRig'
@@ -52,7 +52,12 @@ export function selectSurfaces(
         selected.set(name, role)
       }
   }
-  const region = kind === 'glide' ? glideViews.get(partId)?.region : undefined
+  const region =
+    kind === 'glide'
+      ? id === 'custom' && target
+        ? targetRegion(target.id)
+        : glideViews.get(partId)?.region
+      : undefined
   const regionSide = clipInfo(partId).unilateral ? activeSide : undefined
   function roleFor(name: string) {
     const s = structureByMesh.get(name)

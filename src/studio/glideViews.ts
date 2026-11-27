@@ -52,6 +52,14 @@ export const glideViews = new Map(
   ),
 )
 
+// Custom clips can select a nerve directly, without a guide ID.
+export function targetRegion(group: string): Region {
+  if (group === 'brachial-plexus') return 'arm-neck'
+  if (['median', 'ulnar', 'radial'].includes(group)) return 'arm'
+  if (group === 'neural-axis') return 'leg-spine'
+  return 'leg'
+}
+
 export function inGlideRegion(s: Structure, region: Region, side?: Side) {
   const name = s.displayName.toLowerCase()
   if (side && name.includes(side === 'left' ? 'right' : 'left')) return false

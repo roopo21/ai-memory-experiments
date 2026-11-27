@@ -48,6 +48,10 @@ for (const guide of glides) {
     )
   }
 }
+for (const group of groupById.glide.keys()) {
+  const custom = selectSurfaces('custom', 'muscles', 'left', { kind: 'glide', id: group })
+  assert(custom.urls.length > 0, 'Empty muscle view for custom ' + group)
+}
 console.log(
   'Regional nerve targets and muscle exposure verified on both sides for ' +
     glides.length +
