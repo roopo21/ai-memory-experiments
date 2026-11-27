@@ -2,7 +2,7 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from 'react'
 import { theme } from '../../theme'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Grid, useGLTF } from '@react-three/drei'
-import { Group } from 'three'
+import { Group, OrthographicCamera } from 'three'
 import { StudioCamera } from './StudioCamera'
 import performerUrl from './assets/performer.glb?url'
 import { createMovementRig } from '../movementRig'
@@ -15,6 +15,7 @@ import { chair, supports, sampleStudio } from './sample'
 import { hasScore } from '../../studio/choreography'
 import { makeChair } from '../../studio/props/chair'
 import { guideEquipment } from './guides/equipment'
+import { armFrame } from '../anatomy'
 import { addPerformer, makeFigure, selectSurfaces } from './figure'
 
 const capture = new URLSearchParams(location.search).get('capture') === '1'
@@ -121,7 +122,27 @@ function Actor() {
         if (!useStudio.getState().ready) throw Error('The figure is loading.')
         seek(t)
         drawPose()
-        renderStage(gl, scene, camera, figure === 'pair')
+        const handView = new URLSearchParams(location.search).get('handView')
+        if (handView && camera instanceof OrthographicCamera) {
+          const sign = handView === 'right' ? -1 : 1
+          const bone = rig.bones[sign === 1 ? 8 : 11]
+          const frame = armFrame(sign)
+          const at = bone.localToWorld(frame.handLong.clone().multiplyScalar(0.065))
+          const view = camera.clone()
+          const line = frame.radial
+            .clone()
+            .multiplyScalar(0.52)
+            .addScaledVector(frame.palmar, 0.78)
+            .addScaledVector(frame.handLong, 0.36)
+            .transformDirection(bone.matrixWorld)
+          if (at.y < 0.18) line.y = Math.max(0.38, line.y)
+          view.position.copy(at).addScaledVector(line.normalize(), 2)
+          view.up.copy(frame.handLong).negate().transformDirection(bone.matrixWorld)
+          view.lookAt(at)
+          view.zoom = (view.top - view.bottom) / 0.32
+          view.updateProjectionMatrix()
+          renderStage(gl, scene, view, false)
+        } else renderStage(gl, scene, camera, figure === 'pair')
         return gl.domElement.toDataURL('image/' + format, 0.96)
       },
     }

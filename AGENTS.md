@@ -39,6 +39,7 @@ Asset rebuild commands and their order are in [asset-pipeline/README.md](asset-p
 7. Keep three.js and `@react-three/*` out of the main bundle. Only code reached through the lazy imports in `App.tsx` (`viewer/Scene.tsx` and `ui/LoadingBar.tsx`) may import them, so the panel paints before the 3D engine arrives.
 8. Plans go in `docs/plans/`, one file per plan, listed in `docs/plans/README.md`. Update `docs/plans/roadmap.md` when a milestone moves.
 9. Deploys are manual and production may differ from `main`. Never deploy unless asked. Follow [docs/reference/deploying.md](docs/reference/deploying.md).
+10. Any exercise that shows a hand, wrist or grip follows [.claude/skills/hand-grip-poses/SKILL.md](.claude/skills/hand-grip-poses/SKILL.md) and passes `npm run check:hands`.
 
 For new Motion Lab stretches, nerve glides, camera or visibility changes, and stills, follow the [nerve glide views skill](.claude/skills/nerve-glide-views/SKILL.md).
 

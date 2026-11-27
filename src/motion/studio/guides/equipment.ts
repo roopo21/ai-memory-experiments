@@ -10,7 +10,7 @@ import {
 import { makeGuideChair } from '../../../studio/props/chair'
 import { makeBand } from '../../../studio/props/band'
 import { scores, type AuthoredId } from '../../../studio/choreography'
-import { palmPad } from '../anchors'
+import { worldGrip } from '../anchors'
 import type { MovementRig } from '../../movementRig'
 import { fixturePoint } from './contacts'
 import type { Side } from '../../../studio/clips'
@@ -69,6 +69,7 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
     }
     update()
     if (dynamic) updates.push(update)
+    return mesh
   }
   function table(x: number, y: number, z: number, w: number, d: number, back = false) {
     box(x, y - 0.018, z, w, 0.036, d, wood)
@@ -145,7 +146,7 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
       () => V(0.46, 1.89, 0.09),
       0.016,
       wood,
-    )
+    ).name = 'grip-shaft'
     for (const k of [-1, 1]) box(k * 0.47, 0.95, 0.09, 0.025, 1.9, 0.025, frame)
   }
   if (gear.has('longRoll'))
@@ -166,7 +167,7 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
   if (gear.has('kneePillow')) ball(0, 0.11, 0.32, 0.24, 0.115, 0.19, fabric)
   if (gear.has('ball')) ball(0, 0.32, -0.16, 0.32, 0.32, 0.32, fabric)
   const leg = s === 1 ? 14 : 17,
-    hand = (sign: number) => r.bones[sign === 1 ? 8 : 11].localToWorld(palmPad(sign))
+    hand = (sign: number) => worldGrip(r, sign)
   if (gear.has('smallBall')) {
     const mesh = ball(0, 0.023, 0, 0.023, 0.023, 0.023, gold)
     updates.push(() => {
@@ -186,10 +187,21 @@ export function guideEquipment(id: AuthoredId, side: Side, r: MovementRig, human
       gear.has('stick') ? 0.011 : 0.015,
       gear.has('stick') ? wood : gold,
       true,
-    )
+    ).name = 'grip-shaft'
   }
   if (gear.has('footStrap') || gear.has('quadStrap')) {
-    const band = makeBand(r, r.bones[leg], s, gear.has('quadStrap'), id === 'strap-itb')
+    const handles = id === 'tibial-tensioner-strap'
+    const band = makeBand(r, r.bones[leg], s, gear.has('quadStrap'), id === 'strap-itb', handles)
+    if (handles)
+      for (const k of [1, -1]) {
+        rod(
+          () => worldGrip(r, k, -0.048),
+          () => worldGrip(r, k, 0.032),
+          0.012,
+          frame,
+          true,
+        ).name = k === 1 ? 'left-grip-shaft' : 'right-grip-shaft'
+      }
     root.add(band.root)
     updates.push(band.update)
     dispose.push(band.dispose)

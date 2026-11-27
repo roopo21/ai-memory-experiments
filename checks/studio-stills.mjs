@@ -22,6 +22,7 @@ const { values: v } = parseArgs({
     angle: { type: 'string', default: 'Teaching' },
     angles: { type: 'string' },
     figure: { type: 'string', default: 'anatomy' },
+    hand: { type: 'string' },
     side: { type: 'string', default: 'left' },
     width: { type: 'string', default: '480' },
     height: { type: 'string', default: '300' },
@@ -73,6 +74,7 @@ async function open(id, angle) {
     clean: '1',
     angle,
     side: v.side,
+    ...(v.hand ? { handView: v.hand } : {}),
     ...(v.detail ? { detail: '1' } : {}),
   })
   await page.goto(dest.href, { waitUntil: 'domcontentloaded' })

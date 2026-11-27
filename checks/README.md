@@ -17,6 +17,6 @@ The build also runs `check:studio` for deterministic pose, contact, project-file
 
 The Node checks import app code from `src/` directly and run in Node with `tsx`, so they need no browser.
 
-`check:studio` includes `check:form` (`check-form.ts`), which measures 75 anatomical joint angles on every guide at 30 Hz and holds them inside normal ranges. `npm run stills:guides` (`studio-stills.mjs`) renders labelled contact sheets of chosen guides for form review; it never records video.
+`check:studio` includes `check:form` (`check-form.ts`), which measures 75 anatomical joint angles on every guide at 30 Hz and holds them inside normal ranges. `check:hands` (`check-hands.ts`) holds wrists and fingers in range with no backward fingers, measures every grip on the rendered prop (fingers within -4 to +6 mm of a bar, stick, towel, strap or handle) and checks that floor palms are flat and down. Exercises whose arms cannot reach the floor because of the body pose are listed, not hidden. `npm run stills:guides` (`studio-stills.mjs`) renders labelled contact sheets of chosen guides for form review; it never records video.
 
 All guide IDs, both sides and named phases are covered by `check:studio`. `check:studio:geometry` compares the animated geometry against the floor. `check:studio:library` captures visible changes on the anatomy stage for every guide and writes a per-movement report. `render:guides` uses the same browser check and also encodes and verifies anatomy MP4 files. See the [studio guide](../docs/reference/motion-studio.md).

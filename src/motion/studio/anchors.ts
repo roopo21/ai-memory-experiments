@@ -1,5 +1,6 @@
 import { Quaternion, Vector3 } from 'three'
 import { indexOfJoint, local, type Triple } from '../joints'
+import { armFrame } from '../anatomy'
 import { limbFrames } from '../limbFrames'
 import { solveLimb, worldRotation, type MovementRig } from '../movementRig'
 import { pinWeight } from '../../studio/pins'
@@ -11,6 +12,21 @@ export const palmPad = (side: number) => {
   const p = frame(side).palmCentre
   return local(side === 1 ? 8 : 11, p[0], p[1], p[2])
 }
+// A handle crosses the proximal finger pads obliquely, from the higher index knuckle
+// to the lower little knuckle. Coordinates are measured in the registered hand frame.
+export function gripPoint(side: number, across = 0, hook = false) {
+  const f = armFrame(side === 1 ? 1 : -1)
+  return f.handLong
+    .clone()
+    .multiplyScalar((hook ? 0.095 : 0.074) + 0.43 * across)
+    .addScaledVector(f.palmar, hook ? 0.025 : 0.034)
+    .addScaledVector(f.radial, across)
+}
+
+export function worldGrip(rig: MovementRig, side: number, across = 0, hook = false) {
+  return rig.bones[side === 1 ? 8 : 11].localToWorld(gripPoint(side, across, hook))
+}
+
 // Plantar landmarks in bind coordinates: under the toe pads, and under the midfoot.
 const TOE = [0.08, 0.019, 0.236] as const,
   SOLE = [0.08, 0.001, 0.11] as const

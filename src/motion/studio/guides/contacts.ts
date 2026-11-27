@@ -1,6 +1,6 @@
 import { flatPalmOrientation, palmOrientation } from '../handOrientation'
 import { Quaternion, Vector3 } from 'three'
-import { onFloor } from '../../../studio/choreography/types'
+import { grip, onFloor } from '../../../studio/choreography/types'
 import type { Aim, AimFrame, Fingers, Mark, Point, Reach } from '../../../studio/choreography/types'
 import type { AuthoredId } from '../../../studio/choreography'
 import { scores } from '../../../studio/choreography'
@@ -10,7 +10,7 @@ import { oldLocal } from '../../oldPivots'
 import { reachPalm, vec, type Side } from '../../anatomy'
 import { limbFrames } from '../../limbFrames'
 import type { MovementRig } from '../../movementRig'
-import { palmPad } from '../anchors'
+import { gripPoint, palmPad } from '../anchors'
 const V = (x = 0, y = 0, z = 0) => new Vector3(x, y, z)
 // Mark offsets were authored against the earlier joint origins; convert them so each mark keeps
 // its place on the body.
@@ -98,7 +98,8 @@ export function contactShape(reach: Reach | undefined): Fingers | undefined {
   const mark = markOf(reach)
   if (!mark || mark === 'free') return undefined
   // A hand resting on the thigh drapes rather than grips.
-  if (mark === 'ownThigh') return [12, 16, 8, 4, 10, 8]
+  if (mark === 'seat') return grip
+  if (mark === 'ownThigh' || mark === 'ownKnee') return [12, 16, 8, 4, 10, 8]
   switch (partOf(mark)) {
     case 'head':
       return mark === 'eye' ? undefined : [12, 18, 10, 6, 10, 8]
@@ -141,7 +142,8 @@ function boneAxisPoint(r: MovementRig, i: number, at: Vector3) {
 function defaultOrientation(r: MovementRig, mark: Mark, bone: number, s: number, goal: Vector3) {
   const part = partOf(mark)
   if (part === 'surface') {
-    if (mark === 'floor' || mark === 'table' || mark === 'seat')
+    if (mark === 'seat') return flatPalmOrientation(s, V(s, 0, 0), V(0, -1, 0))
+    if (mark === 'floor' || mark === 'table')
       return flatPalmOrientation(s, V(s * 0.06, 0, 1), V(0, -1, 0))
     if (mark === 'post') return flatPalmOrientation(s, V(0, 1, 0), V(s, 0, 0))
     if (mark === 'bar') return palmOrientation(s, V(0, 1, 0), V(0, 0, 1))
@@ -202,13 +204,15 @@ const ARM_MARKS: Partial<Record<Mark, () => [number, Vector3]>> = {
   Awrist: () => [7, lerp(L.elbow, L.wrist, 0.9).addScaledVector(vec(L.palmar), -0.018)],
   Aelbow: () => [6, lerp(L.shoulder, L.elbow, 0.86).add(new Vector3(0.004, 0, -0.03))],
 }
-function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
+/** `exact` keeps a bare point where it is; otherwise one at floor height is put palm-down on it. */
+function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number, exact = false) {
   const leg = s === 1 ? 12 : 15,
     mark = markOf(reach)
   const armMark = mark && ARM_MARKS[mark]?.()
   if (armMark) {
     const [bone, at] = armMark,
       goal = r.bones[bone].localToWorld(at.sub(new Vector3(...joints[bone][2])))
+    if (!mark && onTheFloor(reach) && !exact) goal.y = 0.009
     if (Array.isArray(reach) && typeof reach[0] === 'string')
       goal.add(V(reach[1], reach[2], reach[3]))
     return { goal, mark, bone }
@@ -257,6 +261,7 @@ function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
     : mark
       ? fixturePoint(id, mark, s)
       : new Vector3(...(reach as readonly [number, number, number]))
+  if (!mark && onTheFloor(reach) && !exact) goal.y = 0.009
   if (Array.isArray(reach) && typeof reach[0] === 'string')
     goal = goal.add(V(reach[1], reach[2], reach[3]))
   return { goal, mark, bone: rel ? rel[0] : 0 }
@@ -299,6 +304,7 @@ function touchPoint(
     r.bones[tip].updateWorldMatrix(true, false)
     return r.bones[hand].worldToLocal(r.bones[tip].localToWorld(local(tip, end[0], end[1], end[2])))
   }
+  if (mark === 'bar' || mark === 'seat') return gripPoint(s)
   return palmPad(s)
 }
 export function placeHand(
@@ -310,11 +316,12 @@ export function placeHand(
   elbowAim?: Point,
   local = false,
   before?: Quaternion,
+  exact = false,
 ) {
   if (!reach || reach === 'free') return
   const arm = s === 1 ? 6 : 9,
     root = r.root
-  const { goal, mark } = goalOf(r, id, reach, s)
+  const { goal, mark } = goalOf(r, id, reach, s, exact)
   let q = aim instanceof Quaternion ? aim.clone() : contactOrientation(r, id, reach, s, aim)
   const posture = scores[id].posture
   const elbow = r.bones[arm + 1].getWorldPosition(V()),
