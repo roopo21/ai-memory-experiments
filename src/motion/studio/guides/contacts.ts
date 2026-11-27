@@ -204,14 +204,15 @@ const ARM_MARKS: Partial<Record<Mark, () => [number, Vector3]>> = {
   Awrist: () => [7, lerp(L.elbow, L.wrist, 0.9).addScaledVector(vec(L.palmar), -0.018)],
   Aelbow: () => [6, lerp(L.shoulder, L.elbow, 0.86).add(new Vector3(0.004, 0, -0.03))],
 }
-function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
+/** `exact` keeps a bare point where it is; otherwise one at floor height is put palm-down on it. */
+function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number, exact = false) {
   const leg = s === 1 ? 12 : 15,
     mark = markOf(reach)
   const armMark = mark && ARM_MARKS[mark]?.()
   if (armMark) {
     const [bone, at] = armMark,
       goal = r.bones[bone].localToWorld(at.sub(new Vector3(...joints[bone][2])))
-    if (!mark && onTheFloor(reach)) goal.y = 0.009
+    if (!mark && onTheFloor(reach) && !exact) goal.y = 0.009
     if (Array.isArray(reach) && typeof reach[0] === 'string')
       goal.add(V(reach[1], reach[2], reach[3]))
     return { goal, mark, bone }
@@ -260,7 +261,7 @@ function goalOf(r: MovementRig, id: AuthoredId, reach: Reach, s: number) {
     : mark
       ? fixturePoint(id, mark, s)
       : new Vector3(...(reach as readonly [number, number, number]))
-  if (!mark && onTheFloor(reach)) goal.y = 0.009
+  if (!mark && onTheFloor(reach) && !exact) goal.y = 0.009
   if (Array.isArray(reach) && typeof reach[0] === 'string')
     goal = goal.add(V(reach[1], reach[2], reach[3]))
   return { goal, mark, bone: rel ? rel[0] : 0 }
@@ -315,11 +316,12 @@ export function placeHand(
   elbowAim?: Point,
   local = false,
   before?: Quaternion,
+  exact = false,
 ) {
   if (!reach || reach === 'free') return
   const arm = s === 1 ? 6 : 9,
     root = r.root
-  const { goal, mark } = goalOf(r, id, reach, s)
+  const { goal, mark } = goalOf(r, id, reach, s, exact)
   let q = aim instanceof Quaternion ? aim.clone() : contactOrientation(r, id, reach, s, aim)
   const posture = scores[id].posture
   const elbow = r.bones[arm + 1].getWorldPosition(V()),
