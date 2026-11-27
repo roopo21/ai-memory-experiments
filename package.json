@@ -34,7 +34,7 @@
     "build:previews": "tsx asset-pipeline/build/build-previews.ts",
     "build:motion-avatar": "tsx asset-pipeline/motion/build-avatar.ts",
     "render:motion": "tsx asset-pipeline/motion/render.mjs",
-    "check:studio": "tsx checks/check-guide-motion.ts && npm run check:form && tsx checks/check-studio.ts && tsx checks/studio-surfaces.ts && npm run check:studio:geometry",
+    "check:studio": "tsx checks/check-guide-motion.ts && npm run check:form && npm run check:hands && tsx checks/check-studio.ts && tsx checks/studio-surfaces.ts && npm run check:studio:geometry",
     "check:form": "tsx checks/check-form.ts --quiet",
     "stills:guides": "tsx checks/studio-stills.mjs",
     "check:studio:surfaces": "tsx checks/studio-surfaces.ts --dense",
@@ -44,7 +44,8 @@
     "check:studio:geometry": "tsx checks/studio-guide-geometry.ts",
     "check:studio:library": "tsx checks/studio-library-browser.mjs",
     "render:guides": "tsx checks/studio-library-browser.mjs --record",
-    "check:studio:cards": "tsx checks/studio-guide-entry.mjs"
+    "check:studio:cards": "tsx checks/studio-guide-entry.mjs",
+    "check:hands": "tsx checks/check-hands.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

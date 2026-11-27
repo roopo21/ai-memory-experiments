@@ -5,6 +5,7 @@ import {
   hands,
   open,
   flat,
+  onFloor,
   fist,
   softFist,
   thumbInFist,
@@ -47,9 +48,9 @@ export const armHand = {
   'wrist-flexor-stretch': st(
     'stand',
     // Stop sign: arm forward, palm away, fingers up; the other palm eases the fingers back.
-    { a: [85, 2, 8, 155, 62, -10], f: open, gb: 'Afingers', hb: palmToPalm },
+    { a: [85, 2, 8, 155, 32, -10], f: open, gb: 'Afingers', hb: palmToPalm },
     'Draw the straight fingers back',
-    { a: [85, 2, 8, 155, 76, -10], f: [-22, 0, 0, 4, 0, 10] },
+    { a: [85, 2, 8, 155, 56, -10], f: [0, 2, 2, 4, 0, 10] },
     hands,
   ),
   'wrist-extensor-stretch': st(
@@ -102,19 +103,21 @@ export const armHand = {
   'all-fours-wrist-flexor': st(
     'allFours',
     {
-      ga: 'floor',
-      gb: 'floor',
+      ga: ['floor', 0.08, 0, -0.15],
+      gb: ['floor', -0.08, 0, -0.15],
       // Fingers turned back toward the knees, palms flat, elbows straight.
       ha: [
-        [-0.1, 0, -1],
+        [0.7, 0, -0.7],
         [0, -1, 0],
       ],
       hb: [
-        [0.1, 0, -1],
+        [-0.7, 0, -0.7],
         [0, -1, 0],
       ],
-      f: flat,
-      g: flat,
+      ea: [0.7, -0.6, 1],
+      eb: [-0.7, -0.6, 1],
+      f: onFloor,
+      g: onFloor,
     },
     'Sit the hips back over the planted palms',
     { shift: [0, -0.02, -0.1], leg: [102, 4, 108], other: [102, 4, 108] },
@@ -168,7 +171,7 @@ export const armHand = {
       hb: [[0.13, -0.96, 0.23], [-0.09, -0.25, -0.97], 'Ahand'],
     },
     'Draw the straight fingertips toward the floor',
-    { a: [75, 4, 6, 10, 62], f: [-25, -4, 0, 3] },
+    { a: [75, 4, 6, 10, 46], f: [0, 0, 0, 3] },
     hands,
   ),
   'hook-fist-intrinsic': st(

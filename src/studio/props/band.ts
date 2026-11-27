@@ -9,7 +9,7 @@ import {
   MeshStandardMaterial,
   Vector3,
 } from 'three'
-import { palmPad } from '../../motion/studio/anchors'
+import { worldGrip } from '../../motion/studio/anchors'
 import type { MovementRig } from '../../motion/movementRig'
 
 const steps = 20
@@ -27,6 +27,7 @@ export function makeBand(
   side: number,
   heel: boolean,
   oneHand: boolean,
+  handles: boolean,
 ) {
   const geometry = new BufferGeometry()
   const positions = new Float32BufferAttribute(new Float32Array(count * 8 * 3), 3).setUsage(
@@ -57,6 +58,7 @@ export function makeBand(
   const root = new Mesh(geometry, material)
   root.frustumCulled = false
   root.castShadow = true
+  root.name = 'foot-band'
   const centers = Array.from({ length: count }, () => new Vector3())
   const across = new Vector3(),
     tangent = new Vector3(),
@@ -83,16 +85,20 @@ export function makeBand(
     let span = 0
     for (const k of [1, -1]) {
       const gripSide = oneHand ? -side : k
-      const palm = palmPad(gripSide)
-      if (oneHand) palm.z += k * 0.008
-      rig.bones[gripSide === 1 ? 8 : 11].localToWorld(palm)
+      const track = oneHand ? k * 0.008 : 0
+      const palm = worldGrip(rig, gripSide, 0.028 + track, !handles)
+      const tail = worldGrip(rig, gripSide, -0.043 + track, !handles)
       const start = k === 1 ? steps : steps + wrapSteps
       const anchor = centers[start]
       const length = anchor.distanceTo(palm)
       span += length
       for (let j = 1; j <= steps; j++) {
-        const t = j / steps,
+        const t = j / (steps - 3),
           p = centers[start - k * j]
+        if (j > steps - 3) {
+          p.lerpVectors(palm, tail, (j - steps + 3) / 3)
+          continue
+        }
         p.lerpVectors(anchor, palm, t)
         // Less separation leaves a slight bow. Long spans pull straight.
         p.y -= Math.max(0, 0.67 - length) * 0.12 * 4 * t * (1 - t)
@@ -116,9 +122,11 @@ export function makeBand(
       edge.copy(across).addScaledVector(tangent, -across.dot(tangent)).normalize()
       normal.crossVectors(edge, tangent)
       for (let j = 0; j < 8; j++) {
+        // The fabric bunches between the fingers; the free span stays flat.
+        const gather = Math.max(0, 1 - Math.min(i, count - 1 - i) / 4)
         const p = centers[i],
-          d = offsets[j] * halfWidth,
-          h = j < 4 ? 0.0011 : -0.0011
+          d = offsets[j] * (halfWidth * (1 - gather) + 0.004 * gather),
+          h = (j < 4 ? 1 : -1) * (0.0011 + 0.002 * gather)
         positions.setXYZ(
           8 * i + j,
           p.x + edge.x * d + normal.x * h,
