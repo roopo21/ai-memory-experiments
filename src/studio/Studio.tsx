@@ -301,10 +301,10 @@ function Workspace({ children }: { children: ReactNode }) {
         {clip === 'custom' && <Editor />}
         <div className="studio-fields">
           <h2>Figure</h2>
-          <div className="studio-segment" aria-label="Figure appearance">
-            {(['anatomy', 'bones', 'human', 'pair'] as const).map((v, i) => (
+          <div className="studio-views" aria-label="Figure appearance">
+            {(['anatomy', 'bones', 'muscles', 'human', 'pair'] as const).map((v, i) => (
               <button key={v} aria-pressed={figure === v} onClick={() => chooseFigure(v)}>
-                {['Targets', 'Skeleton', 'Human', 'Both'][i]}
+                {['Full body', 'Skeleton + nerves', 'Focus muscles only', 'Human', 'Both'][i]}
               </button>
             ))}
           </div>
@@ -338,18 +338,17 @@ function Workspace({ children }: { children: ReactNode }) {
         <div className="studio-fields">
           <h2>Camera</h2>
           <div className="studio-row">
-            <label>
-              View
-              <select
-                aria-label="Camera angle"
-                value={angle}
-                onChange={(e) => useStudio.setState({ angle: e.target.value as Angle })}
-              >
-                {['Teaching', 'Side', 'Front', 'Back', 'Overhead'].map((a) => (
-                  <option key={a}>{a}</option>
-                ))}
-              </select>
-            </label>
+            <div className="studio-views" role="group" aria-label="Camera angle">
+              {(['Teaching', 'Front', 'Side', 'Back', 'Overhead', 'Focus'] as Angle[]).map((a) => (
+                <button
+                  key={a}
+                  aria-pressed={angle === a}
+                  onClick={() => useStudio.setState({ angle: a })}
+                >
+                  {a === 'Overhead' ? 'Top' : a === 'Focus' ? 'Focus region' : a}
+                </button>
+              ))}
+            </div>
             <button
               aria-label="Frame movement"
               onClick={() => useStudio.setState((s) => ({ resetCamera: s.resetCamera + 1 }))}

@@ -9,7 +9,8 @@ import {
   type Object3D,
 } from 'three'
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
-import { layerSources, skeletonUrl, structureByMesh } from '../../anatomy/catalogue'
+import { layerSources, structureByMesh } from '../../anatomy/catalogue'
+import { glideViews, inGlideRegion } from '../../studio/glideViews'
 import { meshesOf } from '../../guides/library/groups'
 import { clipInfo, motionTargets, type ClipId, type Figure, type Side } from '../../studio/clips'
 import { skinAnatomyMesh, type MovementRig } from '../movementRig'
@@ -33,26 +34,57 @@ export function selectSurfaces(
     ['secondary', secondary],
     ['primary', primary],
   ] as const) {
-    for (const name of meshesOf(kind, groups)) {
-      const opposite = activeSide === 'left' ? 'right' : 'left'
-      if (
-        clipInfo(partId).unilateral &&
-        structureByMesh.get(name)?.displayName.toLowerCase().includes(opposite)
-      )
-        continue
-      selected.set(name, role)
+    for (const group of groups)
+      for (const name of meshesOf(kind, [group])) {
+        // The guide's sciatic group includes neighbouring sacral plexus branches.
+        // Render the named trunk as the sciatic target.
+        if (
+          group === 'sciatic' &&
+          !structureByMesh.get(name)?.displayName.toLowerCase().includes('sciatic nerve')
+        )
+          continue
+        const opposite = activeSide === 'left' ? 'right' : 'left'
+        if (
+          clipInfo(partId).unilateral &&
+          structureByMesh.get(name)?.displayName.toLowerCase().includes(opposite)
+        )
+          continue
+        selected.set(name, role)
+      }
+  }
+  const region = kind === 'glide' ? glideViews.get(partId)?.region : undefined
+  const regionSide = clipInfo(partId).unilateral ? activeSide : undefined
+  function roleFor(name: string) {
+    const s = structureByMesh.get(name)
+    if (!s) return null
+    const targetRole = selected.get(name)
+    const muscle = s.systems.includes('muscular')
+    const local = muscle && region && inGlideRegion(s, region, regionSide)
+    if (figure === 'muscles')
+      return muscle
+        ? (targetRole ?? (local || (!region && !selected.size) ? 'muscle' : null))
+        : null
+    if (figure === 'bones') {
+      if (s.systems.includes('skeletal')) return 'bone'
+      return s.systems.includes('nervous') ? (targetRole ?? 'nerve') : null
     }
+    return (
+      targetRole ??
+      (muscle
+        ? local
+          ? 'faded'
+          : 'muscle'
+        : s.systems.includes('skeletal') && figure !== 'human'
+          ? 'bone'
+          : null)
+    )
   }
   return {
+    roleFor,
     selected,
     kind,
     urls: layerSources
-      .filter(
-        (l) =>
-          (l.url === skeletonUrl && figure !== 'human') ||
-          l.systems.includes('muscular') ||
-          l.meshes.some((n) => selected.has(n)),
-      )
+      .filter((l) => l.meshes.some((name) => roleFor(name) !== null))
       .map((l) => l.url),
   }
 }
@@ -72,7 +104,6 @@ function nerveHighlight(primary: boolean) {
 export function makeFigure(
   scenes: Object3D[],
   rig: MovementRig,
-  figure: Figure,
   selection: ReturnType<typeof selectSurfaces>,
 ) {
   const root = new Group()
@@ -82,13 +113,7 @@ export function makeFigure(
     scene.traverse((o) => {
       if (!(o instanceof Mesh)) return
       const s = structureByMesh.get(o.name),
-        role =
-          selection.selected.get(o.name) ??
-          (s?.systems.includes('muscular')
-            ? 'muscle'
-            : s?.systems.includes('skeletal')
-              ? 'bone'
-              : null)
+        role = selection.roleFor(o.name)
       if (!role) return
       const geo = skinAnatomyMesh(o.clone(false), s, rig).geometry
       for (const attr of Object.keys(geo.attributes))
@@ -104,10 +129,12 @@ export function makeFigure(
     const focus = role === 'primary' || role === 'secondary'
     const color = focus
       ? GUIDE_PALETTE[selection.kind][role]
-      : role === 'muscle'
-        ? MUSCLE
-        : '#e2d5be'
-    const opacity = role === 'muscle' && (nerve || figure === 'bones') ? GLIDE_MUSCLE_OPACITY : 1
+      : role === 'nerve'
+        ? '#709498'
+        : role === 'muscle' || role === 'faded'
+          ? MUSCLE
+          : '#e2d5be'
+    const opacity = role === 'faded' ? GLIDE_MUSCLE_OPACITY : 1
     const material = new MeshStandardMaterial({
       color,
       roughness: 0.68,
@@ -157,7 +184,6 @@ export function makeFigure(
       owned.push(geometry)
     }
   }
-  if (!root.children.length) throw Error('No compatible rig surfaces were found.')
   return { root, dispose: () => owned.forEach((v) => v.dispose()) }
 }
 
