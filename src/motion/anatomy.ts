@@ -320,7 +320,7 @@ export function handShape(f: FingerAngles | undefined): HandShape {
   const [mcp, pip, dip, spread = 0, opposition = 0, open = 0, indexCurl] = f
   // A straight hand keeps a slight natural cascade, so the fingers never look splinted.
   const pick = (v: number | undefined, relaxed: Four) =>
-    v === undefined ? [...relaxed] : [0, 1, 2, 3].map((i) => v + (v < 12 ? i * 2 : 0))
+    v === undefined ? [...relaxed] : [0, 1, 2, 3].map((i) => v + i * 1.5)
   const m = pick(mcp, RELAXED_HAND.mcp),
     p = pick(pip, RELAXED_HAND.pip),
     d = pick(dip, RELAXED_HAND.dip)

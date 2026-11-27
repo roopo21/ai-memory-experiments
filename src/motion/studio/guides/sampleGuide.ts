@@ -3,9 +3,11 @@ import { createMovementRig, restPose, worldRotation, type MovementRig } from '..
 import { ANKLE_Y, indexOfJoint, joints, type Joint } from '../../joints'
 import type { Side } from '../../../studio/clips'
 import { scores, type AuthoredId } from '../../../studio/choreography'
+import { grip, loopGrip } from '../../../studio/choreography/types'
 import type { Aim, Mark, Pose, Point, Reach } from '../../../studio/choreography/types'
 import { contactBone, contactShape, markOf, placeHand } from './contacts'
 import { crossedAnkle, pinch, equipmentPose, inchworm } from './precision'
+import { fitGuideGrips, refitCarriedShaft } from './grips'
 import { cycleAt } from './cycles'
 import { groundGuide, lowestHandBone, lowestLegPoint, sitsOnFloor } from './ground'
 import {
@@ -100,7 +102,21 @@ function poseAt(
     // The 90/90 turns its pelvis toward the front shin and its legs turn with it.
     if (hinged.has(score.posture) && id !== 'inchworm' && id !== 'ninety-ninety')
       r.bones[j.thigh].quaternion.premultiply(pelvis.clone().invert())
-    setHand(r, s, handShape((act ? p.f : p.g) ?? contactShape(act ? p.ga : p.gb)))
+    const holdingLoop =
+      (score.gear?.includes('footStrap') || score.gear?.includes('quadStrap')) &&
+      (id !== 'strap-itb' || !act)
+    setHand(
+      r,
+      s,
+      handShape(
+        (act ? p.f : p.g) ??
+          (holdingLoop
+            ? id === 'tibial-tensioner-strap'
+              ? grip
+              : loopGrip
+            : contactShape(act ? p.ga : p.gb)),
+      ),
+    )
     setToes(r, s, act ? p.toes : p.otherToes)
   }
   r.root.updateMatrixWorld(true)
@@ -210,6 +226,7 @@ function keysFor(id: AuthoredId) {
       articulate(r, true)
       clearFloorFeet(r, id)
     }
+    fitGuideGrips(r, id, reach)
     const key = capture()
     keys.push(key)
     solved.set(JSON.stringify(f.pose), key)
@@ -295,8 +312,20 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   const u = b.time === a.time ? 0 : (time - a.time) / (b.time - a.time),
     f = u * u * (3 - 2 * u)
   r.root.position.lerpVectors(a.root, b.root, f)
-  for (let j = 0; j < joints.length; j++)
-    r.bones[j].quaternion.slerpQuaternions(a.rotations[j], b.rotations[j], f)
+  // A free hand follows the arm into a gesture. Warp the interval by up to 45 ms,
+  // returning exactly to each authored beat even when sampling out of order.
+  const lag = (n: number) => {
+    if (contactKind(a.reach[n]) || contactKind(b.reach[n]) || b.time === a.time) return f
+    const v = u - (0.045 / (b.time - a.time)) * 4 * u * (1 - u)
+    return v * v * (3 - 2 * v)
+  }
+  const left = lag(0),
+    right = lag(1)
+  for (let j = 0; j < joints.length; j++) {
+    const blend =
+      j === 8 || (j >= 21 && j <= 35) ? left : j === 11 || (j >= 50 && j <= 64) ? right : f
+    r.bones[j].quaternion.slerpQuaternions(a.rotations[j], b.rotations[j], blend)
+  }
   if (ANGLE_HIPS.has(id)) blendHips(r, a, b, f)
   cycleAt(r, id, time)
   lockStandingFeet(r, feet.get(id)!, toeOut(id))
@@ -321,6 +350,7 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   clearFloorHands(r)
   articulate(r, true)
   clearFloorFeet(r, id)
+  refitCarriedShaft(r, id)
   if (side === 'right' && !scores[id].both) {
     // Reflect the authored performance once. The tiny bilateral differences in the scanned
     // bind anatomy remain visible. Contact solves and phase timing stay on the same branch.
@@ -340,6 +370,9 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
  * instead of drifting while the joints interpolate.
  */
 function holdHands(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
+  // The body marks for a carried shaft stage the keyframes. The hands hold the
+  // moving shaft itself between beats.
+  if (scores[id].gear?.some((g) => g === 'stick' || g === 'towel')) return
   sides.forEach((s, n) => {
     const reachA = a.reach[n],
       reachB = b.reach[n],

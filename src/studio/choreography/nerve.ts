@@ -5,7 +5,6 @@ import {
   softFist,
   instep,
   hands,
-  type Aim,
   type Fingers,
   type Recipe,
   type Leg,
@@ -32,20 +31,20 @@ const thumbTucked: Fingers = {
 }
 // Fingers and thumb straight, the thumb moved out from the hand.
 const thumbOut: Fingers = {
-  mcp: [-6, -4, -2, 0],
+  mcp: [0, 1, 2, 3],
   pip: [0, 2, 4, 4],
   dip: [0, 0, 2, 2],
   spread: 6,
-  thumb: [-26, 26, -12, 0, -10],
+  thumb: [-19, 22, -8, 4, 2],
 }
 // Wrist and fingers back with the thumb drawn further by the other hand.
-const thumbStretched: Fingers = { ...thumbOut, thumb: [-34, 34, -14, -8, -14] }
+const thumbStretched: Fingers = { ...thumbOut, thumb: [-25, 28, -10, 2, 0] }
+// Thumb rests across the palm inside the loose radial-glide curl.
+const radialCurl: Fingers = [40, 55, 30, 0, 42, 0]
 // Palm up with the arm out to the side: external rotation turns the forearm skyward.
 const sideUp = (elbow: number, wrist: number) => [0, 80, elbow, 10, wrist, 80] as const
 // Palm down with the arm out to the side.
 const sideDown = (elbow: number, wrist: number) => [0, 88, elbow, 92, wrist, 0] as const
-// Palm on the side of the head over the ear, fingers up and back.
-const toEar: Aim = [[0, 1, -0.45], [-1, 0, -0.1], 'head']
 export const nerve = {
   'plexus-shoulder-slider': seq('chair', { a: [0, 8, 10], f: [10, 14, 8] }, [
     ['Lower the shoulder and tilt the head toward it', { shoulders: [-12, 0], neck: [0, 0, 18] }],
@@ -84,7 +83,7 @@ export const nerve = {
     [
       [
         'Wrist and fingers back, head toward the hand',
-        { a: [0, 8, 90, 10, 50], f: [-15, 0, 0, 4, 0, 10], neck: [0, 0, 16] },
+        { a: [0, 8, 90, 10, 50], f: thumbOut, neck: [0, 0, 16] },
       ],
       [
         'Curl the wrist and fingers, head to the centre',
@@ -99,7 +98,7 @@ export const nerve = {
     [
       [
         'Wrist back as the elbow bends the hand toward the shoulder',
-        { a: [50, 6, 118, 10, 50], f: [-12, 0, 0, 4, 0, 8] },
+        { a: [50, 6, 118, 10, 50], f: thumbOut },
       ],
       [
         'Straighten the elbow as the wrist and fingers curl',
@@ -114,7 +113,7 @@ export const nerve = {
     [
       [
         'Straighten the elbow, wrist back, head toward the arm',
-        { a: sideUp(5, 62), f: [-10, 0, 0, 4, 0, 10], neck: [0, 0, 16] },
+        { a: sideUp(5, 52), f: thumbOut, neck: [0, 0, 16] },
       ],
       [
         'Bend the elbow, relax the wrist, head away',
@@ -123,10 +122,7 @@ export const nerve = {
     ],
   ),
   'median-tensioner': seq('stand', { a: sideUp(60, 0), f: open }, [
-    [
-      'Straighten the elbow, wrist and fingers back',
-      { a: sideUp(5, 60), f: [-12, 0, 0, 4, 0, 10] },
-    ],
+    ['Straighten the elbow, wrist and fingers back', { a: sideUp(5, 52), f: thumbOut }],
     ['Tilt the head away gently', { neck: [0, 0, -12] }],
     ['Release the elbow and bring the head back', { a: sideUp(60, 0), f: open, neck: [0, 0, 0] }],
   ]),
@@ -136,10 +132,7 @@ export const nerve = {
     { a: sideDown(5, 0), f: open },
     [
       ['Tip the wrist back, fingers to the ceiling', { a: sideDown(5, 65) }],
-      [
-        'Bend the elbow to bring the palm toward the ear',
-        { a: [5, 88, 125, 95, 60, 35], ga: 'ear', ha: toEar },
-      ],
+      ['Bend the elbow to bring the palm toward the ear', { a: [5, 88, 125, 95, 60, 35] }],
       ['Straighten the elbow and wrist', { a: sideDown(5, 0), ga: 'free' }],
     ],
   ),
@@ -162,7 +155,7 @@ export const nerve = {
   'ulnar-slider': seq('stand', { a: sideDown(5, 0), f: open }, [
     [
       'Bend the elbow and wrist back, palm toward the ear, head toward the hand',
-      { a: [5, 88, 122, 95, 58, 35], ga: 'ear', ha: toEar, neck: [0, 0, 14] },
+      { a: [5, 88, 122, 95, 58, 35], neck: [0, 0, 14] },
     ],
     [
       'Straighten the elbow, relax the wrist, head away',
@@ -188,7 +181,7 @@ export const nerve = {
     ['Press the shoulder down, fingertips toward the floor', { shoulders: [-12, 0], a: [0, 6, 4] }],
     [
       'Turn the arm in, thumb toward the body, and bend the wrist',
-      { a: [0, 6, 4, 160, -55, -55, -10], f: softFist },
+      { a: [0, 6, 4, 160, -45, -55, -10], f: radialCurl },
     ],
     ['Tilt the head away', { neck: [0, 0, -16] }],
     ['Take the arm back and a little out', { a: [-25, 18, 4, 160, -55, -55, -10] }],
@@ -200,7 +193,7 @@ export const nerve = {
     [
       [
         'Bend the wrist into a loose fist, head toward the shoulder',
-        { a: [0, 8, 4, 150, -50, -45, -8], f: softFist, neck: [0, 0, 15] },
+        { a: [0, 8, 4, 150, -50, -45, -8], f: radialCurl, neck: [0, 0, 15] },
       ],
       [
         'Straighten the wrist, open the hand, head away',

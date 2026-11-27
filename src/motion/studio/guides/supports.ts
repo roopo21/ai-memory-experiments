@@ -239,7 +239,17 @@ export function clearFloorArms(r: MovementRig, id: AuthoredId) {
       const palm = r.bones[arm + 2].localToWorld(palmPad(s))
       palm.y += Math.max(0, below)
       // Lift the hand as it is: a bare point near the floor would otherwise lay it flat.
-      placeHand(r, id, palm.toArray(), s, r.bones[arm + 2].getWorldQuaternion(new Quaternion()))
+      placeHand(
+        r,
+        id,
+        palm.toArray(),
+        s,
+        r.bones[arm + 2].getWorldQuaternion(new Quaternion()),
+        undefined,
+        false,
+        undefined,
+        true,
+      )
     }
   }
 }
