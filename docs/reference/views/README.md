@@ -4,6 +4,7 @@ Stills for the region-focused nerve glide view and the camera set. Education onl
 
 - `focus/`: every nerve glide in the Focus camera at the start and 2 s, as contact sheets (`sheet-NN.jpg`) and per glide. Muscles are faded to 0.22 opacity only in the glide's region; the cyan nerve is drawn on top of bone.
 - `before/`: the same glides in the old Teaching view, for comparison.
+- The [phase contact sheets](phases/) show each glide at its named poses, including the distal and proximal end positions. Every frame passed the visible-cyan check outside the floor inset.
 - [Right median slider](right/median-slider.jpg) shows all three named phases from the Focus and Side cameras.
 - The [new camera sheets](cameras/) show squat, Cossack squat and chair hamstring from Teaching, Front, Side, Back, Top and Focus. The [baseline sheets](cameras-before/) show the five cameras available before Focus was added.
 
