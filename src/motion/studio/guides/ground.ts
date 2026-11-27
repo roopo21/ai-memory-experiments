@@ -71,10 +71,17 @@ export const lowestBody = (r: MovementRig) => lowestOn(r, body)
  */
 const SIT_POSTURES = new Set(['floorSeat', 'longSit', 'straddle', 'butterfly'])
 /** Guides whose arm solve cannot yet follow the body resting on its pelvis; see check-physics. */
-const SIT_EXCLUDED = new Set<string>(['single-leg-seated-hamstring', 'towel-calf'])
+const SIT_EXCLUDED = new Set<string>([
+  'single-leg-seated-hamstring',
+  'towel-calf',
+  'seated-rotation',
+])
 export const sitsOnFloor = (id: string, posture: string) =>
   SIT_POSTURES.has(posture) && !SIT_EXCLUDED.has(id)
 const seat = [0, 1, 12, 15]
+const upper = all.filter(
+  (i) => !hands[0].includes(i) && !hands[1].includes(i) && !/Shin|Foot|Toe/.test(joints[i][0]),
+)
 const legs = ['left', 'right'].map((side) =>
   all.filter((i) => joints[i][0].startsWith(side) && /Shin|Foot|Toe/.test(joints[i][0])),
 )
@@ -117,7 +124,21 @@ export function groundGuide(
     sitsOnFloor(id, p) &&
     !gear.some((g) => ['bed', 'step', 'longRoll', 'crossRoll', 'pillow', 'ball'].includes(g))
   ) {
-    r.root.position.y += 0.001 - lowestOn(r, seat)
+    // Never let the trunk or thighs sink either, nor the target tissue of the guide; the bones of
+    // the legs below the knee are lifted separately.
+    let rest = Math.min(lowestOn(r, seat), lowestOn(r, upper))
+    for (const point of (tissues as Partial<Record<AuthoredId, number[][]>>)[id] ?? []) {
+      let h = 0
+      for (let j = 0; j < point.length; j += 5) {
+        const m = r.bones[point[j]].matrixWorld.elements
+        h +=
+          ((m[13] + (m[1] * point[j + 2] + m[5] * point[j + 3] + m[9] * point[j + 4]) / 10000) *
+            point[j + 1]) /
+          10000
+      }
+      rest = Math.min(rest, h)
+    }
+    r.root.position.y += 0.001 - rest
     return
   }
   if (!lowerOnly)
