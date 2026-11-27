@@ -452,6 +452,74 @@ interface ArmSolution {
  */
 export type SolveOptions = { search?: number; local?: boolean; stay?: boolean }
 /**
+ * Pattern search on the swing angle `psi` of a limb solve from `at`: step to whichever side
+ * lowers the cost, halve the step when neither does. The result is a continuous function of the
+ * target while the cost has one valley near the aim, which is what a held contact needs.
+ */
+function descend<T extends { cost: number }>(
+  solve: (psi: number) => T,
+  start: T,
+  at: number,
+  step: number,
+  limit: number,
+): T {
+  let best = start,
+    psi = at,
+    h = step
+  for (let k = 0; k < 7 && h > 0.4; k++) {
+    let moved = false
+    for (const next of [psi - h, psi + h]) {
+      if (Math.abs(next) > limit) continue
+      const trial = solve(next)
+      if (trial.cost < best.cost - 1e-9) {
+        best = trial
+        psi = next
+        moved = true
+        break
+      }
+    }
+    if (!moved) h /= 2
+  }
+  return best
+}
+/**
+ * Golden-section descent on the swing angle `psi` of a limb solve, inside one grid cell either
+ * side of the best grid point. Keeps the better of the grid point and the refined one.
+ */
+function refine<T extends { cost: number }>(
+  solve: (psi: number) => T,
+  start: T,
+  at: number,
+  cell: number,
+  limit: number,
+): T {
+  let lo = Math.max(-limit, at - cell),
+    hi = Math.min(limit, at + cell),
+    best = start
+  const g = 0.381966
+  let x1 = lo + (hi - lo) * g,
+    x2 = hi - (hi - lo) * g,
+    f1 = solve(x1),
+    f2 = solve(x2)
+  for (let k = 0; k < 8; k++) {
+    if (f1.cost < f2.cost) {
+      hi = x2
+      x2 = x1
+      f2 = f1
+      x1 = lo + (hi - lo) * g
+      f1 = solve(x1)
+    } else {
+      lo = x1
+      x1 = x2
+      f1 = f2
+      x2 = hi - (hi - lo) * g
+      f2 = solve(x2)
+    }
+  }
+  for (const f of [f1, f2]) if (f.cost < best.cost) best = f
+  return best
+}
+/**
  * Place the wrist at `wrist` with the hand at world orientation `hand`, keeping the elbow a
  * hinge, the forearm turning only about its pronation axis and the wrist without axial twist.
  * The elbow swings about the shoulder-wrist line toward `pole`, unless that would need
@@ -587,13 +655,23 @@ export function reachArm(
         }
       return found
     }
-    let best = solve(0)
     const span = options.search ?? (options.local ? 30 : 150)
+    // Whether or not the elbow has to leave its aim, settle into the nearest minimum of the swing
+    // cost, so a hand that moves a hair never flips the arm between "stay on the aim" and a grid
+    // winner somewhere else.
+    let best = descend(solve, solve(0), 0, 5, Math.min(span, 40))
     if (best.cost > 0.5 && span > 0) {
+      let at = 0
       for (let psi = -span; psi <= span; psi += 10) {
         const trial = solve(psi)
-        if (trial.cost < best.cost) best = trial
+        if (trial.cost < best.cost) {
+          best = trial
+          at = psi
+        }
       }
+      // The grid only finds the valley. Settle into it so the elbow swing varies smoothly with the
+      // target instead of stepping a whole grid cell when the winner changes between frames.
+      best = refine(solve, best, at, 10, span)
     }
     const girdle = r.bones[j.girdle].quaternion
     if (pass === 0) {
@@ -821,13 +899,19 @@ export function reachLeg(
       drift
     return { thigh, shin: shinQ, foot: footLocal, cost }
   }
-  let best = solve(0)
   const span = options.search ?? (options.local ? 24 : 90)
-  if (best.cost > 0.5 && span > 0)
+  let best = descend(solve, solve(0), 0, 4, Math.min(span, 30))
+  if (best.cost > 0.5 && span > 0) {
+    let at = 0
     for (let psi = -span; psi <= span; psi += 6) {
       const trial = solve(psi)
-      if (trial.cost < best.cost) best = trial
+      if (trial.cost < best.cost) {
+        best = trial
+        at = psi
+      }
     }
+    best = refine(solve, best, at, 6, span)
+  }
   r.bones[j.thigh].quaternion.copy(best.thigh)
   r.bones[j.shin].quaternion.copy(best.shin)
   r.bones[j.foot].quaternion.copy(best.foot)

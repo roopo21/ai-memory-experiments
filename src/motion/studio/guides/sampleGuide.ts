@@ -293,7 +293,15 @@ function keysFor(id: AuthoredId) {
     // either side of a beat arrive at exactly the pose stored for it.
     for (let pass = 0; pass < 2; pass++) {
       const key = capture()
+      // Rest the whole body the way every sampled frame does, so the stored beat is the pose a
+      // frame at that beat would arrive at, not one sunk a few millimetres into the floor.
+      const planted = sides.map((_, n) => onSurface(key.reach[n]))
+      r.root.updateMatrixWorld(true)
+      groundGuide(r, id, false, planted)
+      r.root.updateMatrixWorld(true)
       holdFeet(r, id, key, key, 0)
+      groundGuide(r, id, false, planted)
+      r.root.updateMatrixWorld(true)
       holdHands(r, id, key, key, 0)
       clearFloorHands(r)
       articulate(r, true)
@@ -375,7 +383,7 @@ function blendHips(r: MovementRig, a: Key, b: Key, f: number) {
     )
   }
 }
-export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
+function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side: Side) {
   const keys = keysFor(id),
     // A take that returns to its first beat ends on exactly that pose.
     time = at >= keys.at(-1)!.time && keys.at(-1)!.rotations === keys[0].rotations ? 0 : at,
@@ -564,4 +572,115 @@ function holdFeet(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
       { local: true },
     )
   })
+}
+
+/**
+ * The frame-to-frame solves (elbow swing, forearm roll, knee swing) each settle on the nearest
+ * anatomical solution, and where two are nearly equal the winner can change from one frame to the
+ * next, which shows as a pop. Every guide is therefore baked once at 60 Hz and its joint rotations
+ * and root are low-passed with a short zero-phase Gaussian (about 27 ms), the way a solved track
+ * is cleaned in animation. A hold is untouched, because smoothing a constant returns it exactly,
+ * and the beats and holds the physics check judges stay where they were authored.
+ */
+const BAKE_HZ = 60,
+  SIGMA = 1.6,
+  RADIUS = 5
+const KERNEL = Array.from({ length: 2 * RADIUS + 1 }, (_, i) =>
+  Math.exp(-((i - RADIUS) ** 2) / (2 * SIGMA * SIGMA)),
+)
+type Baked = { n: number; root: Float64Array; frames: Float64Array[] }
+const baked = new Map<AuthoredId, Baked>(),
+  bakeOrder: AuthoredId[] = []
+let bakeRig: MovementRig | undefined
+const keep = 6
+const FRAME = 8 + joints.length * 4
+function bake(id: AuthoredId): Baked {
+  const known = baked.get(id)
+  if (known) return known
+  bakeRig ??= createMovementRig()
+  const rig = bakeRig,
+    end = keysFor(id).at(-1)!.time,
+    n = Math.ceil(end * BAKE_HZ) + 1 + RADIUS
+  const raw: Float64Array[] = []
+  for (let k = 0; k < n; k++) {
+    restPose(rig)
+    sampleGuideRaw(rig, id, k / BAKE_HZ, 'left')
+    const f = new Float64Array(FRAME)
+    f.set([rig.root.position.x, rig.root.position.y, rig.root.position.z], 0)
+    f.set(
+      [rig.root.quaternion.x, rig.root.quaternion.y, rig.root.quaternion.z, rig.root.quaternion.w],
+      3,
+    )
+    rig.bones.forEach((b, j) =>
+      f.set([b.quaternion.x, b.quaternion.y, b.quaternion.z, b.quaternion.w], 8 + j * 4),
+    )
+    raw.push(f)
+  }
+  // Smooth: positions average directly; quaternions average in the hemisphere of the centre frame.
+  const out: Float64Array[] = []
+  for (let k = 0; k < n; k++) {
+    const f = new Float64Array(FRAME)
+    let wsum = 0
+    for (let d = -RADIUS; d <= RADIUS; d++) {
+      const src = raw[Math.min(n - 1, Math.max(0, k + d))],
+        w = KERNEL[d + RADIUS]
+      wsum += w
+      for (let c = 0; c < 3; c++) f[c] += w * src[c]
+    }
+    for (let c = 0; c < 3; c++) f[c] /= wsum
+    for (let q = 0; q <= joints.length; q++) {
+      // q === 0 is the root rotation (stored at 3..6), the rest are bones at 8 + j * 4.
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4,
+        ref = raw[k]
+      for (let d = -RADIUS; d <= RADIUS; d++) {
+        const src = raw[Math.min(n - 1, Math.max(0, k + d))],
+          w = KERNEL[d + RADIUS]
+        const dot =
+          src[o] * ref[o] +
+          src[o + 1] * ref[o + 1] +
+          src[o + 2] * ref[o + 2] +
+          src[o + 3] * ref[o + 3]
+        const sign = dot < 0 ? -w : w
+        for (let c = 0; c < 4; c++) f[o + c] += sign * src[o + c]
+      }
+      const len = Math.hypot(f[o], f[o + 1], f[o + 2], f[o + 3]) || 1
+      for (let c = 0; c < 4; c++) f[o + c] /= len
+    }
+    out.push(f)
+  }
+  const result = { n, root: new Float64Array(0), frames: out }
+  baked.set(id, result)
+  bakeOrder.push(id)
+  if (bakeOrder.length > keep) baked.delete(bakeOrder.shift()!)
+  return result
+}
+const qa = new Quaternion(),
+  qb = new Quaternion()
+export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
+  if (!Number.isFinite(at)) return sampleGuideRaw(r, id, at, side)
+  const track = bake(id),
+    x = Math.max(0, at) * BAKE_HZ,
+    k = Math.min(track.n - 2, Math.floor(x)),
+    u = x - k
+  const a = track.frames[k],
+    b = track.frames[k + 1]
+  r.root.position.set(a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u)
+  r.root.quaternion.slerpQuaternions(qa.fromArray(a, 3), qb.fromArray(b, 3), u)
+  for (let j = 0; j < joints.length; j++)
+    r.bones[j].quaternion.slerpQuaternions(
+      qa.fromArray(a, 8 + j * 4),
+      qb.fromArray(b, 8 + j * 4),
+      u,
+    )
+  if (side === 'right' && !scores[id].both) {
+    r.root.position.x *= -1
+    for (let j = 0; j < joints.length; j++) {
+      if (other[j] < j) continue
+      const q = r.bones[j].quaternion,
+        v = r.bones[other[j]].quaternion
+      const { x, y, z, w } = q
+      q.set(v.x, -v.y, -v.z, v.w)
+      if (other[j] !== j) v.set(x, -y, -z, w)
+    }
+  }
 }
