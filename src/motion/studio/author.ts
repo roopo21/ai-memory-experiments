@@ -5,6 +5,8 @@ import { createMovementRig } from '../movementRig'
 import { clipInfo, type ClipId, type Side } from '../../studio/clips'
 import { newProject, type Project } from '../../studio/project'
 import { sampleStudio } from './sample'
+import { hasScore, scores } from '../../studio/choreography'
+import { WEIGHT_BEARING_GEAR } from '../physics/policy'
 import { destination, landmark, pinHere, solePad } from './anchors'
 import { pinWeight } from '../../studio/pins'
 import type { Pin } from '../../studio/pins'
@@ -83,6 +85,15 @@ export function editableCopy(clip: ClipId, side: Side): Project {
       : clip === 'sciatic-slider-seated'
         ? { prop: 'chair' as const }
         : {}),
+    // The wheel and cartwheel leave the floor by design, and some guides rest on a roller, bed,
+    // step or ball; those keep the height they were authored at. Every other movement rests on the
+    // floor.
+    ...(clip === 'wheel' ||
+    clip === 'cartwheel' ||
+    clip === 'bar-hang' ||
+    (hasScore(clip) && scores[clip].gear?.some((g) => WEIGHT_BEARING_GEAR.has(g)))
+      ? { airborne: true }
+      : {}),
     version: 1,
     name: info.name + (info.unilateral ? ' · ' + side : '') + ' edit',
     plantFeet: false,

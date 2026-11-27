@@ -236,6 +236,50 @@ export function setLeg(r: MovementRig, s: Side, angles: LegAngles) {
 }
 
 /**
+ * A thigh's rotation in the joint convention guides are authored in: flexion, then abduction, then
+ * rotation about the femur (the same reading `measure` reports and `setLeg` writes).
+ */
+export function hipAngles(s: Side, thigh: Quaternion) {
+  // `setLeg` turns the thigh about the axis along the femur last, so the femur's direction fixes
+  // flexion and abduction and what is left over is the rotation. Solve those two by Newton steps.
+  const axis = legBind[s].femur.clone().negate(),
+    target = axis.clone().applyQuaternion(thigh)
+  const swing = (f: number, a: number) =>
+    turn(new Vector3(-1, 0, 0), f).multiply(turn(new Vector3(0, 0, s), a))
+  const miss = (f: number, a: number) => axis.clone().applyQuaternion(swing(f, a)).sub(target)
+  let f = Math.atan2(-target.z, target.y) * R2D,
+    a = Math.asin(clamp(-s * target.x, -1, 1)) * R2D
+  for (let k = 0; k < 8; k++) {
+    const e = miss(f, a),
+      df = miss(f + 0.01, a)
+        .sub(e)
+        .divideScalar(0.01),
+      da = miss(f, a + 0.01)
+        .sub(e)
+        .divideScalar(0.01)
+    const m11 = df.dot(df),
+      m12 = df.dot(da),
+      m22 = da.dot(da),
+      det = m11 * m22 - m12 * m12 || 1e-9,
+      g1 = df.dot(e),
+      g2 = da.dot(e)
+    f -= (m22 * g1 - m12 * g2) / det
+    a -= (m11 * g2 - m12 * g1) / det
+  }
+  return {
+    flexion: f,
+    abduction: a,
+    rotation: s * twistAbout(swing(f, a).invert().multiply(thigh), axis),
+  }
+}
+/** The thigh rotation for hip angles in degrees: the inverse of `hipAngles`. */
+export function hipFromAngles(s: Side, flexion: number, abduction: number, rotation: number) {
+  return turn(new Vector3(-1, 0, 0), flexion)
+    .multiply(turn(new Vector3(0, 0, s), abduction))
+    .multiply(turn(legBind[s].femur.clone().negate(), s * rotation))
+}
+
+/**
  * The guide tuple for a hand, read as absolute angles: MCP, PIP and DIP flexion of the four
  * fingers, spread, thumb opposition, thumb opening and an index-only curl.
  */

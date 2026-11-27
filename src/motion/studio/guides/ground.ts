@@ -64,6 +64,45 @@ export function lowestHandBone(r: MovementRig, s: 1 | -1) {
 }
 /** The lowest point of everything but the hands, which grounding leaves to their contacts. */
 export const lowestBody = (r: MovementRig) => lowestOn(r, body)
+/**
+ * Postures that sit on the floor rest on the pelvis and thighs, whatever the legs do. A body that
+ * rested on its lowest point instead would perch on its heels with the sit bones in the air.
+ * Feet that this leaves below the floor are lifted by `clearFloorFeet`.
+ */
+const SIT_POSTURES = new Set(['floorSeat', 'longSit', 'straddle', 'butterfly'])
+/** Guides whose arm solve cannot yet follow the body resting on its pelvis; see check-physics. */
+const SIT_EXCLUDED = new Set<string>([
+  'single-leg-seated-hamstring',
+  'towel-calf',
+  'seated-rotation',
+])
+export const sitsOnFloor = (id: string, posture: string) =>
+  SIT_POSTURES.has(posture) && !SIT_EXCLUDED.has(id)
+const seat = [0, 1, 12, 15]
+const upper = all.filter(
+  (i) => !hands[0].includes(i) && !hands[1].includes(i) && !/Shin|Foot|Toe/.test(joints[i][0]),
+)
+const legs = ['left', 'right'].map((side) =>
+  all.filter((i) => joints[i][0].startsWith(side) && /Shin|Foot|Toe/.test(joints[i][0])),
+)
+/** The lowest point of one shin, foot and toes, with where it is. */
+export function lowestLegPoint(r: MovementRig, s: number) {
+  let low = { y: Infinity, x: 0, z: 0 }
+  for (const i of legs[s === 1 ? 0 : 1]) {
+    const m = r.bones[i].matrixWorld.elements,
+      a = samples[i]
+    for (let k = 0; k < a.length; k += 3) {
+      const y = m[13] + m[1] * a[k] + m[5] * a[k + 1] + m[9] * a[k + 2]
+      if (y < low.y)
+        low = {
+          y,
+          x: m[12] + m[0] * a[k] + m[4] * a[k + 1] + m[8] * a[k + 2],
+          z: m[14] + m[2] * a[k] + m[6] * a[k + 1] + m[10] * a[k + 2],
+        }
+    }
+  }
+  return low
+}
 export const lowestSurface = (r: MovementRig, lowerOnly = false) =>
   lowestOn(r, lowerOnly ? base : all)
 /**
@@ -81,6 +120,27 @@ export function groundGuide(
     gear = score.gear ?? []
   r.root.updateMatrixWorld(true)
   let low = lowerOnly ? lowestSurface(r, true) : lowestBody(r)
+  if (
+    sitsOnFloor(id, p) &&
+    !gear.some((g) => ['bed', 'step', 'longRoll', 'crossRoll', 'pillow', 'ball'].includes(g))
+  ) {
+    // Never let the trunk or thighs sink either, nor the target tissue of the guide; the bones of
+    // the legs below the knee are lifted separately.
+    let rest = Math.min(lowestOn(r, seat), lowestOn(r, upper))
+    for (const point of (tissues as Partial<Record<AuthoredId, number[][]>>)[id] ?? []) {
+      let h = 0
+      for (let j = 0; j < point.length; j += 5) {
+        const m = r.bones[point[j]].matrixWorld.elements
+        h +=
+          ((m[13] + (m[1] * point[j + 2] + m[5] * point[j + 3] + m[9] * point[j + 4]) / 10000) *
+            point[j + 1]) /
+          10000
+      }
+      rest = Math.min(rest, h)
+    }
+    r.root.position.y += 0.001 - rest
+    return
+  }
   if (!lowerOnly)
     planted.forEach((down, n) => {
       if (!down) low = Math.min(low, lowestOn(r, hands[n]))
@@ -126,4 +186,18 @@ export function groundGuide(
       support ? support - lowestOn(r, onEquipment) : -Infinity,
     )
   }
+}
+
+/**
+ * Rest a freely authored pose on its support, so the root height comes from contact rather than a
+ * number someone typed. Whichever of the body, hands or feet is lowest ends up within `contact`
+ * of the floor and no deeper than `sink` into it. A pose already inside that band is left alone,
+ * so a copy of a grounded guide replays exactly, and the correction is continuous as a root is
+ * dragged, never a jump. `level` raises the floor for a mat.
+ */
+export function restOnFloor(r: MovementRig, level = 0, contact = 0.015, sink = 0.02) {
+  r.root.updateMatrixWorld(true)
+  const gap = Math.min(lowestBody(r), lowestHandBone(r, 1), lowestHandBone(r, -1)) - level
+  r.root.position.y += gap > contact ? contact - gap : gap < -sink ? -sink - gap : 0
+  r.root.updateMatrixWorld(true)
 }

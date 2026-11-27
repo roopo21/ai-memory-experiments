@@ -49,8 +49,8 @@ export function fixturePoint(id: AuthoredId, mark: Mark, s: number) {
     case 'post':
       return V(
         s * (gear?.includes('door') ? 0.41 : 0.45),
-        id === 'deep-squat-hold' ? 0.9 : 1.14,
-        0.12,
+        id === 'deep-squat-hold' ? 0.92 : 1.14,
+        id === 'deep-squat-hold' ? 0.27 : 0.12,
       )
     case 'bar':
       return V(s * 0.255, 1.89, 0.09)

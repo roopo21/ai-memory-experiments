@@ -7,6 +7,27 @@ import { sampleGuide } from '../../motion/studio/guides/sampleGuide'
 import { postures } from '../../motion/studio/guides/postures'
 import { fixturePoint } from '../../motion/studio/guides/contacts'
 
+/**
+ * How far the seat must stand above its rest height. A lowered, extended leg lifts the pelvis
+ * during grounding and would leave the performer perched on the front of the seat, so the chair
+ * is sized once per clip from the highest the pelvis ever sits.
+ */
+export function chairLift(id: AuthoredId, side: Side) {
+  const score = scores[id],
+    probe = createMovementRig()
+  let lowestPelvis = Infinity
+  for (const frame of score.frames) {
+    sampleGuide(probe, id, frame.time, side)
+    lowestPelvis = Math.min(lowestPelvis, probe.root.position.y)
+  }
+  probe.skeleton.dispose()
+  return Math.max(0, lowestPelvis - postures[score.posture].y)
+}
+/** Where a guide's chair is and how tall: the seat top (performer scale) and its centre. */
+export function chairSeat(id: AuthoredId, side: Side) {
+  const lift = chairLift(id, side)
+  return { top: 0.372 + lift, z: -0.19 - Math.min(lift, 0.19), width: 0.43, depth: 0.36 }
+}
 export function makeGuideChair(id: AuthoredId, side: Side, human: boolean) {
   const score = scores[id]
   const sign = side === 'right' && !score.both ? -1 : 1
@@ -17,16 +38,7 @@ export function makeGuideChair(id: AuthoredId, side: Side, human: boolean) {
     return chair
   }
 
-  // Size the fixed chair once per clip. A lowered, extended leg lifts the pelvis
-  // during grounding and leaves the performer perched on the front of the seat.
-  const probe = createMovementRig()
-  let lowestPelvis = Infinity
-  for (const frame of score.frames) {
-    sampleGuide(probe, id, frame.time, side)
-    lowestPelvis = Math.min(lowestPelvis, probe.root.position.y)
-  }
-  probe.skeleton.dispose()
-  const lift = Math.max(0, lowestPelvis - postures[score.posture].y)
+  const lift = chairLift(id, side)
   const z = -0.19 - Math.min(lift, 0.19)
   const grip = score.setup.ga === 'seat' ? fixturePoint(id, 'seat', sign) : undefined
   if (grip) grip.z -= z

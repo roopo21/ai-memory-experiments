@@ -15,6 +15,8 @@ export interface Project {
   name: string
   frames: KeyPose[]
   plantFeet: boolean
+  /** Keep the root height as keyed: a jump, a hang, or rest on a roller, bed or step. Otherwise the body rests on the floor. */
+  airborne?: boolean
   target?: { kind: GuideKind; id: string } | null
   base?: { id: Exclude<ClipId, 'custom'>; side: Side }
   prop?: 'chair' | 'mat'
@@ -115,6 +117,7 @@ export function readProject(input: string): Project {
     ...(base ? { base } : {}),
     ...(pins?.length ? { pins } : {}),
     ...(v.prop ? { prop: v.prop } : {}),
+    ...(v.airborne === true ? { airborne: true } : {}),
     version: 1,
     name: label(v.name),
     plantFeet: v.plantFeet,

@@ -5,6 +5,7 @@ import {
   feet,
   instep,
   type Leg,
+  type Pose,
   type Recipe,
   onFloor,
 } from './types'
@@ -15,6 +16,37 @@ const crossed: Leg = [87, 31, 99, 0, 56],
   // Seated at chair height a straight leg reaches the floor at about 61 degrees of hip flexion.
   heel: Leg = [61, 3, 4, -14],
   bent: Leg = [45, 0, 88]
+// The 90/90 position, written in the pelvis's own frame (the pelvis turns toward the front shin):
+// the front hip is flexed past 90 and turned out about 75 degrees, which lays the shin across in
+// front of the body; the back thigh points out and a little back with the hip turned in as far as
+// it goes. The back shin then reaches the floor only by tilting the pelvis toward the front leg.
+const nineFront: Leg = [100, 50, 90, 0, 75],
+  nineBack: Leg = [60, 55, 100, 0, -55],
+  nineKnees: Leg = [140, 35, 135, 25, 15]
+const nineSet: Pose = {
+  leg: nineFront,
+  other: nineBack,
+  pelvis: [0, -40, 14] as const,
+  spine: [0, 0, 0] as const,
+  ga: 'ownThigh',
+  gb: 'Bthigh',
+}
+const nineSwitch: Pose = {
+  leg: nineKnees,
+  other: nineKnees,
+  pelvis: [0, 0, 0] as const,
+  spine: [0, 0, 0] as const,
+  ga: 'ownKnee',
+  gb: 'ownKnee',
+}
+const nineOther: Pose = {
+  leg: nineBack,
+  other: nineFront,
+  pelvis: [0, 40, -14] as const,
+  spine: [0, 0, 0] as const,
+  ga: 'Bthigh',
+  gb: 'ownThigh',
+}
 export const hipLeg = {
   'kneeling-hip-flexor': st('halfKneel', {}, 'Tuck the pelvis and move forward', {
     leg: [-17, 1, 95],
@@ -123,11 +155,20 @@ export const hipLeg = {
     'Walk the hands forward over the crossed shins',
     { spine: [43, 0, 0], ga: [0.18, 0.035, 0.44], gb: [-0.18, 0.035, 0.44] },
   ),
-  'ninety-ninety': st(
+  'ninety-ninety': seq(
     'floorSeat',
-    { leg: [91, 21, 90, 0, 60], other: [40, 52, 92, 0, -45] },
-    'Square the chest and hinge over the front shin',
-    { spine: [35, 15, 3], ga: 'ownShin' },
+    nineSet,
+    [
+      [
+        'Square the chest and hinge over the front shin',
+        { spine: [34, -22, 0], ga: 'ownShin', gb: 'ownShin' },
+      ],
+      ['Sit tall again', { spine: [0, 0, 0], ga: nineSet.ga, gb: nineSet.gb }],
+      ['Lift both knees, feet down, hips a little off the floor', nineSwitch],
+      ['Let the knees fall across into the other 90/90', nineOther],
+      ['Lift both knees again', nineSwitch],
+    ],
+    { both: true },
   ),
   'lying-leg-crossover': seq('supine', { a: [0, 86, 2], b: [0, 86, 2] }, [
     ['Lift the straight leg', { leg: [78, 0, 6] }],

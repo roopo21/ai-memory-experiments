@@ -159,6 +159,14 @@ export default function Editor() {
           />{' '}
           Plant both feet at standing marks
         </label>
+        <label className="studio-check">
+          <input
+            type="checkbox"
+            checked={Boolean(p.airborne)}
+            onChange={(e) => apply({ ...p, airborne: e.target.checked }, pose.time)}
+          />{' '}
+          Keep the keyed height (a jump, a hang, or a prop); otherwise the body rests on the floor
+        </label>
       </details>
       <Anchors project={p} time={pose.time} save={apply} />
       <label>

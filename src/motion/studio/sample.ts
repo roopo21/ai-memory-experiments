@@ -16,6 +16,7 @@ import {
   setHand,
 } from '../anatomy'
 import { FLAT_ON_SURFACE } from './guides/contacts'
+import { restOnFloor } from './guides/ground'
 import {
   restPose,
   sampleMovement,
@@ -157,6 +158,8 @@ function custom(r: MovementRig, p: Project, t: number) {
     r.bones[indexOfJoint[key]].quaternion
       .copy(eulerQ(a.angles[key]))
       .slerp(eulerQ(b.angles[key]), f)
+  // The root height comes from what the body rests on, unless the movement leaves the floor.
+  if (!p.airborne && p.prop !== 'chair') restOnFloor(r, p.prop === 'mat' ? 0.014 : 0)
   if (p.pins?.length) {
     r.root.updateMatrixWorld(true)
     applyPins(r, p.pins, t)
