@@ -167,7 +167,11 @@ for (const id of [
     const view = selectSurfaces(id, figure, 'left')
     assert.deepEqual(view.selected, sel.selected)
     for (const layer of layerSources.filter((l) => l.systems.includes('muscular')))
-      assert(view.urls.includes(layer.url), `${figure} is missing ${layer.region} muscles`)
+      assert.equal(
+        view.urls.includes(layer.url),
+        figure !== 'bones',
+        `${figure} is missing ${layer.region} muscles`,
+      )
   }
 }
 sampleStudio(r, 'sciatic-slider-seated', 0, 'left', p)

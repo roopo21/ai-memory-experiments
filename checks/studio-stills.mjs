@@ -103,6 +103,22 @@ try {
       await open(g.id, angle)
       for (const [t, name] of marks) {
         const img = bytes(await page.evaluate((s) => window.anatomyCapture.frame(s, 'jpeg'), t))
+        if (angle === 'Focus' && g.kind === 'glide' && v.figure === 'anatomy') {
+          // Exclude the floor inset. It must not pass a blank or occluded main view.
+          const { data, info } = await sharp(img)
+            .removeAlpha()
+            .raw()
+            .toBuffer({ resolveWithObject: true })
+          let cyan = 0
+          for (let y = 0; y < info.height; y++)
+            for (let x = 0; x < info.width; x++) {
+              if (x > info.width * 0.73 && y > info.height * 0.65) continue
+              const i = (y * info.width + x) * 3
+              const [r, g, b] = data.subarray(i, i + 3)
+              if (g > 132 && b > 122 && g > r * 1.25 && b > r * 1.23) cyan++
+            }
+          assert(cyan >= 12, g.id + ' has no readable cyan nerve at ' + t + ' s')
+        }
         const still = await sharp(img).resize(width, height).jpeg({ quality: 88 }).toBuffer()
         frames.push(
           await sharp({

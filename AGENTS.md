@@ -40,6 +40,8 @@ Asset rebuild commands and their order are in [asset-pipeline/README.md](asset-p
 8. Plans go in `docs/plans/`, one file per plan, listed in `docs/plans/README.md`. Update `docs/plans/roadmap.md` when a milestone moves.
 9. Deploys are manual and production may differ from `main`. Never deploy unless asked. Follow [docs/reference/deploying.md](docs/reference/deploying.md).
 
+For new Motion Lab stretches, nerve glides, camera or visibility changes, and stills, follow the [nerve glide views skill](.claude/skills/nerve-glide-views/SKILL.md).
+
 ## Testing in a browser
 
 - Guide state is in the URL hash, so a link sets up a scene, such as `#mode=stretch&parts=hamstrings&exercise=supine-hamstring` or `#mode=glide&parts=sciatic`.
