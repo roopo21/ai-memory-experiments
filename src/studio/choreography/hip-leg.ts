@@ -621,7 +621,7 @@ export const hipLeg = {
     'figureFour',
     { gb: 'Atoe' },
     'Lift only the great toe toward the shin',
-    { toes: [0, 0, -48], leg: [87, 31, 99, -16, 56], spine: [24, 0, 0] },
+    { toes: [0, 0, -48], leg: [87, 31, 99, -16, 56], spine: [28, 0, 0] },
     feet,
   ),
   'fingers-between-toes': seq(
