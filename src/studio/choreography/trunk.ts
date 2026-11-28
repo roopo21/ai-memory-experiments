@@ -82,9 +82,19 @@ export const trunk = {
   ),
   'puppy-pose': st(
     'allFours',
-    { a: [100, 5, 3], b: [100, 5, 3], f: onFloor, g: onFloor },
+    // Start on all fours with the palms flat under the shoulders.
+    { ga: 'floor', gb: 'floor', f: onFloor, g: onFloor },
     'Walk the palms out and lower the chest',
-    { spine: [-23, 0, 0], pelvis: [17, 0, 0], a: [147, 8, 4], b: [147, 8, 4], neck: [8, 0, 0] },
+    {
+      spine: [-35, 0, 0],
+      pelvis: [17, 0, 0],
+      neck: [8, 0, 0],
+      // The hips flex a touch more as the pelvis tips, so the knees and feet stay put.
+      leg: [92, 2, 90, 25],
+      other: [92, 2, 90, 25],
+      ga: ['floor', -0.03, 0, 0.42],
+      gb: ['floor', -0.03, 0, 0.42],
+    },
     both,
   ),
   'upper-back-hug': st(

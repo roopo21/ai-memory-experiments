@@ -334,7 +334,16 @@ export const hipLeg = {
     'heelSit',
     { ga: 'ownThigh', gb: 'ownThigh' },
     'Lean back with the hands supporting you',
-    { spine: [-30, 0, 0], pelvis: [-40, 0, 0], ga: [0.17, 0.03, -0.2], gb: [-0.17, 0.03, -0.2] },
+    {
+      spine: [-35, 0, 0],
+      pelvis: [-45, 0, 0],
+      // The hips open as the trunk tips back, so the thighs stay flat on the floor and the feet
+      // stay where they were.
+      leg: [54, 3, 140, 34],
+      other: [54, 3, 140, 34],
+      ga: [0.17, 0.009, -0.2],
+      gb: [-0.17, 0.009, -0.2],
+    },
     both,
   ),
   'doorway-hamstring': st(

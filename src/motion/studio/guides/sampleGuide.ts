@@ -305,13 +305,10 @@ function keysFor(id: AuthoredId) {
       // left them would lift it a little more every pass.
       // A hand that the authored arm drove into the floor is lifted before the body is rested, as
       // it is in every sampled frame; otherwise the body would be raised to clear it.
-      if (pass === 0) {
-        clearFloorHands(r)
-        groundGuide(r, id, false, planted)
-      }
+      if (pass === 1) groundGuide(r, id, false, planted)
       r.root.updateMatrixWorld(true)
       holdFeet(r, id, key, key, 0)
-      if (pass === 0) groundGuide(r, id, false, planted)
+      if (pass === 1) groundGuide(r, id, false, planted)
       r.root.updateMatrixWorld(true)
       holdHands(r, id, key, key, 0)
       clearFloorHands(r)

@@ -131,7 +131,11 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     }
   }
   if (id === 'frog' || id === 'puppy-pose') {
-    r.root.quaternion.premultiply(rot(id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : 25))
+    // The puppy pose starts on all fours with the chest high and sinks the chest as the hips
+    // tip; its pitch follows the pelvis tilt of the beat.
+    const sink =
+      id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : ((p.pelvis?.[0] ?? 0) / 17) * 25
+    r.root.quaternion.premultiply(rot(sink))
     r.root.updateMatrixWorld(true)
   }
   if (id === 'downward-dog') {
@@ -259,7 +263,7 @@ export function floorHands(r: MovementRig, id: AuthoredId, p: Pose) {
   if (id === 'downward-dog') {
     placeHand(r, id, ['floor', 0.005, -0.007, 0.09], 1)
     placeHand(r, id, ['floor', -0.005, -0.007, 0.09], -1)
-  } else if ((id === 'childs-pose' && p.pelvis) || id === 'puppy-pose') {
+  } else if (id === 'childs-pose' && p.pelvis) {
     const goal = (s: number) => {
       const hand = at(r, s === 1 ? 8 : 11)
       return ['floor', hand.x - s * 0.2, -0.006, hand.z + 0.06 - 0.49] as const

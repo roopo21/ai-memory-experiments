@@ -1,4 +1,4 @@
-import { stretch as st, sequence as seq, both, grip, open, type Aim, type Recipe } from './types'
+import { stretch as st, sequence as seq, both, grip, open, onFloor, type Aim, type Recipe } from './types'
 /**
  * Neck values are degrees of flexion (+) or extension, rotation toward the working (left) side,
  * and side bend toward it (+). Arms are anatomical: flexion, abduction, elbow, pronation, wrist
@@ -235,29 +235,33 @@ export const neckShoulder = {
     { ga: ['handsBehind', 0, 0.09, -0.1], gb: ['handsBehind', 0, 0.09, -0.1], shoulders: [-3, 12] },
     { both: true, view: [2.4, 0.3, -0.6] },
   ),
+  // Sit tall with the palms flat on the floor just behind the hips, fingers turned out to the
+  // sides. Turned out, the wrists stay under 80 degrees and the shoulders are not forced into end
+  // range; the trunk leans back a little so the arms are slightly bent and bear the weight.
   'seated-reverse-reach': st(
     'floorSeat',
     {
       leg: [60, 3, 90],
       other: [60, 3, 90],
       pelvis: [-19, 0, 0],
-      spine: [-22, 0, 0],
-      ga: ['floor', 0.03, 0, -0.69],
-      gb: ['floor', -0.03, 0, -0.69],
-      // Hands planted behind, fingers pointing away from the body.
+      spine: [-30, 0, 0],
+      // The head stays level so the gaze is forward, not up at the ceiling.
+      neck: [28, 0, 0],
+      ga: [0.2, 0.009, -0.18],
+      gb: [-0.2, 0.009, -0.18],
       ha: [
-        [0.1, 0, -1],
+        [1, 0, 0],
         [0, -1, 0],
       ],
       hb: [
-        [-0.1, 0, -1],
+        [-1, 0, 0],
         [0, -1, 0],
       ],
-      f: open,
-      g: open,
+      f: onFloor,
+      g: onFloor,
     },
     'Slide the hips forward and lift the chest',
-    { shift: [0, 0, 0.1], spine: [-30, 0, 0] },
+    { shift: [0, 0, 0.06], spine: [-34, 0, 0], neck: [32, 0, 0] },
     both,
   ),
   'arm-across-the-back': st(
