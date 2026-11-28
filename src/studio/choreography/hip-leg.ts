@@ -134,7 +134,7 @@ export const hipLeg = {
       // The front foot is flexed, as yoga teachers cue, to keep the knee comfortable.
       leg: [108, 30, 125, 0, 72],
       other: [-30, -14, 6, 48],
-      spine: [8, 0, 0],
+      spine: [12, 0, 0],
       // The pelvis rolls down toward the front leg, as it does when the front hip settles.
       pelvis: [0, -15, 22],
       ga: 'floor',
