@@ -317,6 +317,7 @@ export function placeHand(
   local = false,
   before?: Quaternion,
   exact = false,
+  touch?: 'palm' | 'back' | 'tips',
 ) {
   if (!reach || reach === 'free') return
   const arm = s === 1 ? 6 : 9,
@@ -371,7 +372,13 @@ export function placeHand(
     if (posture === 'supine' && mark === 'nape') preferred.copy(V(s * 0.35, 0.17, goal.z + 0.12))
   }
   const backOfHand = mark === 'back' || mark === 'backHip' ? 'back' : undefined
-  const offset = touchPoint(r, id, mark, s, (Array.isArray(aim) ? aim[3] : undefined) ?? backOfHand)
+  const offset = touchPoint(
+    r,
+    id,
+    mark,
+    s,
+    (Array.isArray(aim) ? aim[3] : undefined) ?? touch ?? backOfHand,
+  )
   // A palm resting on the body may lie at any angle about its own normal. Without an authored
   // aim, keep the turn that the arm reaches most comfortably. An authored elbow direction chooses
   // the route, so only search near it.

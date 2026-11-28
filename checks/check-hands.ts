@@ -134,10 +134,6 @@ for (const id of ids) {
 // still falls short, the trunk is too high or too far back. That belongs to the body pose (root
 // height, spine, pelvis) rather than to the hand, so none is excused: change the pose or the
 // contact (fingertips, the back of the hand).
-// The inchworm's walk-in phase puts the shoulders over the hands with the wrists near the end of
-// their range, so the heels of the hands lift while the fingers and ball of each hand stay down.
-// The decision for that exercise is the fingertip contact; until its mark is authored it is listed.
-const PHYSICS_PENDING = new Set<string>(['inchworm'])
 const PALM_GAP = 0.025
 let planted = 0
 for (const [id, score] of Object.entries(scores))
@@ -162,19 +158,18 @@ for (const [id, score] of Object.entries(scores))
       const label = id + ' ' + (sign === 1 ? 'left' : 'right') + ' hand at "' + frame.label + '"'
       planted++
       if (palm.y > PALM_GAP) {
-        if (!PHYSICS_PENDING.has(id))
-          failures.set(
-            label,
-            label +
-              ': palm ' +
-              (palm.y * 1000).toFixed(0) +
-              ' mm above the floor with the elbow at ' +
-              measure(rig)[key].toFixed(0) +
-              ' degrees',
-          )
+        failures.set(
+          label,
+          label +
+            ': palm ' +
+            (palm.y * 1000).toFixed(0) +
+            ' mm above the floor with the elbow at ' +
+            measure(rig)[key].toFixed(0) +
+            ' degrees',
+        )
       } else if (palm.y < -0.004)
         failures.set(label, label + ': palm ' + (-palm.y * 1000).toFixed(0) + ' mm into the floor')
-      if (down < 0.85 && !PHYSICS_PENDING.has(id))
+      if (down < 0.85)
         failures.set(
           label + ' tilt',
           label +

@@ -476,7 +476,18 @@ function holdHands(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
         bone = contactBone(r, id, reach, s),
         q = a.held[n].clone().slerp(b.held[n], f)
       if (bone >= 0) q.premultiply(r.bones[bone].getWorldQuaternion(new Quaternion()))
-      placeHand(r, id, reach, s, q, a.elbows[n] ?? b.elbows[n], true)
+      placeHand(
+        r,
+        id,
+        reach,
+        s,
+        q,
+        a.elbows[n] ?? b.elbows[n],
+        true,
+        undefined,
+        false,
+        a.aims[n]?.[3],
+      )
       return
     }
     // A palm on the floor in both beats stays down, or walks along the floor between them.

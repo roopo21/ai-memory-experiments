@@ -460,8 +460,13 @@ export const hipLeg = {
           leg: [112, 0, 15],
           other: [112, 0, 15],
           shift: [0, -0.12, 0.37],
-          ga: [0.2, 0.027, 0.91],
-          gb: [-0.2, 0.027, 0.91],
+          // With the feet walked in the shoulders pass over the hands and the wrists reach the end
+          // of their range, so the heels of the hands lift and the fingers and the ball of each
+          // hand stay down, as in a real inchworm: the contact is the fingertips.
+          ga: [0.2, 0.009, 0.95],
+          gb: [-0.2, 0.009, 0.95],
+          ha: [[0.2, -0.5, 1], [0, -1, 0.5], 'world', 'tips'],
+          hb: [[-0.2, -0.5, 1], [0, -1, 0.5], 'world', 'tips'],
         },
       ],
     ],
