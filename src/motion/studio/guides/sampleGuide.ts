@@ -706,7 +706,10 @@ function bake(id: AuthoredId): Baked {
 const qa = new Quaternion(),
   qb = new Quaternion()
 export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
-  if (!Number.isFinite(at)) return sampleGuideRaw(r, id, at, side)
+  // The first and last frames of a take are exactly the authored pose, so a repeated take has no
+  // seam; the baked track carries everything between.
+  if (!Number.isFinite(at) || at <= 0 || at >= keysFor(id).at(-1)!.time)
+    return sampleGuideRaw(r, id, at, side)
   const track = bake(id),
     x = Math.max(0, at) * BAKE_HZ,
     k = Math.min(track.n - 2, Math.floor(x)),

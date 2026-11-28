@@ -50,7 +50,15 @@ export const trunk = {
   ),
   'doorframe-lat': st(
     'stand',
-    { ga: ['post', 0, -0.31, 0] },
+    // The palm rests on the frame facing forward, fingers up and a little forward, which the
+    // forearm reaches without turning to the end of its range.
+    {
+      ga: ['post', -0.08, -0.3, 0],
+      ha: [
+        [0.3, 1, 0.3],
+        [0.3, 0, 1],
+      ],
+    },
     'Hinge and sit away from the post',
     {
       pelvis: [23, 0, 0],
