@@ -4,7 +4,7 @@ Updated 2026-11-25. This is the master plan for the anatomy app. Plans for singl
 
 ## Motion studio
 
-All 163 stretches and 26 nerve glides now open on the recordable atlas skeleton. Character design is paused while work focuses on anatomy. Clover and the atlas use the same 81 joints, fitted to the source bones, including a movable jaw, a hinged ulna, fingers and toes. Every guide holds its joints inside normal ranges (`npm run check:form`); see the [body rig and form plan](body-rig-form.md) for what is still open, and the [motion physics plan](motion-physics.md) for support, balance and smoothness (127 guides still fail `check:physics`). Each guide has named phases and the library has automated mesh, playback and browser checks. Clinical sign-off and physical-device testing remain open. See the [studio guide](../reference/motion-studio.md) and [rig PRD](3d-rig.md).
+All 163 stretches and 26 nerve glides now open on the recordable atlas skeleton. Character design is paused while work focuses on anatomy. Clover and the atlas use the same 81 joints, fitted to the source bones, including a movable jaw, a hinged ulna, fingers and toes. Every guide holds its joints inside normal ranges (`npm run check:form`); see the [body rig and form plan](body-rig-form.md) for what is still open, and the [motion physics plan](motion-physics.md) for support, balance and smoothness (95 guides still fail `check:physics`, down from 127). Each guide has named phases and the library has automated mesh, playback and browser checks. Clinical sign-off and physical-device testing remain open. See the [studio guide](../reference/motion-studio.md) and [rig PRD](3d-rig.md).
 
 ## Latest implementation update
 

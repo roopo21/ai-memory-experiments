@@ -297,6 +297,8 @@ export const trunk = {
         // The supporting palm sits flat just behind the hip, fingers turned out; the trunk leans
         // back a little so the arm is bent and takes weight.
         pelvis: [-24, 0, 0],
+        // The gaze stays level.
+        neck: [20, 0, 0],
         ga: [0.2, 0.009, -0.19],
         ha: [
           [1, 0, -0.3],
@@ -306,7 +308,7 @@ export const trunk = {
         f: onFloor,
       },
     ],
-    ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [0, 26, 0] }],
+    ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [20, 26, 0] }],
   ]),
   'straddle-side-bend': st('straddle', { a: raised }, 'Reach over the opposite straight leg', {
     spine: [11, -8, -32],

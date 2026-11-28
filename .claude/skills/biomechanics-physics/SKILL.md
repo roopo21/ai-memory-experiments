@@ -29,7 +29,9 @@ bug. Everything below is enforced by `npm run check:physics` (tolerances live in
   (`clearFloorFeet`, `clearFloorHands`), then rest the body on it if that is not enough. Never
   re-centre or rescale a structure to hide a gap (AGENTS.md rule 4).
 - Props: chair seat top, mat, roller, step heights come from the prop code (`chairSeat`,
-  `supports`, `equipment.ts`). Check against those, not against guessed numbers.
+  `supports`, `equipment.ts`). Check against those, not against guessed numbers. A guide with a
+  roller, pillow, ball, bed or step is judged against the prop's height field in
+  `src/motion/physics/props.ts`; change both when a prop changes.
 
 ## 2. Balance
 
@@ -74,6 +76,11 @@ swapping roles), add an intermediate beat or opt the guide into `ANGLE_HIPS` in 
   (smoothstep) on every beat, never a linear ramp, never a constant-speed stop.
 
 ## 5. Smoothness
+
+Every guide is baked once at 60 Hz and low-passed lightly (`bake` in `sampleGuide.ts`), after the
+edge of every beat has been carried away, so a solver flip no longer shows as a pop. Do not rely on
+that to hide a limb at the end of its range: a pronation or humeral rotation near its limit still
+shows as a flicker the filter cannot remove (fix the hand's aim or the elbow's direction).
 
 Measured at 60 Hz on the head, trunk, elbows, wrists, knees and ankles (`TOL` in policy.ts):
 
