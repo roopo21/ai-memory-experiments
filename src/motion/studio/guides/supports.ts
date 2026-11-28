@@ -95,7 +95,8 @@ function forearms(r: MovementRig, id: AuthoredId) {
     const y = Math.max(-length + 0.0001, 0.04 - origin.y),
       z = Math.sqrt(Math.max(0, length * length - y * y))
     // Elbows under or just ahead of the shoulders.
-    swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : 0.12)))
+    // Elbows a hand's width outside the shoulders, which keeps the humerus inside its range.
+    swing(r, arm, V(s * (id === 'frog' ? 0.018 : 0.05), y, z * (id === 'frog' ? 0.7 : 0.12)))
     swing(r, arm + 1, V(s * -0.08, -0.035, 1))
     worldRotation(r.bones[arm + 2], flatPalmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
   }

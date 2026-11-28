@@ -24,19 +24,7 @@ export const trunk = {
     // Knees slightly apart so the trunk settles between the thighs, buttocks toward the heels.
     { leg: [68, 8, 150], other: [68, 8, 150], a: [75, 8, 8], b: [75, 8, 8] },
     'Fold over the thighs and reach forward',
-    {
-      pelvis: [48, 0, 0],
-      spine: [44, 0, 0],
-      neck: [12, 0, 0],
-      // As the pelvis folds over the thighs the hips open a little and the pelvis moves back
-      // toward the heels, so the shins stay on the floor.
-      leg: [44, 8, 150],
-      other: [44, 8, 150],
-      shift: [0, 0, 0.14],
-      a: raised,
-      b: raised,
-      breath: 1,
-    },
+    { pelvis: [48, 0, 0], spine: [44, 0, 0], neck: [12, 0, 0], a: raised, b: raised, breath: 1 },
     both,
   ),
   'childs-pose-side-reach': st(
@@ -214,7 +202,11 @@ export const trunk = {
     { a: [-12, 83, 4], spine: [0, 55, 0], neck: [0, 38, 0] },
   ),
   'all-fours-thoracic-rotation': seq('allFours', { ga: 'occiput', gb: 'floor' }, [
-    ['Bring the elbow toward the opposite wrist', { spine: [5, -34, 0], neck: [10, -17, 0] }],
+    [
+      'Bring the elbow toward the opposite wrist',
+      // The elbow points out and up, which keeps the humerus inside its range behind the head.
+      { spine: [5, -34, 0], neck: [10, -17, 0], ea: [0.9, 0.5, 0] },
+    ],
     ['Turn the elbow up', { spine: [-5, 49, 0], neck: [-7, 27, 0] }],
   ]),
   cobra: st(
