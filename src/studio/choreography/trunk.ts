@@ -24,7 +24,19 @@ export const trunk = {
     // Knees slightly apart so the trunk settles between the thighs, buttocks toward the heels.
     { leg: [68, 8, 150], other: [68, 8, 150], a: [75, 8, 8], b: [75, 8, 8] },
     'Fold over the thighs and reach forward',
-    { pelvis: [48, 0, 0], spine: [44, 0, 0], neck: [12, 0, 0], a: raised, b: raised, breath: 1 },
+    {
+      pelvis: [48, 0, 0],
+      spine: [44, 0, 0],
+      neck: [12, 0, 0],
+      // As the pelvis folds over the thighs the hips open a little and the pelvis moves back
+      // toward the heels, so the shins stay on the floor.
+      leg: [44, 8, 150],
+      other: [44, 8, 150],
+      shift: [0, 0, 0.14],
+      a: raised,
+      b: raised,
+      breath: 1,
+    },
     both,
   ),
   'childs-pose-side-reach': st(
