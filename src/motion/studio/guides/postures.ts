@@ -15,7 +15,13 @@ export const postures: Record<Posture, Base> = {
   stand: { y: 0.88, pose: {} },
   lunge: { y: 0.84, pose: { leg: [-16, 2, 8, 8], other: [28, 2, 36] } },
   chair: { y: 0.535, z: -0.2, pose: { leg: sit, other: sit } },
-  figureFour: { y: 0.535, z: -0.2, pose: { leg: [87, 31, 99, 0, 56], other: sit } },
+  // Leaning forward a little brings the crossed foot within reach of the hands, and the pelvis
+  // rolls a few degrees toward the supporting hip, which carries the weight when a leg is crossed.
+  figureFour: {
+    y: 0.535,
+    z: -0.2,
+    pose: { leg: [87, 31, 99, 0, 56], other: sit, spine: [12, 0, 0], pelvis: [0, 0, 4] },
+  },
   floorSeat: { y: 0.16, pose: { leg: folded, other: foldedFront } },
   longSit: { y: 0.16, pose: { leg: long, other: long } },
   // Knees a touch soft, as straddle cues allow, so the legs keep a clear hinge.

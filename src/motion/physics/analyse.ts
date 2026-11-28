@@ -143,7 +143,8 @@ export function analyse(
         seatSink = 0,
         restGap = Infinity
       const rests = score && !BRIDGED.has(id) ? RESTS_ON[score.posture] : undefined
-      const support: [number, number][] = []
+      const support: [number, number][] = [],
+        onCushion: [number, number, number][] = []
       const onSeat = (x: number, z: number) =>
         !!seat && Math.abs(x) < seat.width / 2 && Math.abs(z - seat.z) < seat.depth / 2
       for (const { coords, indices, weights } of skin)
@@ -177,7 +178,7 @@ export function analyse(
           if (rests?.includes(indices[top]) && Yp < restGap) restGap = Yp
           if (Yp < bandWide) support.push([X, Z])
           if (seat && onSeat(X, Z)) {
-            if (Y > seat.top - seat.depth && Y < seat.top + TOL.seatBand) support.push([X, Z])
+            if (Y > seat.top - seat.depth) onCushion.push([X, Z, Y])
             if (pelvisJoints.has(indices[top])) {
               seatGap = Math.min(seatGap, Y - seat.top)
               if (Y < seat.top - TOL.seatPenetration && Y > seat.top - 0.2)
@@ -185,6 +186,13 @@ export function analyse(
             }
           }
         }
+      // The seat holds up the body where it rests on it: skin within the contact band of the lowest
+      // point over the seat, which sits a little above the nominal seat top when the body floats
+      // within the contact tolerance, as soft tissue spreads under the sit bones.
+      if (seat) {
+        const base = Math.max(seat.top, seatGap + seat.top)
+        for (const [x, z, y] of onCushion) if (y < base + TOL.seatBand) support.push([x, z])
+      }
       let handLow = Infinity
       for (const s of [1, -1] as const) handLow = Math.min(handLow, lowestHandBone(rig, s))
       const floor = Math.min(low, handLow)
