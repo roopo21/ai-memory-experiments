@@ -1,0 +1,173 @@
+{
+ "ui-prmd": {
+  "archive": {
+   "urls": [
+    "https://www.webpages.uidaho.edu/ui-prmd/Segmented%20Movements.zip",
+    "http://web.archive.org/web/20250425223830id_/https://www.webpages.uidaho.edu/ui-prmd/Segmented%20Movements.zip"
+   ],
+   "bytes": 206962745,
+   "sha256": "37478419e5bd6cdb814a94d1ec0fa0b2dfa6497cae03d25e1c2fbc51c676d721"
+  },
+  "provenance": {
+   "id": "ui-prmd",
+   "name": "UI-PRMD, University of Idaho Physical Rehabilitation Movements Data set",
+   "licence": "ODC-PDDL-1.0",
+   "tier": "commercial-safe",
+   "page": "https://webpages.uidaho.edu/ui-prmd/",
+   "paper": "https://doi.org/10.3390/data3010002",
+   "files": "Segmented Movements.zip (Vicon marker positions)",
+   "accessed_on": "2026-11-28"
+  }
+ },
+ "addbiomechanics": {
+  "provenance": {
+   "id": "addbiomechanics",
+   "name": "AddBiomechanics Dataset 1.0 (core dataset)",
+   "licence": "CC-BY-4.0",
+   "tier": "commercial-safe",
+   "page": "https://addbiomechanics.org/download_data.html",
+   "paper": "https://doi.org/10.1007/978-3-031-73223-2_27",
+   "files": "addbiomechanics.zip members listed in scripts/reference/sources.json",
+   "accessed_on": "2026-11-28"
+  },
+  "archive": {
+   "url": "http://archive.simtk.org/addbiomechanics/addbiomechanics.zip",
+   "bytes": 417665422113
+  },
+  "members": [
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject10",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject10/subject10.b3d",
+    "size": 80326916,
+    "crc32": 3689368430
+   },
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject2",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject2/subject2.b3d",
+    "size": 55383307,
+    "crc32": 299715681
+   },
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject3",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject3/subject3.b3d",
+    "size": 91186858,
+    "crc32": 689953087
+   },
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject4",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject4/subject4.b3d",
+    "size": 91498491,
+    "crc32": 2039184088
+   },
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject6",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject6/subject6.b3d",
+    "size": 86058805,
+    "crc32": 3990438956
+   },
+   {
+    "group": "Uhlrich2023",
+    "subject": "subject9",
+    "name": "test/With_Arm/Uhlrich2023_Formatted_With_Arm/subject9/subject9.b3d",
+    "size": 88404053,
+    "crc32": 2134355749
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_3",
+    "name": "test/With_Arm/Falisse2017_Formatted_With_Arm/subject_3/subject_3.b3d",
+    "size": 48299851,
+    "crc32": 2283465838
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_0",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_0/subject_0.b3d",
+    "size": 19919625,
+    "crc32": 3670733458
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_1",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_1/subject_1.b3d",
+    "size": 13445904,
+    "crc32": 763781657
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_4",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_4/subject_4.b3d",
+    "size": 22460311,
+    "crc32": 2103307336
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_5",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_5/subject_5.b3d",
+    "size": 36544504,
+    "crc32": 3725641726
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_6",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_6/subject_6.b3d",
+    "size": 47180258,
+    "crc32": 2306327622
+   },
+   {
+    "group": "Falisse2017",
+    "subject": "subject_8",
+    "name": "train/With_Arm/Falisse2017_Formatted_With_Arm/subject_8/subject_8.b3d",
+    "size": 34804670,
+    "crc32": 3073972935
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject10",
+    "name": "test/With_Arm/Hammer2013_Formatted_With_Arm/subject10/subject10.b3d",
+    "size": 14740718,
+    "crc32": 826601245
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject01",
+    "name": "train/With_Arm/Hammer2013_Formatted_With_Arm/subject01/subject01.b3d",
+    "size": 12660506,
+    "crc32": 3750554670
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject02",
+    "name": "train/With_Arm/Hammer2013_Formatted_With_Arm/subject02/subject02.b3d",
+    "size": 14932745,
+    "crc32": 1050213273
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject03",
+    "name": "train/With_Arm/Hammer2013_Formatted_With_Arm/subject03/subject03.b3d",
+    "size": 12419347,
+    "crc32": 3403397292
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject04",
+    "name": "train/With_Arm/Hammer2013_Formatted_With_Arm/subject04/subject04.b3d",
+    "size": 12853509,
+    "crc32": 3965323358
+   },
+   {
+    "group": "Hamner2013",
+    "subject": "subject08",
+    "name": "train/With_Arm/Hammer2013_Formatted_With_Arm/subject08/subject08.b3d",
+    "size": 12179094,
+    "crc32": 2152877745
+   }
+  ]
+ }
+}

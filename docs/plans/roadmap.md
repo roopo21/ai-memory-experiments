@@ -27,6 +27,10 @@ Still open before this content can be called reviewed:
 - Symptom-based entry points and red-flag screening for nerve glides before any condition-specific advice.
 - Routine saving and progress tracking, once the core flow is validated.
 
+## Motion reference
+
+A reporting check, `npm run check:reference`, compares every guide with natural-movement statistics from two open datasets (UI-PRMD, AddBiomechanics). It started on 2026-11-28 and is not yet enforced; no stretch, glide or floor posture has a public reference. See the [motion reference plan](motion-reference.md).
+
 ## Outcome
 
 Build a study atlas with real, individually selectable anatomy, coherent spatial relationships across systems, useful source-backed teaching content and a responsive browser viewer. Start with the male source body already imported. Add female anatomy as a separately sourced and reviewed body. No system is considered delivered because a toggle, label or approximate shape exists.

@@ -2,12 +2,13 @@
 
 Every plan for this project lives in this folder, one file per plan.
 
-| Plan                                   | Status        | What it covers                                                                                   |
-| -------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------ |
-| [roadmap.md](roadmap.md)               | Active        | The master plan: milestones, performance budgets, coverage, review, female body                  |
-| [3d-rig.md](3d-rig.md)                 | Local library | Exercise motion on the anatomy rig, a matched human view, authoring and validation               |
-| [body-rig-form.md](body-rig-form.md)   | Active        | A rig fitted to the bones, anatomical solvers, hand shapes and form for all 189 guides           |
-| [motion-physics.md](motion-physics.md) | Active        | Support, balance, smoothness and joint-range checks, the support solver and the authoring skills |
+| Plan                                       | Status        | What it covers                                                                                     |
+| ------------------------------------------ | ------------- | -------------------------------------------------------------------------------------------------- |
+| [roadmap.md](roadmap.md)                   | Active        | The master plan: milestones, performance budgets, coverage, review, female body                    |
+| [3d-rig.md](3d-rig.md)                     | Local library | Exercise motion on the anatomy rig, a matched human view, authoring and validation                 |
+| [body-rig-form.md](body-rig-form.md)       | Active        | A rig fitted to the bones, anatomical solvers, hand shapes and form for all 189 guides             |
+| [motion-physics.md](motion-physics.md)     | Active        | Support, balance, smoothness and joint-range checks, the support solver and the authoring skills   |
+| [motion-reference.md](motion-reference.md) | Active        | Natural-movement envelopes from UI-PRMD and AddBiomechanics, and the reporting check built on them |
 
 ## Plans not on `main` yet
 

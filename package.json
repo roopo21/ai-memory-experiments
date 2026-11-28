@@ -48,7 +48,10 @@
     "check:studio:library": "tsx checks/studio-library-browser.mjs",
     "render:guides": "tsx checks/studio-library-browser.mjs --record",
     "check:studio:cards": "tsx checks/studio-guide-entry.mjs",
-    "check:hands": "tsx checks/check-hands.ts"
+    "check:hands": "tsx checks/check-hands.ts",
+    "check:reference": "tsx checks/check-reference.ts",
+    "check:reference:strict": "tsx checks/check-reference.ts --quiet --strict",
+    "reference:derive": "sh scripts/reference/run.sh"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

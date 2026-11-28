@@ -94,6 +94,7 @@ npm run check:physics:all                   # every failure, known included
 npx tsx checks/check-physics.ts --only deep-squat-hold,ninety-ninety
 npx tsx checks/check-physics.ts --report /tmp/physics.json   # every number per guide
 npm run check:form                          # joint ranges at 30 Hz
+npm run check:reference                     # typical of natural movement? reports, never fails (section 8)
 npm run check:studio:geometry               # skinned floor penetration, all tiers
 ```
 
@@ -108,3 +109,47 @@ exact reason in the PR. Run `--write-known` only to **remove** entries after fix
 4. Render stills with the `motion-qa` skill and look at them from side, front and overhead.
 5. Hands and feet land where the guide's text says (`hand-grip-poses` for grips and palms,
    `nerve-glide-views` for what to show).
+6. `check:reference --only <id>`: no new finding, or a written reason (section 8).
+
+## 8. Is it typical? `check:reference`
+
+`check:form` and `check:physics` say a pose is not impossible. `npm run check:reference` says whether
+it is unusual compared with real people, using envelopes from two open datasets (UI-PRMD,
+AddBiomechanics; licences in `docs/reference/motion-reference/LICENSES.md`). It **reports**, it does
+not break the build. Run it for the guide you touched:
+
+```bash
+npm run check:reference -- --only <id>            # findings for one guide
+npm run check:reference -- --report /tmp/ref.json # also the peak speed and acceleration per joint class
+```
+
+How to read a line: `warn range L.knee.flexion 147.3 at 1.90 s (frame 57); expected 125° (reference
+high extreme)`. The value is the worst moment, the limit says where it came from. **Warn** means
+unusual compared with these people; **fail** means far beyond them. Look at stills at that time
+(`motion-qa`) before changing anything. A warn can be right: a flexible person's deep squat is deeper
+than the 260 reference squats, a stretch goes beyond free movement. Say so in the PR rather than
+bending the pose to fit.
+
+What it checks, and what to do about it:
+
+- **Every guide**: `speed` and `accel` (a joint faster than the fastest natural movement, usually a
+  one-frame pop, often at the last frame), `jerk` (a move between beats jerkier than 99% of natural
+  strokes; give the joint an intermediate beat or ease it with the body), `lumbopelvic` (the share of
+  trunk lean that is lumbar; about 0.2 to 0.7 in squats and sit to stand. A value of 1.0 is a fold
+  with a flat pelvis: tilt the pelvis with the `pelvis` angle so the hips take their share, section 4).
+- **Mapped guides only** (`docs/reference/motion-reference/guide-map.md`): `range`, `coupling`
+  (hip with knee and so on), `timing` (not faster than the quickest natural repetition) and `contact`
+  (heels down in a squat). Most stretches have **no reference**: none exists for stretches, nerve
+  glides, floor work or hands, and scapulohumeral rhythm cannot be checked (neither dataset has a
+  scapula). Those get the generic checks only, so a pass is weak evidence, not validation.
+
+Rules:
+
+1. A new guide must not add a finding that is not in `checks/check-reference-known.json` unless you
+   can say why in the PR. The known list may shrink, never grow quietly.
+2. When you fix a finding, run `npm run check:reference -- --write-known` and commit the smaller list.
+3. If you add a guide for a movement the data covers (a squat, lunge, leg raise, shoulder raise),
+   add it to `checks/check-reference-map.ts` and regenerate the map with `--write-map`.
+4. Never copy a number from `envelopes.json` into code, and never tune a pose to minimise distance
+   to the reference. It is a ruler, not a target. Do not claim the app is "validated against motion
+   capture"; health content stays education only (AGENTS.md rule 6).
