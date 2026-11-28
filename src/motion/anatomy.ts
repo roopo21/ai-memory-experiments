@@ -452,37 +452,6 @@ interface ArmSolution {
  */
 export type SolveOptions = { search?: number; local?: boolean; stay?: boolean }
 /**
- * Pattern search on the swing angle `psi` of a limb solve from `at`: step to whichever side
- * lowers the cost, halve the step when neither does. The result is a continuous function of the
- * target while the cost has one valley near the aim, which is what a held contact needs.
- */
-function descend<T extends { cost: number }>(
-  solve: (psi: number) => T,
-  start: T,
-  at: number,
-  step: number,
-  limit: number,
-): T {
-  let best = start,
-    psi = at,
-    h = step
-  for (let k = 0; k < 7 && h > 0.4; k++) {
-    let moved = false
-    for (const next of [psi - h, psi + h]) {
-      if (Math.abs(next) > limit) continue
-      const trial = solve(next)
-      if (trial.cost < best.cost - 1e-9) {
-        best = trial
-        psi = next
-        moved = true
-        break
-      }
-    }
-    if (!moved) h /= 2
-  }
-  return best
-}
-/**
  * Golden-section descent on the swing angle `psi` of a limb solve, inside one grid cell either
  * side of the best grid point. Keeps the better of the grid point and the refined one.
  */
@@ -656,10 +625,7 @@ export function reachArm(
       return found
     }
     const span = options.search ?? (options.local ? 30 : 150)
-    // Whether or not the elbow has to leave its aim, settle into the nearest minimum of the swing
-    // cost, so a hand that moves a hair never flips the arm between "stay on the aim" and a grid
-    // winner somewhere else.
-    let best = descend(solve, solve(0), 0, 5, Math.min(span, 40))
+    let best = solve(0)
     if (best.cost > 0.5 && span > 0) {
       let at = 0
       for (let psi = -span; psi <= span; psi += 10) {
@@ -900,7 +866,7 @@ export function reachLeg(
     return { thigh, shin: shinQ, foot: footLocal, cost }
   }
   const span = options.search ?? (options.local ? 24 : 90)
-  let best = descend(solve, solve(0), 0, 4, Math.min(span, 30))
+  let best = solve(0)
   if (best.cost > 0.5 && span > 0) {
     let at = 0
     for (let psi = -span; psi <= span; psi += 6) {

@@ -326,11 +326,15 @@ export const hipLeg = {
     { leg: [-4, 0, 124], a: [146, 8, 93], b: [146, 8, 93] },
     { gear: ['quadStrap'] },
   ),
+  // Sit tall on the heels with the hands resting on the thighs, then tip the trunk back from the
+  // hips (pelvis and lumbar spine) and put both flat palms down just behind the hips, fingers
+  // forward. The arms stay slightly bent and the wrists about 70 degrees, so the hands bear the
+  // weight without end-range wrist or shoulder.
   'heel-sit-lean-back': st(
     'heelSit',
-    { ga: [0.24, 0.03, -0.25], gb: [-0.24, 0.03, -0.25] },
+    { ga: 'ownThigh', gb: 'ownThigh' },
     'Lean back with the hands supporting you',
-    { spine: [-25, 0, 0], pelvis: [-10, 0, 0] },
+    { spine: [-30, 0, 0], pelvis: [-40, 0, 0], ga: [0.17, 0.03, -0.2], gb: [-0.17, 0.03, -0.2] },
     both,
   ),
   'doorway-hamstring': st(

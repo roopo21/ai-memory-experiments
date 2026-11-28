@@ -138,7 +138,6 @@ for (const id of ids) {
 // spine lean in `leanToReach` (sampleGuide.ts) fixed the other seven; these four are limited by the
 // hand's own orientation at the end of its wrist and shoulder range, not by arm length.
 const PHYSICS_PENDING = new Set<string>([
-  'heel-sit-lean-back',
   'seated-reverse-reach',
   'seated-rotation',
   'inchworm',

@@ -291,11 +291,15 @@ function keysFor(id: AuthoredId) {
     })
     // Settle the beat through the same local pass every frame between beats runs, so the frames
     // either side of a beat arrive at exactly the pose stored for it.
-    for (let pass = 0; pass < 2; pass++) {
+    for (let pass = 0; pass < 3; pass++) {
       const key = capture()
       // Rest the whole body the way every sampled frame does, so the stored beat is the pose a
       // frame at that beat would arrive at, not one sunk a few millimetres into the floor.
       const planted = sides.map((_, n) => onSurface(key.reach[n]))
+      lockStandingFeet(r, feet.get(id)!, toeOut(id))
+      if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
+        crossedAnkle(r, id, key.pose)
+      for (const s of sides) articulateLeg(r, s, true)
       r.root.updateMatrixWorld(true)
       groundGuide(r, id, false, planted)
       r.root.updateMatrixWorld(true)
@@ -383,7 +387,7 @@ function blendHips(r: MovementRig, a: Key, b: Key, f: number) {
     )
   }
 }
-function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side: Side) {
+export function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side: Side) {
   const keys = keysFor(id),
     // A take that returns to its first beat ends on exactly that pose.
     time = at >= keys.at(-1)!.time && keys.at(-1)!.rotations === keys[0].rotations ? 0 : at,
@@ -683,4 +687,12 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
       if (other[j] !== j) v.set(x, -y, -z, w)
     }
   }
+}
+
+/** Drop a guide's solved beats and baked track, so a tool that edits its score can re-sample it. */
+export function forgetGuide(id: AuthoredId) {
+  cache.delete(id)
+  baked.delete(id)
+  const at = bakeOrder.indexOf(id)
+  if (at >= 0) bakeOrder.splice(at, 1)
 }
