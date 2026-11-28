@@ -436,16 +436,11 @@ export function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side:
   holdFeet(r, id, from, to, along)
   groundGuide(r, id, false, planted)
   r.root.updateMatrixWorld(true)
-  if (still) {
-    // A held pose is the beat it holds. Its hands are already on their contacts, so solving them
-    // again every frame would only let a limb flip between two nearly equal solutions.
-    for (const s of sides) articulateLeg(r, s, true)
-    r.root.updateMatrixWorld(true)
-  } else {
-    holdHands(r, id, from, to, along)
-    clearFloorHands(r)
-    articulate(r, true)
-  }
+  // A held pose is the beat it holds. A hand already on its contact is not placed again every
+  // frame, which would only let an arm flip between two nearly equal solutions.
+  if (!(still && a.reach.some(contactKind))) holdHands(r, id, from, to, along)
+  clearFloorHands(r)
+  articulate(r, true)
   clearFloorFeet(r, id)
   refitCarriedShaft(r, id)
   if (side === 'right' && !scores[id].both) {
@@ -632,6 +627,44 @@ function bake(id: AuthoredId): Baked {
     )
     raw.push(f)
   }
+  // A hold is exactly its beat, but the frame that leaves it (or arrives at it) can sit a few
+  // centimetres from it where the solver took another route to the same contact. Carry that gap
+  // away over a few frames, so every hold ends where it began and nothing steps at its edges.
+  const keys = keysFor(id),
+    EASE = 9
+  const ease = (u: number) => u * u * (3 - 2 * u)
+  const gapOf = (from: Float64Array, to: Float64Array, w: number, out: Float64Array) => {
+    // out = to's rotation relative to from, scaled by w, applied on the right of `out`.
+    for (let c = 0; c < 3; c++) out[c] += w * (to[c] - from[c])
+    for (let q = 0; q <= joints.length; q++) {
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4
+      const a = new Quaternion(from[o], from[o + 1], from[o + 2], from[o + 3]),
+        b = new Quaternion(to[o], to[o + 1], to[o + 2], to[o + 3])
+      const delta = a.clone().invert().multiply(b)
+      if (delta.w < 0) delta.set(-delta.x, -delta.y, -delta.z, -delta.w)
+      const turned = new Quaternion().slerp(delta, w)
+      const now = new Quaternion(out[o], out[o + 1], out[o + 2], out[o + 3]).multiply(turned)
+      out.set([now.x, now.y, now.z, now.w], o)
+    }
+  }
+  const adjusted = raw.map((f) => Float64Array.from(f))
+  for (let i = 1; i < keys.length; i++) {
+    if (keys[i].rotations !== keys[i - 1].rotations) continue
+    const first = Math.round(keys[i - 1].time * BAKE_HZ),
+      last = Math.round(keys[i].time * BAKE_HZ)
+    const room = (to: number, from: number) =>
+      Math.max(0, Math.min(EASE, Math.floor((to - from) / 2)))
+    // Leaving the hold: frames after `last` are pulled back toward the hold's pose and released.
+    const after =
+      last + 1 < n ? room(keys[i + 1] ? Math.round(keys[i + 1].time * BAKE_HZ) : n, last) : 0
+    for (let k = last + 1; k <= last + after && k < n; k++)
+      gapOf(raw[last + 1], raw[last], 1 - ease((k - last) / (after + 1)), adjusted[k])
+    // Arriving at the hold: frames before `first`, likewise.
+    const before = first > 0 ? room(first, i >= 2 ? Math.round(keys[i - 2].time * BAKE_HZ) : 0) : 0
+    for (let k = first - 1; k >= first - before && k >= 0; k--)
+      gapOf(raw[first - 1], raw[first], 1 - ease((first - k) / (before + 1)), adjusted[k])
+  }
+  raw.splice(0, raw.length, ...adjusted)
   // Smooth: positions average directly; quaternions average in the hemisphere of the centre frame.
   const out: Float64Array[] = []
   for (let k = 0; k < n; k++) {
