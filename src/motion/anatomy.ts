@@ -867,11 +867,19 @@ export function reachLeg(
   }
   const span = options.search ?? (options.local ? 24 : 90)
   let best = solve(0)
-  if (best.cost > 0.5 && span > 0)
+  if (best.cost > 0.5 && span > 0) {
+    let at = 0
     for (let psi = -span; psi <= span; psi += 6) {
       const trial = solve(psi)
-      if (trial.cost < best.cost) best = trial
+      if (trial.cost < best.cost) {
+        best = trial
+        at = psi
+      }
     }
+    // Between beats the knee swing settles smoothly instead of stepping a grid cell; a beat keeps
+    // the grid so that its left and right sides stay exact mirrors.
+    if (options.local) best = refine(solve, best, at, 6, span)
+  }
   r.bones[j.thigh].quaternion.copy(best.thigh)
   r.bones[j.shin].quaternion.copy(best.shin)
   r.bones[j.foot].quaternion.copy(best.foot)

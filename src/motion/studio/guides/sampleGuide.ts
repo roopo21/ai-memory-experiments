@@ -648,30 +648,49 @@ function bake(id: AuthoredId): Baked {
     }
   }
   const adjusted = raw.map((f) => Float64Array.from(f))
+  const frameOf = (i: number) => Math.round(keys[i].time * BAKE_HZ)
+  const room = (to: number, from: number) =>
+    Math.max(0, Math.min(EASE, Math.floor((to - from) / 2)))
   for (let i = 1; i < keys.length; i++) {
-    if (keys[i].rotations !== keys[i - 1].rotations) continue
-    const first = Math.round(keys[i - 1].time * BAKE_HZ),
-      last = Math.round(keys[i].time * BAKE_HZ)
-    const room = (to: number, from: number) =>
-      Math.max(0, Math.min(EASE, Math.floor((to - from) / 2)))
-    // Leaving the hold: frames after `last` are pulled back toward the hold's pose and released.
-    const after =
-      last + 1 < n ? room(keys[i + 1] ? Math.round(keys[i + 1].time * BAKE_HZ) : n, last) : 0
-    for (let k = last + 1; k <= last + after && k < n; k++)
-      gapOf(raw[last + 1], raw[last], 1 - ease((k - last) / (after + 1)), adjusted[k])
-    // Arriving at the hold: frames before `first`, likewise.
-    const before = first > 0 ? room(first, i >= 2 ? Math.round(keys[i - 2].time * BAKE_HZ) : 0) : 0
-    for (let k = first - 1; k >= first - before && k >= 0; k--)
-      gapOf(raw[first - 1], raw[first], 1 - ease((first - k) / (before + 1)), adjusted[k])
+    const at = frameOf(i)
+    if (keys[i].rotations === keys[i - 1].rotations) {
+      // Leaving a hold: the frames after it are pulled back to the hold's pose and released.
+      const count = at + 1 < n ? room(i + 1 < keys.length ? frameOf(i + 1) : n, at) : 0
+      for (let k = at + 1; k <= at + count && k < n; k++)
+        gapOf(raw[at + 1], raw[at], 1 - ease((k - at) / (count + 1)), adjusted[k])
+    } else if (at > 0) {
+      // Arriving at a beat: the frames before it are carried onto it, likewise.
+      const count = room(at, frameOf(i - 1))
+      for (let k = at - 1; k >= at - count && k >= 0; k--)
+        gapOf(raw[at - 1], raw[at], 1 - ease((at - k) / (count + 1)), adjusted[k])
+    }
   }
   raw.splice(0, raw.length, ...adjusted)
+  // Before the first frame the track continues as the point reflection of what follows it, so the
+  // smoothed first frame is exactly the authored pose and the take starts without a step.
+  const reflect = (j: number) => {
+    const f = new Float64Array(FRAME),
+      src = raw[Math.min(j, n - 1)]
+    for (let c = 0; c < 3; c++) f[c] = 2 * raw[0][c] - src[c]
+    for (let q = 0; q <= joints.length; q++) {
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4
+      const q0 = new Quaternion(raw[0][o], raw[0][o + 1], raw[0][o + 2], raw[0][o + 3]),
+        qj = new Quaternion(src[o], src[o + 1], src[o + 2], src[o + 3])
+      const delta = q0.clone().invert().multiply(qj).invert()
+      const mirrored = q0.multiply(delta)
+      f.set([mirrored.x, mirrored.y, mirrored.z, mirrored.w], o)
+    }
+    return f
+  }
+  const before = Array.from({ length: RADIUS + 1 }, (_, j) => (j ? reflect(j) : raw[0]))
+  const at = (k: number) => (k < 0 ? before[-k] : raw[Math.min(n - 1, k)])
   // Smooth: positions average directly; quaternions average in the hemisphere of the centre frame.
   const out: Float64Array[] = []
   for (let k = 0; k < n; k++) {
     const f = new Float64Array(FRAME)
     let wsum = 0
     for (let d = -RADIUS; d <= RADIUS; d++) {
-      const src = raw[Math.min(n - 1, Math.max(0, k + d))],
+      const src = at(k + d),
         w = KERNEL[d + RADIUS]
       wsum += w
       for (let c = 0; c < 3; c++) f[c] += w * src[c]
@@ -682,7 +701,7 @@ function bake(id: AuthoredId): Baked {
       const o = q === 0 ? 3 : 8 + (q - 1) * 4,
         ref = raw[k]
       for (let d = -RADIUS; d <= RADIUS; d++) {
-        const src = raw[Math.min(n - 1, Math.max(0, k + d))],
+        const src = at(k + d),
           w = KERNEL[d + RADIUS]
         const dot =
           src[o] * ref[o] +
