@@ -78,7 +78,7 @@ function capsuleOf(r: MovementRig, s: Side, name: string, last: boolean, radius:
   const i = boneIndex(s, name),
     joint = r.bones[i]
   const a = joint.getWorldPosition(V())
-  const child = r.bones.find((b, k) => k > 0 && (b.parent === joint) && k !== i)
+  const child = r.bones.find((b, k) => k > 0 && b.parent === joint && k !== i)
   const digit = prefixOf(s) + name.replace(/\d$/, '')
   const tipName = name.startsWith('Thumb') ? prefixOf(s) + 'Thumb' : digit
   const b =
@@ -104,29 +104,32 @@ export function padPoint(c: Capsule, along = 0.6) {
 
 /** Signed distance: negative inside the object. */
 export type Surface = (p: Vector3) => number
-export const sphere = (centre: Vector3, radius: number): Surface => (p) =>
-  p.distanceTo(centre) - radius
-export const halfSpace = (point: Vector3, normal: Vector3): Surface => (p) =>
-  p.clone().sub(point).dot(normal)
+export const sphere =
+  (centre: Vector3, radius: number): Surface =>
+  (p) =>
+    p.distanceTo(centre) - radius
+export const halfSpace =
+  (point: Vector3, normal: Vector3): Surface =>
+  (p) =>
+    p.clone().sub(point).dot(normal)
 /** An infinite cylinder. */
-export const cylinder = (point: Vector3, axis: Vector3, radius: number): Surface => (p) => {
-  const d = p.clone().sub(point)
-  d.addScaledVector(axis, -d.dot(axis))
-  return d.length() - radius
-}
+export const cylinder =
+  (point: Vector3, axis: Vector3, radius: number): Surface =>
+  (p) => {
+    const d = p.clone().sub(point)
+    d.addScaledVector(axis, -d.dot(axis))
+    return d.length() - radius
+  }
 /** A cylinder of finite length with flat ends (rounded by `round`). */
-export const finiteCylinder = (
-  point: Vector3,
-  axis: Vector3,
-  radius: number,
-  half: number,
-): Surface => (p) => {
-  const d = p.clone().sub(point),
-    along = d.dot(axis)
-  d.addScaledVector(axis, -along)
-  const q = [d.length() - radius, Math.abs(along) - half]
-  return Math.min(Math.max(q[0], q[1]), 0) + Math.hypot(Math.max(q[0], 0), Math.max(q[1], 0))
-}
+export const finiteCylinder =
+  (point: Vector3, axis: Vector3, radius: number, half: number): Surface =>
+  (p) => {
+    const d = p.clone().sub(point),
+      along = d.dot(axis)
+    d.addScaledVector(axis, -along)
+    const q = [d.length() - radius, Math.abs(along) - half]
+    return Math.min(Math.max(q[0], q[1]), 0) + Math.hypot(Math.max(q[0], 0), Math.max(q[1], 0))
+  }
 /** An axis-aligned or oriented rounded box (for seat rails, table edges, blocks). */
 export const roundedBox = (
   centre: Vector3,
@@ -186,9 +189,15 @@ export interface CloseOptions {
   limit?: { mcp: number; pip: number; dip: number }
   /** Hold DIP at this fraction of the PIP angle once the PIP has closed (the coupling). */
   coupling?: number
+  /**
+   * `'wrap'` (default): each phalanx closes onto a small handle in turn; `'pads'`: stop MCP/PIP
+   * as soon as the fingertip/distal phalanx meets a broad surface (ball, thigh), so tips never
+   * bury into it.
+   */
+  touch?: 'wrap' | 'pads'
 }
 const CLOSE_LIMIT = { mcp: 92, pip: 108, dip: 75 }
-const OPEN_LIMIT = { mcp: -25, pip: 0, dip: 0 }
+const OPEN_LIMIT = { mcp: -25, pip: 0, dip: -8 }
 /**
  * Close the fingers onto `surface`, joint by joint from the knuckle outward. If a phalanx starts
  * inside the surface, it opens toward `OPEN_LIMIT` until clear; otherwise it flexes until the
@@ -205,15 +214,22 @@ export function closeFingers(
   const press = opt.press ?? 0.0008,
     limit = opt.limit ?? CLOSE_LIMIT,
     digits = opt.digits ?? [0, 1, 2, 3],
-    coupling = opt.coupling ?? 0.66
+    coupling = opt.coupling ?? 0.66,
+    pads = opt.touch === 'pads'
   for (const i of digits) {
     const digit = DIGITS[i]
     const joints = ['mcp', 'pip', 'dip'] as const
     for (const [k, key] of joints.entries()) {
       const gap = (angle: number) => {
         a[key][i] = angle
+        if (pads && key === 'pip' && coupling > 0) a.dip[i] = Math.min(limit.dip, angle * coupling)
         applyAngles(r, s, a)
-        return clearance(fingerCapsules(r, s, digit)[k], surface) + press
+        const caps = fingerCapsules(r, s, digit)
+        if (pads) {
+          const check = k === 0 ? caps : caps.slice(k)
+          return Math.min(...check.map((c) => clearance(c, surface))) + press
+        }
+        return clearance(caps[k], surface) + press
       }
       const start =
         key === 'dip' && coupling > 0
@@ -303,7 +319,8 @@ export function placeThumb(r: MovementRig, s: Side, a: HandAngles, goal: ThumbGo
     let c = p.distanceToSquared(goal.point) * 1e4
     if (goal.facing) c += (1 + pad.palmar.dot(goal.facing)) ** 2 * 3
     if (goal.avoid) for (const cap of caps) c += Math.max(0, -clearance(cap, goal.avoid)) ** 2 * 2e4
-    if (goal.prefer) for (let k = 0; k < 5; k++) c += ((a.thumb[k] - goal.prefer[k]) / 90) ** 2 * 0.5
+    if (goal.prefer)
+      for (let k = 0; k < 5; k++) c += ((a.thumb[k] - goal.prefer[k]) / 90) ** 2 * 0.5
     return c
   }
   let best = cost()

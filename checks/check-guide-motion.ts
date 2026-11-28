@@ -8,7 +8,7 @@ import { distalBindings } from '../src/motion/distalJoints'
 import { ANKLE_Y, indexOfJoint, joints, type Joint } from '../src/motion/joints'
 import { createMovementRig } from '../src/motion/movementRig'
 import { measure } from '../src/motion/anatomy'
-import { tip } from '../src/motion/studio/guides/precision'
+import { padGap } from '../src/motion/hands/shapes'
 import { sampleStudio } from '../src/motion/studio/sample'
 import { newProject } from '../src/studio/project'
 import { selectSurfaces } from '../src/motion/studio/figure'
@@ -170,7 +170,7 @@ assert(world('pelvis').y > world('head').y + 0.3 && world('leftFoot').y < 0.14)
 pose('scorpion', 1)
 assert(world('leftFoot').y > world('rightFoot').y + 0.25 && world('chest').y < 0.25)
 pose('ulnar-tensioner', 2)
-assert(tip(r, 'Thumb').distanceTo(tip(r, 'Index')) < 0.005)
+assert(Math.abs(padGap(r, 1)) < 0.004)
 // The crossed ankle rests on the front of the other thigh just above the knee.
 for (const id of [
   'supine-figure-four',

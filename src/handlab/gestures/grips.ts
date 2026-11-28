@@ -26,8 +26,7 @@ export const grips: Gesture[] = [
     id: 'palm-floor',
     name: 'Open palm flat on floor (weight-bearing)',
     group: 'grip',
-    form:
-      'All-fours tabletop weight-bearing posture: knees and shins rest on the floor, trunk near horizontal, shoulder positioned slightly behind the wrist so the forearm leans forward (~10 deg), keeping wrist extension ~78–83 deg within passive tolerance. The heel of the palm and all finger pads contact y = 0 cleanly with no hovering or sinking; fingers spread gently (~10 deg total); thumb stays level in the plane of the palm.',
+    form: 'All-fours tabletop weight-bearing posture: knees and shins rest on the floor, trunk near horizontal, shoulder positioned slightly behind the wrist so the forearm leans forward (~10 deg), keeping wrist extension ~78–83 deg within passive tolerance. The heel of the palm and all finger pads contact y = 0 cleanly with no hovering or sinking; fingers spread gently (~10 deg total); thumb stays level in the plane of the palm.',
     duration: 1,
     moments: [{ t: 0, label: 'Plant' }],
     build({ r, side }) {
@@ -47,10 +46,11 @@ export const grips: Gesture[] = [
 
       // Measure lowest skin point and palm height above floor y = 0.
       const floor = halfSpace(V(0, 0, 0), V(0, 1, 0))
-      const minClearMm = Math.min(
-        ...DIGITS.flatMap((d) => fingerCapsules(r, side, d).map((c) => clearance(c, floor))),
-        ...thumbCapsules(r, side).map((c) => clearance(c, floor)),
-      ) * 1000
+      const minClearMm =
+        Math.min(
+          ...DIGITS.flatMap((d) => fingerCapsules(r, side, d).map((c) => clearance(c, floor))),
+          ...thumbCapsules(r, side).map((c) => clearance(c, floor)),
+        ) * 1000
       const palmYmm = palmPoint(r, side).y * 1000
       return {
         props: [],
@@ -67,8 +67,7 @@ export const grips: Gesture[] = [
     id: 'band-grip',
     name: 'Power grip on a band handle',
     group: 'grip',
-    form:
-      'Power grip around a 12 mm radius cylindrical resistance-band handle held in front of the torso. The handle crosses the proximal palmar pads obliquely from the higher index knuckle to the lower little knuckle (`gripPoint`). All four fingers wrap cleanly round the shaft (MCP ~65–75, PIP ~88–98, DIP ~50–65 following PIP coupling) with 0–2 mm pad compression; the thumb opposes on the radial/wrist side across the index and middle middle phalanges.',
+    form: 'Power grip around a 12 mm radius cylindrical resistance-band handle held in front of the torso. The handle crosses the proximal palmar pads obliquely from the higher index knuckle to the lower little knuckle (`gripPoint`). All four fingers wrap cleanly round the shaft (MCP ~65–75, PIP ~88–98, DIP ~50–65 following PIP coupling) with 0–2 mm pad compression; the thumb opposes on the radial/wrist side across the index and middle middle phalanges.',
     duration: 1,
     moments: [{ t: 0, label: 'Grip' }],
     build({ r, side }) {
@@ -139,7 +138,10 @@ export const grips: Gesture[] = [
       })
 
       const gaps = DIGITS.map(
-        (d) => +(Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, handleSurface))) * 1000).toFixed(1),
+        (d) =>
+          +(
+            Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, handleSurface))) * 1000
+          ).toFixed(1),
       )
       return {
         props: [
@@ -165,8 +167,7 @@ export const grips: Gesture[] = [
     id: 'chair-edge',
     name: 'Holding a chair edge',
     group: 'grip',
-    form:
-      'Seated upright on a chair with feet on the floor. The working arm reaches straight down beside the hip to grasp the lateral seat edge (18 mm thick rounded seat cushion, 9 mm edge radius). The palm heel rests against the outer/top edge while all four fingers hook underneath the rounded edge (MCP ~28–38, PIP ~85–95, DIP ~45–55) and the thumb rests on the top surface of the seat.',
+    form: 'Seated upright on a chair with feet on the floor. The working arm reaches straight down beside the hip to grasp the lateral seat edge (18 mm thick rounded seat cushion, 9 mm edge radius). The palm heel rests against the outer/top edge while all four fingers hook underneath the rounded edge (MCP ~28–38, PIP ~85–95, DIP ~45–55) and the thumb rests on the top surface of the seat.',
     duration: 1,
     moments: [{ t: 0, label: 'Hold' }],
     build({ r, side }) {
@@ -206,7 +207,7 @@ export const grips: Gesture[] = [
 
       // Thumb rests cleanly on top of the seat cushion near the edge.
       placeThumb(r, side, a, {
-        point: V(edgeX - side * 0.015, seatTopY + 0.008, edgeZ + 0.035),
+        point: V(edgeX - side * 0.015, seatTopY + 0.012, edgeZ + 0.035),
         facing: V(0, 1, 0),
         avoid: seatSurface,
         pad: 1,
@@ -215,7 +216,10 @@ export const grips: Gesture[] = [
       })
 
       const gaps = DIGITS.map(
-        (d) => +(Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, seatSurface))) * 1000).toFixed(1),
+        (d) =>
+          +(
+            Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, seatSurface))) * 1000
+          ).toFixed(1),
       )
       const thumbGap = +(
         Math.min(...thumbCapsules(r, side).map((c) => clearance(c, seatSurface))) * 1000

@@ -52,7 +52,9 @@ declare global {
     handLab?: {
       frame: (o: Partial<LabState> & { fov?: number }) => string
       notes: () => Built['notes']
-      info: (id: string) => { name: string; duration: number; moments: { t: number; label: string }[] } | undefined
+      info: (
+        id: string,
+      ) => { name: string; duration: number; moments: { t: number; label: string }[] } | undefined
     }
   }
 }
@@ -190,7 +192,12 @@ function palmCapsules(rig: ReturnType<typeof createMovementRig>, s: Side): Capsu
     palmar,
   }))
   const thumb = rig.bones[indexOfJoint[(side + 'Thumb1') as Joint]].getWorldPosition(new Vector3())
-  out.push({ a: wrist.clone().addScaledVector(palmar, 0.008), b: thumb.addScaledVector(palmar, 0.004), radius: 0.0125, palmar })
+  out.push({
+    a: wrist.clone().addScaledVector(palmar, 0.008),
+    b: thumb.addScaledVector(palmar, 0.004),
+    radius: 0.0125,
+    palmar,
+  })
   return out
 }
 class TissueLayer {
@@ -210,7 +217,11 @@ class TissueLayer {
     let g = this.parts[i]
     if (!g) {
       g = new Group()
-      g.add(new Mesh(this.cylinder, this.material), new Mesh(this.ball, this.material), new Mesh(this.ball, this.material))
+      g.add(
+        new Mesh(this.cylinder, this.material),
+        new Mesh(this.ball, this.material),
+        new Mesh(this.ball, this.material),
+      )
       this.parts[i] = g
       this.root.add(g)
     }
@@ -374,7 +385,11 @@ export default function HandLab() {
   const g = gestureById.get(lab.gesture) ?? gestures[0]
   return (
     <div style={{ position: 'fixed', inset: 0, background: theme.stage, color: '#e9e9ec' }}>
-      <main data-ready={ready} aria-label="Hand Lab stage" style={{ position: 'absolute', inset: 0 }}>
+      <main
+        data-ready={ready}
+        aria-label="Hand Lab stage"
+        style={{ position: 'absolute', inset: 0 }}
+      >
         <Canvas
           shadows
           dpr={capture ? 1 : [1, 1.5]}

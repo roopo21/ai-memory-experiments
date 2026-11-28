@@ -71,10 +71,14 @@ try {
     for (const view of views)
       for (const [t, name] of marks) {
         const img = bytes(
-          await page.evaluate(
-            (o) => window.handLab.frame(o),
-            { gesture: id, t, view, figure: v.figure, side: v.side === 'right' ? -1 : 1, fov: Number(v.fov) },
-          ),
+          await page.evaluate((o) => window.handLab.frame(o), {
+            gesture: id,
+            t,
+            view,
+            figure: v.figure,
+            side: v.side === 'right' ? -1 : 1,
+            fov: Number(v.fov),
+          }),
         )
         notes.push(await page.evaluate(() => window.handLab.notes()))
         frames.push(
@@ -82,7 +86,11 @@ try {
             create: { width, height: height + caption, channels: 3, background: '#111113' },
           })
             .composite([
-              { input: label(`${id} · ${view} · ${name}`, width, caption, 13, 400), top: 0, left: 0 },
+              {
+                input: label(`${id} · ${view} · ${name}`, width, caption, 13, 400),
+                top: 0,
+                left: 0,
+              },
               { input: await sharp(img).resize(width, height).toBuffer(), top: caption, left: 0 },
             ])
             .png()
@@ -94,9 +102,15 @@ try {
       rowH = height + caption + 4,
       w = cols * (width + 4),
       h = 28 + Math.ceil(frames.length / cols) * rowH
-    const sheet = await sharp({ create: { width: w, height: h, channels: 3, background: '#111113' } })
+    const sheet = await sharp({
+      create: { width: w, height: h, channels: 3, background: '#111113' },
+    })
       .composite([
-        { input: label(`${info.name}  (${id}, ${v.side} hand, ${v.figure})`, w, 28, 16, 700), top: 0, left: 0 },
+        {
+          input: label(`${info.name}  (${id}, ${v.side} hand, ${v.figure})`, w, 28, 16, 700),
+          top: 0,
+          left: 0,
+        },
         ...frames.map((f, n) => ({
           input: f,
           top: 28 + Math.floor(n / cols) * rowH,
@@ -119,15 +133,27 @@ try {
       await writeFile(file, sheet)
       console.log(file)
     }
-    if (notes.some(Boolean)) console.log(JSON.stringify(notes.filter(Boolean).slice(0, marks.length)))
+    if (notes.some(Boolean))
+      console.log(JSON.stringify(notes.filter(Boolean).slice(0, marks.length)))
   }
   if (v.montage) {
     const cols = Number(v.cols),
       rowH = height + caption + 4
     const sheet = await sharp({
-      create: { width: cols * (width + 4), height: Math.ceil(pool.length / cols) * rowH, channels: 3, background: '#111113' },
+      create: {
+        width: cols * (width + 4),
+        height: Math.ceil(pool.length / cols) * rowH,
+        channels: 3,
+        background: '#111113',
+      },
     })
-      .composite(pool.map((f, n) => ({ input: f, top: Math.floor(n / cols) * rowH, left: (n % cols) * (width + 4) })))
+      .composite(
+        pool.map((f, n) => ({
+          input: f,
+          top: Math.floor(n / cols) * rowH,
+          left: (n % cols) * (width + 4),
+        })),
+      )
       .png({ palette: true, quality: 82, compressionLevel: 9 })
       .toBuffer()
     await mkdir(resolve(v.output ?? v.iterate), { recursive: true })

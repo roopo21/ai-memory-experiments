@@ -32,11 +32,14 @@ export const relaxedAngles = (wristExtension = 0): HandAngles => {
     pip: [30, 36, 42, 46] as const,
     dip: [14, 16, 18, 18] as const,
   }
-  const flexed = wristExtension !== 0 ? applyTenodesis(wristExtension, base) : {
-    mcp: [...base.mcp] as [number, number, number, number],
-    pip: [...base.pip] as [number, number, number, number],
-    dip: [...base.dip] as [number, number, number, number],
-  }
+  const flexed =
+    wristExtension !== 0
+      ? applyTenodesis(wristExtension, base)
+      : {
+          mcp: [...base.mcp] as [number, number, number, number],
+          pip: [...base.pip] as [number, number, number, number],
+          dip: [...base.dip] as [number, number, number, number],
+        }
   return {
     ...flexed,
     fan: [1, 0, -1, -3],
@@ -225,7 +228,10 @@ export function padGap(r: MovementRig, s: Side, finger: 0 | 1 | 2 | 3 = 0) {
     for (let j = 0; j <= 10; j++)
       best = Math.min(
         best,
-        tip.a.clone().lerp(tip.b, i / 10).distanceTo(thumb.a.clone().lerp(thumb.b, j / 10)),
+        tip.a
+          .clone()
+          .lerp(tip.b, i / 10)
+          .distanceTo(thumb.a.clone().lerp(thumb.b, j / 10)),
       )
   return best - tip.radius - thumb.radius
 }

@@ -1,13 +1,13 @@
 import { Quaternion, Vector3 } from 'three'
 import { digitTips } from '../../distalJoints'
 import { ANKLE_Y, indexOfJoint, joints } from '../../joints'
-import { oldLocal } from '../../oldPivots'
 import { solveLimb, worldRotation, type MovementRig } from '../../movementRig'
 import { legFrame, turn } from '../../anatomy'
 import { palmPad, toePad } from '../anchors'
 import { flatPalmOrientation } from '../handOrientation'
 import { scores, type AuthoredId } from '../../../studio/choreography'
 import type { Pose } from '../../../studio/choreography/types'
+import { okSign } from '../../hands/shapes'
 const V = (x = 0, y = 0, z = 0) => new Vector3(x, y, z)
 const X = V(1, 0, 0),
   rot = (degrees: number) => new Quaternion().setFromAxisAngle(X, (degrees * Math.PI) / 180)
@@ -18,24 +18,7 @@ export function tip(r: MovementRig, name: 'Thumb' | 'Index') {
   )
 }
 export function pinch(r: MovementRig) {
-  const hand = r.bones[8]
-  for (const name of ['Thumb', 'Index'] as const) {
-    const end = indexOfJoint[name === 'Thumb' ? 'leftThumb2' : 'leftIndex3']
-    const target = hand.localToWorld(
-      oldLocal(8, 0.043 + (name === 'Thumb' ? 0.0017 : -0.0017), -0.081, 0.077),
-    )
-    for (let sweep = 0; sweep < 14 && tip(r, name).distanceTo(target) > 0.00025; sweep++)
-      for (let i = end; i >= end - 2; i--) {
-        const joint = r.bones[i],
-          origin = joint.getWorldPosition(V()),
-          delta = new Quaternion().setFromUnitVectors(
-            tip(r, name).sub(origin).normalize(),
-            target.clone().sub(origin).normalize(),
-          )
-        delta.copy(new Quaternion().rotateTowards(delta, 0.42))
-        worldRotation(joint, delta.multiply(joint.getWorldQuaternion(new Quaternion())))
-      }
-  }
+  okSign(r, 1)
 }
 export function crossedAnkle(r: MovementRig, id: AuthoredId, p: Pose) {
   // Lying, the crossed leg is authored directly so the ankle rests on the other thigh.

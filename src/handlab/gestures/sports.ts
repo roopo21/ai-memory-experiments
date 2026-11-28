@@ -23,8 +23,7 @@ export const sports: Gesture[] = [
     id: 'basketball-dribble',
     name: 'Basketball dribble',
     group: 'sport',
-    form:
-      'Athletic dribble stance (hips flexed ~24 deg, knees bent ~34 deg, trunk leaned ~16 deg forward, feet flat on floor) with one-hand dribble cycle (0.85 s): (1) Cup at t=0 s with ball at y=0.68 m, wrist extended ~18 deg, fingers spread wide and arched over the upper hemisphere so distal pads contact the ball cleanly without palm slap; (2) Push/release at t=0.22 s as elbow extends (~90->34 deg) and wrist flexes downward (~-28 deg) pushing the ball to y=0.50 m; (3) Floor bounce at t=0.45 s where ball bottom touches y=0 (centre y=0.12 m) while hand follows through softly; (4) Rise/catch at t=0.70 s as ball rebounds under gravity back into cushioned fingertips.',
+    form: 'Athletic dribble stance (hips flexed ~24 deg, knees bent ~34 deg, trunk leaned ~16 deg forward, feet flat on floor) with one-hand dribble cycle (0.85 s): (1) Cup at t=0 s with ball at y=0.68 m, wrist extended ~18 deg, fingers spread wide and arched over the upper hemisphere so distal pads contact the ball cleanly without palm slap; (2) Push/release at t=0.22 s as elbow extends (~90->34 deg) and wrist flexes downward (~-28 deg) pushing the ball to y=0.50 m; (3) Floor bounce at t=0.45 s where ball bottom touches y=0 (centre y=0.12 m) while hand follows through softly; (4) Rise/catch at t=0.70 s as ball rebounds under gravity back into cushioned fingertips.',
     duration: 0.85,
     moments: [
       { t: 0.0, label: 'Cup' },
@@ -45,57 +44,69 @@ export const sports: Gesture[] = [
       // Parabolic gravity + bounce trajectory between release (t=0.22, y=0.52) and catch (t=0.70, y=0.64).
       let ballY: number
       let wristY: number
-      let wristFlexPitch: number // positive = fingers pitch downward (wrist flexion)
+      let wristZ: number
+      let fingerDir: ReturnType<typeof V>
+      let normalDir: ReturnType<typeof V>
       let fingerClose = 1
       if (t < 0.22) {
         const u = ease(t / 0.22)
         ballY = lerp(0.68, 0.52, u)
-        wristY = ballY + BBALL_R + 0.052 - 0.006 * u
-        wristFlexPitch = lerp(-0.1, 0.38, u)
+        wristY = ballY + BBALL_R + lerp(0.072, 0.084, u)
+        wristZ = ballZ - lerp(0.06, 0.045, u)
+        // Transition from wrist slightly extended (palm down, fingers forward) into wrist flexion
+        // (fingers pitching down toward ball, palm facing down-and-back).
+        fingerDir = V(side * 0.06, lerp(-0.18, -0.78, u), lerp(1, 0.62, u)).normalize()
+        normalDir = V(0, lerp(-1, -0.68, u), lerp(0.12, -0.72, u)).normalize()
       } else if (t < 0.45) {
         const u = (t - 0.22) / (0.45 - 0.22)
         const s = 0.28 * u + 0.72 * u * u
         ballY = lerp(0.52, BBALL_R, s)
-        wristY = lerp(0.52 + BBALL_R + 0.046, 0.62, ease(u))
-        wristFlexPitch = lerp(0.38, 0.45, ease(u))
+        wristY = lerp(0.52 + BBALL_R + 0.084, 0.65, ease(u))
+        wristZ = ballZ - 0.045
+        fingerDir = V(
+          side * 0.06,
+          lerp(-0.78, -0.88, ease(u)),
+          lerp(0.62, 0.45, ease(u)),
+        ).normalize()
+        normalDir = V(0, lerp(-0.68, -0.55, ease(u)), lerp(-0.72, -0.82, ease(u))).normalize()
         fingerClose = 1 - ease(u)
       } else if (t < 0.7) {
         const u = (t - 0.45) / (0.7 - 0.45)
         const s = 1 - (1 - u) * (1 - u)
         ballY = lerp(BBALL_R, 0.64, s)
-        wristY = lerp(0.62, 0.64 + BBALL_R + 0.052, ease(u))
-        wristFlexPitch = lerp(0.45, -0.1, ease(u))
+        wristY = lerp(0.65, 0.64 + BBALL_R + 0.072, ease(u))
+        wristZ = ballZ - lerp(0.045, 0.06, ease(u))
+        fingerDir = V(side * 0.06, lerp(-0.88, -0.18, ease(u)), lerp(0.45, 1, ease(u))).normalize()
+        normalDir = V(0, lerp(-0.55, -1, ease(u)), lerp(-0.82, 0.12, ease(u))).normalize()
         fingerClose = ease(Math.max(0, (u - 0.45) / 0.55))
       } else {
         const u = ease((t - 0.7) / 0.15)
         ballY = lerp(0.64, 0.68, u)
-        wristY = ballY + BBALL_R + 0.052
-        wristFlexPitch = -0.1
+        wristY = ballY + BBALL_R + 0.072
+        wristZ = ballZ - 0.06
+        fingerDir = V(side * 0.06, -0.18, 1).normalize()
+        normalDir = V(0, -1, 0.12).normalize()
         fingerClose = 1
       }
 
       const ballCentre = V(ballX, ballY, ballZ)
       const ballSurface = sphere(ballCentre, BBALL_R)
 
-      // Palm faces down-and-back as the wrist flexes through release; fingers pitch downward (+wristFlexPitch -> -y).
-      const fingerDir = V(side * 0.06, -wristFlexPitch, 1).normalize()
-      const normalDir = V(0, -1, -wristFlexPitch * 0.45).normalize()
       placeHand(
         r,
         side,
-        V(ballX, wristY, ballZ - 0.055),
+        V(ballX, wristY, wristZ),
         fingerDir,
         normalDir,
         V(side * 0.48, 0.85, -0.05),
       )
       r.root.updateMatrixWorld(true)
 
-      // Start fingers slightly open so `closeFingers` settles cleanly onto the upper hemisphere
-      // without burying the pads inside the sphere.
+      // Start fingers open so `closeFingers` settles cleanly onto the upper hemisphere without burying.
       const a: HandAngles = {
-        mcp: [-4, -2, 0, 4],
-        pip: [6, 8, 10, 12],
-        dip: [4, 5, 6, 6],
+        mcp: [-8, -6, -4, 0],
+        pip: [4, 6, 8, 10],
+        dip: [2, 3, 4, 4],
         fan: [11, 3, -5, -13],
         thumb: [8, 34, 14, 14, 16],
       }
@@ -104,12 +115,15 @@ export const sports: Gesture[] = [
       if (fingerClose > 0.25) {
         closeFingers(r, side, a, ballSurface, {
           press: 0.0005,
-          limit: { mcp: 48, pip: 64, dip: 45 },
+          limit: { mcp: 64, pip: 76, dip: 50 },
           coupling: 0.66,
+          touch: 'pads',
         })
-        const radialPoint = ballCentre
-          .clone()
-          .add(V(side * 0.05, BBALL_R * 0.88, -0.03).normalize().multiplyScalar(BBALL_R))
+        const radialPoint = ballCentre.clone().add(
+          V(side * 0.06, BBALL_R * 0.86, -0.02)
+            .normalize()
+            .multiplyScalar(BBALL_R),
+        )
         placeThumb(r, side, a, {
           point: radialPoint,
           facing: radialPoint.clone().sub(ballCentre).normalize(),
@@ -121,7 +135,10 @@ export const sports: Gesture[] = [
       }
 
       const gaps = DIGITS.map(
-        (d) => +(Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, ballSurface))) * 1000).toFixed(1),
+        (d) =>
+          +(
+            Math.min(...fingerCapsules(r, side, d).map((c) => clearance(c, ballSurface))) * 1000
+          ).toFixed(1),
       )
       const ballSpin = new Quaternion().setFromAxisAngle(V(1, 0, 0), t * 6)
       return {
@@ -135,7 +152,8 @@ export const sports: Gesture[] = [
             quaternion: ballSpin,
           },
         ],
-        focus: t >= 0.36 && t <= 0.54 ? V(ballX, 0.28, ballZ) : ballCentre.clone().add(V(0, 0.04, 0)),
+        focus:
+          t >= 0.36 && t <= 0.54 ? V(ballX, 0.28, ballZ) : ballCentre.clone().add(V(0, 0.04, 0)),
         span: t >= 0.36 && t <= 0.54 ? 0.38 : 0.22,
         notes: handNotes(r, side, {
           ballBottomMm: +((ballY - BBALL_R) * 1000).toFixed(1),
@@ -148,8 +166,7 @@ export const sports: Gesture[] = [
     id: 'off-spin-bowling',
     name: 'Off-spin cricket delivery grip & release',
     group: 'sport',
-    form:
-      'Working-arm off-spin delivery (0.80 s): (1) Seam grip at t=0 s — index and middle fingers spread wide across the vertical equatorial seam (index on off-side, middle beside it, ring & little tucked lightly beneath the ball, thumb resting lightly on the opposite seam side); (2) Cocked delivery load at t=0.24 s — arm at high three-quarter slot (~145 deg elevation, ~32 deg out clear of head), wrist cocked radially/slightly extended behind the seam; (3) Rip & release at t=0.48 s — forearm pronates through vertical while the index finger rips across/over the top-side of the seam, imparting vigorous spin as the ball leaves the pads; (4) Follow-through at t=0.75 s — arm swings down across the torso as the spinning ball flies forward.',
+    form: 'Working-arm off-spin delivery (0.80 s): (1) Seam grip at t=0 s — index and middle fingers spread wide across the vertical equatorial seam (index on off-side, middle beside it, ring & little tucked lightly beneath the ball, thumb resting lightly on the opposite seam side); (2) Cocked delivery load at t=0.24 s — arm at high three-quarter slot (~145 deg elevation, ~32 deg out clear of head), wrist cocked radially/slightly extended behind the seam; (3) Rip & release at t=0.48 s — forearm pronates through vertical while the index finger rips across/over the top-side of the seam, imparting vigorous spin as the ball leaves the pads; (4) Follow-through at t=0.75 s — arm swings down across the torso as the spinning ball flies forward.',
     duration: 0.8,
     moments: [
       { t: 0.0, label: 'Grip' },
@@ -224,19 +241,23 @@ export const sports: Gesture[] = [
                 ),
               )
 
-      const baseSeam = hq.clone().multiply(new Quaternion().setFromAxisAngle(V(0, 0, 1), Math.PI / 2))
+      const baseSeam = hq
+        .clone()
+        .multiply(new Quaternion().setFromAxisAngle(V(0, 0, 1), Math.PI / 2))
       const spinAngle =
         t <= 0.24
           ? 0
           : t <= releaseT
             ? ease((t - 0.24) / (releaseT - 0.24)) * 1.1
             : 1.1 + (t - releaseT) * 28
-      const ballQ = baseSeam.clone().premultiply(
-        new Quaternion().setFromAxisAngle(
-          V(side * 0.55, 0.3, 0.78).normalize(),
-          -side * spinAngle,
-        ),
-      )
+      const ballQ = baseSeam
+        .clone()
+        .premultiply(
+          new Quaternion().setFromAxisAngle(
+            V(side * 0.55, 0.3, 0.78).normalize(),
+            -side * spinAngle,
+          ),
+        )
 
       const rip = t < 0.24 ? 0 : t <= releaseT ? ease((t - 0.24) / (releaseT - 0.24)) : 1
       const follow = t <= releaseT ? 0 : ease(clamp01((t - releaseT) / 0.18))
@@ -295,8 +316,9 @@ export const sports: Gesture[] = [
           ).toFixed(1),
       )
       const thumbGap = +(
-        Math.min(...thumbCapsules(r, side).map((c) => clearance(c, sphere(ballCentre, CRICKET_R)))) *
-        1000
+        Math.min(
+          ...thumbCapsules(r, side).map((c) => clearance(c, sphere(ballCentre, CRICKET_R))),
+        ) * 1000
       ).toFixed(1)
 
       return {

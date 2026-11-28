@@ -10,10 +10,17 @@ bent backwards, claws, fingers through a handle or a palm hovering above the flo
 failures the owner reported. Follow this skill for every new or changed exercise that shows a
 hand. The numbers below are enforced by `npm run check:hands` and `npm run check:form`.
 
+For the interactive Hand Lab bench, full anatomical tables (with AAOS / Hume / Landsmeer / Kapandji /
+Napier / Neumann citations), hand arches, tenodesis, gesture/grip recipes and the self-learning
+iteration loop, see [hand-lab](../hand-lab/SKILL.md).
+
 ## Where the code is
 
 | Job                                  | File                                                         |
 | ------------------------------------ | ------------------------------------------------------------ |
+| Anatomical ranges, cascade, coupling | `src/motion/hands/ranges.ts` (`HAND_RANGES`, `coupledDip`)   |
+| Capsule skin, closure & thumb solver | `src/motion/hands/fit.ts` (`closeFingers`, `placeThumb`)     |
+| Named hand shapes & pad checks       | `src/motion/hands/shapes.ts` (`fist`, `okSign`, `pinch`)     |
 | Finger presets (`open`, `grip`, ...) | `src/studio/choreography/types.ts`                           |
 | Resting cascade, `handShape`, ranges | `src/motion/anatomy.ts` (`RELAXED_HAND`, `LIMITS`)           |
 | Which hand shape a contact gets      | `src/motion/studio/guides/contacts.ts` (`contactShape`)      |
