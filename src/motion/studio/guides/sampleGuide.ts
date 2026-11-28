@@ -426,6 +426,7 @@ export function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side:
   for (const s of sides) articulateLeg(r, s, true)
   // Arriving at a beat is that beat, contacts and all, so a take ends exactly where it began.
   const [from, to, along] = f === 1 ? [b, b, 0] : [a, b, f]
+  const still = a.rotations === b.rotations
   const planted = sides.map((_, n) => onSurface(a.reach[n]) || onSurface(b.reach[n]))
   r.root.updateMatrixWorld(true)
   groundGuide(r, id, false, planted)
@@ -435,9 +436,16 @@ export function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side:
   holdFeet(r, id, from, to, along)
   groundGuide(r, id, false, planted)
   r.root.updateMatrixWorld(true)
-  holdHands(r, id, from, to, along)
-  clearFloorHands(r)
-  articulate(r, true)
+  if (still) {
+    // A held pose is the beat it holds. Its hands are already on their contacts, so solving them
+    // again every frame would only let a limb flip between two nearly equal solutions.
+    for (const s of sides) articulateLeg(r, s, true)
+    r.root.updateMatrixWorld(true)
+  } else {
+    holdHands(r, id, from, to, along)
+    clearFloorHands(r)
+    articulate(r, true)
+  }
   clearFloorFeet(r, id)
   refitCarriedShaft(r, id)
   if (side === 'right' && !scores[id].both) {
