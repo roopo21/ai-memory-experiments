@@ -306,11 +306,12 @@ export const trunk = {
     'Reach away from the crossed back leg',
     { spine: [0, 0, -26], shift: [0.038, 0, 0] },
   ),
+  // Start with the knee bent and the hands at the sides; clasp the shin and draw it to the chest.
   'knee-to-chest': st(
     'supine',
-    { leg: [82, 3, 91], ga: 'Ashin', gb: 'Ashin' },
+    { leg: [82, 3, 91] },
     'Draw the shin toward the chest',
-    { leg: hug },
+    { leg: [133, 7, 105], ga: 'Ashin', gb: 'Ashin' },
   ),
   'double-knee-to-chest': seq(
     'supine',

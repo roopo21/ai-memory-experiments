@@ -113,8 +113,8 @@ export function cycleAt(r: MovementRig, id: AuthoredId, t: number) {
       if (t >= a.time && t <= b.time && JSON.stringify(a.pose) === JSON.stringify(b.pose))
         held = Math.sin((Math.PI * (t - a.time)) / (b.time - a.time)) ** 2
     }
-    rotate('chest', -1 * breath * Math.sin(Math.PI * f) ** 2 * held)
-    rotate('leftShoulder', 0, 0, 0.8 * breath * envelope * held)
-    rotate('rightShoulder', 0, 0, -0.8 * breath * envelope * held)
+    rotate('chest', -0.5 * breath * Math.sin(Math.PI * f) ** 2 * held)
+    rotate('leftShoulder', 0, 0, 0.4 * breath * envelope * held)
+    rotate('rightShoulder', 0, 0, -0.4 * breath * envelope * held)
   }
 }
