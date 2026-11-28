@@ -659,10 +659,16 @@ function bake(id: AuthoredId): Baked {
       for (let k = at + 1; k <= at + count && k < n; k++)
         gapOf(raw[at + 1], raw[at], 1 - ease((k - at) / (count + 1)), adjusted[k])
     } else if (at > 0) {
-      // Arriving at a beat: the frames before it are carried onto it, likewise.
+      // Arriving at a beat: the frames before it are carried onto it, likewise. When a hold
+      // follows, the hold's own pose is the target, and the arrival frame itself moves onto it.
+      const holdFollows = i + 1 < keys.length && keys[i + 1].rotations === keys[i].rotations
       const count = room(at, frameOf(i - 1))
-      for (let k = at - 1; k >= at - count && k >= 0; k--)
-        gapOf(raw[at - 1], raw[at], 1 - ease((at - k) / (count + 1)), adjusted[k])
+      if (holdFollows && at + 1 < n) {
+        for (let k = at; k >= at - count && k >= 0; k--)
+          gapOf(raw[at], raw[at + 1], 1 - ease((at - k) / (count + 1)), adjusted[k])
+      } else
+        for (let k = at - 1; k >= at - count && k >= 0; k--)
+          gapOf(raw[at - 1], raw[at], 1 - ease((at - k) / (count + 1)), adjusted[k])
     }
   }
   raw.splice(0, raw.length, ...adjusted)

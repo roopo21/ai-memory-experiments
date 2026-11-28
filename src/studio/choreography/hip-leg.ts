@@ -566,7 +566,11 @@ export const hipLeg = {
     'figureFour',
     { ga: 'Atoe', gb: 'Aheel' },
     'Draw toes back and trace the arch',
-    { toes: [-41, 0, -9], leg: [87, 31, 99, -12, 56], gb: ['Aheel', 0, 0, 0.074] },
+    {
+      toes: [-41, 0, -9],
+      leg: [87, 31, 99, -12, 56],
+      gb: ['Aheel', 0, 0, 0.074],
+    },
     feet,
   ),
   'golf-ball-roll': seq(
