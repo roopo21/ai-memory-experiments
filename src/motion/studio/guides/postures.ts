@@ -20,7 +20,7 @@ export const postures: Record<Posture, Base> = {
   figureFour: {
     y: 0.535,
     z: -0.2,
-    pose: { leg: [87, 31, 99, 0, 56], other: sit, spine: [12, 0, 0], pelvis: [12, 0, 4] },
+    pose: { leg: [87, 31, 99, 0, 56], other: sit, spine: [12, 0, 0], pelvis: [8, 0, 4] },
   },
   floorSeat: { y: 0.16, pose: { leg: folded, other: foldedFront } },
   longSit: { y: 0.16, pose: { leg: long, other: long } },

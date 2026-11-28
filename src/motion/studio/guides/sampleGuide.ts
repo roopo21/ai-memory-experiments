@@ -627,6 +627,34 @@ function bake(id: AuthoredId): Baked {
     )
     raw.push(f)
   }
+  // The solver now and then lands on the other of two nearly equal solutions for a frame or two.
+  // Such a spike is a rotation that the frames either side of it disagree with: take the middle
+  // one (the medoid) of five frames wherever the centre frame is far from it. A rotation that
+  // changes steadily is its own medoid, so real motion passes through untouched.
+  const SPIKE = 0.17
+  const despiked = raw.map((f) => Float64Array.from(f))
+  const qs = (f: Float64Array, o: number) => new Quaternion(f[o], f[o + 1], f[o + 2], f[o + 3])
+  for (let j = 0; j < joints.length; j++) {
+    const o = 8 + j * 4
+    for (let k = 2; k < n - 2; k++) {
+      const w = [-2, -1, 0, 1, 2].map((d) => qs(raw[k + d], o))
+      let best = 2,
+        bestSum = Infinity
+      for (let a = 0; a < 5; a++) {
+        let sum = 0
+        for (let b = 0; b < 5; b++) sum += w[a].angleTo(w[b])
+        if (sum < bestSum - 1e-9) {
+          bestSum = sum
+          best = a
+        }
+      }
+      if (best !== 2 && w[2].angleTo(w[best]) > SPIKE) {
+        const m = w[best]
+        despiked[k].set([m.x, m.y, m.z, m.w], o)
+      }
+    }
+  }
+  raw.splice(0, raw.length, ...despiked)
   // A hold is exactly its beat, but the frame that leaves it (or arrives at it) can sit a few
   // centimetres from it where the solver took another route to the same contact. Carry that gap
   // away over a few frames, so every hold ends where it began and nothing steps at its edges.

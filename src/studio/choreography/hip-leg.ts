@@ -546,7 +546,7 @@ export const hipLeg = {
     'figureFour',
     { ga: 'Aheel', gb: 'Atoe' },
     'Draw the foot up and turn the sole away',
-    { leg: [87, 31, 99, -19, 56, 17] },
+    { leg: [87, 31, 99, -19, 56, 17], spine: [24, 0, 0] },
     feet,
   ),
   'toes-on-wall': st(
@@ -564,12 +564,13 @@ export const hipLeg = {
   ),
   'seated-plantar-fascia': st(
     'figureFour',
-    { ga: 'Atoe', gb: 'Aheel' },
+    { ga: 'Atoe', gb: 'Aheel', spine: [28, 0, 0] },
     'Draw toes back and trace the arch',
     {
       toes: [-41, 0, -9],
       leg: [87, 31, 99, -12, 56],
       gb: ['Aheel', 0, 0, 0.074],
+      spine: [28, 0, 0],
     },
     feet,
   ),
@@ -615,7 +616,7 @@ export const hipLeg = {
     'figureFour',
     { gb: 'Atoe' },
     'Lift only the great toe toward the shin',
-    { toes: [0, 0, -48], leg: [87, 31, 99, -16, 56] },
+    { toes: [0, 0, -48], leg: [87, 31, 99, -16, 56], spine: [24, 0, 0] },
     feet,
   ),
   'fingers-between-toes': seq(
