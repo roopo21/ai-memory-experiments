@@ -40,6 +40,7 @@
     "check:physics": "tsx checks/check-physics.ts --quiet --allow-known",
     "check:physics:all": "tsx checks/check-physics.ts",
     "stills:guides": "tsx checks/studio-stills.mjs",
+    "stills:hands": "tsx checks/hand-lab-stills.mjs",
     "check:studio:surfaces": "tsx checks/studio-surfaces.ts --dense",
     "check:studio:browser": "node checks/studio-browser.mjs",
     "build:articulation": "tsx asset-pipeline/motion/build-articulation.ts",

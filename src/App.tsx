@@ -33,6 +33,8 @@ const PILL = {
 }
 
 const Studio = lazy(() => import('./studio/Studio'))
+// Dev-only hand test bench. The DEV guard lets the production build drop it entirely.
+const HandLab = import.meta.env.DEV ? lazy(() => import('./handlab/HandLab')) : null
 export default function App() {
   const [route, setRoute] = useState(() => location.search)
   useEffect(() => {
@@ -40,6 +42,12 @@ export default function App() {
     window.addEventListener('popstate', changed)
     return () => window.removeEventListener('popstate', changed)
   }, [])
+  if (HandLab && new URLSearchParams(route).has('handlab'))
+    return (
+      <Suspense fallback={<ChunkLoading />}>
+        <HandLab />
+      </Suspense>
+    )
   if (new URLSearchParams(route).has('studio'))
     return (
       <Suspense fallback={<ChunkLoading />}>

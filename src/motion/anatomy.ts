@@ -302,6 +302,11 @@ export interface HandShape {
   dip: Four
   /** Fan of the fingers in degrees, shared from index to little finger. */
   spread: number
+  /**
+   * Per-finger knuckle abduction in degrees, index to little, positive toward the thumb. When set
+   * it replaces `spread`, so a gesture can draw the index away from the middle finger alone.
+   */
+  fan?: Four
   /** Thumb carpometacarpal flexion, abduction and axial rotation; MCP and IP flexion. */
   thumb: readonly [flex: number, abduct: number, rotate: number, mcp: number, ip: number]
 }
@@ -354,7 +359,8 @@ export function setHand(r: MovementRig, s: Side, shape: HandShape) {
         axes = digitAxes[name],
         q = turn(vec(axes.flex), values[k] - bindFlexion(name))
       // Spread fans the fingers in the plane of the palm before they flex.
-      if (k === 0 && axes.spread) q.multiply(turn(vec(axes.spread), FAN[i] * shape.spread * 0.5))
+      if (k === 0 && axes.spread)
+        q.multiply(turn(vec(axes.spread), shape.fan ? shape.fan[i] : FAN[i] * shape.spread * 0.5))
       r.bones[indexOfJoint[name as Joint]].quaternion.copy(q)
     }
   })
