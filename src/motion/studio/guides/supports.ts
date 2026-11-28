@@ -133,8 +133,7 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
   if (id === 'frog' || id === 'puppy-pose') {
     // The puppy pose starts on all fours with the chest high and sinks the chest as the hips
     // tip; its pitch follows the pelvis tilt of the beat.
-    const sink =
-      id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : ((p.pelvis?.[0] ?? 0) / 17) * 25
+    const sink = id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : ((p.pelvis?.[0] ?? 0) / 17) * 25
     r.root.quaternion.premultiply(rot(sink))
     r.root.updateMatrixWorld(true)
   }

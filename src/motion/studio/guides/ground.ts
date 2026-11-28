@@ -5,6 +5,7 @@ import { indexOfJoint, joints, local, type Joint } from '../../joints'
 import { digitTips } from '../../distalJoints'
 import type { MovementRig } from '../../movementRig'
 import { scores, type AuthoredId } from '../../../studio/choreography'
+import { carriedByProp, propSurface, type Surface } from '../../physics/props'
 const samples = cloud.map((row, i) =>
   Float32Array.from(row, (n, k) => n / 1000 - joints[i][2][k % 3]),
 )
@@ -19,6 +20,21 @@ function lowestOn(r: MovementRig, indices: readonly number[]) {
       h = m[13]
     for (let k = 0; k < a.length; k += 3)
       low = Math.min(low, h + x * a[k] + y * a[k + 1] + z * a[k + 2])
+  }
+  return low
+}
+/** Like `lowestOn`, but heights are measured above a prop's top surface where one is below. */
+function lowestOver(r: MovementRig, indices: readonly number[], surface: Surface) {
+  let low = Infinity
+  for (const i of indices) {
+    const m = r.bones[i].matrixWorld.elements,
+      a = samples[i]
+    for (let k = 0; k < a.length; k += 3) {
+      const x = m[0] * a[k] + m[4] * a[k + 1] + m[8] * a[k + 2] + m[12],
+        z = m[2] * a[k] + m[6] * a[k + 1] + m[10] * a[k + 2] + m[14],
+        y = m[13] + m[1] * a[k] + m[5] * a[k + 1] + m[9] * a[k + 2]
+      low = Math.min(low, y - Math.max(0, surface(x, z)))
+    }
   }
   return low
 }
@@ -70,8 +86,7 @@ export const lowestBody = (r: MovementRig) => lowestOn(r, body)
  * Feet that this leaves below the floor are lifted by `clearFloorFeet`.
  */
 const SIT_POSTURES = new Set(['floorSeat', 'longSit', 'straddle', 'butterfly'])
-export const sitsOnFloor = (posture: string) =>
-  SIT_POSTURES.has(posture)
+export const sitsOnFloor = (posture: string) => SIT_POSTURES.has(posture)
 const seat = [0, 1, 12, 15]
 const upper = all.filter(
   (i) => !hands[0].includes(i) && !hands[1].includes(i) && !/Shin|Foot|Toe/.test(joints[i][0]),
@@ -156,10 +171,12 @@ export function groundGuide(
     r.root.position.y += Math.max(0, 0.001 - low)
     return
   }
-  if (gear.includes('bed')) {
-    // The leg hangs beyond the edge. Only the supported pelvis and torso rest on the bed.
-    const pelvis = r.root.position
-    r.root.position.y += Math.max(0.001 - low, 0.67 - pelvis.y)
+  if (gear.includes('bed') || gear.includes('ball')) {
+    // The back and pelvis rest on the bed or ball wherever they are over it; the legs hang beyond
+    // the edge or stand on the floor.
+    const surface = propSurface(id, gear, 1)!
+    const carried = body.filter((i) => carriedByProp(gear, i))
+    r.root.position.y += Math.max(0.001 - low, 0.006 - lowestOver(r, carried, surface))
   } else if (p === 'chair' || p === 'figureFour' || p === 'bridgeBall')
     r.root.position.y += Math.max(0, 0.001 - low)
   else {

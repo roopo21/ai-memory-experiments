@@ -16,7 +16,7 @@ import { solePad, toePad } from '../studio/anchors'
 import { sampleStudio } from '../studio/sample'
 import { bareJoint, centreOfMass, hull, isHandJoint, marginInside, worldBare } from './body'
 import { BRIDGED, HANGING, RESTS_ON, TOL, TRAVELLING, WEIGHT_BEARING_GEAR } from './policy'
-import { propSurface } from './props'
+import { carriedByProp, propSurface } from './props'
 
 export const HZ = 60
 const project = newProject()
@@ -65,7 +65,7 @@ function holds(id: AuthoredId) {
     if (key(f[i].pose) === key(f[i - 1].pose)) out.push([f[i - 1].time, f[i].time])
   return out
 }
-/** Does the guide use weight-bearing gear? Its support is then modelled by `props.ts`. */
+/** Does the guide use weight-bearing gear? Floor, sinking and balance then follow `props.ts`; the bare atlas tissue is not judged against a prop. */
 export const propSupported = (id: AuthoredId) =>
   (scores[id]?.gear ?? []).some((g) => WEIGHT_BEARING_GEAR.has(g))
 
@@ -168,7 +168,10 @@ export function analyse(
           // The performer's hands are rigid mittens; the anatomy is judged on hands instead.
           if (hand) continue
           // Height above whatever holds this point up: the floor, or a prop where one is below it.
-          const up = surface ? Math.max(0, surface(X, Z)) : 0,
+          const up =
+              surface && carriedByProp(score!.gear ?? [], indices[top])
+                ? Math.max(0, surface(X, Z))
+                : 0,
             Yp = Y - up
           if (Yp < low) low = Yp
           if (rests?.includes(indices[top]) && Yp < restGap) restGap = Yp
@@ -187,12 +190,12 @@ export function analyse(
       const floor = Math.min(low, handLow)
       report.floorLow = Math.min(report.floorLow, low)
       const hung = HANGING.has(id),
-        props = propSupported(id) && !surface
+        props = propSupported(id)
       // A seated body must reach its seat; any other posture must reach its floor; and the
       // segments the posture rests on must touch too, not only a heel or a toe.
       const rested = Math.min(floor, seat ? seatGap : Infinity)
       const resting = seat ? seatGap : restGap
-      if (!hung && !props && atRest(t)) {
+      if (!hung && atRest(t)) {
         const gap = Math.max(rested, rests ? resting : -Infinity)
         if (gap > report.floating) report.floating = gap
         if (rested > TOL.contact || (rests && resting > TOL.rest))

@@ -45,3 +45,14 @@ export function propSurface(id: AuthoredId, gear: readonly string[], side: 1 | -
   const top: Surface = (x, z) => Math.max(...parts.map((p) => p(x, z)))
   return top
 }
+
+/**
+ * The joints a prop can carry. A roller, pillow, bed or ball holds up the head, trunk, pelvis and
+ * thighs; the shins and feet beside it stand on the floor and must not be judged against a prop
+ * they are not touching. A step carries the foot and shin that stand on it.
+ */
+export function carriedByProp(gear: readonly string[], joint: number) {
+  const onStep = gear.includes('step'),
+    torso = joint <= 5 || joint === 12 || joint === 15
+  return onStep ? joint >= 12 && joint <= 17 : torso
+}

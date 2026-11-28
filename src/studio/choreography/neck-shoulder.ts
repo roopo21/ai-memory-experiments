@@ -1,4 +1,13 @@
-import { stretch as st, sequence as seq, both, grip, open, onFloor, type Aim, type Recipe } from './types'
+import {
+  stretch as st,
+  sequence as seq,
+  both,
+  grip,
+  open,
+  onFloor,
+  type Aim,
+  type Recipe,
+} from './types'
 /**
  * Neck values are degrees of flexion (+) or extension, rotation toward the working (left) side,
  * and side bend toward it (+). Arms are anatomical: flexion, abduction, elbow, pronation, wrist

@@ -75,4 +75,10 @@ export const BRIDGED = new Set<AuthoredId>(['downward-dog'])
 /** Hung from a bar: no ground contact by design. */
 export const HANGING = new Set<AuthoredId>(['bar-hang'])
 /** Feet or hands travel along the floor on purpose, so sliding is part of the movement. */
-export const TRAVELLING = new Set<AuthoredId>(['inchworm', 'wall-walk', 'ninety-ninety'])
+export const TRAVELLING = new Set<AuthoredId>([
+  'inchworm',
+  'wall-walk',
+  'ninety-ninety',
+  // The feet walk forward under the body as it rolls out over the ball.
+  'ball-backbend',
+])

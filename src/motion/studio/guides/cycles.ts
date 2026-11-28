@@ -102,8 +102,19 @@ export function cycleAt(r: MovementRig, id: AuthoredId, t: number) {
   }
   const breath = row.frames.find((fr) => fr.pose.breath)?.pose.breath
   if (breath) {
-    rotate('chest', -2.6 * breath * Math.sin(Math.PI * f) ** 2)
-    rotate('leftShoulder', 0, 0, 2 * breath * envelope)
-    rotate('rightShoulder', 0, 0, -2 * breath * envelope)
+    // Breathing belongs to the hold: its depth swells from nothing at the start of a hold and
+    // returns to nothing at its end, so a hand that lets go of its contact where the hold ends
+    // does not follow a chest that has been moving, and a hand holding a contact is not asked to
+    // jump to it. The depth is a few millimetres at the hands, as a held pose allows.
+    let held = 0
+    for (let i = 1; i < row.frames.length; i++) {
+      const a = row.frames[i - 1],
+        b = row.frames[i]
+      if (t >= a.time && t <= b.time && JSON.stringify(a.pose) === JSON.stringify(b.pose))
+        held = Math.sin((Math.PI * (t - a.time)) / (b.time - a.time)) ** 2
+    }
+    rotate('chest', -1 * breath * Math.sin(Math.PI * f) ** 2 * held)
+    rotate('leftShoulder', 0, 0, 0.8 * breath * envelope * held)
+    rotate('rightShoulder', 0, 0, -0.8 * breath * envelope * held)
   }
 }
