@@ -70,14 +70,8 @@ export const lowestBody = (r: MovementRig) => lowestOn(r, body)
  * Feet that this leaves below the floor are lifted by `clearFloorFeet`.
  */
 const SIT_POSTURES = new Set(['floorSeat', 'longSit', 'straddle', 'butterfly'])
-/** Guides whose arm solve cannot yet follow the body resting on its pelvis; see check-physics. */
-const SIT_EXCLUDED = new Set<string>([
-  'single-leg-seated-hamstring',
-  'towel-calf',
-  'seated-rotation',
-])
-export const sitsOnFloor = (id: string, posture: string) =>
-  SIT_POSTURES.has(posture) && !SIT_EXCLUDED.has(id)
+export const sitsOnFloor = (posture: string) =>
+  SIT_POSTURES.has(posture)
 const seat = [0, 1, 12, 15]
 const upper = all.filter(
   (i) => !hands[0].includes(i) && !hands[1].includes(i) && !/Shin|Foot|Toe/.test(joints[i][0]),
@@ -121,7 +115,7 @@ export function groundGuide(
   r.root.updateMatrixWorld(true)
   let low = lowerOnly ? lowestSurface(r, true) : lowestBody(r)
   if (
-    sitsOnFloor(id, p) &&
+    sitsOnFloor(p) &&
     !gear.some((g) => ['bed', 'step', 'longRoll', 'crossRoll', 'pillow', 'ball'].includes(g))
   ) {
     // Never let the trunk or thighs sink either, nor the target tissue of the guide; the bones of

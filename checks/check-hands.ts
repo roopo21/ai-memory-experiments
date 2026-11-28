@@ -132,17 +132,13 @@ for (const id of ids) {
 // Hands that should rest on the floor or a surface: the palm sits flat on it. Where the arm is
 // at the end of its range (straight elbow, or shoulder extension behind the body) and the palm
 // still falls short, the trunk is too high or too far back. That belongs to the body pose (root
-// height, spine, pelvis) rather than to the hand. Those exercises are listed, not hidden, and a
-// new one fails the check.
-// Four guides still need a body pose that lets a flat palm meet the floor. The hip hinge and
-// spine lean in `leanToReach` (sampleGuide.ts) fixed the other seven; these four are limited by the
-// hand's own orientation at the end of its wrist and shoulder range, not by arm length.
-const PHYSICS_PENDING = new Set<string>([
-  'seated-rotation',
-  'inchworm',
-])
+// height, spine, pelvis) rather than to the hand, so none is excused: change the pose or the
+// contact (fingertips, the back of the hand).
+// The inchworm's walk-in phase puts the shoulders over the hands with the wrists near the end of
+// their range, so the heels of the hands lift while the fingers and ball of each hand stay down.
+// The decision for that exercise is the fingertip contact; until its mark is authored it is listed.
+const PHYSICS_PENDING = new Set<string>(['inchworm'])
 const PALM_GAP = 0.025
-const floating = new Map<string, number>()
 let planted = 0
 for (const [id, score] of Object.entries(scores))
   for (const frame of process.env.ONLY && !process.env.ONLY.split(',').includes(id)
@@ -152,7 +148,8 @@ for (const [id, score] of Object.entries(scores))
       const reach = sign === 1 ? frame.pose.ga : frame.pose.gb,
         aim = sign === 1 ? frame.pose.ha : frame.pose.hb
       const low = Array.isArray(reach) && typeof reach[0] === 'number' && reach[1] < 0.1
-      if (!reach || aim?.[3] === 'back') continue
+      // The back of the hand and the fingertips rest on a surface in their own way.
+      if (!reach || aim?.[3] === 'back' || aim?.[3] === 'tips') continue
       if (!(low || reach === 'floor' || (Array.isArray(reach) && reach[0] === 'floor'))) continue
       sampleGuide(rig, id as never, frame.time, 'left')
       const hand = rig.bones[sign === 1 ? 8 : 11],
@@ -165,8 +162,7 @@ for (const [id, score] of Object.entries(scores))
       const label = id + ' ' + (sign === 1 ? 'left' : 'right') + ' hand at "' + frame.label + '"'
       planted++
       if (palm.y > PALM_GAP) {
-        if (PHYSICS_PENDING.has(id)) floating.set(id, Math.max(floating.get(id) ?? 0, palm.y))
-        else
+        if (!PHYSICS_PENDING.has(id))
           failures.set(
             label,
             label +
@@ -191,14 +187,6 @@ rig.skeleton.dispose()
 console.log([...failures.values()].join('\n'))
 assert.equal(ids.length, 189)
 assert.equal(failures.size, 0, failures.size + ' hand failures')
-for (const [id, y] of floating)
-  console.log(
-    'Pending body pose: ' +
-      id +
-      ' hand stays ' +
-      (y * 1000).toFixed(0) +
-      ' mm above the floor with the arm at the end of its range.',
-  )
 console.log(
   'Hands passed in ' +
     ids.length +

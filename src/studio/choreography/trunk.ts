@@ -3,7 +3,6 @@ import {
   sequence as seq,
   both,
   grip,
-  open,
   type Aim,
   type Recipe,
   type Arm,
@@ -19,11 +18,6 @@ const across: Arm = [0, 85, 8, 5],
   hug: Leg = [115, 7, 98]
 // Palms on the back of the pelvis, fingers pointing down.
 const palmsOnHips = (s: number): Aim => [[-s * 0.35, -1, 0], [0, 0, 1], 'pelvis', 'palm']
-// Hand on the floor behind for support, fingers pointing away.
-const floorBehind = (s: number): Aim => [
-  [s * 0.15, 0, -1],
-  [0, -1, 0],
-]
 export const trunk = {
   'childs-pose': st(
     'heelSit',
@@ -288,10 +282,16 @@ export const trunk = {
       {
         // The knee drawn up with the foot planted beside the other knee.
         leg: [137, -16, 106, 35, 3, 14],
-        ga: ['floor', 0.02, 0, -0.78],
-        ha: floorBehind(1),
+        // The supporting palm sits flat just behind the hip, fingers turned out; the trunk leans
+        // back a little so the arm is bent and takes weight.
+        pelvis: [-24, 0, 0],
+        ga: [0.2, 0.009, -0.19],
+        ha: [
+          [1, 0, -0.3],
+          [0, -1, 0],
+        ],
         gb: 'Aknee',
-        f: open,
+        f: onFloor,
       },
     ],
     ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [0, 26, 0] }],

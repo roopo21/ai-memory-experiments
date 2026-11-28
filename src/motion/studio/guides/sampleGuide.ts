@@ -518,7 +518,7 @@ function clearFloorHands(r: MovementRig) {
  * it, the way a hip flexes a little more to bring a straight leg up off the floor.
  */
 function clearFloorFeet(r: MovementRig, id: AuthoredId) {
-  if (!sitsOnFloor(id, scores[id].posture)) return
+  if (!sitsOnFloor(scores[id].posture)) return
   const x = new Vector3(1, 0, 0)
   let lift = 0
   for (const s of sides) {

@@ -367,7 +367,8 @@ export const hipLeg = {
   ),
   'seated-forward-fold': st(
     'longSit',
-    { ga: 'ownShin', gb: 'ownShin' },
+    // Sit tall with the hands resting on the thighs, then slide them along the legs.
+    { ga: 'ownThigh', gb: 'ownThigh' },
     'Hinge forward and reach along both shins',
     { pelvis: [18, 0, 0], spine: [34, 0, 0], neck: [17, 0, 0], ga: 'ownToe', gb: 'ownToe' },
     both,
