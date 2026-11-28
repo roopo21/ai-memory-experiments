@@ -42,3 +42,5 @@ docs/             master guide, lessons, reference notes and plans
 ## Sources and licences
 
 Geometry comes from BodyParts3D (CC BY-SA 2.1 Japan) and Z-Anatomy (CC BY-SA 4.0), with cranial nerve work from the University of Dundee (CC BY 4.0). Credits and every change we made are in [public/models/ATTRIBUTION.md](public/models/ATTRIBUTION.md), which the app links from its footer.
+
+Motion checks compare guide animation with statistics derived from two open datasets: UI-PRMD (Open Data Commons PDDL v1.0, Vakanski et al. 2018) and AddBiomechanics (CC BY 4.0, Werling et al. 2024, https://addbiomechanics.org). No recording is stored in this repository. Licences, versions and credits are in [docs/reference/motion-reference/LICENSES.md](docs/reference/motion-reference/LICENSES.md).

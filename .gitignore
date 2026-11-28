@@ -7,3 +7,6 @@ assets-src/
 .venv/
 __pycache__/
 *.pyc
+
+# Reference motion data: downloaded by scripts/reference, never committed
+.cache/

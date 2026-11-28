@@ -57,21 +57,28 @@ explicitly and keep the nerve bed lengths as the guide data states.
 
 ## 6. Verify (commands in `motion-qa`)
 
+`check:reference` compares the guide with how real people move (`biomechanics-physics` section 8:
+how to read it, and which guides have a reference at all). Run it with the others.
+
 ```bash
 npm run check:guides
 npx tsx checks/check-physics.ts --only <id>
 npx tsx checks/check-form.ts --only <id>
+npx tsx checks/check-reference.ts --only <id>   # typical of natural movement? reports only
 npm run stills:guides -- --output $TMPDIR/sheets --only <id> --angles Side,Front,Overhead --figure human
 npm run check            # before you call it done; also npm run format:check
 ```
 
 New exercises must pass `check:physics` outright: do not add them to
-`checks/physics-known.json`. If a generated asset depends on the pose (`tissue-contacts.json`),
+`checks/physics-known.json`. Do not add a finding to `checks/check-reference-known.json` either: fix
+it, or write why it is right (a deep squat deeper than the reference people, a stretch past free
+movement). If a generated asset depends on the pose (`tissue-contacts.json`),
 rerun `npx tsx asset-pipeline/motion/build-guide-contacts.ts`; never hand-edit generated files.
 
 ## 7. Done means
 
 No floating or sinking; centre of mass supported; planted feet still; every joint in range at
-every frame; smooth with a still hold; hands where the text says; stills from side, front and
+every frame; smooth with a still hold; no new `check:reference` finding (or a written reason);
+hands where the text says; stills from side, front and
 overhead reviewed; the 189-guide count and both sides unchanged unless you added one on purpose;
 `check` and `format:check` pass. Report what you were unsure about anatomically.
