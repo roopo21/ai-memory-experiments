@@ -48,17 +48,17 @@ export const armHand = {
   'wrist-flexor-stretch': st(
     'stand',
     // Stop sign: arm forward, palm away, fingers up; the other palm eases the fingers back.
-    { a: [85, 2, 8, 155, 32, -10], f: open, gb: 'Afingers', hb: palmToPalm },
+    { a: [85, -15, 8, 155, 32, -10], f: open, gb: 'Afingers', hb: palmToPalm },
     'Draw the straight fingers back',
-    { a: [85, 2, 8, 155, 56, -10], f: [0, 2, 2, 4, 0, 10] },
+    { a: [85, -15, 8, 155, 56, -10], f: [0, 2, 2, 4, 0, 10] },
     hands,
   ),
   'wrist-extensor-stretch': st(
     'stand',
     // Arm forward, palm down, wrist dropped; the other palm eases the back of the hand in.
-    { a: [85, 2, 8, 160, -55, -5], gb: 'Aback', hb: overTheBack },
+    { a: [85, -15, 8, 160, -55, -5], gb: 'Aback', hb: overTheBack },
     'Draw the back of the hand toward the body',
-    { a: [85, 2, 8, 160, -76, -5], f: [20, 24, 12] },
+    { a: [85, -15, 8, 160, -76, -5], f: [20, 24, 12] },
     hands,
   ),
   'prayer-stretch': st(
@@ -141,9 +141,9 @@ export const armHand = {
   ),
   'fist-wrist-extensor': st(
     'stand',
-    { a: [85, 2, 6, 160, -10, -5], f: softFist, gb: 'Aback', hb: overTheBack },
+    { a: [85, -15, 6, 160, -10, -5], f: softFist, gb: 'Aback', hb: overTheBack },
     'Bend the wrist down and tip the fist toward the little finger',
-    { a: [85, 2, 6, 160, -62, -5, -22] },
+    { a: [85, -15, 6, 160, -62, -5, -22] },
     hands,
   ),
   'forearm-supination': st(
@@ -165,13 +165,13 @@ export const armHand = {
     'chair',
     // Arm forward, elbow straight, palm up; the other hand draws the fingers toward the floor.
     {
-      a: [75, 4, 6, 10, 10],
+      a: [75, -25, 6, 10, 10],
       f: open,
       gb: 'Afingers',
       hb: [[0.13, -0.96, 0.23], [-0.09, -0.25, -0.97], 'Ahand'],
     },
     'Draw the straight fingertips toward the floor',
-    { a: [75, 4, 6, 10, 46], f: [0, 0, 0, 3] },
+    { a: [75, -25, 6, 10, 46], f: [0, 0, 0, 3] },
     hands,
   ),
   'hook-fist-intrinsic': st(
