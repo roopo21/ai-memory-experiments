@@ -1,6 +1,6 @@
 import type { Leg, Pose, Posture } from '../../../studio/choreography/types'
 const sit: Leg = [82, 0, 82],
-  long: Leg = [88, 1, 5],
+  long: Leg = [93, 1, 5],
   // Seated on the floor with an upright pelvis the hips sit 10 cm up, so a folded leg keeps its
   // knee low and its ankle on the floor: these were solved from the foot placements.
   // An easy cross-legged seat: one foot tucked near the midline, the other just in front of it.

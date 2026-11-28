@@ -134,7 +134,7 @@ export const hipLeg = {
       // The front foot is flexed, as yoga teachers cue, to keep the knee comfortable.
       leg: [108, 30, 125, 0, 72],
       other: [-30, -14, 6, 48],
-      spine: [8, 0, 0],
+      spine: [12, 0, 0],
       // The pelvis rolls down toward the front leg, as it does when the front hip settles.
       pelvis: [0, -15, 22],
       ga: 'floor',
@@ -326,11 +326,24 @@ export const hipLeg = {
     { leg: [-4, 0, 124], a: [146, 8, 93], b: [146, 8, 93] },
     { gear: ['quadStrap'] },
   ),
+  // Sit tall on the heels with the hands resting on the thighs, then tip the trunk back from the
+  // hips (pelvis and lumbar spine) and put both flat palms down just behind the hips, fingers
+  // forward. The arms stay slightly bent and the wrists about 70 degrees, so the hands bear the
+  // weight without end-range wrist or shoulder.
   'heel-sit-lean-back': st(
     'heelSit',
-    { ga: [0.24, 0.03, -0.25], gb: [-0.24, 0.03, -0.25] },
+    { ga: 'ownThigh', gb: 'ownThigh' },
     'Lean back with the hands supporting you',
-    { spine: [-25, 0, 0], pelvis: [-10, 0, 0] },
+    {
+      spine: [-35, 0, 0],
+      pelvis: [-45, 0, 0],
+      // The hips open as the trunk tips back, so the thighs stay flat on the floor and the feet
+      // stay where they were.
+      leg: [54, 3, 140, 34],
+      other: [54, 3, 140, 34],
+      ga: [0.17, 0.009, -0.2],
+      gb: [-0.17, 0.009, -0.2],
+    },
     both,
   ),
   'doorway-hamstring': st(
@@ -354,7 +367,8 @@ export const hipLeg = {
   ),
   'seated-forward-fold': st(
     'longSit',
-    { ga: 'ownShin', gb: 'ownShin' },
+    // Sit tall with the hands resting on the thighs, then slide them along the legs.
+    { ga: 'ownThigh', gb: 'ownThigh' },
     'Hinge forward and reach along both shins',
     { pelvis: [18, 0, 0], spine: [34, 0, 0], neck: [17, 0, 0], ga: 'ownToe', gb: 'ownToe' },
     both,

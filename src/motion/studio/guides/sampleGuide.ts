@@ -291,9 +291,25 @@ function keysFor(id: AuthoredId) {
     })
     // Settle the beat through the same local pass every frame between beats runs, so the frames
     // either side of a beat arrive at exactly the pose stored for it.
-    for (let pass = 0; pass < 2; pass++) {
+    for (let pass = 0; pass < 3; pass++) {
       const key = capture()
+      // Rest the whole body the way every sampled frame does, so the stored beat is the pose a
+      // frame at that beat would arrive at, not one sunk a few millimetres into the floor.
+      const planted = sides.map((_, n) => onSurface(key.reach[n]))
+      lockStandingFeet(r, feet.get(id)!, toeOut(id))
+      if (id === 'standing-figure-four' || scores[id].posture === 'figureFour')
+        crossedAnkle(r, id, key.pose)
+      for (const s of sides) articulateLeg(r, s, true)
+      r.root.updateMatrixWorld(true)
+      // The body is rested once. Resting it again after the hands were pinned where the last pass
+      // left them would lift it a little more every pass.
+      // A hand that the authored arm drove into the floor is lifted before the body is rested, as
+      // it is in every sampled frame; otherwise the body would be raised to clear it.
+      if (pass === 1) groundGuide(r, id, false, planted)
+      r.root.updateMatrixWorld(true)
       holdFeet(r, id, key, key, 0)
+      if (pass === 1) groundGuide(r, id, false, planted)
+      r.root.updateMatrixWorld(true)
       holdHands(r, id, key, key, 0)
       clearFloorHands(r)
       articulate(r, true)
@@ -375,7 +391,7 @@ function blendHips(r: MovementRig, a: Key, b: Key, f: number) {
     )
   }
 }
-export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
+export function sampleGuideRaw(r: MovementRig, id: AuthoredId, at: number, side: Side) {
   const keys = keysFor(id),
     // A take that returns to its first beat ends on exactly that pose.
     time = at >= keys.at(-1)!.time && keys.at(-1)!.rotations === keys[0].rotations ? 0 : at,
@@ -410,6 +426,7 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   for (const s of sides) articulateLeg(r, s, true)
   // Arriving at a beat is that beat, contacts and all, so a take ends exactly where it began.
   const [from, to, along] = f === 1 ? [b, b, 0] : [a, b, f]
+  const still = a.rotations === b.rotations
   const planted = sides.map((_, n) => onSurface(a.reach[n]) || onSurface(b.reach[n]))
   r.root.updateMatrixWorld(true)
   groundGuide(r, id, false, planted)
@@ -419,7 +436,9 @@ export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Si
   holdFeet(r, id, from, to, along)
   groundGuide(r, id, false, planted)
   r.root.updateMatrixWorld(true)
-  holdHands(r, id, from, to, along)
+  // A held pose is the beat it holds. A hand already on its contact is not placed again every
+  // frame, which would only let an arm flip between two nearly equal solutions.
+  if (!(still && a.reach.some(contactKind))) holdHands(r, id, from, to, along)
   clearFloorHands(r)
   articulate(r, true)
   clearFloorFeet(r, id)
@@ -502,7 +521,7 @@ function clearFloorHands(r: MovementRig) {
  * it, the way a hip flexes a little more to bring a straight leg up off the floor.
  */
 function clearFloorFeet(r: MovementRig, id: AuthoredId) {
-  if (!sitsOnFloor(id, scores[id].posture)) return
+  if (!sitsOnFloor(scores[id].posture)) return
   const x = new Vector3(1, 0, 0)
   let lift = 0
   for (const s of sides) {
@@ -564,4 +583,183 @@ function holdFeet(r: MovementRig, id: AuthoredId, a: Key, b: Key, f: number) {
       { local: true },
     )
   })
+}
+
+/**
+ * The frame-to-frame solves (elbow swing, forearm roll, knee swing) each settle on the nearest
+ * anatomical solution, and where two are nearly equal the winner can change from one frame to the
+ * next, which shows as a pop. Every guide is therefore baked once at 60 Hz and its joint rotations
+ * and root are low-passed with a short zero-phase Gaussian (about 27 ms), the way a solved track
+ * is cleaned in animation. A hold is untouched, because smoothing a constant returns it exactly,
+ * and the beats and holds the physics check judges stay where they were authored.
+ */
+const BAKE_HZ = 60,
+  SIGMA = 1.6,
+  RADIUS = 5
+const KERNEL = Array.from({ length: 2 * RADIUS + 1 }, (_, i) =>
+  Math.exp(-((i - RADIUS) ** 2) / (2 * SIGMA * SIGMA)),
+)
+type Baked = { n: number; root: Float64Array; frames: Float64Array[] }
+const baked = new Map<AuthoredId, Baked>(),
+  bakeOrder: AuthoredId[] = []
+let bakeRig: MovementRig | undefined
+const keep = 6
+const FRAME = 8 + joints.length * 4
+function bake(id: AuthoredId): Baked {
+  const known = baked.get(id)
+  if (known) return known
+  bakeRig ??= createMovementRig()
+  const rig = bakeRig,
+    end = keysFor(id).at(-1)!.time,
+    n = Math.ceil(end * BAKE_HZ) + 1 + RADIUS
+  const raw: Float64Array[] = []
+  for (let k = 0; k < n; k++) {
+    restPose(rig)
+    sampleGuideRaw(rig, id, k / BAKE_HZ, 'left')
+    const f = new Float64Array(FRAME)
+    f.set([rig.root.position.x, rig.root.position.y, rig.root.position.z], 0)
+    f.set(
+      [rig.root.quaternion.x, rig.root.quaternion.y, rig.root.quaternion.z, rig.root.quaternion.w],
+      3,
+    )
+    rig.bones.forEach((b, j) =>
+      f.set([b.quaternion.x, b.quaternion.y, b.quaternion.z, b.quaternion.w], 8 + j * 4),
+    )
+    raw.push(f)
+  }
+  // A hold is exactly its beat, but the frame that leaves it (or arrives at it) can sit a few
+  // centimetres from it where the solver took another route to the same contact. Carry that gap
+  // away over a few frames, so every hold ends where it began and nothing steps at its edges.
+  const keys = keysFor(id),
+    EASE = 9
+  const ease = (u: number) => u * u * (3 - 2 * u)
+  const gapOf = (from: Float64Array, to: Float64Array, w: number, out: Float64Array) => {
+    // out = to's rotation relative to from, scaled by w, applied on the right of `out`.
+    for (let c = 0; c < 3; c++) out[c] += w * (to[c] - from[c])
+    for (let q = 0; q <= joints.length; q++) {
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4
+      const a = new Quaternion(from[o], from[o + 1], from[o + 2], from[o + 3]),
+        b = new Quaternion(to[o], to[o + 1], to[o + 2], to[o + 3])
+      const delta = a.clone().invert().multiply(b)
+      if (delta.w < 0) delta.set(-delta.x, -delta.y, -delta.z, -delta.w)
+      const turned = new Quaternion().slerp(delta, w)
+      const now = new Quaternion(out[o], out[o + 1], out[o + 2], out[o + 3]).multiply(turned)
+      out.set([now.x, now.y, now.z, now.w], o)
+    }
+  }
+  const adjusted = raw.map((f) => Float64Array.from(f))
+  const frameOf = (i: number) => Math.round(keys[i].time * BAKE_HZ)
+  const room = (to: number, from: number) =>
+    Math.max(0, Math.min(EASE, Math.floor((to - from) / 2)))
+  for (let i = 1; i < keys.length; i++) {
+    const at = frameOf(i)
+    if (keys[i].rotations === keys[i - 1].rotations) {
+      // Leaving a hold: the frames after it are pulled back to the hold's pose and released.
+      const count = at + 1 < n ? room(i + 1 < keys.length ? frameOf(i + 1) : n, at) : 0
+      for (let k = at + 1; k <= at + count && k < n; k++)
+        gapOf(raw[at + 1], raw[at], 1 - ease((k - at) / (count + 1)), adjusted[k])
+    } else if (at > 0) {
+      // Arriving at a beat: the frames before it are carried onto it, likewise.
+      const count = room(at, frameOf(i - 1))
+      for (let k = at - 1; k >= at - count && k >= 0; k--)
+        gapOf(raw[at - 1], raw[at], 1 - ease((at - k) / (count + 1)), adjusted[k])
+    }
+  }
+  raw.splice(0, raw.length, ...adjusted)
+  // Before the first frame the track continues as the point reflection of what follows it, so the
+  // smoothed first frame is exactly the authored pose and the take starts without a step.
+  const reflect = (j: number) => {
+    const f = new Float64Array(FRAME),
+      src = raw[Math.min(j, n - 1)]
+    for (let c = 0; c < 3; c++) f[c] = 2 * raw[0][c] - src[c]
+    for (let q = 0; q <= joints.length; q++) {
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4
+      const q0 = new Quaternion(raw[0][o], raw[0][o + 1], raw[0][o + 2], raw[0][o + 3]),
+        qj = new Quaternion(src[o], src[o + 1], src[o + 2], src[o + 3])
+      const delta = q0.clone().invert().multiply(qj).invert()
+      const mirrored = q0.multiply(delta)
+      f.set([mirrored.x, mirrored.y, mirrored.z, mirrored.w], o)
+    }
+    return f
+  }
+  const before = Array.from({ length: RADIUS + 1 }, (_, j) => (j ? reflect(j) : raw[0]))
+  const at = (k: number) => (k < 0 ? before[-k] : raw[Math.min(n - 1, k)])
+  // Smooth: positions average directly; quaternions average in the hemisphere of the centre frame.
+  const out: Float64Array[] = []
+  for (let k = 0; k < n; k++) {
+    const f = new Float64Array(FRAME)
+    let wsum = 0
+    for (let d = -RADIUS; d <= RADIUS; d++) {
+      const src = at(k + d),
+        w = KERNEL[d + RADIUS]
+      wsum += w
+      for (let c = 0; c < 3; c++) f[c] += w * src[c]
+    }
+    for (let c = 0; c < 3; c++) f[c] /= wsum
+    for (let q = 0; q <= joints.length; q++) {
+      // q === 0 is the root rotation (stored at 3..6), the rest are bones at 8 + j * 4.
+      const o = q === 0 ? 3 : 8 + (q - 1) * 4,
+        ref = raw[k]
+      for (let d = -RADIUS; d <= RADIUS; d++) {
+        const src = at(k + d),
+          w = KERNEL[d + RADIUS]
+        const dot =
+          src[o] * ref[o] +
+          src[o + 1] * ref[o + 1] +
+          src[o + 2] * ref[o + 2] +
+          src[o + 3] * ref[o + 3]
+        const sign = dot < 0 ? -w : w
+        for (let c = 0; c < 4; c++) f[o + c] += sign * src[o + c]
+      }
+      const len = Math.hypot(f[o], f[o + 1], f[o + 2], f[o + 3]) || 1
+      for (let c = 0; c < 4; c++) f[o + c] /= len
+    }
+    out.push(f)
+  }
+  const result = { n, root: new Float64Array(0), frames: out }
+  baked.set(id, result)
+  bakeOrder.push(id)
+  if (bakeOrder.length > keep) baked.delete(bakeOrder.shift()!)
+  return result
+}
+const qa = new Quaternion(),
+  qb = new Quaternion()
+export function sampleGuide(r: MovementRig, id: AuthoredId, at: number, side: Side) {
+  // The first and last frames of a take are exactly the authored pose, so a repeated take has no
+  // seam; the baked track carries everything between.
+  if (!Number.isFinite(at) || at <= 0 || at >= keysFor(id).at(-1)!.time)
+    return sampleGuideRaw(r, id, at, side)
+  const track = bake(id),
+    x = Math.max(0, at) * BAKE_HZ,
+    k = Math.min(track.n - 2, Math.floor(x)),
+    u = x - k
+  const a = track.frames[k],
+    b = track.frames[k + 1]
+  r.root.position.set(a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u, a[2] + (b[2] - a[2]) * u)
+  r.root.quaternion.slerpQuaternions(qa.fromArray(a, 3), qb.fromArray(b, 3), u)
+  for (let j = 0; j < joints.length; j++)
+    r.bones[j].quaternion.slerpQuaternions(
+      qa.fromArray(a, 8 + j * 4),
+      qb.fromArray(b, 8 + j * 4),
+      u,
+    )
+  if (side === 'right' && !scores[id].both) {
+    r.root.position.x *= -1
+    for (let j = 0; j < joints.length; j++) {
+      if (other[j] < j) continue
+      const q = r.bones[j].quaternion,
+        v = r.bones[other[j]].quaternion
+      const { x, y, z, w } = q
+      q.set(v.x, -v.y, -v.z, v.w)
+      if (other[j] !== j) v.set(x, -y, -z, w)
+    }
+  }
+}
+
+/** Drop a guide's solved beats and baked track, so a tool that edits its score can re-sample it. */
+export function forgetGuide(id: AuthoredId) {
+  cache.delete(id)
+  baked.delete(id)
+  const at = bakeOrder.indexOf(id)
+  if (at >= 0) bakeOrder.splice(at, 1)
 }

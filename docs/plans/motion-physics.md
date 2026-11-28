@@ -37,19 +37,80 @@ enforce that, what it fixed, and which of the 189 guides still fail.
 
 ## Still failing
 
-`checks/physics-known.json` has 127 guides. Counts by kind: hand contact out of reach 65, joint
-acceleration pops 68, point pops 61, balance 51, foot slide 28, floating 15, penetration 5, atlas
-floating 4, hold motion 3. The main causes:
+`checks/physics-known.json` lists 95 guides (125 before phase 2), and every kind listed for a guide
+was already listed on `main`. Guides by kind: hand contact out of reach 48, balance 38, foot slide 26,
+floating 12, penetration 5, hold motion 3, atlas floating 3, point pops 1. Joint pops are gone.
+Run `npm run check:physics:all` for the list. The main causes left are pose authoring, one
+guide at a time:
 
-- Hand marks beyond arm length (floor palms in lunges, heel sit, pigeon, quadruped): the body
-  pose (trunk lean, root height) must change, not the mark. Owned jointly with the hands plan.
-- Arm and leg solvers choosing a different elbow, forearm roll or knee swing from one frame to the
-  next when a target sits at a joint limit. Fix the pose first; only then the solver.
-- Sit-on-floor guides whose arm solve flips when the body rests on its pelvis (`SIT_EXCLUDED` in
-  `ground.ts`: single-leg-seated-hamstring, towel-calf, seated-rotation).
-- Weight carried on a prop (roller, pillow, bed, step) is not modelled; those guides are checked
-  for penetration only.
-- The bare atlas rests on a 12 mm cushion of tissue it cannot draw; four guides rest higher.
+- Hand marks beyond arm length or on a limb that is not yet there (a contact kept in force from
+  the start pose; wrist and finger stretches on the other hand; own-leg marks on a straight leg).
+- Weight-bearing balance of floor and kneeling poses whose support polygon is thin (the check sees
+  only skin within 30 mm of the floor).
+- Planted feet that drift while the pelvis folds (child's pose, kneeling and heel-sit guides).
+- Bespoke supports (`supports.ts`) for frog, thread the needle and scorpion that lift the body.
+
+## Phase 2: removing the systemic causes
+
+What changed in `sampleGuide.ts`, `anatomy.ts` and the checks, and why:
+
+- **A beat is a fixed point of the sampler.** Beats were stored after solving the legs only, while
+  every sampled frame locks the feet, re-solves the legs, rests the whole body on the floor and
+  then places the hands. A beat and the frame after it therefore differed by up to 3 cm and 14° of
+  forearm roll, which showed as a pop wherever a hold ended. Beats are now captured through the
+  same steps, the body is rested once after the hands have cleared the floor, and a hand that is
+  already on its contact is not placed again inside a hold.
+- **Each guide is baked once at 60 Hz and low-passed** (about 27 ms Gaussian on the joint rotations
+  and root, zero-phase). The elbow and knee swing searches pick the nearest of several nearly equal
+  solutions and the winner can change between frames. A hold is untouched, because smoothing a
+  constant returns it exactly. The gap at the edge of every beat is carried away over nine frames
+  first, so the filter never smears a step into a hold; the first and last frame of a take stay
+  exactly the authored pose, so a repeated take has no seam.
+- **The swing search settles inside its grid cell** (golden-section refine) for arms always and for
+  legs between beats, so a limb does not step a whole grid cell when the winner changes.
+- **Breathing is part of the hold.** Held-stretch breathing swells from nothing at the start of a
+  hold to nothing at its end and is a few millimetres at the hands; the breathing exercises keep
+  the deep whole-clip breath.
+- **Props are modelled in `check:physics`.** `physics/props.ts` holds a height field for the
+  rollers, pillow, ball, bed and step, and the check measures contact, sinking and balance of the
+  head, trunk, pelvis and thighs (or the foot, on a step) against the prop instead of the floor.
+  The grounding rests the back on the ball and the bed the same way. The bare atlas tissue is still
+  not judged against a prop.
+- **The long sit rests on its pelvis with the heels down** (hip flexion 93° instead of 88°), and
+  the `SIT_EXCLUDED` exception is gone: single-leg seated hamstring, towel calf and seated
+  rotation are ordinary floor sits now.
+
+## Decisions for the guides that put the hands behind the body
+
+| Guide                  | Choice                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `heel-sit-lean-back`   | Changed pose, flat palms. The hands rest on the thighs first, then the trunk tips back from the hips (pelvis -45°, spine -35°) and the palms go flat just behind the hips with the elbows about 30° bent and the wrists at 62°. The thighs stay flat as it tips.                                                                                                                                    |
+| `seated-reverse-reach` | Flat palms with the fingers turned out. Turned out the wrists stay at 75° and the shoulders are not at end range; the trunk leans back a little so the arms are slightly bent, and the head stays level.                                                                                                                                                                                            |
+| `seated-rotation`      | Flat supporting palm just behind the hip, fingers turned out, trunk leaning back about 24° so the arm is bent. The wrist is about 85° at the start of the turn, which a clinician should confirm.                                                                                                                                                                                                   |
+| `inchworm`             | Not resolved. The walk-in phase lifts the heels of the hands by design (the wrists are near the end of their range as the shoulders pass over the hands). A flat-palm version breaks the wrist range and sinks the fingers during the walk; a fingertip contact is the intended decision but its mark is not authored yet, so it stays in `PHYSICS_PENDING` in `check:hands` and in the known list. |
+
+The 90/90 back-leg internal rotation was rechecked: with 55° of internal rotation the back shin lies
+flat and the guide passes; at 48° and below the pelvis and back thigh hover (floating 67 mm and
+more), so the value stays. 55° is at the top of normal hip internal rotation in flexion.
+
+## Stills (phase 2, before and after)
+
+Rendered with `npm run stills:guides`; no video was recorded. Each sheet shows 0, 0.9 and 1.7 s from
+the side with the human figure.
+
+| Guide                         | Before                                                                    | After                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `heel-sit-lean-back`          | ![before](images/motion-physics-2/heel-sit-lean-back-before.jpg)          | ![after](images/motion-physics-2/heel-sit-lean-back-after.jpg)          |
+| `seated-reverse-reach`        | ![before](images/motion-physics-2/seated-reverse-reach-before.jpg)        | ![after](images/motion-physics-2/seated-reverse-reach-after.jpg)        |
+| `seated-rotation`             | ![before](images/motion-physics-2/seated-rotation-before.jpg)             | ![after](images/motion-physics-2/seated-rotation-after.jpg)             |
+| `puppy-pose`                  | ![before](images/motion-physics-2/puppy-pose-before.jpg)                  | ![after](images/motion-physics-2/puppy-pose-after.jpg)                  |
+| `knee-to-chest`               | ![before](images/motion-physics-2/knee-to-chest-before.jpg)               | ![after](images/motion-physics-2/knee-to-chest-after.jpg)               |
+| `seated-forward-fold`         | ![before](images/motion-physics-2/seated-forward-fold-before.jpg)         | ![after](images/motion-physics-2/seated-forward-fold-after.jpg)         |
+| `doorframe-lat`               | ![before](images/motion-physics-2/doorframe-lat-before.jpg)               | ![after](images/motion-physics-2/doorframe-lat-after.jpg)               |
+| `pigeon`                      | ![before](images/motion-physics-2/pigeon-before.jpg)                      | ![after](images/motion-physics-2/pigeon-after.jpg)                      |
+| `all-fours-thoracic-rotation` | ![before](images/motion-physics-2/all-fours-thoracic-rotation-before.jpg) | ![after](images/motion-physics-2/all-fours-thoracic-rotation-after.jpg) |
+| `sphinx`                      | ![before](images/motion-physics-2/sphinx-before.jpg)                      | ![after](images/motion-physics-2/sphinx-after.jpg)                      |
+| `childs-pose`                 | ![before](images/motion-physics-2/childs-pose-before.jpg)                 | ![after](images/motion-physics-2/childs-pose-after.jpg)                 |
 
 ## Reaching the floor
 
@@ -76,9 +137,10 @@ before anything is added; at most they would be used as reference curves, never 
 
 ## Next
 
-1. Audit the 127 guides with the skills; remove entries from `physics-known.json` as they pass.
-2. Fix the arm solver's branch flipping at joint limits (one cause of most pops).
-3. Model roller, pillow, bed and step support in the check.
+1. Work the 95 remaining guides one family at a time (contacts that cannot be reached, thin support
+   polygons, drifting feet), removing entries from `physics-known.json` as each passes.
+2. Resolve the inchworm hand contact (fingertips) and add its mark.
+3. Judge the bare atlas tissue against a prop as well as the skin.
 
 ## Stills (before and after)
 

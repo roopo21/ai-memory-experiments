@@ -95,7 +95,8 @@ function forearms(r: MovementRig, id: AuthoredId) {
     const y = Math.max(-length + 0.0001, 0.04 - origin.y),
       z = Math.sqrt(Math.max(0, length * length - y * y))
     // Elbows under or just ahead of the shoulders.
-    swing(r, arm, V(s * 0.018, y, z * (id === 'frog' ? 0.7 : 0.12)))
+    // Elbows a hand's width outside the shoulders, which keeps the humerus inside its range.
+    swing(r, arm, V(s * (id === 'frog' ? 0.018 : 0.05), y, z * (id === 'frog' ? 0.7 : 0.12)))
     swing(r, arm + 1, V(s * -0.08, -0.035, 1))
     worldRotation(r.bones[arm + 2], flatPalmOrientation(s, V(0, 0, 1), V(0, -1, 0)))
   }
@@ -131,7 +132,10 @@ export function prepareSupports(r: MovementRig, id: AuthoredId, p: Pose) {
     }
   }
   if (id === 'frog' || id === 'puppy-pose') {
-    r.root.quaternion.premultiply(rot(id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : 25))
+    // The puppy pose starts on all fours with the chest high and sinks the chest as the hips
+    // tip; its pitch follows the pelvis tilt of the beat.
+    const sink = id === 'frog' ? 24 + (p.pelvis?.[0] ?? 0) * -0.9 : ((p.pelvis?.[0] ?? 0) / 17) * 25
+    r.root.quaternion.premultiply(rot(sink))
     r.root.updateMatrixWorld(true)
   }
   if (id === 'downward-dog') {
@@ -259,7 +263,7 @@ export function floorHands(r: MovementRig, id: AuthoredId, p: Pose) {
   if (id === 'downward-dog') {
     placeHand(r, id, ['floor', 0.005, -0.007, 0.09], 1)
     placeHand(r, id, ['floor', -0.005, -0.007, 0.09], -1)
-  } else if ((id === 'childs-pose' && p.pelvis) || id === 'puppy-pose') {
+  } else if (id === 'childs-pose' && p.pelvis) {
     const goal = (s: number) => {
       const hand = at(r, s === 1 ? 8 : 11)
       return ['floor', hand.x - s * 0.2, -0.006, hand.z + 0.06 - 0.49] as const

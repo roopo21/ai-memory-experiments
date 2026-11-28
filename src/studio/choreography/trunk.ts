@@ -3,7 +3,6 @@ import {
   sequence as seq,
   both,
   grip,
-  open,
   type Aim,
   type Recipe,
   type Arm,
@@ -19,18 +18,13 @@ const across: Arm = [0, 85, 8, 5],
   hug: Leg = [115, 7, 98]
 // Palms on the back of the pelvis, fingers pointing down.
 const palmsOnHips = (s: number): Aim => [[-s * 0.35, -1, 0], [0, 0, 1], 'pelvis', 'palm']
-// Hand on the floor behind for support, fingers pointing away.
-const floorBehind = (s: number): Aim => [
-  [s * 0.15, 0, -1],
-  [0, -1, 0],
-]
 export const trunk = {
   'childs-pose': st(
     'heelSit',
     // Knees slightly apart so the trunk settles between the thighs, buttocks toward the heels.
     { leg: [68, 8, 150], other: [68, 8, 150], a: [75, 8, 8], b: [75, 8, 8] },
     'Fold over the thighs and reach forward',
-    { pelvis: [48, 0, 0], spine: [44, 0, 0], neck: [12, 0, 0], a: raised, b: raised, breath: 1 },
+    { pelvis: [34, 0, 0], spine: [68, 0, 0], neck: [12, 0, 0], a: raised, b: raised, breath: 1 },
     both,
   ),
   'childs-pose-side-reach': st(
@@ -56,7 +50,15 @@ export const trunk = {
   ),
   'doorframe-lat': st(
     'stand',
-    { ga: ['post', 0, -0.31, 0] },
+    // The palm rests on the frame facing forward, fingers up and a little forward, which the
+    // forearm reaches without turning to the end of its range.
+    {
+      ga: ['post', -0.08, -0.3, 0],
+      ha: [
+        [0.3, 1, 0.3],
+        [0.3, 0, 1],
+      ],
+    },
     'Hinge and sit away from the post',
     {
       pelvis: [23, 0, 0],
@@ -82,9 +84,19 @@ export const trunk = {
   ),
   'puppy-pose': st(
     'allFours',
-    { a: [100, 5, 3], b: [100, 5, 3], f: onFloor, g: onFloor },
+    // Start on all fours with the palms flat under the shoulders.
+    { ga: 'floor', gb: 'floor', f: onFloor, g: onFloor },
     'Walk the palms out and lower the chest',
-    { spine: [-23, 0, 0], pelvis: [17, 0, 0], a: [147, 8, 4], b: [147, 8, 4], neck: [8, 0, 0] },
+    {
+      spine: [-35, 0, 0],
+      pelvis: [17, 0, 0],
+      neck: [8, 0, 0],
+      // The hips flex a touch more as the pelvis tips, so the knees and feet stay put.
+      leg: [92, 2, 90, 25],
+      other: [92, 2, 90, 25],
+      ga: ['floor', -0.03, 0, 0.42],
+      gb: ['floor', -0.03, 0, 0.42],
+    },
     both,
   ),
   'upper-back-hug': st(
@@ -198,7 +210,11 @@ export const trunk = {
     { a: [-12, 83, 4], spine: [0, 55, 0], neck: [0, 38, 0] },
   ),
   'all-fours-thoracic-rotation': seq('allFours', { ga: 'occiput', gb: 'floor' }, [
-    ['Bring the elbow toward the opposite wrist', { spine: [5, -34, 0], neck: [10, -17, 0] }],
+    [
+      'Bring the elbow toward the opposite wrist',
+      // The elbow points out and up, which keeps the humerus inside its range behind the head.
+      { spine: [5, -34, 0], neck: [10, -17, 0], ea: [0.9, 0.5, 0] },
+    ],
     ['Turn the elbow up', { spine: [-5, 49, 0], neck: [-7, 27, 0] }],
   ]),
   cobra: st(
@@ -278,13 +294,21 @@ export const trunk = {
       {
         // The knee drawn up with the foot planted beside the other knee.
         leg: [137, -16, 106, 35, 3, 14],
-        ga: ['floor', 0.02, 0, -0.78],
-        ha: floorBehind(1),
+        // The supporting palm sits flat just behind the hip, fingers turned out; the trunk leans
+        // back a little so the arm is bent and takes weight.
+        pelvis: [-24, 0, 0],
+        // The gaze stays level.
+        neck: [20, 0, 0],
+        ga: [0.2, 0.009, -0.19],
+        ha: [
+          [1, 0, -0.3],
+          [0, -1, 0],
+        ],
         gb: 'Aknee',
-        f: open,
+        f: onFloor,
       },
     ],
-    ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [0, 26, 0] }],
+    ['Rotate toward the knee and look over the shoulder', { spine: [0, 38, 0], neck: [20, 26, 0] }],
   ]),
   'straddle-side-bend': st('straddle', { a: raised }, 'Reach over the opposite straight leg', {
     spine: [11, -8, -32],
@@ -296,12 +320,12 @@ export const trunk = {
     'Reach away from the crossed back leg',
     { spine: [0, 0, -26], shift: [0.038, 0, 0] },
   ),
-  'knee-to-chest': st(
-    'supine',
-    { leg: [82, 3, 91], ga: 'Ashin', gb: 'Ashin' },
-    'Draw the shin toward the chest',
-    { leg: hug },
-  ),
+  // Start with the knee bent and the hands at the sides; clasp the shin and draw it to the chest.
+  'knee-to-chest': st('supine', { leg: [82, 3, 91] }, 'Draw the shin toward the chest', {
+    leg: [133, 7, 105],
+    ga: 'Ashin',
+    gb: 'Ashin',
+  }),
   'double-knee-to-chest': seq(
     'supine',
     { leg: bent, other: bent },

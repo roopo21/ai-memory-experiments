@@ -16,6 +16,7 @@ import { solePad, toePad } from '../studio/anchors'
 import { sampleStudio } from '../studio/sample'
 import { bareJoint, centreOfMass, hull, isHandJoint, marginInside, worldBare } from './body'
 import { BRIDGED, HANGING, RESTS_ON, TOL, TRAVELLING, WEIGHT_BEARING_GEAR } from './policy'
+import { carriedByProp, propSurface } from './props'
 
 export const HZ = 60
 const project = newProject()
@@ -64,7 +65,7 @@ function holds(id: AuthoredId) {
     if (key(f[i].pose) === key(f[i - 1].pose)) out.push([f[i - 1].time, f[i].time])
   return out
 }
-/** Does this frame's support come from props the physics does not model? */
+/** Does the guide use weight-bearing gear? Floor, sinking and balance then follow `props.ts`; the bare atlas tissue is not judged against a prop. */
 export const propSupported = (id: AuthoredId) =>
   (scores[id]?.gear ?? []).some((g) => WEIGHT_BEARING_GEAR.has(g))
 
@@ -80,6 +81,9 @@ export function analyse(
     clip = clips[id],
     seated = score?.posture === 'chair' || score?.posture === 'figureFour',
     seat = score && seated ? chairSeat(id, side) : undefined
+  // A roller, pillow, ball, bed or step holds the body up where it stands on it: every height
+  // below is measured above the floor or above the prop, whichever is higher there.
+  const surface = score ? propSurface(id, score.gear ?? [], side === 'left' ? 1 : -1) : undefined
   const fixtures = new Set<string>()
   for (const f of score?.frames ?? [])
     for (const reach of [f.pose.ga, f.pose.gb]) {
@@ -163,9 +167,15 @@ export function analyse(
           const hand = isHandJoint(indices[top])
           // The performer's hands are rigid mittens; the anatomy is judged on hands instead.
           if (hand) continue
-          if (Y < low) low = Y
-          if (rests?.includes(indices[top]) && Y < restGap) restGap = Y
-          if (Y < bandWide) support.push([X, Z])
+          // Height above whatever holds this point up: the floor, or a prop where one is below it.
+          const up =
+              surface && carriedByProp(score!.gear ?? [], indices[top])
+                ? Math.max(0, surface(X, Z))
+                : 0,
+            Yp = Y - up
+          if (Yp < low) low = Yp
+          if (rests?.includes(indices[top]) && Yp < restGap) restGap = Yp
+          if (Yp < bandWide) support.push([X, Z])
           if (seat && onSeat(X, Z)) {
             if (Y > seat.top - seat.depth && Y < seat.top + TOL.seatBand) support.push([X, Z])
             if (pelvisJoints.has(indices[top])) {
@@ -185,7 +195,7 @@ export function analyse(
       // segments the posture rests on must touch too, not only a heel or a toe.
       const rested = Math.min(floor, seat ? seatGap : Infinity)
       const resting = seat ? seatGap : restGap
-      if (!hung && !props && atRest(t)) {
+      if (!hung && atRest(t)) {
         const gap = Math.max(rested, rests ? resting : -Infinity)
         if (gap > report.floating) report.floating = gap
         if (rested > TOL.contact || (rests && resting > TOL.rest))
@@ -207,7 +217,11 @@ export function analyse(
       worldBare(rig, b)
       let bareLow = Infinity
       for (let k = 1, i = 0; i < bareJoint.length; i++, k += 3)
-        if (!isHandJoint(bareJoint[i])) bareLow = Math.min(bareLow, b[k])
+        if (!isHandJoint(bareJoint[i]))
+          bareLow = Math.min(
+            bareLow,
+            b[k] - (surface ? Math.max(0, surface(b[k - 1], b[k + 1])) : 0),
+          )
       report.atlasLow = Math.min(report.atlasLow, bareLow)
       if (!hung && !props && !seat) {
         report.atlasFloating = Math.max(report.atlasFloating, bareLow)
